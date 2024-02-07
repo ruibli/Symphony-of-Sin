@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsmal5vbiclgo"
-path="res://.godot/imported/nova2.png-552dee99e5715d1d80446257aea7a587.ctex"
+uid="uid://wlfgfoqc5j17"
+path="res://.godot/imported/map_nodes3.png-48979163e8529272c7abec96bc94c459.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/entities/nova/nova2.png"
-dest_files=["res://.godot/imported/nova2.png-552dee99e5715d1d80446257aea7a587.ctex"]
+source_file="res://map_nodes3.png"
+dest_files=["res://.godot/imported/map_nodes3.png-48979163e8529272c7abec96bc94c459.ctex"]
 
 [params]
 

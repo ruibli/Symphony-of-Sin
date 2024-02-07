@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://begcgvo0hycw2"]
+
+[node name="test" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)
+
+[node name="Button" type="Button" parent="."]
+offset_left = -1916.0
+offset_top = -1075.0
+offset_right = -1433.0
+offset_bottom = -827.0
+text = "generate"
+
+[node name="MapNode" type="Node2D" parent="."]
