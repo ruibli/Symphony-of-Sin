@@ -7,7 +7,7 @@ var branch_sprite = load("res://map_nodes3.png")
 @onready var map_node = $MapNode
 
 func _ready():
-	dungeon = Generation.generate(0)
+	dungeon = dungeon_generation.generate(0)
 	load_map()
 
 func load_map():
@@ -37,5 +37,5 @@ func load_map():
 
 func _on_Button_pressed():
 	randomize()
-	dungeon = Generation.generate(randf_range(-1000, 1000))
+	dungeon = dungeon_generation.generate(randf_range(-1000, 1000))
 	load_map()

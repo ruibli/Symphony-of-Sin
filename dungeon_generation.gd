@@ -1,6 +1,6 @@
 extends Node
 
-var room = preload("res://room.tscn")
+var room = preload("res://Room.tscn")
 
 var min_number_rooms = 6
 var max_number_rooms = 8
@@ -12,7 +12,7 @@ func generate(room_seed):
 	var dungeon = {}
 	var size = floor(randf_range(min_number_rooms, max_number_rooms))
 	
-	dungeon[Vector2(0,0)] = room.instance()
+	dungeon[Vector2(0,0)] = room.instantiate()
 	size -= 1
 	
 	while(size > 0):
@@ -22,28 +22,28 @@ func generate(room_seed):
 				if(direction < 1):
 					var new_room_position = i + Vector2(1, 0)
 					if(!dungeon.has(new_room_position)):
-						dungeon[new_room_position] = room.instance()
+						dungeon[new_room_position] = room.instantiate()
 						size -= 1
 					if(dungeon.get(i).connected_rooms.get(Vector2(1, 0)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_position), Vector2(1, 0))
 				elif(direction < 2):
 					var new_room_position = i + Vector2(-1, 0)
 					if(!dungeon.has(new_room_position)):
-						dungeon[new_room_position] = room.instance()
+						dungeon[new_room_position] = room.instantiate()
 						size -= 1
 					if(dungeon.get(i).connected_rooms.get(Vector2(-1, 0)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_position), Vector2(-1, 0))
 				elif(direction < 3):
 					var new_room_position = i + Vector2(0, 1)
 					if(!dungeon.has(new_room_position)):
-						dungeon[new_room_position] = room.instance()
+						dungeon[new_room_position] = room.instantiate()
 						size -= 1
 					if(dungeon.get(i).connected_rooms.get(Vector2(0, 1)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_position), Vector2(0, 1))
 				elif(direction < 4):
 					var new_room_position = i + Vector2(0, -1)
 					if(!dungeon.has(new_room_position)):
-						dungeon[new_room_position] = room.instance()
+						dungeon[new_room_position] = room.instantiate()
 						size -= 1
 					if(dungeon.get(i).connected_rooms.get(Vector2(0, -1)) == null):
 						connect_rooms(dungeon.get(i), dungeon.get(new_room_position), Vector2(0, -1))
