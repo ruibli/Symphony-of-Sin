@@ -2,8 +2,8 @@ extends Node
 
 var room = preload("res://Room.tscn")
 
-var min_number_rooms = 6
-var max_number_rooms = 8
+var min_number_rooms = 12
+var max_number_rooms = 16
 
 var generation_chance = 20
 
@@ -66,4 +66,4 @@ func is_interesting(dungeon):
 	for i in dungeon.keys():
 		if(dungeon.get(i).number_of_connections >= 3):
 			room_with_three += 1
-	return room_with_three >= 2
+	return room_with_three >= 4
