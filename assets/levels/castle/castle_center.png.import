@@ -2,18 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-
-uid="uid://d1ld0hdii4cs2"
-
-path="res://.godot/imported/map_nodes3.png-48979163e8529272c7abec96bc94c459.ctex"
+uid="uid://djrx27ni1xmop"
+path="res://.godot/imported/castle_center.png-19c85271c092b188f4e5aa3a53054091.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://map_nodes3.png"
-dest_files=["res://.godot/imported/map_nodes3.png-48979163e8529272c7abec96bc94c459.ctex"]
+source_file="res://assets/levels/castle/castle_center.png"
+dest_files=["res://.godot/imported/castle_center.png-19c85271c092b188f4e5aa3a53054091.ctex"]
 
 [params]
 

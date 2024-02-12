@@ -1,8 +1,8 @@
 extends Node2D
 
 var dungeon = {}
-var node_sprite = load("res://map_nodes1.png")
-var branch_sprite = load("res://map_nodes3.png")
+var node_sprite = load("res://assets/levels/castle/castle_center.png")
+var branch_sprite = load("res://assets/levels/castle/castle_path.png")
 
 @onready var map_node = $MapNode
 
@@ -20,18 +20,18 @@ func load_map():
 		temp.texture = node_sprite
 		map_node.add_child(temp)
 		temp.z_index = 0
-		temp.position = i * 10
+		temp.position = i * 352
 		var c_rooms = dungeon.get(i).connected_rooms
 		if(c_rooms.get(Vector2(1, 0)) != null):
 			temp = Sprite2D.new()
 			temp.texture = branch_sprite
 			map_node.add_child(temp)
 			temp.z_index = 1
-			temp.position = i * 10 + Vector2(5, 0.5)
+			temp.position = i * 352 + Vector2(176, 0.5)
 		if(c_rooms.get(Vector2(0, 1)) != null):
 			temp = Sprite2D.new()
 			temp.texture = branch_sprite
 			map_node.add_child(temp)
 			temp.z_index = 1
 			temp.rotation_degrees = 90
-			temp.position = i * 10 + Vector2(-0.5, 5)
+			temp.position = i * 352 + Vector2(-0.5, 176)
