@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://itlr1ivins5p"]
+
+[ext_resource type="Script" path="res://nova.gd" id="1_b4s52"]
+[ext_resource type="Texture2D" uid="uid://bhfy4wrbvukwd" path="res://assets/entities/nova/nova.png" id="2_nnobo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fsh7x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nnobo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_crwct"]
+
+[node name="nova" type="Area2D"]
+script = ExtResource("1_b4s52")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fsh7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_crwct")
