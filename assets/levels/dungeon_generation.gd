@@ -1,6 +1,6 @@
 extends Node
 
-var room = preload("res://Room.tscn")
+var room = preload("res://assets/levels/Room.tscn")
 
 var min_number_rooms = 8
 var max_number_rooms = 16
