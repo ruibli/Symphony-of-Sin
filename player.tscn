@@ -47,7 +47,19 @@ animations = [{
 "name": &"walk_left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pkt82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vwsw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pkt82")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_tknmw")
+}],
 "loop": true,
 "name": &"walk_right",
 "speed": 5.0
@@ -79,7 +91,7 @@ metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"walk_down"
+animation = &"walk_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_g5e2g")
