@@ -20,18 +20,18 @@ func load_map():
 		temp.texture = node_sprite
 		map_node.add_child(temp)
 		temp.z_index = 0
-		temp.position = i * 352
+		temp.position = i * 320
 		var c_rooms = dungeon.get(i).connected_rooms
 		if(c_rooms.get(Vector2(1, 0)) != null):
 			temp = Sprite2D.new()
 			temp.texture = branch_sprite
 			map_node.add_child(temp)
 			temp.z_index = 1
-			temp.position = i * 352 + Vector2(176, 0.5)
+			temp.position = i * 320 + Vector2(160, 0.5)
 		if(c_rooms.get(Vector2(0, 1)) != null):
 			temp = Sprite2D.new()
 			temp.texture = branch_sprite
 			map_node.add_child(temp)
 			temp.z_index = 1
 			temp.rotation_degrees = 90
-			temp.position = i * 352 + Vector2(-0.5, 176)
+			temp.position = i * 320 + Vector2(-0.5, 160)
