@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxt88ubxpiqj"
-path="res://.godot/imported/NovaFrontWalk1.png-5355656eee103300f99f007f6f48ef28.ctex"
+uid="uid://dju2phvwekb0j"
+path="res://.godot/imported/limbo_front.png-5184ec34f1e650a24c0cc6e8607cecb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/NovaFrontWalk1.png"
-dest_files=["res://.godot/imported/NovaFrontWalk1.png-5355656eee103300f99f007f6f48ef28.ctex"]
+source_file="res://assets/entities/limbo/limbo_front.png"
+dest_files=["res://.godot/imported/limbo_front.png-5184ec34f1e650a24c0cc6e8607cecb7.ctex"]
 
 [params]
 
