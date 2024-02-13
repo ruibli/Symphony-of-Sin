@@ -1,11 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://7nipui34ie0p"]
+[gd_scene load_steps=3 format=3 uid="uid://7nipui34ie0p"]
 
 [ext_resource type="Script" path="res://assets/levels/Dungeon Tester.gd" id="1_u1pwq"]
+[ext_resource type="PackedScene" uid="uid://cgh0hydeq3fxq" path="res://assets/entities/nova/nova.tscn" id="2_k1dvu"]
 
 [node name="Dungeon Tester" type="Node2D"]
 script = ExtResource("1_u1pwq")
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.25, 0.25)
+zoom = Vector2(1.5, 1.5)
 
 [node name="MapNode" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_k1dvu")]
