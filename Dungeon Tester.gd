@@ -8,7 +8,7 @@ var branch_sprite = load("res://assets/levels/castle/castle_path.png")
 
 func _ready():
 	randomize()
-	dungeon = dungeon_generation.generate(randf_range(-1000, 1000))
+	dungeon = DungeonGeneration.generate(randf_range(-1000, 1000))
 	load_map()
 
 func load_map():

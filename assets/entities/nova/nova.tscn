@@ -73,7 +73,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
 height = 27.0
 
-[node name="Player" type="Area2D"]
+[node name="nova" type="Area2D"]
 script = ExtResource("1_wapv4")
 metadata/_edit_group_ = true
 
@@ -88,3 +88,7 @@ frame_progress = 0.120348
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+<<<<<<< Updated upstream
+=======
+zoom = Vector2(0.2, 0.2)
+>>>>>>> Stashed changes

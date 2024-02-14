@@ -8,3 +8,5 @@ var connected_rooms = {
 }
 
 var number_of_connections = 0
+
+var type = 'none'

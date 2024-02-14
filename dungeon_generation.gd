@@ -66,4 +66,4 @@ func is_interesting(dungeon):
 	for i in dungeon.keys():
 		if(dungeon.get(i).number_of_connections >= 3):
 			room_with_three += 1
-	return room_with_three >= 4
+	return room_with_three >= 2
