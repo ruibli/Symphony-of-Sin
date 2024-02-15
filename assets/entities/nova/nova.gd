@@ -2,8 +2,11 @@ extends Area2D
 
 signal hit
 
-@export var speed = 200 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
+@export var awareness = 100
+@export var speed = 200
+@export var damage = 1
+@export var attack = 1
+@export var gold = 0
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -35,10 +38,5 @@ func _process(delta):
 	elif velocity.y > 0:
 		$AnimatedSprite2D.animation = "walk_down"
 		
-	print(position)
-
-
-func _on_body_entered(body): #hitbox
-	hide() # Player disappears after being hit.
-	hit.emit()
-	$CollisionShape2D.set_deferred("disabled", true)
+	print("Nova:" + str(position))
+	# print("Camera:" + str(Camera2D.position))

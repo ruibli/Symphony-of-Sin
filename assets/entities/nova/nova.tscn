@@ -73,20 +73,25 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
 height = 27.0
 
-[node name="Player" type="Area2D"]
+[node name="nova" type="Area2D"]
+z_index = 1
+priority = 1
 script = ExtResource("1_wapv4")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 top_level = true
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_7wltb")
 animation = &"walk_left"
 frame = 1
 frame_progress = 0.120348
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -17,7 +17,8 @@ config/icon="res://assets/important/icon.png"
 
 [autoload]
 
-dungeon_generation="*res://assets/levels/dungeon_generation.gd"
+Haze="*res://haze.tscn"
+DungeonGeneration="*res://assets/levels/dungeon_generation.gd"
 
 [input]
 
