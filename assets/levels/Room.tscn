@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://duv0hqft4vrhn"]
-
-[ext_resource type="Script" path="res://assets/levels/room.gd" id="1_lftoy"]
-
-[node name="room" type="Node2D"]
-script = ExtResource("1_lftoy")
-metadata/_edit_group_ = true
