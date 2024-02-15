@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs5d4k5ljjrhr"]
+
+[ext_resource type="PackedScene" uid="uid://cgh0hydeq3fxq" path="res://assets/entities/nova/nova.tscn" id="2_x1ns3"]
+
+[node name="haze" type="Node2D"]
+
+[node name="nova" parent="." instance=ExtResource("2_x1ns3")]
+priority = 0

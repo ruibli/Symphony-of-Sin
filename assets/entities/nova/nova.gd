@@ -1,17 +1,12 @@
 extends Area2D
 
-<<<<<<< Updated upstream
-@export var speed = 200 # How fast the player will move (pixels/sec).
-var screen_size # Size of the game window.
-=======
-var awareness = 100
-var weapon = "none"
-var damage = 1
-var attack = 200
-var speed = 200
-var gold = 0
-# not adding inventory rn, dunno how were handling that
->>>>>>> Stashed changes
+signal hit
+
+@export var awareness = 100
+@export var speed = 200
+@export var damage = 1
+@export var attack = 1
+@export var gold = 0
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -34,11 +29,14 @@ func _process(delta):
 
 	if velocity.x < 0:
 		$AnimatedSprite2D.animation = "walk_left"
+		$AnimatedSprite2D.flip_h = false
 	elif velocity.x > 0:
-		$AnimatedSprite2D.animation = "walk_right"
+		$AnimatedSprite2D.animation = "walk_left" # right
+		$AnimatedSprite2D.flip_h = true
 	elif velocity.y < 0:
 		$AnimatedSprite2D.animation = "walk_up"
 	elif velocity.y > 0:
 		$AnimatedSprite2D.animation = "walk_down"
 		
-	print(position)
+	print("Nova:" + str(position))
+	# print("Camera:" + str(Camera2D.position))

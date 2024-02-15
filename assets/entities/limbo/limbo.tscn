@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://obk267jnkea"]
+
+[ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
+[ext_resource type="Texture2D" uid="uid://dju2phvwekb0j" path="res://assets/entities/limbo/limbo_front.png" id="2_vxxgy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5vw76"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vxxgy")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttjrt"]
+radius = 9.0
+height = 20.0
+
+[node name="Limbo" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_a74ao")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5vw76")
+animation = &"walk"
+frame_progress = 0.119255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_ttjrt")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

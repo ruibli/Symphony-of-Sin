@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cs1qvw0rby7rs"
-path="res://.godot/imported/icon.png-be6672a09d28a1827f0b3df403c56038.ctex"
+uid="uid://blwumd0ba6q0t"
+path="res://.godot/imported/nova_front_walk_1.png-82ff7739dacd3c8d8cf259f4b2e5be1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/important/icon.png"
-dest_files=["res://.godot/imported/icon.png-be6672a09d28a1827f0b3df403c56038.ctex"]
+source_file="res://assets/entities/nova/nova_front_walk_1.png"
+dest_files=["res://.godot/imported/nova_front_walk_1.png-82ff7739dacd3c8d8cf259f4b2e5be1b.ctex"]
 
 [params]
 

@@ -1,15 +1,15 @@
 [gd_scene load_steps=13 format=3 uid="uid://cgh0hydeq3fxq"]
 
-[ext_resource type="Texture2D" uid="uid://c6h0byvaa8sv1" path="res://assets/entities/nova/NovaFront.png" id="1_udhn8"]
+[ext_resource type="Texture2D" uid="uid://clssulurg61c3" path="res://assets/entities/nova/nova_front.png" id="1_udhn8"]
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
-[ext_resource type="Texture2D" uid="uid://dxt88ubxpiqj" path="res://assets/entities/nova/NovaFrontWalk1.png" id="2_uec04"]
-[ext_resource type="Texture2D" uid="uid://tii63ypj58qn" path="res://assets/entities/nova/NovaFrontWalk2.png" id="3_2fo5k"]
-[ext_resource type="Texture2D" uid="uid://cnrwcmanatlnb" path="res://assets/entities/nova/NovaLeft.png" id="5_pkt82"]
-[ext_resource type="Texture2D" uid="uid://b0vyknjfvalj2" path="res://assets/entities/nova/NovaLeftWalk1.png" id="6_tknmw"]
-[ext_resource type="Texture2D" uid="uid://cm64t1gxph8wt" path="res://assets/entities/nova/NovaLeftWalk2.png" id="7_vwsw2"]
-[ext_resource type="Texture2D" uid="uid://brxncvjo1u8sj" path="res://assets/entities/nova/NovaBack.png" id="8_0repn"]
-[ext_resource type="Texture2D" uid="uid://daq02r0xwh4cn" path="res://assets/entities/nova/NovaBackWalk1.png" id="9_hg7xx"]
-[ext_resource type="Texture2D" uid="uid://dp5ffoyqnanxq" path="res://assets/entities/nova/NovaBackWalk2.png" id="10_28d65"]
+[ext_resource type="Texture2D" uid="uid://blwumd0ba6q0t" path="res://assets/entities/nova/nova_front_walk_1.png" id="2_uec04"]
+[ext_resource type="Texture2D" uid="uid://hq44efpaxmmg" path="res://assets/entities/nova/nova_front_walk_2.png" id="3_2fo5k"]
+[ext_resource type="Texture2D" uid="uid://dcfj5iukoqt3c" path="res://assets/entities/nova/nova_left.png" id="5_pkt82"]
+[ext_resource type="Texture2D" uid="uid://dfhb4fprprngk" path="res://assets/entities/nova/nova_left_walk_1.png" id="6_tknmw"]
+[ext_resource type="Texture2D" uid="uid://by31qf2v16hx2" path="res://assets/entities/nova/nova_left_walk_2.png" id="7_vwsw2"]
+[ext_resource type="Texture2D" uid="uid://jcxchfydjrhk" path="res://assets/entities/nova/nova_back.png" id="8_0repn"]
+[ext_resource type="Texture2D" uid="uid://b6xu6kicu0imc" path="res://assets/entities/nova/nova_back_walk_1.png" id="9_hg7xx"]
+[ext_resource type="Texture2D" uid="uid://f2oori61vdbq" path="res://assets/entities/nova/nova_back_walk_2.png" id="10_28d65"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wltb"]
 animations = [{
@@ -74,21 +74,24 @@ animations = [{
 height = 27.0
 
 [node name="nova" type="Area2D"]
+z_index = 1
+priority = 1
 script = ExtResource("1_wapv4")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 top_level = true
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_7wltb")
 animation = &"walk_left"
 frame = 1
 frame_progress = 0.120348
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-<<<<<<< Updated upstream
-=======
-zoom = Vector2(0.2, 0.2)
->>>>>>> Stashed changes
+z_index = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
