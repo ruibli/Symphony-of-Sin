@@ -11,14 +11,13 @@ config_version=5
 [application]
 
 config/name="Haze"
-run/main_scene="res://assets/levels/Dungeon Tester.tscn"
+run/main_scene="res://haze.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://assets/important/icon.png"
 
 [autoload]
 
 Haze="*res://haze.tscn"
-DungeonGeneration="*res://assets/levels/dungeon_generation.gd"
 
 [input]
 

@@ -75,7 +75,6 @@ height = 27.0
 
 [node name="nova" type="Area2D"]
 z_index = 1
-priority = 1
 script = ExtResource("1_wapv4")
 metadata/_edit_group_ = true
 
@@ -93,5 +92,3 @@ shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 z_index = 1
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
