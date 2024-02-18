@@ -15,10 +15,6 @@ run/main_scene="res://haze.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://assets/important/icon.png"
 
-[autoload]
-
-Haze="*res://haze.tscn"
-
 [input]
 
 move_down={
