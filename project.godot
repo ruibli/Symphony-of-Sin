@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Haze"
-run/main_scene="res://haze.tscn"
+run/main_scene="res://assets/entities/nova/nova.tscn"
 config/features=PackedStringArray("4.2")
 config/icon="res://assets/important/icon.png"
 
