@@ -10,7 +10,6 @@ signal hit
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
-	# Player Movement
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -22,51 +21,22 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$BodyAnim.play()
-		$ArmAnim.play()
-
+		$AnimatedSprite2D.play()
 	else:
-		$BodyAnim.stop()
-		$ArmAnim.stop()
+		$AnimatedSprite2D.stop()
 	
 	global_position -= velocity * delta
-	
-	# Animations
+
 	if velocity.x < 0:
-		$BodyAnim.animation = "walk_left_body"
-		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_left_arm"
-		$ArmAnim.flip_h = false
+		$AnimatedSprite2D.animation = "walk_left"
+		$AnimatedSprite2D.flip_h = false
 	elif velocity.x > 0:
-		$BodyAnim.animation = "walk_left_body" # right
-		$BodyAnim.flip_h = true
-		$ArmAnim.animation = "walk_left_arm"
-		$ArmAnim.flip_h = true
+		$AnimatedSprite2D.animation = "walk_left" # right
+		$AnimatedSprite2D.flip_h = true
 	elif velocity.y < 0:
-		$BodyAnim.animation = "walk_up_body"
-		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_up_arm"
-		$ArmAnim.flip_h = false
+		$AnimatedSprite2D.animation = "walk_up"
 	elif velocity.y > 0:
-		$BodyAnim.animation = "walk_down_body"
-		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_down_arm"
-		$ArmAnim.flip_h = false
-
-# Outline for attack anims
-	#if Input.is_action_pressed("attack"):
-		#if currently on crossbow:
-			#if Input.is_action_pressed("move_right"):
-				#$AnimatedSprite2D.animation = "crossbow_left" # right
-				#$AnimatedSprite2D.flip_h = true
-			#if Input.is_action_pressed("move_left"):
-				#$AnimatedSprite2D.animation = "crossbow_left"
-				#$AnimatedSprite2D.flip_h = false
-			#if Input.is_action_pressed("move_down"):
-				#$AnimatedSprite2D.animation = "crossbow_down"
-			#if Input.is_action_pressed("move_up"):
-				#$AnimatedSprite2D.animation = "crossbow_up"
-
-	
+		$AnimatedSprite2D.animation = "walk_down"
+		
 	print("Nova:" + str(position))
 	# print("Camera:" + str(Camera2D.position))
