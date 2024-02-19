@@ -71,7 +71,3 @@ func _process(delta):
 				#$AnimatedSprite2D.animation = "crossbow_down"
 			#if Input.is_action_pressed("move_up"):
 				#$AnimatedSprite2D.animation = "crossbow_up"
-
-	
-	print("Nova:" + str(position))
-	# print("Camera:" + str(Camera2D.position))
