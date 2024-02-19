@@ -25,7 +25,7 @@ func _process(delta):
 	else:
 		$AnimatedSprite2D.stop()
 	
-	global_position -= velocity * delta
+	position -= velocity * delta
 
 	if velocity.x < 0:
 		$AnimatedSprite2D.animation = "walk_left"
@@ -39,4 +39,3 @@ func _process(delta):
 		$AnimatedSprite2D.animation = "walk_down"
 		
 	print("Nova:" + str(position))
-	# print("Camera:" + str(Camera2D.position))
