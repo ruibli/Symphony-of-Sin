@@ -7,13 +7,14 @@ signal hit
 @export var damage = 1
 @export var attack = 1
 @export var gold = 0
-var screen_size
+var screen_size # Size of the game window.
 
 func _ready():
 	screen_size = get_viewport_rect().size
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
+	# Player Movements
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -25,22 +26,51 @@ func _process(delta):
 
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$AnimatedSprite2D.play()
+		$BodyAnim.play()
+		$ArmAnim.play()
+
 	else:
-		$AnimatedSprite2D.stop()
+		$BodyAnim.stop()
+		$ArmAnim.stop()
 	
 	position -= velocity * delta
 	position = position.clamp(Vector2.ZERO, screen_size)
-
+	# Animations
 	if velocity.x < 0:
-		$AnimatedSprite2D.animation = "walk_left"
-		$AnimatedSprite2D.flip_h = false
+		$BodyAnim.animation = "walk_left_body"
+		$BodyAnim.flip_h = false
+		$ArmAnim.animation = "walk_left_arm"
+		$ArmAnim.flip_h = false
 	elif velocity.x > 0:
-		$AnimatedSprite2D.animation = "walk_left" # right
-		$AnimatedSprite2D.flip_h = true
+		$BodyAnim.animation = "walk_left_body" # right
+		$BodyAnim.flip_h = true
+		$ArmAnim.animation = "walk_left_arm"
+		$ArmAnim.flip_h = true
 	elif velocity.y < 0:
-		$AnimatedSprite2D.animation = "walk_up"
+		$BodyAnim.animation = "walk_up_body"
+		$BodyAnim.flip_h = false
+		$ArmAnim.animation = "walk_up_arm"
+		$ArmAnim.flip_h = false
 	elif velocity.y > 0:
-		$AnimatedSprite2D.animation = "walk_down"
-		
+		$BodyAnim.animation = "walk_down_body"
+		$BodyAnim.flip_h = false
+		$ArmAnim.animation = "walk_down_arm"
+		$ArmAnim.flip_h = false
+
+# Outline for attack anims
+	#if Input.is_action_pressed("attack"):
+		#if currently on crossbow:
+			#if Input.is_action_pressed("move_right"):
+				#$AnimatedSprite2D.animation = "crossbow_left" # right
+				#$AnimatedSprite2D.flip_h = true
+			#if Input.is_action_pressed("move_left"):
+				#$AnimatedSprite2D.animation = "crossbow_left"
+				#$AnimatedSprite2D.flip_h = false
+			#if Input.is_action_pressed("move_down"):
+				#$AnimatedSprite2D.animation = "crossbow_down"
+			#if Input.is_action_pressed("move_up"):
+				#$AnimatedSprite2D.animation = "crossbow_up"
+
+	
 	print("Nova:" + str(position))
+	# print("Camera:" + str(Camera2D.position))
