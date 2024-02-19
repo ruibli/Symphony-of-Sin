@@ -7,6 +7,10 @@ signal hit
 @export var damage = 1
 @export var attack = 1
 @export var gold = 0
+var screen_size
+
+func _ready():
+	screen_size = get_viewport_rect().size
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -26,6 +30,7 @@ func _process(delta):
 		$AnimatedSprite2D.stop()
 	
 	position -= velocity * delta
+	position = position.clamp(Vector2.ZERO, screen_size)
 
 	if velocity.x < 0:
 		$AnimatedSprite2D.animation = "walk_left"
