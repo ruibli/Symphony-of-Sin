@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4ek5yose3t7j"]
+[gd_scene load_steps=4 format=3 uid="uid://cfatu1pvhkwxk"]
 
 [ext_resource type="PackedScene" uid="uid://cgh0hydeq3fxq" path="res://assets/entities/nova/nova.tscn" id="1_mjwfh"]
 [ext_resource type="Texture2D" path="res://blue.png" id="1_yhmt7"]
