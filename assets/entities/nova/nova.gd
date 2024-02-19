@@ -7,14 +7,10 @@ signal hit
 @export var damage = 1
 @export var attack = 1
 @export var gold = 0
-var screen_size # Size of the game window.
-
-func _ready():
-	screen_size = get_viewport_rect().size
 
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
-	# Player Movements
+	# Player Movement
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
@@ -33,28 +29,28 @@ func _process(delta):
 		$BodyAnim.stop()
 		$ArmAnim.stop()
 	
-	position -= velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	global_position -= velocity * delta
+	
 	# Animations
 	if velocity.x < 0:
-		$BodyAnim.animation = "walk_left_body"
+		$BodyAnim.animation = "walk_left"
 		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_left_arm"
+		$ArmAnim.animation = "walk_left"
 		$ArmAnim.flip_h = false
 	elif velocity.x > 0:
-		$BodyAnim.animation = "walk_left_body" # right
+		$BodyAnim.animation = "walk_left" # right
 		$BodyAnim.flip_h = true
-		$ArmAnim.animation = "walk_left_arm"
+		$ArmAnim.animation = "walk_left"
 		$ArmAnim.flip_h = true
 	elif velocity.y < 0:
-		$BodyAnim.animation = "walk_up_body"
+		$BodyAnim.animation = "walk_up"
 		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_up_arm"
+		$ArmAnim.animation = "walk_up"
 		$ArmAnim.flip_h = false
 	elif velocity.y > 0:
-		$BodyAnim.animation = "walk_down_body"
+		$BodyAnim.animation = "walk_down"
 		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_down_arm"
+		$ArmAnim.animation = "walk_down"
 		$ArmAnim.flip_h = false
 
 # Outline for attack anims
