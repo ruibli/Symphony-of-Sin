@@ -7,7 +7,7 @@ signal hit
 @export var damage = 1
 @export var attack = 1
 @export var gold = 0
-	
+
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
 	# Player Movement
@@ -24,7 +24,6 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 		$NovaBodyAnim.play()
 		$NovaArmAnim.play()
-
 	else:
 		$NovaBodyAnim.stop()
 		$NovaArmAnim.stop()
