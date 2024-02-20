@@ -136,17 +136,17 @@ z_index = 1
 script = ExtResource("1_wapv4")
 metadata/_edit_group_ = true
 
-[node name="BodyAnim" type="AnimatedSprite2D" parent="."]
+[node name="NovaBodyAnim" type="AnimatedSprite2D" parent="."]
 top_level = true
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"walk_up"
+animation = &"walk_down"
 
-[node name="ArmAnim" type="AnimatedSprite2D" parent="."]
+[node name="NovaArmAnim" type="AnimatedSprite2D" parent="."]
 top_level = true
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_we3h0")
-animation = &"walk_left"
+animation = &"walk_down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
