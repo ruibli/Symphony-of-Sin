@@ -24,10 +24,10 @@ func _ready():
 
 func load_map():
 	
-	var boss = false
-	var spawn = false
-	var lore = false
-	var shop = false
+	var boss = false # red
+	var spawn = false # blue
+	var lore = false # purple
+	var shop = false # yellow
 	
 	for i in range(0, map_node.get_child_count()):
 		map_node.get_child(i).queue_free()
