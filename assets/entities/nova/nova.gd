@@ -7,10 +7,6 @@ signal hit
 @export var damage = 1
 @export var attack = 1
 @export var gold = 0
-var screen_size # Size of the game window.
-
-func _ready():
-	screen_size = get_viewport_rect().size
 	
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
@@ -33,8 +29,8 @@ func _process(delta):
 		$BodyAnim.stop()
 		$ArmAnim.stop()
 	
-	position -= velocity * delta
-	position = position.clamp(Vector2.ZERO, screen_size)
+	$BodyAnim.position += velocity * delta
+	$ArmAnim.position += velocity * delta
 
 	# Animations
 	if velocity.x < 0:
