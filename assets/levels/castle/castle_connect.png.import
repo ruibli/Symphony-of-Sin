@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djrx27ni1xmop"
-path="res://.godot/imported/castle_center.png-19c85271c092b188f4e5aa3a53054091.ctex"
+uid="uid://d1yvpmmelx1ju"
+path="res://.godot/imported/castle_connect.png-5ad6029198b327a5c3ee370aab87236b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/castle/castle_center.png"
-dest_files=["res://.godot/imported/castle_center.png-19c85271c092b188f4e5aa3a53054091.ctex"]
+source_file="res://assets/levels/castle/castle_connect.png"
+dest_files=["res://.godot/imported/castle_connect.png-5ad6029198b327a5c3ee370aab87236b.ctex"]
 
 [params]
 

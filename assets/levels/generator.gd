@@ -1,12 +1,16 @@
 extends Node2D
 
 var dungeon = {}
-var node_sprite = load("res://assets/levels/castle/castle_center.png")
-var branch_sprite = load("res://assets/levels/castle/castle_path.png")
+var enemy_sprite = load("res://assets/levels/castle/castle_enemy.png")
+var boss_sprite = load("res://assets/levels/castle/castle_boss.png")
+var spawn_sprite = load("res://assets/levels/castle/castle_spawn.png")
+var lore_sprite = load("res://assets/levels/castle/castle_lore.png")
+var shop_sprite = load("res://assets/levels/castle/castle_shop.png")
+var connect_sprite = load("res://assets/levels/castle/castle_connect.png")
 
 var room = preload("res://assets/levels/room.tscn")
 
-var min_number_rooms = 8
+var min_number_rooms = 10
 var max_number_rooms = 16
 
 var generation_chance = 20
@@ -19,25 +23,44 @@ func _ready():
 	load_map()
 
 func load_map():
+	
+	var boss = false
+	var spawn = false
+	var lore = false
+	var shop = false
+	
 	for i in range(0, map_node.get_child_count()):
 		map_node.get_child(i).queue_free()
 		
 	for i in dungeon.keys():
 		var temp = Sprite2D.new()
-		temp.texture = node_sprite
 		map_node.add_child(temp)
+		var c_rooms = dungeon.get(i).connected_rooms
+		if(!boss && dungeon.get(i).number_of_connections == 1):
+			temp.texture = boss_sprite
+			boss = true
+		elif(!spawn && dungeon.get(i).number_of_connections >= 3):
+			temp.texture = spawn_sprite
+			spawn = true
+		elif(!lore && dungeon.get(i).number_of_connections == 1):
+			temp.texture = lore_sprite
+			lore = true
+		elif(!shop && dungeon.get(i).number_of_connections == 1):
+			temp.texture = shop_sprite
+			shop = true
+		else:
+			temp.texture = enemy_sprite
 		temp.z_index = 0
 		temp.position = i * 320
-		var c_rooms = dungeon.get(i).connected_rooms
 		if(c_rooms.get(Vector2(1, 0)) != null):
 			temp = Sprite2D.new()
-			temp.texture = branch_sprite
+			temp.texture = connect_sprite
 			map_node.add_child(temp)
 			temp.z_index = 1
 			temp.position = i * 320 + Vector2(160, 0.5)
 		if(c_rooms.get(Vector2(0, 1)) != null):
 			temp = Sprite2D.new()
-			temp.texture = branch_sprite
+			temp.texture = connect_sprite
 			map_node.add_child(temp)
 			temp.z_index = 1
 			temp.rotation_degrees = 90
@@ -98,8 +121,12 @@ func connect_rooms(room1, room2, direction):
 	room2.number_of_connections += 1
 
 func is_interesting(generated):
+	var room_with_one = 0
+	for i in generated.keys():
+		if(generated.get(i).number_of_connections == 1):
+			room_with_one += 1
 	var room_with_three = 0
 	for i in generated.keys():
 		if(generated.get(i).number_of_connections >= 3):
 			room_with_three += 1
-	return room_with_three >= 2
+	return room_with_one >= 5 && room_with_three <= 4
