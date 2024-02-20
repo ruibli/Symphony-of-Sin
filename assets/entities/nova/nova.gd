@@ -20,39 +20,39 @@ func _process(delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 
-	if velocity.length() > 0:
+	if velocity.length() >= 0:
 		velocity = velocity.normalized() * speed
-		$BodyAnim.play()
-		$ArmAnim.play()
+		$NovaBodyAnim.play()
+		$NovaArmAnim.play()
 
 	else:
-		$BodyAnim.stop()
-		$ArmAnim.stop()
+		$NovaBodyAnim.stop()
+		$NovaArmAnim.stop()
 	
-	$BodyAnim.position += velocity * delta
-	$ArmAnim.position += velocity * delta
+	$NovaBodyAnim.position += velocity * delta
+	$NovaArmAnim.position += velocity * delta
 
 	# Animations
 	if velocity.x < 0:
-		$BodyAnim.animation = "walk_left"
-		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_left"
-		$ArmAnim.flip_h = false
+		$NovaBodyAnim.animation = "walk_left"
+		$NovaBodyAnim.flip_h = false
+		$NovaArmAnim.animation = "walk_left"
+		$NovaArmAnim.flip_h = false
 	elif velocity.x > 0:
-		$BodyAnim.animation = "walk_left" # right
-		$BodyAnim.flip_h = true
-		$ArmAnim.animation = "walk_left"
-		$ArmAnim.flip_h = true
+		$NovaBodyAnim.animation = "walk_left" # right
+		$NovaBodyAnim.flip_h = true
+		$NovaArmAnim.animation = "walk_left"
+		$NovaArmAnim.flip_h = true
 	elif velocity.y < 0:
-		$BodyAnim.animation = "walk_up"
-		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_up"
-		$ArmAnim.flip_h = false
+		$NovaBodyAnim.animation = "walk_up"
+		$NovaBodyAnim.flip_h = false
+		$NovaArmAnim.animation = "walk_up"
+		$NovaArmAnim.flip_h = false
 	elif velocity.y > 0:
-		$BodyAnim.animation = "walk_down"
-		$BodyAnim.flip_h = false
-		$ArmAnim.animation = "walk_down"
-		$ArmAnim.flip_h = false
+		$NovaBodyAnim.animation = "walk_down"
+		$NovaBodyAnim.flip_h = false
+		$NovaArmAnim.animation = "walk_down"
+		$NovaArmAnim.flip_h = false
 
 # Outline for attack anims
 	#if Input.is_action_pressed("attack"):
