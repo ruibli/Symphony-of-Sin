@@ -144,6 +144,7 @@ animation = &"walk_up"
 
 [node name="ArmAnim" type="AnimatedSprite2D" parent="."]
 top_level = true
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_we3h0")
 animation = &"walk_left"
 
