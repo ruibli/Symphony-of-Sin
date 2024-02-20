@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dju2phvwekb0j"
-path="res://.godot/imported/limbo_front.png-5184ec34f1e650a24c0cc6e8607cecb7.ctex"
+uid="uid://cv65sxjymv1rg"
+path="res://.godot/imported/limbo_front_body.png-eb0feead3103c3efafaacb2d2fbeaa30.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/limbo/limbo_front.png"
-dest_files=["res://.godot/imported/limbo_front.png-5184ec34f1e650a24c0cc6e8607cecb7.ctex"]
+source_file="res://assets/entities/limbo/limbo_front_body.png"
+dest_files=["res://.godot/imported/limbo_front_body.png-eb0feead3103c3efafaacb2d2fbeaa30.ctex"]
 
 [params]
 
