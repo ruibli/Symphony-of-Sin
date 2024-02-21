@@ -18,6 +18,10 @@ var generation_chance = 20
 @onready var map_node = $MapNode
 
 func _ready():
+	new_dungeon()
+
+func new_dungeon():
+	print("test")
 	randomize()
 	dungeon = generate(randf_range(-1000, 1000))
 	load_map()
@@ -110,7 +114,6 @@ func generate(room_seed):
 		for i in generated.keys():
 			generated.get(i).queue_free()
 		var sed = room_seed * randf_range(-1,1) + randf_range(-100,100)
-		print(sed)
 		generated = generate(sed)
 	return generated
 

@@ -8,5 +8,7 @@ metadata/_edit_group_ = true
 
 [node name="MapNode" type="Node2D" parent="."]
 
+[node name="SpawnMarker" type="Marker2D" parent="."]
+
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.2, 0.2)
+zoom = Vector2(0.1, 0.1)
