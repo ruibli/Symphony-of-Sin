@@ -15,10 +15,6 @@ run/main_scene="res://sos.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-Generator="*res://assets/levels/generator.gd"
-
 [input]
 
 move_up={

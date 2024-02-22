@@ -17,11 +17,7 @@ var generation_chance = 20
 
 @onready var map_node = $MapNode
 
-func _ready():
-	new_dungeon()
-
 func new_dungeon():
-	print("test")
 	randomize()
 	dungeon = generate(randf_range(-1000, 1000))
 	load_map()
@@ -132,4 +128,4 @@ func is_interesting(generated):
 	for i in generated.keys():
 		if(generated.get(i).number_of_connections >= 3):
 			room_with_three += 1
-	return room_with_one >= 5 && room_with_three <= 4
+	return room_with_one >= 4 && room_with_three <= 4
