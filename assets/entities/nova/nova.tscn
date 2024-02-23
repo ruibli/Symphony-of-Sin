@@ -131,7 +131,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
 height = 27.0
 
-[node name="nova" type="Area2D"]
+[node name="nova" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_wapv4")
 metadata/_edit_group_ = true
@@ -148,9 +148,9 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_we3h0")
 animation = &"walk_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="NovaCollision" type="CollisionShape2D" parent="."]
 z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.2, 0.2)
+limit_smoothed = true

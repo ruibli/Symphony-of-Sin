@@ -1,13 +1,15 @@
 extends Node2D
 
 var dungeon = {}
-var enemy_sprite = load("res://assets/levels/castle/castle_enemy.png")
+var temp
+@export var wall_scene: PackedScene
+@export var fill_scene: PackedScene
+@export var floor_scene: PackedScene
+
 var boss_sprite = load("res://assets/levels/castle/castle_boss.png")
 var spawn_sprite = load("res://assets/levels/castle/castle_spawn.png")
 var lore_sprite = load("res://assets/levels/castle/castle_lore.png")
 var shop_sprite = load("res://assets/levels/castle/castle_shop.png")
-var wall_sprite = load("res://assets/levels/castle/castle_wall.png")
-var fill_sprite = load("res://assets/levels/castle/castle_fill.png")
 
 var room = preload("res://assets/levels/room.tscn")
 
@@ -34,58 +36,39 @@ func load_map():
 		map_node.get_child(i).queue_free()
 		
 	for i in dungeon.keys():
-		var temp = Sprite2D.new()
+		temp = floor_scene.instantiate()
 		map_node.add_child(temp)
 		var c_rooms = dungeon.get(i).connected_rooms
 		if(!boss && dungeon.get(i).number_of_connections == 1):
-			temp.texture = boss_sprite
 			boss = true
 		elif(!spawn && dungeon.get(i).number_of_connections >= 3):
-			temp.texture = spawn_sprite
 			spawn = true
 		elif(!lore && dungeon.get(i).number_of_connections == 1):
-			temp.texture = lore_sprite
 			lore = true
 		elif(!shop && dungeon.get(i).number_of_connections == 1):
-			temp.texture = shop_sprite
 			shop = true
-		else:
-			temp.texture = enemy_sprite
-		temp.z_index = 0
 		temp.position = i * 320
 		
-		temp = Sprite2D.new()
+		temp = wall_scene.instantiate()
 		map_node.add_child(temp)
-		temp.texture = wall_sprite
-		temp.z_index = 0
 		temp.position = i * 320
 		
 		if(c_rooms.get(Vector2(1, 0)) == null):
-			temp = Sprite2D.new()
-			temp.texture = fill_sprite
+			temp = fill_scene.instantiate()
 			map_node.add_child(temp)
-			temp.z_index = 1
-			temp.position = i * 320 + Vector2(160, 0.5)
+			temp.position = i * 320 + Vector2(160, 0)
 		if(c_rooms.get(Vector2(-1, 0)) == null):
-			temp = Sprite2D.new()
-			temp.texture = fill_sprite
+			temp = fill_scene.instantiate()
 			map_node.add_child(temp)
-			temp.z_index = 1
-			temp.position = i * 320 - Vector2(160, 0.5)
+			temp.position = i * 320 - Vector2(160, 0)
 		if(c_rooms.get(Vector2(0, 1)) == null):
-			temp = Sprite2D.new()
-			temp.texture = fill_sprite
+			temp = fill_scene.instantiate()
 			map_node.add_child(temp)
-			temp.z_index = 1
-			temp.rotation_degrees = 90
-			temp.position = i * 320 + Vector2(0.5, 160)
+			temp.position = i * 320 + Vector2(0, 160)
 		if(c_rooms.get(Vector2(0, -1)) == null):
-			temp = Sprite2D.new()
-			temp.texture = fill_sprite
+			temp = fill_scene.instantiate()
 			map_node.add_child(temp)
-			temp.z_index = 1
-			temp.rotation_degrees = 90
-			temp.position = i * 320 - Vector2(0.5, 160)
+			temp.position = i * 320 - Vector2(0, 160)
 
 func generate(room_seed):
 	seed(room_seed)

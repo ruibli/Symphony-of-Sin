@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 
 signal hit
 
@@ -8,8 +8,8 @@ signal hit
 @export var attack = 1
 @export var gold = 0
 
-func _process(delta):
-	var velocity = Vector2.ZERO # The player's movement vector.
+func _process(_delta):
+	velocity = Vector2.ZERO # The player's movement vector.
 	# Player Movement
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
@@ -28,9 +28,10 @@ func _process(delta):
 		$NovaBodyAnim.stop()
 		$NovaArmAnim.stop()
 	
-	$NovaBodyAnim.position += velocity * delta
-	$NovaArmAnim.position += velocity * delta
-
+	move_and_slide()
+	$NovaBodyAnim.global_position = $NovaCollision.global_position
+	$NovaArmAnim.global_position = $NovaCollision.global_position
+	
 	# Animations
 	if velocity.x < 0:
 		$NovaBodyAnim.animation = "walk_left"
