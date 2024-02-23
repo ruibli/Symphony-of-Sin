@@ -6,17 +6,13 @@ var temp
 @export var fill_scene: PackedScene
 @export var floor_scene: PackedScene
 
-var boss_sprite = load("res://assets/levels/castle/castle_boss.png")
-var spawn_sprite = load("res://assets/levels/castle/castle_spawn.png")
-var lore_sprite = load("res://assets/levels/castle/castle_lore.png")
-var shop_sprite = load("res://assets/levels/castle/castle_shop.png")
-
 var room = preload("res://assets/levels/room.tscn")
 
 var min_number_rooms = 10
 var max_number_rooms = 16
-
 var generation_chance = 20
+
+var spawn_point
 
 @onready var map_node = $MapNode
 
@@ -24,7 +20,7 @@ func new_dungeon():
 	randomize()
 	dungeon = generate(randf_range(-1000, 1000))
 	load_map()
-
+	
 func load_map():
 	
 	var boss = false # red
@@ -43,6 +39,7 @@ func load_map():
 			boss = true
 		elif(!spawn && dungeon.get(i).number_of_connections >= 3):
 			spawn = true
+			spawn_point = i * 320
 		elif(!lore && dungeon.get(i).number_of_connections == 1):
 			lore = true
 		elif(!shop && dungeon.get(i).number_of_connections == 1):
@@ -69,7 +66,7 @@ func load_map():
 			temp = fill_scene.instantiate()
 			map_node.add_child(temp)
 			temp.position = i * 320 - Vector2(0, 160)
-
+			
 func generate(room_seed):
 	seed(room_seed)
 	var generated = {}

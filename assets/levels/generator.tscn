@@ -13,5 +13,3 @@ floor_scene = ExtResource("4_1choc")
 metadata/_edit_group_ = true
 
 [node name="MapNode" type="Node2D" parent="."]
-
-[node name="SpawnMarker" type="Marker2D" parent="."]
