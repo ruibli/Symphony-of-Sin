@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=24 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="Texture2D" uid="uid://c5gqhn6f28dwv" path="res://assets/entities/nova/nova_back_arm.png" id="5_djk7y"]
@@ -131,6 +131,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
 height = 27.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e74t3"]
+size = Vector2(0.1, 0.1)
+
 [node name="nova" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_wapv4")
@@ -153,4 +156,15 @@ z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_smoothed = true
+limit_left = -160
+limit_top = -160
+limit_right = 160
+limit_bottom = 160
+
+[node name="RoomDetector" type="Area2D" parent="."]
+
+[node name="RoomHitbox" type="CollisionShape2D" parent="RoomDetector"]
+z_index = 1
+shape = SubResource("RectangleShape2D_e74t3")
+
+[connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]

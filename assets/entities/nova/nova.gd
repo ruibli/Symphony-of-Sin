@@ -54,16 +54,16 @@ func _process(_delta):
 		$NovaArmAnim.animation = "walk_down"
 		$NovaArmAnim.flip_h = false
 
-# Outline for attack anims
-	#if Input.is_action_pressed("attack"):
-		#if currently on crossbow:
-			#if Input.is_action_pressed("move_right"):
-				#$AnimatedSprite2D.animation = "crossbow_left" # right
-				#$AnimatedSprite2D.flip_h = true
-			#if Input.is_action_pressed("move_left"):
-				#$AnimatedSprite2D.animation = "crossbow_left"
-				#$AnimatedSprite2D.flip_h = false
-			#if Input.is_action_pressed("move_down"):
-				#$AnimatedSprite2D.animation = "crossbow_down"
-			#if Input.is_action_pressed("move_up"):
-				#$AnimatedSprite2D.animation = "crossbow_up"
+func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
+	var collision_shape = area.get_node("CollisionShape2D")
+	var size = collision_shape.shape.extents
+	
+	var view_size = get_viewport_rect().size
+	size.y = view_size.y
+	size.x = view_size.x
+	
+	$Camera2D.limit_top = collision_shape.global_position.y - size.y/2
+	$Camera2D.limit_left = collision_shape.global_position.x - size.x/2
+	
+	$Camera2D.limit_bottom =$Camera2D.limit_top + size.y
+	$Camera2D.limit_right = $Camera2D.limit_left + size.x

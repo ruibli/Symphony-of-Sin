@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo02l0cij368f"]
+[gd_scene load_steps=4 format=3 uid="uid://bo02l0cij368f"]
 
 [ext_resource type="Texture2D" uid="uid://dokey8y0d6qst" path="res://assets/levels/castle/castle_floor.png" id="1_dn6k0"]
 [ext_resource type="Script" path="res://assets/levels/floor.gd" id="1_q5gtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tmqa"]
+size = Vector2(320, 320)
 
 [node name="floor" type="StaticBody2D"]
 script = ExtResource("1_q5gtc")
 
 [node name="floor" type="Sprite2D" parent="."]
 texture = ExtResource("1_dn6k0")
+
+[node name="Area2D" type="Area2D" parent="floor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor/Area2D"]
+shape = SubResource("RectangleShape2D_7tmqa")
