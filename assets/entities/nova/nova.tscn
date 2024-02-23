@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=27 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_aximp"]
@@ -13,7 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dkdfcxjdp0nm4" path="res://assets/entities/nova/nova_back_body_walk1.png" id="9_3tyni"]
 [ext_resource type="Texture2D" uid="uid://b4ex183eabttb" path="res://assets/entities/nova/nova_left_body_walk1.png" id="9_l03f5"]
 [ext_resource type="Texture2D" uid="uid://ch4dv7redkven" path="res://assets/entities/nova/nova_back_body_walk2.png" id="10_8yms6"]
-[ext_resource type="Texture2D" uid="uid://dhmj3ihlmdckr" path="res://assets/entities/nova/nova_left_body_walk2.png" id="10_rlpxv"]
+[ext_resource type="Texture2D" uid="uid://bfem8p605d32v" path="res://assets/entities/nova/nova_left_body_walk2.png" id="10_rlpxv"]
+[ext_resource type="Texture2D" uid="uid://gpkbq2elw6ik" path="res://assets/entities/nova/nova_crossbow_front.png" id="12_ufd7w"]
+[ext_resource type="Texture2D" uid="uid://bt2cs46t3axab" path="res://assets/entities/nova/nova_crossbow_front_walk1.png" id="13_r7a5r"]
+[ext_resource type="Texture2D" uid="uid://wt2piq8jlcce" path="res://assets/entities/nova/nova_crossbow_front_walk2.png" id="14_468k1"]
 [ext_resource type="Texture2D" uid="uid://djit1a50on12q" path="res://assets/entities/nova/nova_left_arm.png" id="17_eabrb"]
 [ext_resource type="Texture2D" uid="uid://csaetenpo5npm" path="res://assets/entities/nova/nova_front_arm.png" id="17_jwrjk"]
 [ext_resource type="Texture2D" uid="uid://bxc0o3gee07rb" path="res://assets/entities/nova/nova_front_arm_walk1.png" id="18_nxyff"]
@@ -77,7 +80,19 @@ animations = [{
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_we3h0"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ufd7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_r7a5r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ufd7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_468k1")
+}],
 "loop": true,
 "name": &"crossbow_down",
 "speed": 5.0

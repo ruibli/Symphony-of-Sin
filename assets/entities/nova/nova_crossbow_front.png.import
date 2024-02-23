@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb6l3lj7f5yhj"
-path="res://.godot/imported/nova_crossbow_still.png-5845d1f485d3dd56f168d7f6c8c8bc73.ctex"
+uid="uid://gpkbq2elw6ik"
+path="res://.godot/imported/nova_crossbow_front.png-ac239bff13e7e3af22a622742967fa24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/nova_crossbow_still.png"
-dest_files=["res://.godot/imported/nova_crossbow_still.png-5845d1f485d3dd56f168d7f6c8c8bc73.ctex"]
+source_file="res://assets/entities/nova/nova_crossbow_front.png"
+dest_files=["res://.godot/imported/nova_crossbow_front.png-ac239bff13e7e3af22a622742967fa24.ctex"]
 
 [params]
 
