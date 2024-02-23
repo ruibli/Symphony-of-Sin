@@ -2,10 +2,10 @@ extends Area2D
 
 @export var speed = -250
 
-func start(pos):
+func start(pos): #starting postion
 	$Arrow.position = pos
 
-func _process(delta):
+func _process(delta): #movement
 	$Arrow.position.y -= speed * delta
 
 func _on_area_entered(area):
