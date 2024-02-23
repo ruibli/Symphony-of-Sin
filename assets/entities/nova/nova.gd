@@ -7,7 +7,7 @@ signal hit
 @export var damage = 1
 @export var attack = 1
 @export var gold = 0
-@export var cooldown = 0.25
+@export var cooldown = .25
 @export var bullet_scene : PackedScene
 var can_shoot = true
 
@@ -40,7 +40,7 @@ func _process(_delta):
 	move_and_slide()
 	$NovaBodyAnim.global_position = $NovaCollision.global_position
 	$NovaArmAnim.global_position = $NovaCollision.global_position
-	
+
 	# Animations
 	if Input.is_action_pressed("attack"): # attack while walking
 		if velocity.x < 0:
@@ -93,5 +93,5 @@ func shoot():
 	get_tree().root.add_child(b)
 	b.start(position + Vector2(0, -8))
 
-func _on_gun_cooldown_timeout():
+func _on_bow_cooldown_timeout():
 	can_shoot = true
