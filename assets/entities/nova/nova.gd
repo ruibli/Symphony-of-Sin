@@ -81,7 +81,7 @@ func _process(_delta):
 			$NovaArmAnim.animation = "walk_down"
 			$NovaArmAnim.flip_h = false
 	#attacking
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
 		shoot()
 
 func shoot():
