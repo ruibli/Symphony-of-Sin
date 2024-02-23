@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=23 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="Texture2D" uid="uid://c5gqhn6f28dwv" path="res://assets/entities/nova/nova_back_arm.png" id="5_djk7y"]
@@ -13,9 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://b4ex183eabttb" path="res://assets/entities/nova/nova_left_body_walk1.png" id="9_l03f5"]
 [ext_resource type="Texture2D" uid="uid://ch4dv7redkven" path="res://assets/entities/nova/nova_back_body_walk2.png" id="10_8yms6"]
 [ext_resource type="Texture2D" uid="uid://dhmj3ihlmdckr" path="res://assets/entities/nova/nova_left_body_walk2.png" id="10_rlpxv"]
-[ext_resource type="Texture2D" path="res://assets/entities/nova/nova_crossbow_front.png" id="11_xqc8t"]
-[ext_resource type="Texture2D" path="res://assets/entities/nova/nova_crossbow_front_walk1.png" id="12_k0n23"]
-[ext_resource type="Texture2D" path="res://assets/entities/nova/nova_crossbow_front_walk2.png" id="13_812du"]
 [ext_resource type="Texture2D" uid="uid://djit1a50on12q" path="res://assets/entities/nova/nova_left_arm.png" id="17_eabrb"]
 [ext_resource type="Texture2D" uid="uid://csaetenpo5npm" path="res://assets/entities/nova/nova_front_arm.png" id="17_jwrjk"]
 [ext_resource type="Texture2D" uid="uid://bxc0o3gee07rb" path="res://assets/entities/nova/nova_front_arm_walk1.png" id="18_nxyff"]
@@ -81,23 +78,6 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_xqc8t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_k0n23")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_xqc8t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_812du")
-}],
-"loop": true,
-"name": &"crossbow_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": ExtResource("17_jwrjk")
 }, {
 "duration": 1.0,
@@ -151,9 +131,8 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
 height = 27.0
 
-[node name="nova" type="Area2D"]
+[node name="nova" type="CharacterBody2D"]
 z_index = 1
-position = Vector2(-1, 0)
 script = ExtResource("1_wapv4")
 metadata/_edit_group_ = true
 
@@ -169,9 +148,9 @@ z_index = 1
 sprite_frames = SubResource("SpriteFrames_we3h0")
 animation = &"walk_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="NovaCollision" type="CollisionShape2D" parent="."]
 z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
-[node name="GunCooldown" type="Timer" parent="."]
-wait_time = 0.25
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
