@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=28 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
+[ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_yytxa"]
 [ext_resource type="Texture2D" uid="uid://c5gqhn6f28dwv" path="res://assets/entities/nova/nova_back_arm.png" id="5_djk7y"]
 [ext_resource type="Texture2D" uid="uid://cw7u1kfacfol2" path="res://assets/entities/nova/nova_front_body.png" id="5_pu2b0"]
 [ext_resource type="Texture2D" uid="uid://k1smxfh7q80f" path="res://assets/entities/nova/nova_front_body_walk1.png" id="6_c8ra1"]
@@ -13,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://b4ex183eabttb" path="res://assets/entities/nova/nova_left_body_walk1.png" id="9_l03f5"]
 [ext_resource type="Texture2D" uid="uid://ch4dv7redkven" path="res://assets/entities/nova/nova_back_body_walk2.png" id="10_8yms6"]
 [ext_resource type="Texture2D" uid="uid://dhmj3ihlmdckr" path="res://assets/entities/nova/nova_left_body_walk2.png" id="10_rlpxv"]
+[ext_resource type="Texture2D" uid="uid://gpkbq2elw6ik" path="res://assets/entities/nova/nova_crossbow_front.png" id="12_jcon8"]
+[ext_resource type="Texture2D" uid="uid://bt2cs46t3axab" path="res://assets/entities/nova/nova_crossbow_front_walk1.png" id="13_e0dd6"]
+[ext_resource type="Texture2D" uid="uid://wt2piq8jlcce" path="res://assets/entities/nova/nova_crossbow_front_walk2.png" id="14_54xho"]
 [ext_resource type="Texture2D" uid="uid://djit1a50on12q" path="res://assets/entities/nova/nova_left_arm.png" id="17_eabrb"]
 [ext_resource type="Texture2D" uid="uid://csaetenpo5npm" path="res://assets/entities/nova/nova_front_arm.png" id="17_jwrjk"]
 [ext_resource type="Texture2D" uid="uid://bxc0o3gee07rb" path="res://assets/entities/nova/nova_front_arm_walk1.png" id="18_nxyff"]
@@ -78,6 +82,23 @@ animations = [{
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("12_jcon8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_e0dd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jcon8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_54xho")
+}],
+"loop": true,
+"name": &"crossbow_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("17_jwrjk")
 }, {
 "duration": 1.0,
@@ -137,6 +158,7 @@ size = Vector2(0.1, 0.1)
 [node name="nova" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_wapv4")
+bullet_scene = ExtResource("2_yytxa")
 metadata/_edit_group_ = true
 
 [node name="NovaBodyAnim" type="AnimatedSprite2D" parent="."]
@@ -149,7 +171,7 @@ animation = &"walk_down"
 top_level = true
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_we3h0")
-animation = &"walk_down"
+animation = &"crossbow_down"
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -167,4 +189,7 @@ limit_bottom = 160
 z_index = 1
 shape = SubResource("RectangleShape2D_e74t3")
 
+[node name="BowCooldown" type="Timer" parent="."]
+
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
+[connection signal="timeout" from="BowCooldown" to="." method="_on_bow_cooldown_timeout"]

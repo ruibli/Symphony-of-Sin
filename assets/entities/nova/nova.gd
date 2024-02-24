@@ -7,6 +7,15 @@ signal hit
 @export var damage = 1
 @export var attack = 1
 @export var gold = 0
+@export var cooldown = .25
+@export var bullet_scene : PackedScene
+var can_shoot = true
+
+func _ready():
+	start()
+
+func start():
+	$BowCooldown.wait_time = cooldown
 
 func _process(_delta):
 	velocity = Vector2.ZERO # The player's movement vector.
@@ -20,7 +29,7 @@ func _process(_delta):
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 
-	if velocity.length() >= 0:
+	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$NovaBodyAnim.play()
 		$NovaArmAnim.play()
@@ -32,27 +41,60 @@ func _process(_delta):
 	$NovaBodyAnim.global_position = $NovaCollision.global_position
 	$NovaArmAnim.global_position = $NovaCollision.global_position
 	
-	# Animations
-	if velocity.x < 0:
-		$NovaBodyAnim.animation = "walk_left"
-		$NovaBodyAnim.flip_h = false
-		$NovaArmAnim.animation = "walk_left"
-		$NovaArmAnim.flip_h = false
-	elif velocity.x > 0:
-		$NovaBodyAnim.animation = "walk_left" # right
-		$NovaBodyAnim.flip_h = true
-		$NovaArmAnim.animation = "walk_left"
-		$NovaArmAnim.flip_h = true
-	elif velocity.y < 0:
-		$NovaBodyAnim.animation = "walk_up"
-		$NovaBodyAnim.flip_h = false
-		$NovaArmAnim.animation = "walk_up"
-		$NovaArmAnim.flip_h = false
-	elif velocity.y > 0:
-		$NovaBodyAnim.animation = "walk_down"
-		$NovaBodyAnim.flip_h = false
-		$NovaArmAnim.animation = "walk_down"
-		$NovaArmAnim.flip_h = false
+# Animations
+	if Input.is_action_pressed("attack"): # attack while walking
+		if velocity.x < 0:
+			$NovaBodyAnim.animation = "walk_left"
+			$NovaBodyAnim.flip_h = false
+			$NovaArmAnim.animation = "walk_left"
+		elif velocity.x > 0:
+			$NovaBodyAnim.animation = "walk_left" # right
+			$NovaBodyAnim.flip_h = true
+			$NovaArmAnim.animation = "walk_left"
+		elif velocity.y < 0:
+			$NovaBodyAnim.animation = "walk_up"
+			$NovaBodyAnim.flip_h = false
+			$NovaArmAnim.animation = "walk_up"
+		elif velocity.y > 0:
+			$NovaBodyAnim.animation = "walk_down"
+			$NovaBodyAnim.flip_h = false
+			$NovaArmAnim.animation = "crossbow_down"
+	else: # only walking
+		if velocity.x < 0:
+			$NovaBodyAnim.animation = "walk_left"
+			$NovaBodyAnim.flip_h = false
+			$NovaArmAnim.animation = "walk_left"
+			$NovaArmAnim.flip_h = false
+		elif velocity.x > 0:
+			$NovaBodyAnim.animation = "walk_left" # right
+			$NovaBodyAnim.flip_h = true
+			$NovaArmAnim.animation = "walk_left"
+			$NovaArmAnim.flip_h = true
+		elif velocity.y < 0:
+			$NovaBodyAnim.animation = "walk_up"
+			$NovaBodyAnim.flip_h = false
+			$NovaArmAnim.animation = "walk_up"
+			$NovaArmAnim.flip_h = false
+		elif velocity.y > 0:
+			$NovaBodyAnim.animation = "walk_down"
+			$NovaBodyAnim.flip_h = false
+			$NovaArmAnim.animation = "walk_down"
+			$NovaArmAnim.flip_h = false
+	#attacking
+	if Input.is_action_pressed("attack"):
+		shoot()
+
+func shoot(): # attacking
+	if not can_shoot:
+		return
+	can_shoot = false
+	$BowCooldown.start()
+	var b = bullet_scene.instantiate()
+	get_tree().root.add_child(b)
+	b.start(position + Vector2(0, -8))
+
+func _on_bow_cooldown_timeout(): # bow cooldown
+	can_shoot = true
 
 func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	var collision_shape = area.get_node("CollisionShape2D")
