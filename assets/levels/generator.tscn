@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://7nipui34ie0p"]
+
+[ext_resource type="Script" path="res://assets/levels/generator.gd" id="1_u1pwq"]
+[ext_resource type="PackedScene" uid="uid://nr0hs8sfdwlj" path="res://assets/levels/wall.tscn" id="2_npvc7"]
+[ext_resource type="PackedScene" uid="uid://c571oqx4n2334" path="res://assets/levels/fill.tscn" id="3_72gi5"]
+[ext_resource type="PackedScene" uid="uid://bo02l0cij368f" path="res://assets/levels/floor.tscn" id="4_1choc"]
+
+[node name="generator" type="Node2D"]
+script = ExtResource("1_u1pwq")
+wall_scene = ExtResource("2_npvc7")
+fill_scene = ExtResource("3_72gi5")
+floor_scene = ExtResource("4_1choc")
+metadata/_edit_group_ = true
+
+[node name="MapNode" type="Node2D" parent="."]
