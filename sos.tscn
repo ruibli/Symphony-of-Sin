@@ -6,7 +6,6 @@
 
 [node name="sos" type="Node2D"]
 script = ExtResource("1_mvx2q")
-
-[node name="nova" parent="." instance=ExtResource("1_mjwfh")]
+nova_scene = ExtResource("1_mjwfh")
 
 [node name="generator" parent="." instance=ExtResource("2_8hqw5")]

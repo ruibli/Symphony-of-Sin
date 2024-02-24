@@ -16,6 +16,9 @@ var spawn_point
 
 @onready var map_node = $MapNode
 
+func get_spawn():
+	return spawn_point
+
 func new_dungeon():
 	randomize()
 	dungeon = generate(randf_range(-1000, 1000))
@@ -33,39 +36,43 @@ func load_map():
 		
 	for i in dungeon.keys():
 		temp = floor_scene.instantiate()
-		map_node.add_child(temp)
 		var c_rooms = dungeon.get(i).connected_rooms
 		if(!boss && dungeon.get(i).number_of_connections == 1):
 			boss = true
+			temp.type = "boss"
 		elif(!spawn && dungeon.get(i).number_of_connections >= 3):
 			spawn = true
+			temp.type = "spawn"
 			spawn_point = i * 320
 		elif(!lore && dungeon.get(i).number_of_connections == 1):
 			lore = true
+			temp.type = "lore"
 		elif(!shop && dungeon.get(i).number_of_connections == 1):
 			shop = true
+			temp.type = "shop"
 		temp.position = i * 320
+		map_node.add_child(temp)
 		
 		temp = wall_scene.instantiate()
-		map_node.add_child(temp)
 		temp.position = i * 320
+		map_node.add_child(temp)
 		
 		if(c_rooms.get(Vector2(1, 0)) == null):
 			temp = fill_scene.instantiate()
-			map_node.add_child(temp)
 			temp.position = i * 320 + Vector2(160, 0)
+			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(-1, 0)) == null):
 			temp = fill_scene.instantiate()
-			map_node.add_child(temp)
 			temp.position = i * 320 - Vector2(160, 0)
+			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(0, 1)) == null):
 			temp = fill_scene.instantiate()
-			map_node.add_child(temp)
 			temp.position = i * 320 + Vector2(0, 160)
+			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(0, -1)) == null):
 			temp = fill_scene.instantiate()
-			map_node.add_child(temp)
 			temp.position = i * 320 - Vector2(0, 160)
+			map_node.add_child(temp)
 			
 func generate(room_seed):
 	seed(room_seed)
