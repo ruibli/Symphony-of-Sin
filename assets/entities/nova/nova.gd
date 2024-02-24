@@ -10,6 +10,7 @@ signal hit
 @export var cooldown = .25
 @export var bullet_scene : PackedScene
 var can_shoot = true
+var direction = "down"
 
 func _ready():
 	start()
@@ -21,12 +22,16 @@ func _process(_delta):
 	velocity = Vector2.ZERO # The player's movement vector.
 	# Player Movement
 	if Input.is_action_pressed("move_right"):
+		direction = "right"
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
+		direction = "left"
 		velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
+		direction = "down"
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
+		direction = "up"
 		velocity.y -= 1
 
 	if velocity.length() > 0:
@@ -91,7 +96,7 @@ func shoot(): # attacking
 	$BowCooldown.start()
 	var b = bullet_scene.instantiate()
 	get_tree().root.add_child(b)
-	b.start(position + Vector2(0, -8))
+	b.start(position,direction)
 
 func _on_bow_cooldown_timeout(): # bow cooldown
 	can_shoot = true
