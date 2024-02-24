@@ -51,15 +51,16 @@ func _process(_delta):
 		if velocity.x < 0:
 			$NovaBodyAnim.animation = "walk_left"
 			$NovaBodyAnim.flip_h = false
-			$NovaArmAnim.animation = "walk_left"
+			$NovaArmAnim.animation = "crossbow_left"
 		elif velocity.x > 0:
 			$NovaBodyAnim.animation = "walk_left" # right
 			$NovaBodyAnim.flip_h = true
-			$NovaArmAnim.animation = "walk_left"
+			$NovaArmAnim.animation = "crossbow_right"
+			$NovaArmAnim.flip_h = false
 		elif velocity.y < 0:
 			$NovaBodyAnim.animation = "walk_up"
 			$NovaBodyAnim.flip_h = false
-			$NovaArmAnim.animation = "walk_up"
+			$NovaArmAnim.animation = "crossbow_up"
 		elif velocity.y > 0:
 			$NovaBodyAnim.animation = "walk_down"
 			$NovaBodyAnim.flip_h = false
