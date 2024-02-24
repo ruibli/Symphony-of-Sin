@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gpkbq2elw6ik"
-path="res://.godot/imported/nova_crossbow_front.png-ac239bff13e7e3af22a622742967fa24.ctex"
+path="res://.godot/imported/nova_crossbow_front.png-76a9a0caff98fd17d65345a61517f914.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/nova_crossbow_front.png"
-dest_files=["res://.godot/imported/nova_crossbow_front.png-ac239bff13e7e3af22a622742967fa24.ctex"]
+source_file="res://assets/entities/nova/nova_crossbow/nova_crossbow_front.png"
+dest_files=["res://.godot/imported/nova_crossbow_front.png-76a9a0caff98fd17d65345a61517f914.ctex"]
 
 [params]
 

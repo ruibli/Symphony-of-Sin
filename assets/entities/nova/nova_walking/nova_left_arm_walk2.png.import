@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ch4dv7redkven"
-path="res://.godot/imported/nova_back_body_walk2.png-a5c575212bdad799bf4a65e5a8910ff9.ctex"
+uid="uid://k4o44r53rrhd"
+path="res://.godot/imported/nova_left_arm_walk2.png-975141008e356d44296627ec729d8fde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/nova_back_body_walk2.png"
-dest_files=["res://.godot/imported/nova_back_body_walk2.png-a5c575212bdad799bf4a65e5a8910ff9.ctex"]
+source_file="res://assets/entities/nova/nova_walking/nova_left_arm_walk2.png"
+dest_files=["res://.godot/imported/nova_left_arm_walk2.png-975141008e356d44296627ec729d8fde.ctex"]
 
 [params]
 
