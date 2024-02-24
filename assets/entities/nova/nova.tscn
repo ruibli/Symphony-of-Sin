@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=36 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_yytxa"]
@@ -17,8 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://gpkbq2elw6ik" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_front.png" id="12_jcon8"]
 [ext_resource type="Texture2D" uid="uid://bt2cs46t3axab" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_front_walk1.png" id="13_e0dd6"]
 [ext_resource type="Texture2D" uid="uid://wt2piq8jlcce" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_front_walk2.png" id="14_54xho"]
+[ext_resource type="Texture2D" uid="uid://bfw12i3g3gfkx" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_back.png" id="15_cnanh"]
+[ext_resource type="Texture2D" uid="uid://bc2s5pqi4x3pe" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_right.png" id="15_g12ww"]
+[ext_resource type="Texture2D" uid="uid://casefsc7ahn1c" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_left.png" id="15_pbstc"]
+[ext_resource type="Texture2D" uid="uid://h3rvtio3np3d" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_right_walk1.png" id="16_a7k2u"]
+[ext_resource type="Texture2D" uid="uid://clqrxle7o3lag" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_left_walk1.png" id="16_dtngf"]
+[ext_resource type="Texture2D" uid="uid://x88ss7gqfthk" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_back_walk1.png" id="16_n5f26"]
 [ext_resource type="Texture2D" uid="uid://djit1a50on12q" path="res://assets/entities/nova/nova_walking/nova_left_arm.png" id="17_eabrb"]
 [ext_resource type="Texture2D" uid="uid://csaetenpo5npm" path="res://assets/entities/nova/nova_walking/nova_front_arm.png" id="17_jwrjk"]
+[ext_resource type="Texture2D" uid="uid://cf51khbx7ep30" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_right_walk2.png" id="17_nsa6q"]
+[ext_resource type="Texture2D" uid="uid://ccmwqb864tbe6" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_back_walk2.png" id="17_wh0k2"]
 [ext_resource type="Texture2D" uid="uid://bxc0o3gee07rb" path="res://assets/entities/nova/nova_walking/nova_front_arm_walk1.png" id="18_nxyff"]
 [ext_resource type="Texture2D" uid="uid://c0pc0h6a7ur3t" path="res://assets/entities/nova/nova_walking/nova_left_arm_walk1.png" id="18_q17pv"]
 [ext_resource type="Texture2D" uid="uid://k4o44r53rrhd" path="res://assets/entities/nova/nova_walking/nova_left_arm_walk2.png" id="19_7byam"]
@@ -99,6 +107,57 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("15_pbstc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dtngf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_pbstc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_7byam")
+}],
+"loop": true,
+"name": &"crossbow_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_g12ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_a7k2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_g12ww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_nsa6q")
+}],
+"loop": true,
+"name": &"crossbow_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_cnanh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_n5f26")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_cnanh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wh0k2")
+}],
+"loop": true,
+"name": &"crossbow_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("17_jwrjk")
 }, {
 "duration": 1.0,
@@ -171,13 +230,14 @@ animation = &"walk_down"
 top_level = true
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_we3h0")
-animation = &"crossbow_down"
+animation = &"crossbow_left"
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
 z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
 limit_left = -160
 limit_top = -160
 limit_right = 160
