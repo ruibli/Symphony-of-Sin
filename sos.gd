@@ -5,6 +5,7 @@ extends Node
 var nova
 
 func _ready():
+	
 	generator.new_dungeon()
 	
 	nova = nova_scene.instantiate()
