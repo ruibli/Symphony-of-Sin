@@ -156,10 +156,9 @@ z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = -160
-limit_top = -160
-limit_right = 160
-limit_bottom = 160
+ignore_rotation = false
+zoom = Vector2(3, 3)
+limit_smoothed = true
 
 [node name="RoomDetector" type="Area2D" parent="."]
 
