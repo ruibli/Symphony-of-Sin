@@ -3,7 +3,7 @@
 extends CharacterBody2D
 
 # Node refs
-@onready var player = get_tree().root.get_node("Main/Player")
+@onready var player = get_tree().root.get_node("sos/nova")
 
 # Enemy stats
 @export var speed = 50
