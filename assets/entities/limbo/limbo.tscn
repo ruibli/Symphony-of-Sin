@@ -1,24 +1,24 @@
 [gd_scene load_steps=23 format=3 uid="uid://obk267jnkea"]
 
-[ext_resource type="Script" path="res://assets/entities/nova/limbo/limbo.gd" id="1_a74ao"]
-[ext_resource type="Texture2D" uid="uid://cv65sxjymv1rg" path="res://assets/entities/nova/limbo/limbo_walking/limbo_front_body.png" id="2_edf3s"]
-[ext_resource type="Texture2D" uid="uid://crevhrwj1u3fw" path="res://assets/entities/nova/limbo/limbo_walking/limbo_front_body_walk1.png" id="3_yrtpk"]
-[ext_resource type="Texture2D" uid="uid://mfpmy7s12rl5" path="res://assets/entities/nova/limbo/limbo_walking/limbo_front_body_walk2.png" id="4_vhfqy"]
-[ext_resource type="Texture2D" uid="uid://c33ao43wdj1n" path="res://assets/entities/nova/limbo/limbo_walking/limbo_front_arm.png" id="5_r3n78"]
-[ext_resource type="Texture2D" uid="uid://snwe43wvoort" path="res://assets/entities/nova/limbo/limbo_walking/limbo_left_body.png" id="5_xp8dq"]
-[ext_resource type="Texture2D" uid="uid://cyt5kuvnxsy1k" path="res://assets/entities/nova/limbo/limbo_walking/limbo_left_walk1_body.png" id="6_22ekx"]
-[ext_resource type="Texture2D" uid="uid://yvdravgiq0s6" path="res://assets/entities/nova/limbo/limbo_walking/limbo_front_arm_walk1.png" id="6_adj8s"]
-[ext_resource type="Texture2D" uid="uid://bntbyrelpu0d4" path="res://assets/entities/nova/limbo/limbo_walking/limbo_left_walk2_body.png" id="7_l4mes"]
-[ext_resource type="Texture2D" uid="uid://dwgorpfst1tr4" path="res://assets/entities/nova/limbo/limbo_walking/limbo_front_arm_walk2.png" id="7_vgf3s"]
-[ext_resource type="Texture2D" uid="uid://dumxoeaiqdsde" path="res://assets/entities/nova/limbo/limbo_walking/limbo_back_body.png" id="8_lpwcp"]
-[ext_resource type="Texture2D" uid="uid://b1vmv0abju8xo" path="res://assets/entities/nova/limbo/limbo_walking/limbo_back_walk1_body.png" id="9_dnjg1"]
-[ext_resource type="Texture2D" uid="uid://b26jauqsru28a" path="res://assets/entities/nova/limbo/limbo_walking/limbo_back_walk2_body.png" id="10_1ybrl"]
-[ext_resource type="Texture2D" uid="uid://07i2o645yx5v" path="res://assets/entities/nova/limbo/limbo_walking/limbo_left_arm.png" id="14_rvmpk"]
-[ext_resource type="Texture2D" uid="uid://yv1l88pte0th" path="res://assets/entities/nova/limbo/limbo_walking/limbo_left_walk1_arm.png" id="15_dg8nq"]
-[ext_resource type="Texture2D" uid="uid://crt51spvvv4wl" path="res://assets/entities/nova/limbo/limbo_walking/limbo_left_walk2_arm.png" id="16_r1o44"]
-[ext_resource type="Texture2D" uid="uid://ot3p3776f3d0" path="res://assets/entities/nova/limbo/limbo_walking/limbo_back_arm.png" id="17_gfihm"]
-[ext_resource type="Texture2D" uid="uid://k4efcxddf7yr" path="res://assets/entities/nova/limbo/limbo_walking/limbo_back_walk1_arm.png" id="18_7u274"]
-[ext_resource type="Texture2D" uid="uid://dg2i31j48lg4x" path="res://assets/entities/nova/limbo/limbo_walking/limbo_back_walk2_arm.png" id="19_egxu4"]
+[ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
+[ext_resource type="Texture2D" uid="uid://cv65sxjymv1rg" path="res://assets/entities/limbo/limbo_walking/limbo_front_body.png" id="2_edf3s"]
+[ext_resource type="Texture2D" uid="uid://crevhrwj1u3fw" path="res://assets/entities/limbo/limbo_walking/limbo_front_body_walk1.png" id="3_yrtpk"]
+[ext_resource type="Texture2D" uid="uid://mfpmy7s12rl5" path="res://assets/entities/limbo/limbo_walking/limbo_front_body_walk2.png" id="4_vhfqy"]
+[ext_resource type="Texture2D" uid="uid://c33ao43wdj1n" path="res://assets/entities/limbo/limbo_walking/limbo_front_arm.png" id="5_r3n78"]
+[ext_resource type="Texture2D" uid="uid://snwe43wvoort" path="res://assets/entities/limbo/limbo_walking/limbo_left_body.png" id="5_xp8dq"]
+[ext_resource type="Texture2D" uid="uid://cyt5kuvnxsy1k" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk1_body.png" id="6_22ekx"]
+[ext_resource type="Texture2D" uid="uid://yvdravgiq0s6" path="res://assets/entities/limbo/limbo_walking/limbo_front_arm_walk1.png" id="6_adj8s"]
+[ext_resource type="Texture2D" uid="uid://bntbyrelpu0d4" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk2_body.png" id="7_l4mes"]
+[ext_resource type="Texture2D" uid="uid://dwgorpfst1tr4" path="res://assets/entities/limbo/limbo_walking/limbo_front_arm_walk2.png" id="7_vgf3s"]
+[ext_resource type="Texture2D" uid="uid://dumxoeaiqdsde" path="res://assets/entities/limbo/limbo_walking/limbo_back_body.png" id="8_lpwcp"]
+[ext_resource type="Texture2D" uid="uid://b1vmv0abju8xo" path="res://assets/entities/limbo/limbo_walking/limbo_back_walk1_body.png" id="9_dnjg1"]
+[ext_resource type="Texture2D" uid="uid://b26jauqsru28a" path="res://assets/entities/limbo/limbo_walking/limbo_back_walk2_body.png" id="10_1ybrl"]
+[ext_resource type="Texture2D" uid="uid://07i2o645yx5v" path="res://assets/entities/limbo/limbo_walking/limbo_left_arm.png" id="14_rvmpk"]
+[ext_resource type="Texture2D" uid="uid://yv1l88pte0th" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk1_arm.png" id="15_dg8nq"]
+[ext_resource type="Texture2D" uid="uid://crt51spvvv4wl" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk2_arm.png" id="16_r1o44"]
+[ext_resource type="Texture2D" uid="uid://ot3p3776f3d0" path="res://assets/entities/limbo/limbo_walking/limbo_back_arm.png" id="17_gfihm"]
+[ext_resource type="Texture2D" uid="uid://k4efcxddf7yr" path="res://assets/entities/limbo/limbo_walking/limbo_back_walk1_arm.png" id="18_7u274"]
+[ext_resource type="Texture2D" uid="uid://dg2i31j48lg4x" path="res://assets/entities/limbo/limbo_walking/limbo_back_walk2_arm.png" id="19_egxu4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_lr8yo"]
 animations = [{
@@ -150,4 +150,7 @@ animation = &"walk_down"
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_ttjrt")
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
