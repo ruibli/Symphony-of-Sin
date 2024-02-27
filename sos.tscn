@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4fs2hi8i74nb"]
+[gd_scene load_steps=5 format=3 uid="uid://d4fs2hi8i74nb"]
 
 [ext_resource type="PackedScene" uid="uid://cgh0hydeq3fxq" path="res://assets/entities/nova/nova.tscn" id="1_mjwfh"]
 [ext_resource type="Script" path="res://sos.gd" id="1_mvx2q"]
 [ext_resource type="PackedScene" uid="uid://7nipui34ie0p" path="res://assets/levels/generator.tscn" id="2_8hqw5"]
+[ext_resource type="PackedScene" uid="uid://du7wg2sy0ohtd" path="res://assets/entities/limbo/limbo.tscn" id="3_2yb4c"]
 
 [node name="sos" type="Node2D"]
 script = ExtResource("1_mvx2q")
 nova_scene = ExtResource("1_mjwfh")
+limbo_scene = ExtResource("3_2yb4c")
 
 [node name="generator" parent="." instance=ExtResource("2_8hqw5")]

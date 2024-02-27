@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=18 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_1l2sp"]
@@ -14,15 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://b0dnen2ugjref" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_up.png" id="12_hyiue"]
 [ext_resource type="Texture2D" uid="uid://ddw5tvgset0no" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_up_walk1.png" id="13_04tot"]
 [ext_resource type="Texture2D" uid="uid://bfgnx6hk6dmbn" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_up_walk2.png" id="14_1qc7q"]
-[ext_resource type="Texture2D" uid="uid://d5jq5mxg82pk" path="res://assets/entities/nova/nova_walking/nova_down.png" id="15_wk4q8"]
-[ext_resource type="Texture2D" uid="uid://bd8kr5mchmcsy" path="res://assets/entities/nova/nova_walking/nova_down_walk1.png" id="16_8bw50"]
-[ext_resource type="Texture2D" uid="uid://dbu0iqc4ub5j2" path="res://assets/entities/nova/nova_walking/nova_down_walk2.png" id="17_wwprg"]
-[ext_resource type="Texture2D" uid="uid://d1nuem0hxmsru" path="res://assets/entities/nova/nova_walking/nova_left.png" id="18_hjxxa"]
-[ext_resource type="Texture2D" uid="uid://cfmli6x02de6m" path="res://assets/entities/nova/nova_walking/nova_left_walk1.png" id="19_h6qey"]
-[ext_resource type="Texture2D" uid="uid://cjowipm1qijq8" path="res://assets/entities/nova/nova_walking/nova_left_walk2.png" id="20_o0an7"]
-[ext_resource type="Texture2D" uid="uid://byiow11k41hsd" path="res://assets/entities/nova/nova_walking/nova_up.png" id="21_m4goa"]
-[ext_resource type="Texture2D" uid="uid://c5lbmspynuxuw" path="res://assets/entities/nova/nova_walking/nova_up_walk1.png" id="22_1o08w"]
-[ext_resource type="Texture2D" uid="uid://cr7ar28mfbsrm" path="res://assets/entities/nova/nova_walking/nova_up_walk2.png" id="23_3bbqp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wltb"]
 animations = [{
@@ -93,57 +84,6 @@ animations = [{
 "loop": true,
 "name": &"crossbow_up",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("15_wk4q8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_8bw50")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_wk4q8")
-}, {
-"duration": 1.0,
-"texture": ExtResource("17_wwprg")
-}],
-"loop": true,
-"name": &"walk_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("18_hjxxa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("19_h6qey")
-}, {
-"duration": 1.0,
-"texture": ExtResource("18_hjxxa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("20_o0an7")
-}],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("21_m4goa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("22_1o08w")
-}, {
-"duration": 1.0,
-"texture": ExtResource("21_m4goa")
-}, {
-"duration": 1.0,
-"texture": ExtResource("23_3bbqp")
-}],
-"loop": true,
-"name": &"walk_up",
-"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
@@ -162,7 +102,7 @@ metadata/_edit_group_ = true
 top_level = true
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"crossbow_up"
+animation = &"crossbow_down"
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
 z_index = 1
@@ -180,7 +120,6 @@ z_index = 1
 shape = SubResource("RectangleShape2D_e74t3")
 
 [node name="BowCooldown" type="Timer" parent="."]
-wait_time = 1000.0
 
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
 [connection signal="timeout" from="BowCooldown" to="." method="_on_bow_cooldown_timeout"]
