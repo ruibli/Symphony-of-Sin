@@ -6,17 +6,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00xgq"]
 size = Vector2(4.5, 8)
 
-[node name="Area2D" type="Area2D"]
+[node name="Arrow" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_7expc")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 texture = ExtResource("2_toghp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.25, 0)
 shape = SubResource("RectangleShape2D_00xgq")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
-[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

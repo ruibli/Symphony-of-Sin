@@ -8,9 +8,10 @@ signal hit
 @export var attack = 1
 @export var gold = 0
 @export var cooldown = .25
-@export var bullet_scene : PackedScene
+@export var arrow_scene : PackedScene
 var can_shoot = true
 var direction = "down"
+var b
 
 func _ready():
 	start()
@@ -75,13 +76,25 @@ func _process(_delta):
 		shoot()
 
 func shoot(): # attacking
-	if not can_shoot:
-		return
-	can_shoot = false
-	$BowCooldown.start()
-	var b = bullet_scene.instantiate()
-	get_tree().root.add_child(b)
-	b.start(position,direction)
+	if can_shoot:
+		can_shoot = false
+		$BowCooldown.start()
+		b = arrow_scene.instantiate()
+		if direction == "right":
+			velocity.x += 1
+			b.global_position = $NovaCollision.global_position + Vector2(15, 0)
+		elif direction == "left":
+			velocity.x -= 1
+			b.global_position = $NovaCollision.global_position + Vector2(-15, 0)
+		elif direction == "down":
+			velocity.y += 1
+			b.global_position = $NovaCollision.global_position + Vector2(0, 20)
+		elif direction == "up":
+			velocity.y -= 1
+			b.global_position = $NovaCollision.global_position + Vector2(0, -20)
+		b.start(direction)
+		get_tree().root.add_child(b)
+	
 
 func _on_bow_cooldown_timeout(): # bow cooldown
 	can_shoot = true

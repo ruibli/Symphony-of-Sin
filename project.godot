@@ -51,6 +51,11 @@ attack={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="map/nova"
+2d_physics/layer_2="map/nova attacks"
+
 [rendering]
 
 textures/default_filters/use_nearest_mipmap_filter=true

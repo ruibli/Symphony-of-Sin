@@ -155,7 +155,7 @@ size = Vector2(0.1, 0.1)
 [node name="nova" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_wapv4")
-bullet_scene = ExtResource("2_1l2sp")
+arrow_scene = ExtResource("2_1l2sp")
 metadata/_edit_group_ = true
 
 [node name="NovaAnimation" type="AnimatedSprite2D" parent="."]
@@ -169,6 +169,9 @@ z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="RoomDetector" type="Area2D" parent="."]
 
@@ -177,6 +180,7 @@ z_index = 1
 shape = SubResource("RectangleShape2D_e74t3")
 
 [node name="BowCooldown" type="Timer" parent="."]
+wait_time = 1000.0
 
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
 [connection signal="timeout" from="BowCooldown" to="." method="_on_bow_cooldown_timeout"]
