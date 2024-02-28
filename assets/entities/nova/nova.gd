@@ -47,37 +47,37 @@ func _process(_delta):
 		# attack while walking
 		if Input.is_action_pressed("attack_left"):
 			$NovaAnimation.play("crossbow_left")
-			$NovaAnimation.frame = 1
+			#$NovaAnimation.frame = 1
 			$NovaAnimation.flip_h = false
 			direction = "left"
 			shoot()
 		elif Input.is_action_pressed("attack_right"):
-			$NovaAnimation.animation = "crossbow_right"
+			$NovaAnimation.play("crossbow_right")
 			$NovaAnimation.flip_h = false
 			direction = "right"
 			shoot()
 		elif Input.is_action_pressed("attack_up"):
-			$NovaAnimation.animation = "crossbow_up"
+			$NovaAnimation.play("crossbow_up")
 			$NovaAnimation.flip_h = false
 			direction = "up"
 			shoot()
 		elif Input.is_action_pressed("attack_down"):
-			$NovaAnimation.animation = "crossbow_down"
+			$NovaAnimation.play("crossbow_down")
 			$NovaAnimation.flip_h = false
 			direction = "down"
 			shoot()
 		# if not shooting in a dirction, walk facing direction player is moving
 		elif Input.is_action_pressed("move_up"): 
-			$NovaAnimation.animation = "crossbow_up"
+			$NovaAnimation.play("crossbow_up")
 			$NovaAnimation.flip_h = false
 		elif Input.is_action_pressed("move_down"):
-			$NovaAnimation.animation = "crossbow_down"
+			$NovaAnimation.play("crossbow_down")
 			$NovaAnimation.flip_h = false
 		elif Input.is_action_pressed("move_left"):
-			$NovaAnimation.animation = "crossbow_left"
+			$NovaAnimation.play("crossbow_left")
 			$NovaAnimation.flip_h = false
 		elif Input.is_action_pressed("move_right"):
-			$NovaAnimation.animation = "crossbow_right"
+			$NovaAnimation.play("crossbow_right")
 			$NovaAnimation.flip_h = false
 
 func shoot(): # attacking
