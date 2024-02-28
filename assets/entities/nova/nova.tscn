@@ -113,6 +113,8 @@ shape = SubResource("CapsuleShape2D_g5e2g")
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_smoothed = true
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+rotation_smoothing_enabled = true
 
 [node name="RoomDetector" type="Area2D" parent="."]
 

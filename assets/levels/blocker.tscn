@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://7h4761rqy8px"]
+
+[ext_resource type="Texture2D" uid="uid://dtfwy68fxvp83" path="res://assets/levels/castle/castle_blocker.png" id="1_wygkg"]
+
+[node name="blocker" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wygkg")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
