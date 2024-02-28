@@ -109,8 +109,8 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	var size = collision_shape.shape.extents
 	
 	var view_size = get_viewport_rect().size
-	size.y = view_size.y
-	size.x = view_size.x
+	size.y = view_size.y - 1
+	size.x = view_size.x - 1
 	
 	$Camera2D.limit_top = collision_shape.global_position.y - size.y/2
 	$Camera2D.limit_left = collision_shape.global_position.x - size.x/2
