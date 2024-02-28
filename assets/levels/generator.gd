@@ -11,25 +11,31 @@ var room = preload("res://assets/levels/room.tscn")
 var min_number_rooms = 10
 var max_number_rooms = 16
 var generation_chance = 20
+var boss = false # red
+var spawn = false # blue
+var lore = false # purple
+var shop = false # yellow
 
 var spawn_point
+var level
 
 @onready var map_node = $MapNode
 
 func get_spawn():
 	return spawn_point
 
-func new_dungeon():
+func new_dungeon(l):
 	randomize()
 	dungeon = generate(randf_range(-1000, 1000))
+	level = l
 	load_map()
 	
 func load_map():
 	
-	var boss = false # red
-	var spawn = false # blue
-	var lore = false # purple
-	var shop = false # yellow
+	boss = false # red
+	spawn = false # blue
+	lore = false # purple
+	shop = false # yellow
 	
 	for i in range(0, map_node.get_child_count()):
 		map_node.get_child(i).queue_free()
@@ -50,6 +56,7 @@ func load_map():
 		elif(!shop && dungeon.get(i).number_of_connections == 1):
 			shop = true
 			temp.type = "shop"
+		temp.level = level
 		temp.position = i * 320
 		map_node.add_child(temp)
 		
@@ -77,7 +84,7 @@ func load_map():
 func generate(room_seed):
 	seed(room_seed)
 	var generated = {}
-	var size = floor(randf_range(min_number_rooms, max_number_rooms))
+	var size = floor(randi_range(min_number_rooms, max_number_rooms))
 	
 	generated[Vector2(0,0)] = room.instantiate()
 	size -= 1
@@ -85,7 +92,7 @@ func generate(room_seed):
 	while(size > 0):
 		for i in generated.keys():
 			if(randf_range(0,100) < generation_chance):
-				var direction = randf_range(0,4)
+				var direction = randi_range(0,4)
 				if(direction < 1):
 					var new_room_position = i + Vector2(1, 0)
 					if(!generated.has(new_room_position)):
