@@ -34,13 +34,7 @@ func _process(_delta):
 		$CollisionShape2D.rotation_degrees = 0
 		
 	for index in get_slide_collision_count():
-		var collision := get_slide_collision(index)
-		var body := collision.get_collider
 		queue_free()
-		#if area.is_in_group("enemies"):
-			#area.explode()
-			#queue_free()
-
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

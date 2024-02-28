@@ -68,8 +68,9 @@ attack_right={
 
 [layer_names]
 
-2d_physics/layer_1="map/nova"
-2d_physics/layer_2="map/nova attacks"
+2d_physics/layer_1="map"
+2d_physics/layer_2="nova"
+2d_physics/layer_3="enemies"
 
 [rendering]
 

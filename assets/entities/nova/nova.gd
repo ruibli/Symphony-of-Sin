@@ -46,7 +46,8 @@ func _process(_delta):
 	if current_weapon == "hand_crossbow" :
 		# attack while walking
 		if Input.is_action_pressed("attack_left"):
-			$NovaAnimation.animation = "crossbow_left"
+			$NovaAnimation.play("crossbow_left")
+			$NovaAnimation.frame = 1
 			$NovaAnimation.flip_h = false
 			direction = "left"
 			shoot()
