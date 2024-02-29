@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6dpj8m7b8mst"
-path="res://.godot/imported/castle_wall.png-25e4b67f4008ab1b7d42b524150ccb14.ctex"
+uid="uid://r23gxfij66yj"
+path="res://.godot/imported/manor_boss.png-0534a736e1f1fa28003f6ea111ffcdd4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/castle/castle_wall.png"
-dest_files=["res://.godot/imported/castle_wall.png-25e4b67f4008ab1b7d42b524150ccb14.ctex"]
+source_file="res://assets/levels/manor/manor_boss.png"
+dest_files=["res://.godot/imported/manor_boss.png-0534a736e1f1fa28003f6ea111ffcdd4.ctex"]
 
 [params]
 

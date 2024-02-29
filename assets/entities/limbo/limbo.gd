@@ -3,7 +3,7 @@
 extends CharacterBody2D
 
 # Node refs
-@onready var player = get_tree().root.get_node("sos/nova")
+@onready var player
 
 # Enemy stats
 @export var speed = 50
@@ -19,7 +19,8 @@ func _ready():
 
 func _on_timer_timeout():
 # distance of enemy to player
-	var player_distance = player.position - position
+	player = Glova.get_pos()
+	var player_distance = player - position
 	#turn to player if in its radius
 	if player_distance.length() <= 20:
 		new_direction = player_distance.normalized()
@@ -42,7 +43,7 @@ func _physics_process(delta):
 	var collision = move_and_collide(movement)
 
 	#if the enemy collides with other objects, turn them around and re-randomize the timer countdown
-	if collision != null and collision.get_collider().name != "Player":
+	if collision != null and collision.get_collider().name != "nova":
 		#direction rotation
 		direction = direction.rotated(rng.randf_range(PI/4, PI/2))
 		#timer countdown random range

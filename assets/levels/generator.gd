@@ -77,7 +77,7 @@ func load_map():
 func generate(room_seed):
 	seed(room_seed)
 	var generated = {}
-	var size = floor(randf_range(min_number_rooms, max_number_rooms))
+	var size = floor(randi_range(min_number_rooms, max_number_rooms))
 	
 	generated[Vector2(0,0)] = room.instantiate()
 	size -= 1
@@ -85,7 +85,7 @@ func generate(room_seed):
 	while(size > 0):
 		for i in generated.keys():
 			if(randf_range(0,100) < generation_chance):
-				var direction = randf_range(0,4)
+				var direction = randi_range(0,4)
 				if(direction < 1):
 					var new_room_position = i + Vector2(1, 0)
 					if(!generated.has(new_room_position)):

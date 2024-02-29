@@ -79,6 +79,8 @@ func _process(_delta):
 		elif Input.is_action_pressed("move_right"):
 			$NovaAnimation.play("crossbow_right")
 			$NovaAnimation.flip_h = false
+		
+	Glova.set_pos($NovaCollision.global_position)
 
 func shoot(): # attacking
 	if can_shoot:

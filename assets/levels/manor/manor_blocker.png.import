@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtfwy68fxvp83"
-path="res://.godot/imported/castle_blocker.png-1b2e9309991634a97e00a872458b66b7.ctex"
+uid="uid://bmbqvi4dlaswi"
+path="res://.godot/imported/manor_blocker.png-01d0fd728a5b62479824fd73228ece54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/castle/castle_blocker.png"
-dest_files=["res://.godot/imported/castle_blocker.png-1b2e9309991634a97e00a872458b66b7.ctex"]
+source_file="res://assets/levels/manor/manor_blocker.png"
+dest_files=["res://.godot/imported/manor_blocker.png-01d0fd728a5b62479824fd73228ece54.ctex"]
 
 [params]
 
