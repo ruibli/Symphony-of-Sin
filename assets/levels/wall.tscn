@@ -1,12 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://nr0hs8sfdwlj"]
 
-[ext_resource type="Texture2D" uid="uid://6dpj8m7b8mst" path="res://assets/levels/castle/castle_wall.png" id="1_htk54"]
+[ext_resource type="Texture2D" uid="uid://blt8f6ulhmlgl" path="res://assets/levels/manor/manor_wall.png" id="1_k37n1"]
 
 [node name="wall" type="StaticBody2D"]
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_htk54")
+texture = ExtResource("1_k37n1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-14, -144, -15, -144, -15, -143, -16, -143, -16, -142, -142, -142, -142, -16, -143, -16, -143, -15, -144, -15, -144, -14, -160, -14, -160, -160, -14, -160)

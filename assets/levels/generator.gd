@@ -11,31 +11,25 @@ var room = preload("res://assets/levels/room.tscn")
 var min_number_rooms = 10
 var max_number_rooms = 16
 var generation_chance = 20
-var boss = false # red
-var spawn = false # blue
-var lore = false # purple
-var shop = false # yellow
 
 var spawn_point
-var level
 
 @onready var map_node = $MapNode
 
 func get_spawn():
 	return spawn_point
 
-func new_dungeon(l):
+func new_dungeon():
 	randomize()
 	dungeon = generate(randf_range(-1000, 1000))
-	level = l
 	load_map()
 	
 func load_map():
 	
-	boss = false # red
-	spawn = false # blue
-	lore = false # purple
-	shop = false # yellow
+	var boss = false # red
+	var spawn = false # blue
+	var lore = false # purple
+	var shop = false # yellow
 	
 	for i in range(0, map_node.get_child_count()):
 		map_node.get_child(i).queue_free()
@@ -56,7 +50,6 @@ func load_map():
 		elif(!shop && dungeon.get(i).number_of_connections == 1):
 			shop = true
 			temp.type = "shop"
-		temp.level = level
 		temp.position = i * 320
 		map_node.add_child(temp)
 		

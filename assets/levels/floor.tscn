@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bo02l0cij368f"]
 
-[ext_resource type="Texture2D" uid="uid://dokey8y0d6qst" path="res://assets/levels/castle/castle_floor.png" id="1_dn6k0"]
 [ext_resource type="Script" path="res://assets/levels/floor.gd" id="1_q5gtc"]
 [ext_resource type="PackedScene" uid="uid://7h4761rqy8px" path="res://assets/levels/blocker.tscn" id="2_bgbog"]
 [ext_resource type="PackedScene" uid="uid://du7wg2sy0ohtd" path="res://assets/entities/limbo/limbo.tscn" id="3_28d3w"]
+[ext_resource type="Texture2D" uid="uid://dd8ic20mgbjw1" path="res://assets/levels/manor/manor_floor.png" id="4_hamwj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tmqa"]
 size = Vector2(320, 320)
@@ -15,7 +15,7 @@ blocker_scene = ExtResource("2_bgbog")
 limbo_scene = ExtResource("3_28d3w")
 
 [node name="floor" type="Sprite2D" parent="."]
-texture = ExtResource("1_dn6k0")
+texture = ExtResource("4_hamwj")
 
 [node name="Area2D" type="Area2D" parent="floor"]
 

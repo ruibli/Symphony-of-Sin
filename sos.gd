@@ -4,16 +4,14 @@ extends Node
 @export var nova_scene: PackedScene
 var nova
 
-var level = 1
-
-
 func _ready():
 	
-	generator.new_dungeon(level)
+	generator.new_dungeon()
 	
 	nova = nova_scene.instantiate()
 	nova.position = generator.get_spawn()
 	add_child(nova)
+	
 	
 func _process(_delta):
 	pass
