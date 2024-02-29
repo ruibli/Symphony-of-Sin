@@ -10,6 +10,5 @@ script = ExtResource("1_u1pwq")
 wall_scene = ExtResource("2_npvc7")
 fill_scene = ExtResource("3_72gi5")
 floor_scene = ExtResource("4_1choc")
-metadata/_edit_group_ = true
 
 [node name="MapNode" type="Node2D" parent="."]

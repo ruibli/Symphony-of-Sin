@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djh4k71qbj3bg"
-path="res://.godot/imported/item_pedestal.png-6dd4d124b98ff08b1aceaf1511bb30a5.ctex"
+uid="uid://hm0lnqo1lff4"
+path="res://.godot/imported/potion.png-12c843f9b9cc2bc9d4c347c04807755d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/items/item_pedestal.png"
-dest_files=["res://.godot/imported/item_pedestal.png-6dd4d124b98ff08b1aceaf1511bb30a5.ctex"]
+source_file="res://assets/loot/generic/potion.png"
+dest_files=["res://.godot/imported/potion.png-12c843f9b9cc2bc9d4c347c04807755d.ctex"]
 
 [params]
 

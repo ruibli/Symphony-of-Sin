@@ -22,8 +22,16 @@ func _ready():
 		else:
 			$floor.texture = load("res://assets/levels/manor/manor_floor.png")
 	
-	if type == "enemy":	
-		var layout = randi_range(0,1)
+	if type == "boss":
+		pass
+	elif type == "spawn":
+		pass
+	elif type == "lore":
+		pass
+	elif type == "shop":
+		pass
+	else:	
+		var layout = randi_range(0,2)
 		if layout == 1: # diagonals
 			blocker = blocker_scene.instantiate()
 			blocker.position = Vector2(32,32)
@@ -53,10 +61,7 @@ func _ready():
 			
 			var count = randi_range(level,level+2)
 			while count > 0:
-				var enemy = randi_range(1,1)
-				if enemy == 1:
-					temp = limbo_scene.instantiate()
-				
+				temp = rand_enemy()	
 				var locations = [0,1,2,3,4,5,6,7]
 				var location = locations[randi() % locations.size()]
 				if location == 0:
@@ -86,10 +91,125 @@ func _ready():
 				add_child(temp)
 				count -= 1
 			
-		elif layout == 2:
-			pass
-		else: # blank
-			pass
+		elif layout == 2: # plus
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(32,64)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(32,96)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(64,32)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(96,32)
+			add_child(blocker)
+			
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(-32,64)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(-32,96)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(-64,32)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(-96,32)
+			add_child(blocker)
+			
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(32,-64)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(32,-96)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(64,-32)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(96,-32)
+			add_child(blocker)
+			
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(-32,-64)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(-32,-96)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(-64,-32)
+			add_child(blocker)
+			blocker = blocker_scene.instantiate()
+			blocker.position = Vector2(-96,-32)
+			add_child(blocker)
+			
+			var count = randi_range(level,level+2)
+			while count > 0:
+				temp = rand_enemy()	
+				var locations = [0,1,2,3,4,5,6,7]
+				var location = locations[randi() % locations.size()]
+				if location == 0:
+					temp.position = Vector2(64,64)
+					locations.remove_at(location)
+				elif location == 1:
+					temp.position = Vector2(96,96)
+					locations.remove_at(location)
+				elif location == 2:
+					temp.position = Vector2(-64,64)
+					locations.remove_at(location)
+				elif location == 3:
+					temp.position = Vector2(-96,96)
+					locations.remove_at(location)
+				elif location == 4:
+					temp.position = Vector2(64,-64)
+					locations.remove_at(location)
+				elif location == 5:
+					temp.position = Vector2(96,-96)
+					locations.remove_at(location)
+				elif location == 6:
+					temp.position = Vector2(-64,-64)
+					locations.remove_at(location)
+				elif location == 7:
+					temp.position = Vector2(-96,-96)
+					locations.remove_at(location)
+				add_child(temp)
+				count -= 1
+		
+		else: # empty
+			var count = randi_range(level,level+2)
+			while count > 0:
+				temp = rand_enemy()	
+				var locations = [0,1,2,3,4,5,6,7]
+				var location = locations[randi() % locations.size()]
+				if location == 0:
+					temp.position = Vector2(32,32)
+					locations.remove_at(location)
+				elif location == 1:
+					temp.position = Vector2(-32,32)
+					locations.remove_at(location)
+				elif location == 2:
+					temp.position = Vector2(32,-32)
+					locations.remove_at(location)
+				elif location == 3:
+					temp.position = Vector2(-32,-32)
+					locations.remove_at(location)
+				elif location == 4:
+					temp.position = Vector2(32,0)
+					locations.remove_at(location)
+				elif location == 5:
+					temp.position = Vector2(-32,0)
+					locations.remove_at(location)
+				elif location == 6:
+					temp.position = Vector2(0,32)
+					locations.remove_at(location)
+				elif location == 7:
+					temp.position = Vector2(0,-32)
+					locations.remove_at(location)
+				add_child(temp)
+				count -= 1
 
-func _process(_delta):
-	pass
+func rand_enemy():
+	var enemy = randi_range(1,1)
+	if enemy == 1:
+		return limbo_scene.instantiate()
