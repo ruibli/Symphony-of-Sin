@@ -13,6 +13,7 @@ var new_direction = Vector2(0,1) # next direction
 # Direction timer
 var rng = RandomNumberGenerator.new()
 var timer = 0
+var active = false
 
 func _ready():
 	rng.randomize()
@@ -39,19 +40,24 @@ func _on_timer_timeout():
 			direction = Vector2.DOWN.rotated(rng.randf() * 2 * PI)
 
 func _physics_process(delta):
-	var movement = speed * direction * delta
-	var collision = move_and_collide(movement)
+	if active:
+		var movement = speed * direction * delta
+		var collision = move_and_collide(movement)
 
-	#if the enemy collides with other objects, turn them around and re-randomize the timer countdown
-	if collision != null and collision.get_collider().name != "nova":
-		#direction rotation
-		direction = direction.rotated(rng.randf_range(PI/4, PI/2))
-		#timer countdown random range
-		timer = rng.randf_range(2, 5)
-	#if they collide with the player trigger the timer's timeout() so that they can move toward the player
-	else:
-		timer = 0
-
+		#if the enemy collides with other objects, turn them around and re-randomize the timer countdown
+		if collision != null and collision.get_collider().name != "nova":
+			#direction rotation
+			direction = direction.rotated(rng.randf_range(PI/4, PI/2))
+			#timer countdown random range
+			timer = rng.randf_range(2, 5)
+		#if they collide with the player trigger the timer's timeout() so that they can move toward the player
+		else:
+			timer = 0
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+	active = false
+	Glova.change_enemies(-1)
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	active = true
+	Glova.change_enemies(1)
