@@ -6,7 +6,10 @@ var nova
 var total = 0
 
 func _ready():
-	$black.color = Color(0, 0, 0, 0)
+	new_game()	
+	
+func new_game():
+	Glova.reset()
 	generator.new_dungeon()
 	
 	nova = nova_scene.instantiate()
@@ -16,10 +19,8 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("reset"):
 		total += delta
-		$black.color = Color(0, 0, 0, total/2)
-	if Input.is_action_just_released("reset"):
+	elif Input.is_action_just_released("reset"):
 		total = 0
-		$black.color = Color(0, 0, 0, 0)
+	$black.modulate= Color(0, 0, 0, total/2)
 	if total > 2:
 		get_tree().reload_current_scene()
-		Glova.reset()

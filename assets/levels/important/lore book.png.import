@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dggsv5c1mrh0h"
-path="res://.godot/imported/pedestal.png-cd1092af3fe64e9310d60e75de1b9131.ctex"
+uid="uid://c0v6jnpsxwv0g"
+path="res://.godot/imported/lore book.png-ca07325755ffd0c196743a20483a68c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loot/generic/pedestal.png"
-dest_files=["res://.godot/imported/pedestal.png-cd1092af3fe64e9310d60e75de1b9131.ctex"]
+source_file="res://assets/levels/important/lore book.png"
+dest_files=["res://.godot/imported/lore book.png-ca07325755ffd0c196743a20483a68c2.ctex"]
 
 [params]
 
