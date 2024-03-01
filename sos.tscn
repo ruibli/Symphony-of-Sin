@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4fs2hi8i74nb"]
+[gd_scene load_steps=5 format=3 uid="uid://d4fs2hi8i74nb"]
 
 [ext_resource type="PackedScene" uid="uid://cgh0hydeq3fxq" path="res://assets/entities/nova/nova.tscn" id="1_mjwfh"]
 [ext_resource type="Script" path="res://sos.gd" id="1_mvx2q"]
 [ext_resource type="PackedScene" uid="uid://7nipui34ie0p" path="res://assets/levels/generator.tscn" id="2_8hqw5"]
+[ext_resource type="Texture2D" uid="uid://caqfs8frmmmhx" path="res://assets/levels/important/black.png" id="3_6wlpm"]
 
 [node name="sos" type="Node2D"]
 script = ExtResource("1_mvx2q")
 nova_scene = ExtResource("1_mjwfh")
 
-[node name="black" type="ColorRect" parent="."]
+[node name="black" type="Sprite2D" parent="."]
 z_index = 2
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 0, 0, 1)
+z_as_relative = false
+texture = ExtResource("3_6wlpm")
 
 [node name="generator" parent="." instance=ExtResource("2_8hqw5")]

@@ -128,8 +128,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6v5pv"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2f1h"]
 height = 20.0
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
@@ -138,21 +137,16 @@ script = ExtResource("1_a74ao")
 
 [node name="LimboBodyAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_owucy")
-animation = &"walk_down"
+animation = &"walk_left"
 
 [node name="LimboArmAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c3lg3")
 animation = &"walk_down"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = -1.5708
-shape = SubResource("CapsuleShape2D_6v5pv")
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="LimboCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_u2f1h")
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
