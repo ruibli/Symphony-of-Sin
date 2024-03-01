@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://4wwjfd8c7xat"]
 
-[ext_resource type="Script" path="res://assets/levels/room.gd" id="1_lftoy"]
+[ext_resource type="Script" path="res://assets/map/room.gd" id="1_lftoy"]
 
 [node name="room" type="Node2D"]
 script = ExtResource("1_lftoy")

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 100
+var damage = 50
 
 func start(direction):
 	velocity = Vector2.ZERO

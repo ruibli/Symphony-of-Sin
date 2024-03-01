@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://nr0hs8sfdwlj"]
 
-[ext_resource type="Texture2D" uid="uid://blt8f6ulhmlgl" path="res://assets/levels/manor/manor_wall.png" id="1_k37n1"]
+[ext_resource type="Texture2D" uid="uid://blt8f6ulhmlgl" path="res://assets/map/manor/manor_wall.png" id="1_k37n1"]
 
 [node name="wall" type="StaticBody2D"]
 collision_mask = 0

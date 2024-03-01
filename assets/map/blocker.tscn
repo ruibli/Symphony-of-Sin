@@ -1,11 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://7h4761rqy8px"]
 
-[ext_resource type="Texture2D" uid="uid://bmbqvi4dlaswi" path="res://assets/levels/manor/manor_blocker.png" id="1_70hcc"]
+[ext_resource type="Texture2D" uid="uid://bmbqvi4dlaswi" path="res://assets/map/manor/manor_blocker.png" id="1_ccyjg"]
 
 [node name="blocker" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_70hcc")
+texture = ExtResource("1_ccyjg")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)

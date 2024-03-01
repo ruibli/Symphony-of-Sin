@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btn15xhies6to"
-path="res://.godot/imported/manor_fill.png-61357f3727cde45de9adcb95b6fdb077.ctex"
+uid="uid://d0rf0m5263ma"
+path="res://.godot/imported/manor_shop.png-85fdba9ea0d0dad08b97c57ac1969fa4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/manor/manor_fill.png"
-dest_files=["res://.godot/imported/manor_fill.png-61357f3727cde45de9adcb95b6fdb077.ctex"]
+source_file="res://assets/map/manor/manor_shop.png"
+dest_files=["res://.godot/imported/manor_shop.png-85fdba9ea0d0dad08b97c57ac1969fa4.ctex"]
 
 [params]
 
