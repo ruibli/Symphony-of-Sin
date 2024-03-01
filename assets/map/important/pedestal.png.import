@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jyimhfct3xgt"
-path="res://.godot/imported/manor_lore.png-8b449e3ce7bc555878e574f8da92b886.ctex"
+uid="uid://dggsv5c1mrh0h"
+path="res://.godot/imported/pedestal.png-bd04f93d5649905473e51b12009b932f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/manor/manor_lore.png"
-dest_files=["res://.godot/imported/manor_lore.png-8b449e3ce7bc555878e574f8da92b886.ctex"]
+source_file="res://assets/map/important/pedestal.png"
+dest_files=["res://.godot/imported/pedestal.png-bd04f93d5649905473e51b12009b932f.ctex"]
 
 [params]
 

@@ -12,15 +12,15 @@ var temp
 func _ready():
 	if level == 1: # level 1 manor assets
 		if type == "boss":
-			$floor.texture = load("res://assets/levels/manor/manor_boss.png")
+			$floor.texture = load("res://assets/map/manor/manor_boss.png")
 		elif type == "spawn":
-			$floor.texture = load("res://assets/levels/manor/manor_spawn.png")
+			$floor.texture = load("res://assets/map/manor/manor_spawn.png")
 		elif type == "lore":
-			$floor.texture = load("res://assets/levels/manor/manor_lore.png")
+			$floor.texture = load("res://assets/map/manor/manor_lore.png")
 		elif type == "shop":
-			$floor.texture = load("res://assets/levels/manor/manor_shop.png")
+			$floor.texture = load("res://assets/map/manor/manor_shop.png")
 		else:
-			$floor.texture = load("res://assets/levels/manor/manor_floor.png")
+			$floor.texture = load("res://assets/map/manor/manor_floor.png")
 	
 	if type == "boss":
 		pass

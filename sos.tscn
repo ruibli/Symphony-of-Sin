@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cgh0hydeq3fxq" path="res://assets/entities/nova/nova.tscn" id="1_mjwfh"]
 [ext_resource type="Script" path="res://sos.gd" id="1_mvx2q"]
-[ext_resource type="PackedScene" uid="uid://7nipui34ie0p" path="res://assets/levels/generator.tscn" id="2_8hqw5"]
-[ext_resource type="Texture2D" uid="uid://caqfs8frmmmhx" path="res://assets/levels/important/black.png" id="3_6wlpm"]
+[ext_resource type="PackedScene" uid="uid://7nipui34ie0p" path="res://assets/map/generator.tscn" id="2_8hqw5"]
+[ext_resource type="Texture2D" uid="uid://caqfs8frmmmhx" path="res://assets/map/important/black.png" id="3_6wlpm"]
 
 [node name="sos" type="Node2D"]
 script = ExtResource("1_mvx2q")

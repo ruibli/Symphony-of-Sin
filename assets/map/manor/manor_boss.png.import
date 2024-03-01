@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://p8yr2jmu6r6i"
-path="res://.godot/imported/manor_spawn.png-b5f188fe2233ddc9290ca52985dff450.ctex"
+uid="uid://r23gxfij66yj"
+path="res://.godot/imported/manor_boss.png-cca4e20c002d952d35c16c96e6a42338.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/manor/manor_spawn.png"
-dest_files=["res://.godot/imported/manor_spawn.png-b5f188fe2233ddc9290ca52985dff450.ctex"]
+source_file="res://assets/map/manor/manor_boss.png"
+dest_files=["res://.godot/imported/manor_boss.png-cca4e20c002d952d35c16c96e6a42338.ctex"]
 
 [params]
 

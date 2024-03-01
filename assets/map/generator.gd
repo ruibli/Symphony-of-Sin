@@ -6,7 +6,7 @@ var temp
 @export var fill_scene: PackedScene
 @export var floor_scene: PackedScene
 
-var room = preload("res://assets/levels/room.tscn")
+var room = preload("res://assets/map/room.tscn")
 
 var min_number_rooms = 10
 var max_number_rooms = 16

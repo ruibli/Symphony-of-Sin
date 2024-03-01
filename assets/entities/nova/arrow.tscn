@@ -6,8 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_00xgq"]
 size = Vector2(4.5, 8)
 
-[node name="Arrow" type="CharacterBody2D"]
-collision_layer = 0
+[node name="arrow" type="CharacterBody2D"]
+collision_layer = 8
 collision_mask = 5
 script = ExtResource("1_7expc")
 

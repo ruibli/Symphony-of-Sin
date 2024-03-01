@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r23gxfij66yj"
-path="res://.godot/imported/manor_boss.png-0534a736e1f1fa28003f6ea111ffcdd4.ctex"
+uid="uid://c0v6jnpsxwv0g"
+path="res://.godot/imported/lore book.png-750115146bbcc0da8e2025a127311844.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/levels/manor/manor_boss.png"
-dest_files=["res://.godot/imported/manor_boss.png-0534a736e1f1fa28003f6ea111ffcdd4.ctex"]
+source_file="res://assets/map/important/lore book.png"
+dest_files=["res://.godot/imported/lore book.png-750115146bbcc0da8e2025a127311844.ctex"]
 
 [params]
 
