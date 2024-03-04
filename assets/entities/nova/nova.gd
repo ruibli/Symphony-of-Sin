@@ -43,6 +43,14 @@ func _process(_delta):
 	
 	move_and_slide()
 	$NovaAnimation.global_position = $NovaCollision.global_position
+	Glova.set_pos($NovaCollision.global_position)
+	$Camera2D.global_position = camera_pos
+	if awareness <= 0:
+		Glova.set_level(0)
+	if awareness > 100:
+		awareness = 100
+	
+	# collision code here
 	
 # Crossbow Animations
 	if current_weapon == "hand_crossbow" :
@@ -108,12 +116,6 @@ func _process(_delta):
 			if foot:
 				$NovaAnimation.frame = 1
 				foot = false
-		
-	Glova.set_pos($NovaCollision.global_position)
-	$Camera2D.global_position = camera_pos
-	
-	if awareness <= 0:
-		Glova.set_level(0)
 
 func shoot(): # attacking
 	if can_shoot:
@@ -134,7 +136,6 @@ func shoot(): # attacking
 			b.global_position = $NovaCollision.global_position + Vector2(0, -20)
 		b.start(direction)
 		get_tree().root.add_child(b)
-
 
 func _on_bow_cooldown_timeout(): # bow cooldown
 	can_shoot = true
