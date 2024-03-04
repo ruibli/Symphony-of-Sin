@@ -9,10 +9,8 @@ extends CharacterBody2D
 @export var speed = 50
 @export var health = 100
 
-# Direction timer
-var rng = RandomNumberGenerator.new()
-var timer = 0
 var active = false
+var can_get_hit = true
 
 func _physics_process(_delta):
 	if active:
@@ -21,9 +19,18 @@ func _physics_process(_delta):
 		velocity = player_distance.normalized()
 		velocity = velocity.normalized() * speed
 		move_and_slide()
-		$LimboArmAnim.global_position = $LimboCollision.global_position
-		$LimboBodyAnim.global_position = $LimboCollision.global_position
-
+		$LimboAnimation.global_position = $LimboCollision.global_position
+		
+		# Animation
+		if velocity.y < 0: #up
+			$LimboAnimation.play("walk_up")
+		elif velocity.y > 0: #down
+			$LimboAnimation.play("walk_down")
+		elif velocity.x > 0: #left
+			$LimboAnimation.play("walk_left")
+		elif velocity.x < 0: #right
+			$LimboAnimation.play("walk_right")
+		
 		#if the enemy collides with other objects, turn them around and re-randomize the timer countdown
 		#if collision != null and collision.get_collider().name != "nova":
 			#direction rotation
@@ -37,10 +44,14 @@ func _physics_process(_delta):
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
 			if "damage" in collision.get_collider():
-				health -= collision.get_collider().damage
-				print("hit")
+				if can_get_hit:
+					health -= collision.get_collider().damage
+					can_get_hit = false
+					$HitCooldown.start()
+					print("hit")
 	
 		if health <= 0:
+			await get_tree().process_frame
 			queue_free()
 			Glova.change_enemies(-1)
 
@@ -51,3 +62,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	active = true
 	Glova.change_enemies(1)
+
+func _on_hit_cooldown_timeout():
+	can_get_hit = true

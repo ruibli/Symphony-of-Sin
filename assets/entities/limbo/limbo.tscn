@@ -1,127 +1,54 @@
-[gd_scene load_steps=23 format=3 uid="uid://du7wg2sy0ohtd"]
+[gd_scene load_steps=10 format=3 uid="uid://du7wg2sy0ohtd"]
 
 [ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
-[ext_resource type="Texture2D" uid="uid://cv65sxjymv1rg" path="res://assets/entities/limbo/limbo_walking/limbo_front_body.png" id="2_085pv"]
-[ext_resource type="Texture2D" uid="uid://crevhrwj1u3fw" path="res://assets/entities/limbo/limbo_walking/limbo_front_body_walk1.png" id="3_xh7fq"]
-[ext_resource type="Texture2D" uid="uid://mfpmy7s12rl5" path="res://assets/entities/limbo/limbo_walking/limbo_front_body_walk2.png" id="4_d262e"]
-[ext_resource type="Texture2D" uid="uid://snwe43wvoort" path="res://assets/entities/limbo/limbo_walking/limbo_left_body.png" id="5_h2gq2"]
-[ext_resource type="Texture2D" uid="uid://cyt5kuvnxsy1k" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk1_body.png" id="6_3ikos"]
-[ext_resource type="Texture2D" uid="uid://bntbyrelpu0d4" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk2_body.png" id="7_pi5s0"]
-[ext_resource type="Texture2D" uid="uid://dumxoeaiqdsde" path="res://assets/entities/limbo/limbo_walking/limbo_back_body.png" id="8_c7ofg"]
-[ext_resource type="Texture2D" uid="uid://b1vmv0abju8xo" path="res://assets/entities/limbo/limbo_walking/limbo_back_walk1_body.png" id="9_ikj62"]
-[ext_resource type="Texture2D" uid="uid://b26jauqsru28a" path="res://assets/entities/limbo/limbo_walking/limbo_back_walk2_body.png" id="10_rkfjb"]
-[ext_resource type="Texture2D" uid="uid://c33ao43wdj1n" path="res://assets/entities/limbo/limbo_walking/limbo_front_arm.png" id="11_i1n0t"]
-[ext_resource type="Texture2D" uid="uid://yvdravgiq0s6" path="res://assets/entities/limbo/limbo_walking/limbo_front_arm_walk1.png" id="12_p2f0q"]
-[ext_resource type="Texture2D" uid="uid://dwgorpfst1tr4" path="res://assets/entities/limbo/limbo_walking/limbo_front_arm_walk2.png" id="13_fpopg"]
-[ext_resource type="Texture2D" uid="uid://07i2o645yx5v" path="res://assets/entities/limbo/limbo_walking/limbo_left_arm.png" id="14_satyj"]
-[ext_resource type="Texture2D" uid="uid://yv1l88pte0th" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk1_arm.png" id="15_lvhd6"]
-[ext_resource type="Texture2D" uid="uid://crt51spvvv4wl" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk2_arm.png" id="16_18y4d"]
-[ext_resource type="Texture2D" uid="uid://ot3p3776f3d0" path="res://assets/entities/limbo/limbo_walking/limbo_back_arm.png" id="17_y5dqw"]
-[ext_resource type="Texture2D" uid="uid://k4efcxddf7yr" path="res://assets/entities/limbo/limbo_walking/limbo_back_walk1_arm.png" id="18_qodnt"]
-[ext_resource type="Texture2D" uid="uid://dg2i31j48lg4x" path="res://assets/entities/limbo/limbo_walking/limbo_back_walk2_arm.png" id="19_e48be"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_owucy"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_085pv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_xh7fq")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_085pv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_d262e")
-}],
-"loop": true,
-"name": &"walk_down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_h2gq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_3ikos")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_h2gq2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_pi5s0")
-}],
-"loop": true,
-"name": &"walk_left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_c7ofg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_ikj62")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_c7ofg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_rkfjb")
-}],
-"loop": true,
-"name": &"walk_up",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://o12hy3b2l12i" path="res://assets/entities/limbo/limbo_walking/limbo_down.png" id="2_w4axx"]
+[ext_resource type="Texture2D" uid="uid://c2ojp3u0wiu7k" path="res://assets/entities/limbo/limbo_walking/limbo_down_walk1.png" id="3_guivj"]
+[ext_resource type="Texture2D" uid="uid://bgpqau4d2nfep" path="res://assets/entities/limbo/limbo_walking/limbo_down_walk2.png" id="4_hcc7v"]
+[ext_resource type="Texture2D" uid="uid://ckjuldjctnu0q" path="res://assets/entities/limbo/limbo_walking/limbo_up.png" id="5_y3xdt"]
+[ext_resource type="Texture2D" uid="uid://clpc0axtu1qmq" path="res://assets/entities/limbo/limbo_walking/limbo_up_walk1.png" id="6_3rtik"]
+[ext_resource type="Texture2D" uid="uid://dp756uncmjrcq" path="res://assets/entities/limbo/limbo_walking/limbo_up_walk2.png" id="7_5g65o"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_i1n0t")
+"texture": ExtResource("2_w4axx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_p2f0q")
+"texture": ExtResource("3_guivj")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_i1n0t")
+"texture": ExtResource("2_w4axx")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_fpopg")
+"texture": ExtResource("4_hcc7v")
 }],
 "loop": true,
 "name": &"walk_down",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_satyj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_lvhd6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_satyj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("16_18y4d")
-}],
+"frames": [],
 "loop": true,
 "name": &"walk_left",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_y5dqw")
+"texture": ExtResource("5_y3xdt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_qodnt")
+"texture": ExtResource("6_3rtik")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_y5dqw")
+"texture": ExtResource("5_y3xdt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_e48be")
+"texture": ExtResource("7_5g65o")
 }],
 "loop": true,
 "name": &"walk_up",
@@ -137,18 +64,18 @@ collision_layer = 4
 collision_mask = 13
 script = ExtResource("1_a74ao")
 
-[node name="LimboBodyAnim" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_owucy")
-animation = &"walk_left"
-
-[node name="LimboArmAnim" type="AnimatedSprite2D" parent="."]
+[node name="LimboAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"walk_down"
+animation = &"walk_up"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="LimboCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_u2f1h")
 
+[node name="HitCooldown" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
