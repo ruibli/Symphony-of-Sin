@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg2i31j48lg4x"
-path="res://.godot/imported/limbo_back_walk2_arm.png-0de1906292ba34ab3a1f4a4949822b0b.ctex"
+uid="uid://o12hy3b2l12i"
+path="res://.godot/imported/limbo_down.png-a9c1f5efcb1dd1dc24a3f1879878152e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/limbo/limbo_walking/limbo_back_walk2_arm.png"
-dest_files=["res://.godot/imported/limbo_back_walk2_arm.png-0de1906292ba34ab3a1f4a4949822b0b.ctex"]
+source_file="res://assets/entities/limbo/limbo_walking/limbo_down.png"
+dest_files=["res://.godot/imported/limbo_down.png-a9c1f5efcb1dd1dc24a3f1879878152e.ctex"]
 
 [params]
 

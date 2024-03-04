@@ -21,9 +21,18 @@ func _physics_process(_delta):
 		velocity = player_distance.normalized()
 		velocity = velocity.normalized() * speed
 		move_and_slide()
-		$LimboArmAnim.global_position = $LimboCollision.global_position
-		$LimboBodyAnim.global_position = $LimboCollision.global_position
-
+		$LimboAnimation.global_position = $LimboCollision.global_position
+		
+		# Animation
+		if velocity.y < 0: #up
+			$LimboAnimation.play("walk_up")
+		elif velocity.y > 0: #down
+			$LimboAnimation.play("walk_down")
+		elif velocity.x > 0: #left
+			$LimboAnimation.play("walk_left")
+		elif velocity.x < 0: #right
+			$LimboAnimation.play("walk_right")
+		
 		#if the enemy collides with other objects, turn them around and re-randomize the timer countdown
 		#if collision != null and collision.get_collider().name != "nova":
 			#direction rotation
