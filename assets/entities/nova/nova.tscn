@@ -119,6 +119,7 @@ rotation_smoothing_enabled = true
 [node name="RoomHitbox" type="CollisionShape2D" parent="RoomDetector"]
 z_index = 1
 shape = SubResource("RectangleShape2D_e74t3")
+one_way_collision_margin = 0.1
 
 [node name="BowCooldown" type="Timer" parent="."]
 

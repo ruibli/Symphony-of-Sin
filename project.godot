@@ -13,7 +13,7 @@ config_version=5
 config/name="Symphony of Sin"
 run/main_scene="res://sos.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://assets/important/icon.svg"
 
 [autoload]
 

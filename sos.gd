@@ -14,13 +14,20 @@ func new_game():
 	
 	nova = nova_scene.instantiate()
 	nova.position = generator.get_spawn()
-	add_child(nova)
-	
+	add_child(nova)	
+
 func _process(delta):
 	if Input.is_action_pressed("reset"):
 		total += delta
 	elif Input.is_action_just_released("reset"):
 		total = 0
-	$black.modulate= Color(0, 0, 0, total/2)
-	if total > 2:
+	# $black.modulate= Color(0, 0, 0, total/2)
+	
+	if total > 2: # r key
+		get_tree().reload_current_scene()
+	if Glova.get_level() <= 0: # death
+		# death screen
+		get_tree().reload_current_scene()
+	if Glova.get_level() <= 0: # end game
+		# end screem
 		get_tree().reload_current_scene()
