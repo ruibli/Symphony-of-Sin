@@ -27,10 +27,7 @@ animations = [{
 "name": &"walk_down",
 "speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_w4axx")
-}],
+"frames": [],
 "loop": true,
 "name": &"walk_left",
 "speed": 5.0
@@ -76,5 +73,9 @@ animation = &"walk_up"
 [node name="LimboCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_u2f1h")
 
+[node name="HitCooldown" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
