@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dggsv5c1mrh0h"
-path="res://.godot/imported/pedestal.png-bd04f93d5649905473e51b12009b932f.ctex"
+path="res://.godot/imported/pedestal.png-23af05ba29cb619aba2df33e661693a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/important/pedestal.png"
-dest_files=["res://.godot/imported/pedestal.png-bd04f93d5649905473e51b12009b932f.ctex"]
+source_file="res://assets/map/generic/pedestal.png"
+dest_files=["res://.godot/imported/pedestal.png-23af05ba29cb619aba2df33e661693a7.ctex"]
 
 [params]
 

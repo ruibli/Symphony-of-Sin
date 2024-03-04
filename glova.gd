@@ -4,6 +4,9 @@ var level = 1
 var position
 var enemies = 0
 
+func set_level(l):
+	level = l
+
 func get_level():
 	return level
 

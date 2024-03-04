@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ksxtf3tcu1ie"
-path="res://.godot/imported/franz.png-489725eac115ca577e0480408a7e8cf0.ctex"
+uid="uid://c7d8u7kav6tkf"
+path="res://.godot/imported/franz.png-c7602d28813a6579e63bed3930f3d2c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://franz.png"
-dest_files=["res://.godot/imported/franz.png-489725eac115ca577e0480408a7e8cf0.ctex"]
+source_file="res://assets/important/franz.png"
+dest_files=["res://.godot/imported/franz.png-c7602d28813a6579e63bed3930f3d2c3.ctex"]
 
 [params]
 

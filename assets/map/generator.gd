@@ -4,6 +4,7 @@ var dungeon = {}
 var temp
 @export var wall_scene: PackedScene
 @export var fill_scene: PackedScene
+@export var door_scene: PackedScene
 @export var floor_scene: PackedScene
 
 var room = preload("res://assets/map/room.tscn")
@@ -61,16 +62,32 @@ func load_map():
 			temp = fill_scene.instantiate()
 			temp.position = i * 320 + Vector2(160, 0)
 			map_node.add_child(temp)
+		else:
+			temp = door_scene.instantiate()
+			temp.position = i * 320 + Vector2(160, 0)
+			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(-1, 0)) == null):
 			temp = fill_scene.instantiate()
+			temp.position = i * 320 - Vector2(160, 0)
+			map_node.add_child(temp)
+		else:
+			temp = door_scene.instantiate()
 			temp.position = i * 320 - Vector2(160, 0)
 			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(0, 1)) == null):
 			temp = fill_scene.instantiate()
 			temp.position = i * 320 + Vector2(0, 160)
 			map_node.add_child(temp)
+		else:
+			temp = door_scene.instantiate()
+			temp.position = i * 320 + Vector2(0, 160)
+			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(0, -1)) == null):
 			temp = fill_scene.instantiate()
+			temp.position = i * 320 - Vector2(0, 160)
+			map_node.add_child(temp)
+		else:
+			temp = door_scene.instantiate()
 			temp.position = i * 320 - Vector2(0, 160)
 			map_node.add_child(temp)
 			

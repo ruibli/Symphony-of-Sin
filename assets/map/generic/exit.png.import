@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0v6jnpsxwv0g"
-path="res://.godot/imported/lore book.png-750115146bbcc0da8e2025a127311844.ctex"
+uid="uid://dlef7wiexurxf"
+path="res://.godot/imported/exit.png-cd153cce2c59aa970ec446dc5d886f85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/important/lore book.png"
-dest_files=["res://.godot/imported/lore book.png-750115146bbcc0da8e2025a127311844.ctex"]
+source_file="res://assets/map/generic/exit.png"
+dest_files=["res://.godot/imported/exit.png-cd153cce2c59aa970ec446dc5d886f85.ctex"]
 
 [params]
 
