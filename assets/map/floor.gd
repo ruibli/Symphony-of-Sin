@@ -60,34 +60,27 @@ func _ready():
 			add_child(blocker)
 			
 			var count = randi_range(level,level+2)
+			var locations = [0,1,2,3,4,5,6,7]
 			while count > 0:
 				temp = rand_enemy()	
-				var locations = [0,1,2,3,4,5,6,7]
 				var location = locations[randi() % locations.size()]
 				if location == 0:
 					temp.position = Vector2(64,64)
-					locations.remove_at(location)
 				elif location == 1:
 					temp.position = Vector2(-64,64)
-					locations.remove_at(location)
 				elif location == 2:
 					temp.position = Vector2(64,-64)
-					locations.remove_at(location)
 				elif location == 3:
 					temp.position = Vector2(-64,-64)
-					locations.remove_at(location)
 				elif location == 4:
 					temp.position = Vector2(128,128)
-					locations.remove_at(location)
 				elif location == 5:
 					temp.position = Vector2(-128,128)
-					locations.remove_at(location)
 				elif location == 6:
 					temp.position = Vector2(128,-128)
-					locations.remove_at(location)
 				elif location == 7:
 					temp.position = Vector2(-128,-128)
-					locations.remove_at(location)
+				locations.remove_at(locations.find(location,0))
 				add_child(temp)
 				count -= 1
 			
@@ -145,67 +138,53 @@ func _ready():
 			add_child(blocker)
 			
 			var count = randi_range(level,level+2)
+			var locations = [0,1,2,3,4,5,6,7]
 			while count > 0:
 				temp = rand_enemy()	
-				var locations = [0,1,2,3,4,5,6,7]
 				var location = locations[randi() % locations.size()]
 				if location == 0:
 					temp.position = Vector2(64,64)
-					locations.remove_at(location)
 				elif location == 1:
 					temp.position = Vector2(96,96)
-					locations.remove_at(location)
 				elif location == 2:
 					temp.position = Vector2(-64,64)
-					locations.remove_at(location)
 				elif location == 3:
 					temp.position = Vector2(-96,96)
-					locations.remove_at(location)
 				elif location == 4:
 					temp.position = Vector2(64,-64)
-					locations.remove_at(location)
 				elif location == 5:
 					temp.position = Vector2(96,-96)
-					locations.remove_at(location)
 				elif location == 6:
 					temp.position = Vector2(-64,-64)
-					locations.remove_at(location)
 				elif location == 7:
 					temp.position = Vector2(-96,-96)
-					locations.remove_at(location)
+				locations.remove_at(locations.find(location,0))
 				add_child(temp)
 				count -= 1
 		
 		else: # empty
 			var count = randi_range(level,level+2)
+			var locations = [0,1,2,3,4,5,6,7]
 			while count > 0:
 				temp = rand_enemy()	
-				var locations = [0,1,2,3,4,5,6,7]
 				var location = locations[randi() % locations.size()]
 				if location == 0:
 					temp.position = Vector2(32,32)
-					locations.remove_at(location)
 				elif location == 1:
 					temp.position = Vector2(-32,32)
-					locations.remove_at(location)
 				elif location == 2:
 					temp.position = Vector2(32,-32)
-					locations.remove_at(location)
 				elif location == 3:
 					temp.position = Vector2(-32,-32)
-					locations.remove_at(location)
 				elif location == 4:
 					temp.position = Vector2(32,0)
-					locations.remove_at(location)
 				elif location == 5:
 					temp.position = Vector2(-32,0)
-					locations.remove_at(location)
 				elif location == 6:
 					temp.position = Vector2(0,32)
-					locations.remove_at(location)
 				elif location == 7:
 					temp.position = Vector2(0,-32)
-					locations.remove_at(location)
+				locations.remove_at(locations.find(location,0))
 				add_child(temp)
 				count -= 1
 
