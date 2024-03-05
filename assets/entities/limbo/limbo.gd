@@ -10,7 +10,7 @@ var speed = 75
 var health = 50
 var damage = 25
 var source = "enemy"
-var can_hit = false
+var can_hit = true
 var active = false
 
 func _physics_process(_delta):
@@ -34,12 +34,11 @@ func _physics_process(_delta):
 	
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
-			if "damage" in collision.get_collider():
-				if collision.get_collider().source == "nova" and can_hit == true:
+			if "damage" in collision.get_collider() and can_hit == true and collision.get_collider().source == "nova":
 					health -= collision.get_collider().damage
 					can_hit = false
 					$HitCooldown.start()
-	
+					print("hit")
 		if health <= 0:
 			queue_free()
 			Glova.change_enemies(-1)
