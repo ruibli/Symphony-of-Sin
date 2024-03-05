@@ -123,5 +123,8 @@ one_way_collision_margin = 0.1
 
 [node name="BowCooldown" type="Timer" parent="."]
 
+[node name="HitCooldown" type="Timer" parent="."]
+
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
 [connection signal="timeout" from="BowCooldown" to="." method="_on_bow_cooldown_timeout"]
+[connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]

@@ -21,13 +21,13 @@ func _process(delta):
 		total += delta
 	elif Input.is_action_just_released("reset"):
 		total = 0
-	# $black.modulate= Color(0, 0, 0, total/2)
+	$black.modulate= Color(0, 0, 0, 255*total/2)
 	
 	if total > 2: # r key
 		get_tree().reload_current_scene()
-	if Glova.get_level() <= 0: # death
+	if Glova.get_level() == 0: # death
 		# death screen
 		get_tree().reload_current_scene()
-	if Glova.get_level() <= 0: # end game
-		# end screem
+	if Glova.get_level() == -1: # end game
+		# end screen
 		get_tree().reload_current_scene()

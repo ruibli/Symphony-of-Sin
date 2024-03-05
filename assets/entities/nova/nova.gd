@@ -2,19 +2,19 @@ extends CharacterBody2D
 
 signal hit
 
-@export var awareness = 100
-@export var speed = 200
-@export var power = 1
-@export var attack = 1
-@export var gold = 0
-var cooldown = 1
+@onready var camera_pos = Vector2(0,0)
 @export var arrow_scene : PackedScene
+var awareness = 100
+var speed = 150
+var power = 1
+var attack = 1
+var gold = 0
+var cooldown = 1
 var can_shoot = true
 var direction = "down"
 var current_weapon = "hand_crossbow"
 var foot = true
-var camera_pos
-
+var can_hit = true
 
 func _ready():
 	start()
@@ -47,10 +47,17 @@ func _process(_delta):
 	$Camera2D.global_position = camera_pos
 	if awareness <= 0:
 		Glova.set_level(0)
+		queue_free()
 	if awareness > 100:
 		awareness = 100
 	
-	# collision code here
+	for i in range(get_slide_collision_count()): # collision
+			var collision = get_slide_collision(i)
+			if "damage" in collision.get_collider():
+				if collision.get_collider().source == "enemy" and can_hit == true:
+					awareness -= collision.get_collider().damage
+					can_hit = false
+					$HitCooldown.start()
 	
 # Crossbow Animations
 	if current_weapon == "hand_crossbow" :
@@ -143,3 +150,6 @@ func _on_bow_cooldown_timeout(): # bow cooldown
 func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	var collision_shape = area.get_node("CollisionShape2D")
 	camera_pos = collision_shape.global_position
+
+func _on_hit_cooldown_timeout():
+	can_hit = true

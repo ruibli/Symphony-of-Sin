@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 100
+var speed = 100
 var damage = 50
+var source = "nova"
 
 func start(direction):
 	velocity = Vector2.ZERO
@@ -35,9 +36,7 @@ func _process(_delta):
 		$CollisionShape2D.rotation_degrees = 0
 		
 	for index in get_slide_collision_count():
-		await get_tree().process_frame
 		queue_free()
-		print("pop")
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

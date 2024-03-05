@@ -9,3 +9,9 @@ script = ExtResource("1_mvx2q")
 nova_scene = ExtResource("1_mjwfh")
 
 [node name="generator" parent="." instance=ExtResource("2_8hqw5")]
+
+[node name="black" type="ColorRect" parent="."]
+top_level = true
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0)

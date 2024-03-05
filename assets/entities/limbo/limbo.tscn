@@ -96,7 +96,7 @@ script = ExtResource("1_a74ao")
 
 [node name="LimboAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"walk_left"
+animation = &"walk_up"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
