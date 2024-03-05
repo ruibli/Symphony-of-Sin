@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 # Enemy stats
 @export var speed = 50
-@export var health = 100
+@export var health = 50
 
 var active = false
 var can_get_hit = true
@@ -26,9 +26,9 @@ func _physics_process(_delta):
 			$LimboAnimation.play("walk_up")
 		elif velocity.y > 0: #down
 			$LimboAnimation.play("walk_down")
-		elif velocity.x > 0: #left
+		elif velocity.x < 0: #left
 			$LimboAnimation.play("walk_left")
-		elif velocity.x < 0: #right
+		elif velocity.x > 0: #right
 			$LimboAnimation.play("walk_right")
 		
 		#if the enemy collides with other objects, turn them around and re-randomize the timer countdown

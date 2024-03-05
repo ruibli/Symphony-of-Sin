@@ -1,12 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://du7wg2sy0ohtd"]
+[gd_scene load_steps=16 format=3 uid="uid://du7wg2sy0ohtd"]
 
 [ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
 [ext_resource type="Texture2D" uid="uid://o12hy3b2l12i" path="res://assets/entities/limbo/limbo_walking/limbo_down.png" id="2_w4axx"]
 [ext_resource type="Texture2D" uid="uid://c2ojp3u0wiu7k" path="res://assets/entities/limbo/limbo_walking/limbo_down_walk1.png" id="3_guivj"]
 [ext_resource type="Texture2D" uid="uid://bgpqau4d2nfep" path="res://assets/entities/limbo/limbo_walking/limbo_down_walk2.png" id="4_hcc7v"]
+[ext_resource type="Texture2D" uid="uid://d4fq5l3e4tej8" path="res://assets/entities/limbo/limbo_walking/limbo_right.png" id="5_bon83"]
+[ext_resource type="Texture2D" uid="uid://dtkqldu5tnb55" path="res://assets/entities/limbo/limbo_walking/limbo_left.png" id="5_ip1xi"]
 [ext_resource type="Texture2D" uid="uid://ckjuldjctnu0q" path="res://assets/entities/limbo/limbo_walking/limbo_up.png" id="5_y3xdt"]
 [ext_resource type="Texture2D" uid="uid://clpc0axtu1qmq" path="res://assets/entities/limbo/limbo_walking/limbo_up_walk1.png" id="6_3rtik"]
+[ext_resource type="Texture2D" uid="uid://0nacxyv2xht2" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk1.png" id="6_qd1to"]
+[ext_resource type="Texture2D" uid="uid://3xn6vlqtobod" path="res://assets/entities/limbo/limbo_walking/limbo_right_walk1.png" id="6_w3j3x"]
 [ext_resource type="Texture2D" uid="uid://dp756uncmjrcq" path="res://assets/entities/limbo/limbo_walking/limbo_up_walk2.png" id="7_5g65o"]
+[ext_resource type="Texture2D" uid="uid://dbtr5jdfv1ja7" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk2.png" id="7_7ipd4"]
+[ext_resource type="Texture2D" uid="uid://c8ngwjuu1dekw" path="res://assets/entities/limbo/limbo_walking/limbo_right_walk2.png" id="7_y3mhk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
 animations = [{
@@ -27,12 +33,36 @@ animations = [{
 "name": &"walk_down",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ip1xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qd1to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ip1xi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7ipd4")
+}],
 "loop": true,
 "name": &"walk_left",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_bon83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_w3j3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bon83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y3mhk")
+}],
 "loop": true,
 "name": &"walk_right",
 "speed": 5.0
@@ -66,7 +96,7 @@ script = ExtResource("1_a74ao")
 
 [node name="LimboAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"walk_up"
+animation = &"walk_left"
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
