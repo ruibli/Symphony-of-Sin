@@ -31,7 +31,7 @@ func _physics_process(_delta):
 			$LimboAnimation.play("walk_left")
 		elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
 			$LimboAnimation.play("walk_right")
-	
+		
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
 			if "damage" in collision.get_collider() and can_hit == true:
@@ -40,6 +40,7 @@ func _physics_process(_delta):
 					can_hit = false
 					$HitCooldown.start()
 		if health <= 0:
+			await get_tree().process_frame # wait for next frame; both arrow and limbo delete on contact and not just one or the other
 			queue_free()
 			Glova.change_enemies(-1)
 
