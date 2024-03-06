@@ -22,16 +22,15 @@ func _ready():
 			$item.texture = load("res://assets/loot/generic/potion.png")
 			stats = [25, 0, 0, 0, 0, 0]
 		else:
-			random_item
+			random_item()
 	
-
 func random_item():
 	item = randi_range(1,10)
-	
+	breakfast()
 
 func breakfast():
-	item = "item"
 	item = "breakfast"
+	$item.texture = load("res://assets/loot/items/breakfast.png")
 	stats = [25, 25, 0, 0, 0, 0]
 
 func _process(_delta):
@@ -50,5 +49,10 @@ func _on_timer_timeout():
 
 func _on_body_entered(_body:Node):
 	if state == 3:
+		if item == "coin" or item == "potion":
+			pass
+		else:
+			pass
+			#Glova.set inv,
 		Glova.set_stats(stats)
 		queue_free()
