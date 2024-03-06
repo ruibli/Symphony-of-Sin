@@ -1,9 +1,10 @@
 extends StaticBody2D
 
 @export var blocker_scene: PackedScene
-var blocker
 @export var limbo_scene: PackedScene
-var limbo
+@export var pedestal_scene: PackedScene
+var blocker
+var pedestal
 
 var type = "enemy"
 var level = Glova.get_level()
@@ -58,6 +59,11 @@ func _ready():
 			blocker = blocker_scene.instantiate()
 			blocker.position = Vector2(-96,-96)
 			add_child(blocker)
+			
+			pedestal = pedestal_scene.instantiate()
+			pedestal.position = Vector2(0,0)
+			pedestal.type = "enemy"
+			add_child(pedestal)
 			
 			var count = randi_range(level,level+2)
 			var locations = [0,1,2,3,4,5,6,7]
@@ -137,6 +143,11 @@ func _ready():
 			blocker.position = Vector2(-96,-32)
 			add_child(blocker)
 			
+			pedestal = pedestal_scene.instantiate()
+			pedestal.position = Vector2(0,0)
+			pedestal.type = "enemy"
+			add_child(pedestal)
+			
 			var count = randi_range(level,level+2)
 			var locations = [0,1,2,3,4,5,6,7]
 			while count > 0:
@@ -163,6 +174,12 @@ func _ready():
 				count -= 1
 		
 		else: # empty
+			
+			pedestal = pedestal_scene.instantiate()
+			pedestal.position = Vector2(0,0)
+			pedestal.type = "enemy"
+			add_child(pedestal)
+			
 			var count = randi_range(level,level+2)
 			var locations = [0,1,2,3,4,5,6,7]
 			while count > 0:
