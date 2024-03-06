@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 func _ready():
 	if Glova.get_level() == 1: # level 1 manor assets

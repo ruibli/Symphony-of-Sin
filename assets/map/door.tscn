@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://assets/map/door.gd" id="1_jh5b4"]
 [ext_resource type="Texture2D" uid="uid://bt0dsemh5ar8v" path="res://assets/map/manor/manor_door.png" id="1_x8omj"]
 
-[node name="door" type="StaticBody2D"]
+[node name="door" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource("1_jh5b4")
 
 [node name="door" type="Sprite2D" parent="."]

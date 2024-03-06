@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends RigidBody2D
 
 @export var blocker_scene: PackedScene
 @export var limbo_scene: PackedScene

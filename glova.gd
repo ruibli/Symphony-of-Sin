@@ -16,12 +16,12 @@ var attack = 1
 var gold = 0
 
 func set_stats(s):
-	stats[0] = stats[0] * s[0]
-	stats[1] = stats[1] * s[1]
-	stats[2] = stats[2] * s[2]
-	stats[3] = stats[3] * s[3]
-	stats[4] = stats[4] * s[4]
-	stats[5] = stats[5] * s[5]
+	stats[0] = stats[0] + s[0]
+	stats[1] = stats[1] + s[1]
+	stats[2] = stats[2] + s[2]
+	stats[3] = stats[3] + s[3]
+	stats[4] = stats[4] + s[4]
+	stats[5] = stats[5] + s[5]
 
 func get_stats():
 	return stats
@@ -47,6 +47,7 @@ func get_enemies():
 func reset():
 	level = 1
 	enemies = 0
+	stats = [100, 100, 150, 1, 1, 0]
 
 func get_pool(g):
 	if g == 1:
