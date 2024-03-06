@@ -36,8 +36,8 @@ func _process(_delta):
 		$CollisionShape2D.rotation_degrees = 0
 		
 	for index in get_slide_collision_count():
-		queue_free()
-		print("collide")
+		pass 
+		#queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

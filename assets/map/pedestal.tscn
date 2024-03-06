@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5rm52irse7gj"]
 
 [ext_resource type="Script" path="res://assets/map/pedestal.gd" id="1_fsjma"]
-[ext_resource type="Texture2D" uid="uid://dggsv5c1mrh0h" path="res://assets/map/important/pedestal.png" id="2_23qff"]
+[ext_resource type="Texture2D" uid="uid://dggsv5c1mrh0h" path="res://assets/map/generic/pedestal.png" id="2_23qff"]
 
 [node name="pedestal" type="StaticBody2D"]
 script = ExtResource("1_fsjma")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="pedestal" type="Sprite2D" parent="."]
 texture = ExtResource("2_23qff")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(8, 8, -8, 8, -8, -8, 8, -8)

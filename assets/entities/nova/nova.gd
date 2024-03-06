@@ -5,6 +5,7 @@ signal hit
 @onready var camera_pos = Vector2(0,0)
 @export var arrow_scene : PackedScene
 var awareness = 100
+var awareness_max = 100
 var speed = 150
 var power = 1
 var attack = 1
@@ -17,11 +18,18 @@ var foot = true
 var can_hit = true
 
 func _ready():
-	start()
-
-func start():
 	$BowCooldown.wait_time = cooldown
 
+
+
+func set_stats():
+	awareness = Glova.get_stats()[0]
+	awareness_max = Glova.get_stats()[1]
+	speed = Glova.get_stats()[2]
+	power = Glova.get_stats()[3]
+	attack = Glova.get_stats()[4]
+	gold = Glova.get_stats()[5]
+	
 func _process(_delta):
 	velocity = Vector2.ZERO # The player's movement vector.
 	# Player Movement
@@ -48,8 +56,9 @@ func _process(_delta):
 	if awareness <= 0:
 		Glova.set_level(0)
 		queue_free()
-	if awareness > 100:
-		awareness = 100
+	if awareness > awareness_max:
+		awareness = awareness_max
+	set_stats()
 	
 	for i in range(get_slide_collision_count()): # collision
 			var collision = get_slide_collision(i)
@@ -60,7 +69,7 @@ func _process(_delta):
 					$HitCooldown.start()
 	
 # Crossbow Animations
-	if current_weapon == "hand_crossbow" :
+	if current_weapon == "hand_crossbow":
 		# attack while walking
 		if Input.is_action_pressed("attack_left"):
 			$NovaAnimation.play("crossbow_left")

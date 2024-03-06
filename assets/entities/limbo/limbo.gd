@@ -38,7 +38,6 @@ func _physics_process(_delta):
 					health -= collision.get_collider().damage
 					can_hit = false
 					$HitCooldown.start()
-					print("hit")
 		if health <= 0:
 			queue_free()
 			Glova.change_enemies(-1)
