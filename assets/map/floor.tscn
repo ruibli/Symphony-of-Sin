@@ -9,8 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tmqa"]
 size = Vector2(320, 320)
 
-[node name="floor" type="StaticBody2D"]
+[node name="floor" type="RigidBody2D"]
 collision_mask = 0
+gravity_scale = 0.0
 script = ExtResource("1_wo4dn")
 blocker_scene = ExtResource("2_qdn1h")
 limbo_scene = ExtResource("3_xvf61")

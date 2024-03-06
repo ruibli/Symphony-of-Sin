@@ -34,7 +34,8 @@ func _physics_process(_delta):
 	
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
-			if "damage" in collision.get_collider() and can_hit == true and collision.get_collider().source == "nova":
+			if "damage" in collision.get_collider() and can_hit == true:
+				if collision.get_collider().source == "nova":
 					health -= collision.get_collider().damage
 					can_hit = false
 					$HitCooldown.start()

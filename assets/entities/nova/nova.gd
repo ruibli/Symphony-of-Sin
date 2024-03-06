@@ -10,6 +10,7 @@ var speed = 150
 var power = 1
 var attack = 1
 var gold = 0
+
 var cooldown = 1
 var can_shoot = true
 var direction = "down"
@@ -19,8 +20,6 @@ var can_hit = true
 
 func _ready():
 	$BowCooldown.wait_time = cooldown
-
-
 
 func set_stats():
 	awareness = Glova.get_stats()[0]
