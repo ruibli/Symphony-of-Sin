@@ -1,16 +1,17 @@
-extends RigidBody2D
+extends StaticBody2D
+
+var door_closed = load("res://assets/map/manor/manor_door.png")
+var door_open = load("res://assets/map/manor/manor_door_open.png")
 
 func _ready():
 	if Glova.get_level() == 1: # level 1 manor assets
-		$door.texture = load("res://assets/map/manor/manor_door.png")
-		$door_open.texture = load("res://assets/map/manor/manor_door_open.png")
+		door_closed = load("res://assets/map/manor/manor_door.png")
+		door_open = load("res://assets/map/manor/manor_door_open.png")
 
 func _process(_delta):
 	if Glova.get_enemies() > 0:
-		$door.visible = true
-		$door_open.visible = false
+		$door.texture = door_closed
 		set_collision_layer_value(1,true)
 	else:
-		$door.visible = false
-		$door_open.visible = true
+		$door.texture = door_open
 		set_collision_layer_value(1,false)

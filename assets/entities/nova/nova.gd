@@ -21,13 +21,13 @@ var can_hit = true
 func _ready():
 	$BowCooldown.wait_time = cooldown
 
-func set_stats():
-	awareness = Glova.get_stats()[0]
-	awareness_max = Glova.get_stats()[1]
-	speed = Glova.get_stats()[2]
-	power = Glova.get_stats()[3]
-	attack = Glova.get_stats()[4]
-	gold = Glova.get_stats()[5]
+func set_nova():
+	awareness = Glova.g_stats("get",0)[0]
+	awareness_max = Glova.g_stats("get",0)[1]
+	speed = Glova.g_stats("get",0)[2]
+	power = Glova.g_stats("get",0)[3]
+	attack = Glova.g_stats("get",0)[4]
+	gold = Glova.g_stats("get",0)[5]
 	
 func _process(_delta):
 	velocity = Vector2.ZERO # The player's movement vector.
@@ -57,7 +57,7 @@ func _process(_delta):
 		queue_free()
 	if awareness > awareness_max:
 		awareness = awareness_max
-	set_stats()
+	set_nova()
 	
 	for i in range(get_slide_collision_count()): # collision
 			var collision = get_slide_collision(i)
@@ -156,8 +156,9 @@ func _on_bow_cooldown_timeout(): # bow cooldown
 	can_shoot = true
 
 func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
-	var collision_shape = area.get_node("CollisionShape2D")
-	camera_pos = collision_shape.global_position
+	if area.get_name() == 'CameraArea':
+		var collision_shape = area.get_node("CollisionShape2D")
+		camera_pos = collision_shape.global_position
 
 func _on_hit_cooldown_timeout():
 	can_hit = true

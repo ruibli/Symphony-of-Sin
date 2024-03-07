@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 
 @export var blocker_scene: PackedScene
 @export var limbo_scene: PackedScene
@@ -7,7 +7,7 @@ var blocker
 var pedestal
 
 var type = "enemy"
-var level = Glova.get_level()
+var level = Glova.g_level("get", 0)
 var temp
 
 func _ready():
