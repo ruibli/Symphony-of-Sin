@@ -4,7 +4,7 @@ var door_closed = load("res://assets/map/manor/manor_door.png")
 var door_open = load("res://assets/map/manor/manor_door_open.png")
 
 func _ready():
-	if Glova.get_level() == 1: # level 1 manor assets
+	if Glova.g_level("get", 0) == 1: # level 1 manor assets
 		door_closed = load("res://assets/map/manor/manor_door.png")
 		door_open = load("res://assets/map/manor/manor_door_open.png")
 
