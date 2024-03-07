@@ -1,9 +1,10 @@
-extends RigidBody2D
+extends StaticBody2D
 
 var type = "enemy"
-var state = 1
+var state = 1 # 1 = not on screen, 2 = on screen waiting for no enemies, 3 = spawned award 
 var temp
 var item
+var nam
 var stats
 
 func _ready():
@@ -11,7 +12,9 @@ func _ready():
 	$item.visible = false
 	$item.position = $pedestal.position + Vector2(0, -8)
 	
-	if type == "enemy":
+	if type == "set":
+		pass
+	elif type == "enemy":
 		item = randi_range(1,10)
 		if item <= 4:
 			item = "coin"
@@ -23,13 +26,17 @@ func _ready():
 			stats = [25, 0, 0, 0, 0, 0]
 		else:
 			random_item()
+			
 	
 func random_item():
-	item = randi_range(1,10)
+	# decide item or weapon reward
+	# if length of pool = 0, breakfast
+	item = randi_range(1,10) # get lengths
 	breakfast()
 
 func breakfast():
-	item = "breakfast"
+	item = "item"
+	nam = "Breakfast"
 	$item.texture = load("res://assets/loot/items/breakfast.png")
 	stats = [25, 25, 0, 0, 0, 0]
 
@@ -47,12 +54,13 @@ func _on_timer_timeout():
 	$item.visible = true
 	state = 3
 
-func _on_body_entered(_body:Node):
+func _on_pedestal_area_area_entered(_area):
 	if state == 3:
-		if item == "coin" or item == "potion":
-			pass
-		else:
-			pass
-			#Glova.set inv,
-		Glova.set_stats(stats)
-		queue_free()
+			if item == "coin" or item == "potion":
+				pass
+			elif item == "item":
+				pass #Glova.set inv,
+			elif item == "weapon":
+				pass # glova. set hotbar
+			Glova.g_stats("set", stats)
+			queue_free()

@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://assets/map/wall.gd" id="1_cdjbm"]
 [ext_resource type="Texture2D" uid="uid://blt8f6ulhmlgl" path="res://assets/map/manor/manor_wall.png" id="1_k37n1"]
 
-[node name="wall" type="RigidBody2D"]
+[node name="wall" type="StaticBody2D"]
 collision_mask = 0
-gravity_scale = 0.0
 script = ExtResource("1_cdjbm")
 
 [node name="wall" type="Sprite2D" parent="."]
