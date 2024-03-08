@@ -6,16 +6,16 @@ extends CharacterBody2D
 @onready var player
 
 # Enemy stats
-var speed = 75
-var health = 50
-var damage = 25
+var speed = 75 * Glova.g_lap()
+var health = 50 * Glova.g_lap()
+var damage = 25 * Glova.g_lap()
 var source = "enemy"
 var can_hit = true
 var active = false
 
 func _physics_process(_delta):
 	if active:
-		player = Glova.get_pos()
+		player = Glova.g_pos()
 		var player_distance = player - $LimboCollision.global_position
 		velocity = player_distance.normalized()
 		velocity = velocity.normalized() * speed
@@ -42,14 +42,14 @@ func _physics_process(_delta):
 		if health <= 0:
 			await get_tree().process_frame # wait for next frame; both arrow and limbo delete on contact and not just one or the other
 			queue_free()
-			Glova.change_enemies(-1)
+			Glova.g_enemies(-1)
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	Glova.change_enemies(-1)
+	Glova.g_enemies(-1)
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	active = true
-	Glova.change_enemies(1)
+	Glova.g_enemies(1)
 
 func _on_hit_cooldown_timeout():
 	can_hit = true

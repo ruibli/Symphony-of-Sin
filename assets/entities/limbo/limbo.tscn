@@ -89,12 +89,14 @@ animations = [{
 height = 20.0
 
 [node name="limbo" type="CharacterBody2D"]
-z_index = 1
+z_as_relative = false
 collision_layer = 4
 collision_mask = 13
 script = ExtResource("1_a74ao")
 
 [node name="LimboAnimation" type="AnimatedSprite2D" parent="."]
+z_index = 1
+z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_c3lg3")
 animation = &"walk_up"
 
