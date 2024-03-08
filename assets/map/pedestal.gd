@@ -10,7 +10,7 @@ var stats
 func _ready():
 	$pedestal.visible = false
 	$item.visible = false
-	$item.position = $pedestal.position + Vector2(0, -8)
+	$item.position = $pedestal.position + Vector2(0, -7)
 	
 	if type == "set":
 		pass
