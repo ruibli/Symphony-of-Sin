@@ -25,9 +25,8 @@ func _process(delta):
 	
 	if total > 2: # r key
 		get_tree().reload_current_scene()
-	if Glova.g_level("get", 0) == 0: # death
+	if Glova.g_level() == -1: # death
 		# death screen
 		get_tree().reload_current_scene()
-	if Glova.g_level("get", 0) == -1: # end game
-		# end screen
-		get_tree().reload_current_scene()
+	if Glova.g_level() == -2: # end game
+		get_tree().quit()

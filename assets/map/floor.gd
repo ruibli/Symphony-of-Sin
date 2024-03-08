@@ -7,21 +7,16 @@ var blocker
 var pedestal
 
 var type = "enemy"
-var level = Glova.g_level("get", 0)
+var level = Glova.g_level()
 var temp
 
 func _ready():
 	if level == 1: # level 1 manor assets
+		$floor.texture = load("res://assets/map/manor/manor_floor.png")
 		if type == "boss":
 			$floor.texture = load("res://assets/map/manor/manor_boss.png")
-		elif type == "spawn":
-			$floor.texture = load("res://assets/map/manor/manor_spawn.png")
 		elif type == "lore":
 			$floor.texture = load("res://assets/map/manor/manor_lore.png")
-		elif type == "shop":
-			$floor.texture = load("res://assets/map/manor/manor_shop.png")
-		else:
-			$floor.texture = load("res://assets/map/manor/manor_floor.png")
 	
 	if type == "boss":
 		pass
@@ -30,7 +25,31 @@ func _ready():
 	elif type == "lore":
 		pass
 	elif type == "shop":
-		pass
+		pedestal = pedestal_scene.instantiate()
+		pedestal.position = Vector2(0,0)
+		pedestal.type = "shop"
+		add_child(pedestal)
+		
+		pedestal = pedestal_scene.instantiate()
+		pedestal.position = Vector2(128,128)
+		pedestal.type = "shop"
+		add_child(pedestal)
+		
+		pedestal = pedestal_scene.instantiate()
+		pedestal.position = Vector2(-128,128)
+		pedestal.type = "shop"
+		add_child(pedestal)
+		
+		pedestal = pedestal_scene.instantiate()
+		pedestal.position = Vector2(128,-128)
+		pedestal.type = "shop"
+		add_child(pedestal)
+		
+		pedestal = pedestal_scene.instantiate()
+		pedestal.position = Vector2(-128,-128)
+		pedestal.type = "shop"
+		add_child(pedestal)
+		
 	else:	
 		var layout = randi_range(0,2)
 		if layout == 1: # diagonals

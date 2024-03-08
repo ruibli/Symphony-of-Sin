@@ -8,6 +8,7 @@ collision_mask = 0
 script = ExtResource("1_68edr")
 
 [node name="fill" type="Sprite2D" parent="."]
+z_as_relative = false
 texture = ExtResource("1_e0n26")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

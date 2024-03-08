@@ -11,6 +11,9 @@ var power = 1
 var attack = 1
 var gold = 0
 
+var inv = []
+var hotbar = ["Crossbow", " ", " ", " ", " ", " ", " ", " "]
+
 var cooldown = 1
 var can_shoot = true
 var direction = "down"
@@ -22,12 +25,15 @@ func _ready():
 	$BowCooldown.wait_time = cooldown
 
 func set_nova():
-	awareness = Glova.g_stats("get",0)[0]
-	awareness_max = Glova.g_stats("get",0)[1]
-	speed = Glova.g_stats("get",0)[2]
-	power = Glova.g_stats("get",0)[3]
-	attack = Glova.g_stats("get",0)[4]
-	gold = Glova.g_stats("get",0)[5]
+	awareness = Glova.g_stats()[0]
+	awareness_max = Glova.g_stats()[1]
+	speed = Glova.g_stats()[2]
+	power = Glova.g_stats()[3]
+	attack = Glova.g_stats()[4]
+	gold = Glova.g_stats()[5]
+	
+	inv = Glova.g_inv()
+	hotbar = Glova.g_hotbar()
 	
 func _process(_delta):
 	velocity = Vector2.ZERO # The player's movement vector.
@@ -50,10 +56,10 @@ func _process(_delta):
 	
 	move_and_slide()
 	$NovaAnimation.global_position = $NovaCollision.global_position
-	Glova.set_pos($NovaCollision.global_position)
+	Glova.g_pos($NovaCollision.global_position)
 	$Camera2D.global_position = camera_pos
 	if awareness <= 0:
-		Glova.set_level(0)
+		Glova.set_level(-1)
 		queue_free()
 	if awareness > awareness_max:
 		awareness = awareness_max

@@ -4,12 +4,12 @@ var door_closed = load("res://assets/map/manor/manor_door.png")
 var door_open = load("res://assets/map/manor/manor_door_open.png")
 
 func _ready():
-	if Glova.g_level("get", 0) == 1: # level 1 manor assets
+	if Glova.g_level() == 1: # level 1 manor assets
 		door_closed = load("res://assets/map/manor/manor_door.png")
 		door_open = load("res://assets/map/manor/manor_door_open.png")
 
 func _process(_delta):
-	if Glova.get_enemies() > 0:
+	if Glova.g_enemies() > 0:
 		$door.texture = door_closed
 		set_collision_layer_value(1,true)
 	else:

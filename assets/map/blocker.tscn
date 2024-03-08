@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://7h4761rqy8px"]
+[gd_scene load_steps=4 format=3 uid="uid://7h4761rqy8px"]
 
 [ext_resource type="Texture2D" uid="uid://bmbqvi4dlaswi" path="res://assets/map/manor/manor_blocker.png" id="1_ccyjg"]
 [ext_resource type="Script" path="res://assets/map/blocker.gd" id="1_ge3wm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4k03"]
+size = Vector2(32, 32)
+
 [node name="blocker" type="StaticBody2D"]
+z_as_relative = false
 collision_mask = 0
 script = ExtResource("1_ge3wm")
 
 [node name="blocker" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
 texture = ExtResource("1_ccyjg")
 offset = Vector2(0, -10)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, 6, -16, 6, -16, -16, 16, -16)
-metadata/_edit_group_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_t4k03")
