@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://da8es6cp1n5rk"]
+
+[ext_resource type="Script" path="res://lap.gd" id="1_ghfuu"]
+[ext_resource type="Texture2D" uid="uid://cygvd0clkndsm" path="res://assets/map/generic/lap.png" id="2_wn8u8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iydeq"]
+radius = 16.0
+
+[node name="lap" type="StaticBody2D"]
+script = ExtResource("1_ghfuu")
+
+[node name="lap" type="Sprite2D" parent="."]
+texture = ExtResource("2_wn8u8")
+
+[node name="LapArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LapArea"]
+shape = SubResource("CircleShape2D_iydeq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="area_entered" from="LapArea" to="." method="_on_lap_area_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
