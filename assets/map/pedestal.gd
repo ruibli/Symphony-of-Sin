@@ -59,7 +59,7 @@ func _ready():
 	
 func random_item():
 	var item_pool = Glova.g_item_pool()
-	if len(item_pool) == 0:
+	if len(item_pool) == 0 or item_pool.is_empty():
 		breakfast()
 	else:
 		nam = randi_range(0, len(item_pool)-1) # get lengths
@@ -71,7 +71,7 @@ func random_item():
 
 func random_weapon():
 	var weapon_pool = Glova.g_weapon_pool()
-	if len(weapon_pool) == 0:
+	if len(weapon_pool) == 0 or weapon_pool.is_empty():
 		breakfast()
 	else:
 		nam = randi_range(0, len(weapon_pool)-1) # get lengths

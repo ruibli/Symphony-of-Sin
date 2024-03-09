@@ -6,8 +6,9 @@ var pos
 var enemies = 0
 var item = [0]
 var weapon = [1]
+var foot = 1
 
-# awareness, awareness_max, speed, power, attack, gold
+# health, health_max, speed, power, attack, gold
 var stats
 
 var inv
@@ -24,7 +25,7 @@ func reset():
 	inv = []
 	hotbar = ["Crossbow", " ", " ", " ", " ", " ", " ", " "]
 	item_pool = ["breakfast"]
-	weapon_pool = ["breakfast"]
+	weapon_pool = []
 
 func g_stats(s: Array = [0]):
 	if s == [0]:
