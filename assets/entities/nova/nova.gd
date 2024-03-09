@@ -4,7 +4,7 @@ signal hit
 
 @onready var camera_pos = Vector2(0,0)
 @export var arrow_scene : PackedScene
-var heatlh= 100
+var health= 100
 var health_max = 100
 var speed = 150
 var power = 1
@@ -25,7 +25,7 @@ func _ready():
 	$BowCooldown.wait_time = cooldown
 
 func set_nova():
-	heatlh = Glova.g_stats()[0]
+	health = Glova.g_stats()[0]
 	health_max = Glova.g_stats()[1]
 	speed = Glova.g_stats()[2]
 	power = Glova.g_stats()[3]
@@ -58,18 +58,19 @@ func _process(_delta):
 	$NovaAnimation.global_position = $NovaCollision.global_position
 	Glova.g_pos($NovaCollision.global_position)
 	$Camera2D.global_position = camera_pos
-	if heatlh <= 0:
+	if health <= 0:
 		Glova.set_level(-1)
 		queue_free()
-	if heatlh > health_max:
-		heatlh = health_max
+	if health > health_max:
+		health = health_max
 	set_nova()
+	print(health)
 	
 	for i in range(get_slide_collision_count()): # collision
 			var collision = get_slide_collision(i)
 			if "damage" in collision.get_collider():
 				if collision.get_collider().source == "enemy" and can_hit == true:
-					heatlh -= collision.get_collider().damage
+					health -= collision.get_collider().damage
 					can_hit = false
 					$HitCooldown.start()
 	
