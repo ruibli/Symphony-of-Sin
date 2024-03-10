@@ -17,6 +17,8 @@ texture = ExtResource("2_toghp")
 shape = SubResource("RectangleShape2D_b3llh")
 
 [node name="arrowhit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 16
 
 [node name="ArrowCollision" type="CollisionShape2D" parent="arrowhit"]
 shape = SubResource("RectangleShape2D_b3llh")

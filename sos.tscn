@@ -10,6 +10,15 @@ nova_scene = ExtResource("1_mjwfh")
 
 [node name="generator" parent="." instance=ExtResource("2_8hqw5")]
 
-[node name="black" type="CanvasModulate" parent="."]
-visible = false
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="black" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 0)
+z_index = 2
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)

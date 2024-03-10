@@ -117,3 +117,9 @@ func _on_pedestal_area_area_entered(_area):
 			Glova.g_stats(stats)
 			Glova.g_stats(cost)
 			queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	state = 1
+	$pedestal.visible = false
+	$item.visible = false

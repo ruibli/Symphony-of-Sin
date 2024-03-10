@@ -6,9 +6,10 @@ var nova
 var total = 0
 var current_level = 1
 var current_lap = 1
+var tween
 
 func _ready():
-	new_game()	
+	new_game()
 	
 func new_game():
 	Glova.reset()
@@ -31,12 +32,11 @@ func _process(delta):
 		total += delta
 	elif Input.is_action_just_released("reset"):
 		total = 0
-	$black.modulate= Color(0, 0, 0, 255*total/2)
+	$CanvasLayer/black.modulate = Color(0, 0, 0, total/2)
 	
 	if total > 2: # r key
 		get_tree().reload_current_scene()
 	elif level == -1: # death
-		# death screen
 		get_tree().reload_current_scene()
 	elif level == -2: # end game
 		get_tree().quit()

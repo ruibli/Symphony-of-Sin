@@ -62,6 +62,7 @@ func _process(_delta):
 	if health > health_max:
 		health = health_max
 	set_nova()
+	print(health)
 	
 	if current == "crossbow": # Crossbow Animations
 		# attack while walking

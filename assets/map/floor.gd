@@ -180,6 +180,7 @@ func _ready():
 				count -= 1
 
 func rand_enemy():
-	var enemy = randi_range(1,1)
+	var enemies = [1]
+	var enemy = enemies[randi() % enemies.size()]
 	if enemy == 1:
 		return limbo_scene.instantiate()

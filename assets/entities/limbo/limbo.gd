@@ -23,9 +23,9 @@ func _physics_process(_delta):
 		global_position = $LimboCollision.global_position
 		
 		# Animation
-		if velocity.y > 0 and abs(velocity.y) >= abs(velocity.x): #down
+		if velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
 			$LimboAnimation.play("walk_down")
-		elif velocity.y < 0 and abs(velocity.y) >= abs(velocity.x): #up
+		elif velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
 			$LimboAnimation.play("walk_up")
 		elif velocity.x < 0 and abs(velocity.x) > abs(velocity.y): #left
 			$LimboAnimation.play("walk_left")
@@ -54,5 +54,4 @@ func hit(ow):
 		$HitCooldown.start()
 
 func _on_limbohit_hurt_area_entered(area):
-	if area.is_in_group("nova"):
 		area.hit(damage)
