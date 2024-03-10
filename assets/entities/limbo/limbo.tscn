@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://du7wg2sy0ohtd"]
+[gd_scene load_steps=17 format=3 uid="uid://du7wg2sy0ohtd"]
 
 [ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
 [ext_resource type="Texture2D" uid="uid://o12hy3b2l12i" path="res://assets/entities/limbo/limbo_walking/limbo_down.png" id="2_w4axx"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dp756uncmjrcq" path="res://assets/entities/limbo/limbo_walking/limbo_up_walk2.png" id="7_5g65o"]
 [ext_resource type="Texture2D" uid="uid://dbtr5jdfv1ja7" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk2.png" id="7_7ipd4"]
 [ext_resource type="Texture2D" uid="uid://c8ngwjuu1dekw" path="res://assets/entities/limbo/limbo_walking/limbo_right_walk2.png" id="7_y3mhk"]
+[ext_resource type="Script" path="res://assets/entities/limbo/LimboHurt.gd" id="14_mo2vk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
 animations = [{
@@ -91,7 +92,7 @@ height = 20.0
 [node name="limbo" type="CharacterBody2D"]
 z_as_relative = false
 collision_layer = 4
-collision_mask = 13
+collision_mask = 5
 script = ExtResource("1_a74ao")
 
 [node name="LimboAnimation" type="AnimatedSprite2D" parent="."]
@@ -100,14 +101,21 @@ z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_c3lg3")
 animation = &"walk_up"
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
 [node name="LimboCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_u2f1h")
+
+[node name="limbohit_hurt" type="Area2D" parent="." groups=["enemy"]]
+script = ExtResource("14_mo2vk")
+
+[node name="LimboCollision" type="CollisionShape2D" parent="limbohit_hurt"]
+shape = SubResource("CapsuleShape2D_u2f1h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="HitCooldown" type="Timer" parent="."]
 wait_time = 0.1
 
+[connection signal="area_entered" from="limbohit_hurt" to="." method="_on_limbohit_hurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]

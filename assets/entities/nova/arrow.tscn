@@ -3,20 +3,25 @@
 [ext_resource type="Script" path="res://assets/entities/nova/arrow.gd" id="1_7expc"]
 [ext_resource type="Texture2D" uid="uid://bb4y47gn10bju" path="res://assets/entities/nova/nova_crossbow/nova_arrow_projectile.png" id="2_toghp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_00xgq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3llh"]
 size = Vector2(4.5, 8)
 
 [node name="arrow" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 5
 script = ExtResource("1_7expc")
 
 [node name="Arrow" type="Sprite2D" parent="."]
 texture = ExtResource("2_toghp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_00xgq")
+[node name="ArrowCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b3llh")
+
+[node name="arrowhit" type="Area2D" parent="."]
+
+[node name="ArrowCollision" type="CollisionShape2D" parent="arrowhit"]
+shape = SubResource("RectangleShape2D_b3llh")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[connection signal="area_entered" from="arrowhit" to="." method="_on_arrow_hit_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

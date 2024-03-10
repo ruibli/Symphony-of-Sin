@@ -65,6 +65,7 @@ func load_map():
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
+			temp.type = 2
 			temp.position = i * 320 + Vector2(160, 0)
 			temp.rotation_degrees = 90
 			map_node.add_child(temp)
@@ -75,6 +76,7 @@ func load_map():
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
+			temp.type = 2
 			temp.position = i * 320 - Vector2(160, 0)
 			temp.rotation_degrees = 90
 			map_node.add_child(temp)
@@ -84,6 +86,7 @@ func load_map():
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
+			temp.type = 1
 			temp.position = i * 320 + Vector2(0, 160)
 			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(0, -1)) == null):
@@ -92,6 +95,7 @@ func load_map():
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
+			temp.type = 1
 			temp.position = i * 320 - Vector2(0, 160)
 			map_node.add_child(temp)
 			

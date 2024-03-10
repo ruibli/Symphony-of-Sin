@@ -67,6 +67,7 @@ func random_item():
 		Glova.g_item_pool(nam)
 		
 		if nam == "breakfast":
+			$item.texture = load("res://assets/loot/items/breakfast.png")
 			stats = [25, 25, 0, 0, 0, 0]
 
 func random_weapon():

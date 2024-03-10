@@ -31,7 +31,20 @@ func _ready():
 		if level == lap_level:
 			lap = lap_scene.instantiate()
 			lap .position = Vector2(-128,-128)
-			add_child(lap )
+			add_child(lap)
+			
+		blocker = blocker_scene.instantiate()
+		blocker.position = Vector2(64,0)
+		add_child(blocker)
+		blocker = blocker_scene.instantiate()
+		blocker.position = Vector2(-64,0)
+		add_child(blocker)
+		blocker = blocker_scene.instantiate()
+		blocker.position = Vector2(0,64)
+		add_child(blocker)
+		blocker = blocker_scene.instantiate()
+		blocker.position = Vector2(0,-64)
+		add_child(blocker)
 		
 		pedestal = pedestal_scene.instantiate()
 		pedestal.position = Vector2(0,0)
@@ -40,13 +53,15 @@ func _ready():
 		
 		if level == 1:
 			temp = rand_enemy()	# spawn boss here
-			temp.position = Vector2(0,-64)
+			temp.position = Vector2(0,-32)
 			add_child(temp)
 	
 	elif type == "spawn":
 		pass
+		
 	elif type == "lore":
 		pass
+		
 	elif type == "shop":
 		pedestal = pedestal_scene.instantiate()
 		pedestal.position = Vector2(0,0)
