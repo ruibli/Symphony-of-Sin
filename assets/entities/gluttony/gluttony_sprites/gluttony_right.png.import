@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dud0u50bllnay"
-path="res://.godot/imported/crossbow.png-a73c220f2c4ebd1e50cbf23f65d9cc4a.ctex"
+uid="uid://c1al7pdeagnyb"
+path="res://.godot/imported/gluttony_right.png-fbbf2e8ad175a7367dde9fbdb8b9822b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loot/weapons/crossbow.png"
-dest_files=["res://.godot/imported/crossbow.png-a73c220f2c4ebd1e50cbf23f65d9cc4a.ctex"]
+source_file="res://assets/entities/gluttony/gluttony_sprites/gluttony_right.png"
+dest_files=["res://.godot/imported/gluttony_right.png-fbbf2e8ad175a7367dde9fbdb8b9822b.ctex"]
 
 [params]
 
