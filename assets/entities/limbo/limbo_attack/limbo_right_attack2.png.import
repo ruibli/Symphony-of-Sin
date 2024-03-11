@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb4y47gn10bju"
-path="res://.godot/imported/nova_arrow_projectile.png-0948f54c090e48dee14a5139ebcbbbaf.ctex"
+uid="uid://dey08wtevqgy6"
+path="res://.godot/imported/limbo_right_attack2.png-48708814be986ae82000613dd826d7d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/nova_crossbow/nova_arrow_projectile.png"
-dest_files=["res://.godot/imported/nova_arrow_projectile.png-0948f54c090e48dee14a5139ebcbbbaf.ctex"]
+source_file="res://assets/entities/limbo/limbo_attack/limbo_right_attack2.png"
+dest_files=["res://.godot/imported/limbo_right_attack2.png-48708814be986ae82000613dd826d7d7.ctex"]
 
 [params]
 
