@@ -98,6 +98,8 @@ func _process(_delta):
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	$Timer.start()
 	state = 2
+	$pedestal.visible = false
+	$item.visible = false
 
 func _on_timer_timeout():
 	$pedestal.visible = true

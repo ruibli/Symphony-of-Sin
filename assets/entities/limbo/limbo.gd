@@ -15,10 +15,10 @@ var active = false
 
 func _physics_process(_delta):
 	if active:
-		player = Glova.g_pos()
-		var player_distance = player - $LimboCollision.global_position
-		velocity = player_distance.normalized()
-		velocity = velocity.normalized() * speed
+		$NavigationAgent2D.set_target_position(Glova.g_pos())
+		var current_agent_position = global_position
+		var next_path_position = $NavigationAgent2D.get_next_path_position()
+		velocity = (next_path_position - current_agent_position).normalized() * speed
 		move_and_slide()
 		global_position = $LimboCollision.global_position
 		
