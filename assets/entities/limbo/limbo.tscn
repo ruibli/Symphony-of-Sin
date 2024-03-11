@@ -1,22 +1,82 @@
-[gd_scene load_steps=17 format=3 uid="uid://du7wg2sy0ohtd"]
+[gd_scene load_steps=25 format=3 uid="uid://du7wg2sy0ohtd"]
 
 [ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
+[ext_resource type="Texture2D" uid="uid://cmwtenhmj6rlg" path="res://assets/entities/limbo/limbo_attack/limbo_down_attack1.png" id="2_gvveb"]
 [ext_resource type="Texture2D" uid="uid://o12hy3b2l12i" path="res://assets/entities/limbo/limbo_walking/limbo_down.png" id="2_w4axx"]
+[ext_resource type="Texture2D" uid="uid://tl1tyamycg5h" path="res://assets/entities/limbo/limbo_attack/limbo_down_attack2.png" id="3_2md68"]
 [ext_resource type="Texture2D" uid="uid://c2ojp3u0wiu7k" path="res://assets/entities/limbo/limbo_walking/limbo_down_walk1.png" id="3_guivj"]
 [ext_resource type="Texture2D" uid="uid://bgpqau4d2nfep" path="res://assets/entities/limbo/limbo_walking/limbo_down_walk2.png" id="4_hcc7v"]
+[ext_resource type="Texture2D" uid="uid://bgs3c55s2e211" path="res://assets/entities/limbo/limbo_attack/limbo_down_attack3.png" id="4_q0atx"]
 [ext_resource type="Texture2D" uid="uid://d4fq5l3e4tej8" path="res://assets/entities/limbo/limbo_walking/limbo_right.png" id="5_bon83"]
 [ext_resource type="Texture2D" uid="uid://dtkqldu5tnb55" path="res://assets/entities/limbo/limbo_walking/limbo_left.png" id="5_ip1xi"]
+[ext_resource type="Texture2D" uid="uid://23c3pm0xmktv" path="res://assets/entities/limbo/limbo_attack/limbo_down_attack4.png" id="5_uaf1l"]
 [ext_resource type="Texture2D" uid="uid://ckjuldjctnu0q" path="res://assets/entities/limbo/limbo_walking/limbo_up.png" id="5_y3xdt"]
 [ext_resource type="Texture2D" uid="uid://clpc0axtu1qmq" path="res://assets/entities/limbo/limbo_walking/limbo_up_walk1.png" id="6_3rtik"]
+[ext_resource type="Texture2D" uid="uid://dmbyab0vmmdm1" path="res://assets/entities/limbo/limbo_attack/limbo_up_attack1.png" id="6_462h4"]
 [ext_resource type="Texture2D" uid="uid://0nacxyv2xht2" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk1.png" id="6_qd1to"]
 [ext_resource type="Texture2D" uid="uid://3xn6vlqtobod" path="res://assets/entities/limbo/limbo_walking/limbo_right_walk1.png" id="6_w3j3x"]
 [ext_resource type="Texture2D" uid="uid://dp756uncmjrcq" path="res://assets/entities/limbo/limbo_walking/limbo_up_walk2.png" id="7_5g65o"]
 [ext_resource type="Texture2D" uid="uid://dbtr5jdfv1ja7" path="res://assets/entities/limbo/limbo_walking/limbo_left_walk2.png" id="7_7ipd4"]
+[ext_resource type="Texture2D" uid="uid://cew70u8kk6wte" path="res://assets/entities/limbo/limbo_attack/limbo_up_attack2.png" id="7_stxgh"]
 [ext_resource type="Texture2D" uid="uid://c8ngwjuu1dekw" path="res://assets/entities/limbo/limbo_walking/limbo_right_walk2.png" id="7_y3mhk"]
+[ext_resource type="Texture2D" uid="uid://ygx7mwgahx35" path="res://assets/entities/limbo/limbo_attack/limbo_up_attack3.png" id="8_kfsb3"]
+[ext_resource type="Texture2D" uid="uid://cp45i7hw6lo78" path="res://assets/entities/limbo/limbo_attack/limbo_up_attack4.png" id="9_4g3sv"]
 [ext_resource type="Script" path="res://assets/entities/limbo/LimboHurt.gd" id="14_mo2vk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_gvveb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2md68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q0atx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uaf1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_q0atx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2md68")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gvveb")
+}],
+"loop": true,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_462h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_stxgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kfsb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4g3sv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kfsb3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_stxgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_462h4")
+}],
+"loop": true,
+"name": &"attack_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_w4axx")
@@ -100,7 +160,7 @@ script = ExtResource("1_a74ao")
 z_index = 1
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"walk_up"
+animation = &"attack_up"
 
 [node name="LimboCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_u2f1h")
