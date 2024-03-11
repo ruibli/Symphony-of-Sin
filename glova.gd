@@ -57,6 +57,8 @@ func g_pos(p: Vector2 = Vector2(9999, 9999)):
 		pos = p
 
 func g_enemies(e: int = 0):
+	if enemies < 0:
+		enemies = 0
 	if e == 0:
 		return enemies
 	else:

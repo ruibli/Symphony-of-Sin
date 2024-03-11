@@ -1,10 +1,9 @@
 extends CharacterBody2D
 
-signal hit
-
 @onready var camera_pos = Vector2(0,0)
+var center = Vector2(0,0)
 @export var arrow_scene : PackedScene
-var health= 100
+var health = 100
 var health_max = 100
 var speed = 150
 var power = 1
@@ -55,27 +54,17 @@ func _process(_delta):
 		foot = true
 	
 	move_and_slide()
-	$NovaAnimation.global_position = $NovaCollision.global_position
+	global_position = $NovaCollision.global_position
 	Glova.g_pos($NovaCollision.global_position)
 	$Camera2D.global_position = camera_pos
 	if health <= 0:
-		Glova.set_level(-1)
+		Glova.g_level(-1)
 		queue_free()
 	if health > health_max:
 		health = health_max
 	set_nova()
-	print(health)
 	
-	for i in range(get_slide_collision_count()): # collision
-			var collision = get_slide_collision(i)
-			if "damage" in collision.get_collider():
-				if collision.get_collider().source == "enemy" and can_hit == true:
-					health -= collision.get_collider().damage
-					can_hit = false
-					$HitCooldown.start()
-	
-# Crossbow Animations
-	if current == "crossbow":
+	if current == "crossbow": # Crossbow Animations
 		# attack while walking
 		if Input.is_action_pressed("attack_left"):
 			$NovaAnimation.play("crossbow_left")
@@ -146,16 +135,16 @@ func shoot(): # attacking
 		var b = arrow_scene.instantiate()
 		if direction == "right":
 			velocity.x += 1
-			b.global_position = $NovaCollision.global_position + Vector2(15, 0)
+			b.global_position = $NovaCollision.global_position
 		elif direction == "left":
 			velocity.x -= 1
-			b.global_position = $NovaCollision.global_position + Vector2(-15, 0)
+			b.global_position = $NovaCollision.global_position
 		elif direction == "down":
 			velocity.y += 1
-			b.global_position = $NovaCollision.global_position + Vector2(0, 20)
+			b.global_position = $NovaCollision.global_position
 		elif direction == "up":
 			velocity.y -= 1
-			b.global_position = $NovaCollision.global_position + Vector2(0, -20)
+			b.global_position = $NovaCollision.global_position
 		b.start(direction)
 		get_tree().root.add_child(b)
 
@@ -166,6 +155,25 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	if area.get_name() == 'CameraArea':
 		var collision_shape = area.get_node("CollisionShape2D")
 		camera_pos = collision_shape.global_position
+		center = camera_pos
 
 func _on_hit_cooldown_timeout():
 	can_hit = true
+
+func hit(ow):
+	if can_hit:
+		can_hit = false
+		$HitCooldown.start()
+		Glova.g_stats([-ow, 0, 0, 0, 0, 0])
+
+func boop(type):
+	if type == 1:
+		if velocity.y > 0: #down
+			global_position = center + Vector2(0,184)
+		elif velocity.y < 0: #up
+			global_position = center + Vector2(0,-184)
+	elif type == 2:
+		if velocity.x < 0: #left
+			global_position = center + Vector2(-184,0)	
+		elif velocity.x > 0: #right
+			global_position = center + Vector2(184,0)

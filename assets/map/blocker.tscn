@@ -12,10 +12,8 @@ collision_mask = 0
 script = ExtResource("1_ge3wm")
 
 [node name="blocker" type="Sprite2D" parent="."]
-z_index = 2
 z_as_relative = false
 texture = ExtResource("1_ccyjg")
-offset = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_t4k03")

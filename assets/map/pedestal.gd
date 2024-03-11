@@ -67,6 +67,7 @@ func random_item():
 		Glova.g_item_pool(nam)
 		
 		if nam == "breakfast":
+			$item.texture = load("res://assets/loot/items/breakfast.png")
 			stats = [25, 25, 0, 0, 0, 0]
 
 func random_weapon():
@@ -95,9 +96,8 @@ func _process(_delta):
 		$Timer.start()
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
-	if state == 1:
-		$Timer.start()
-		state = 2
+	$Timer.start()
+	state = 2
 
 func _on_timer_timeout():
 	$pedestal.visible = true
@@ -116,3 +116,9 @@ func _on_pedestal_area_area_entered(_area):
 			Glova.g_stats(stats)
 			Glova.g_stats(cost)
 			queue_free()
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	state = 1
+	$pedestal.visible = false
+	$item.visible = false

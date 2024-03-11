@@ -11,5 +11,13 @@ script = ExtResource("1_jh5b4")
 z_as_relative = false
 texture = ExtResource("2_fw36a")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="DoorCollision" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+
+[node name="DoorHit" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="DoorCollision" type="CollisionPolygon2D" parent="DoorHit"]
+polygon = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+
+[connection signal="area_entered" from="DoorHit" to="." method="_on_door_hit_area_entered"]

@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
 var speed = 100
-var damage = 50
-var source = "nova"
+var damage = 20
 
 func start(direction):
 	velocity = Vector2.ZERO
@@ -20,24 +19,23 @@ func _process(_delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	move_and_slide()
-	$Arrow.global_position = $CollisionShape2D.global_position
+	global_position = $ArrowCollision.global_position
 	
 	if velocity.x < 0: #right
-		$Arrow.rotation_degrees = 90
-		$CollisionShape2D.rotation_degrees = 90
+		rotation_degrees = 90
 	elif velocity.x > 0: #left
-		$Arrow.rotation_degrees = 270
-		$CollisionShape2D.rotation_degrees = 270
+		rotation_degrees = 270
 	elif velocity.y < 0: #down
-		$Arrow.rotation_degrees = 180
-		$CollisionShape2D.rotation_degrees = 180
+		rotation_degrees = 180
 	elif velocity.y > 0: #up
-		$Arrow.rotation_degrees = 0
-		$CollisionShape2D.rotation_degrees = 0
+		pass
 		
 	for index in get_slide_collision_count():
-		await get_tree().process_frame
 		queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
+
+func _on_arrow_hit_area_entered(area):
+		area.hit(damage)
+		queue_free()
