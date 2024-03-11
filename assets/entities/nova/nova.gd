@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var camera_pos = Vector2(0,0)
+var center = Vector2(0,0)
 @export var arrow_scene : PackedScene
 var health = 100
 var health_max = 100
@@ -62,7 +63,6 @@ func _process(_delta):
 	if health > health_max:
 		health = health_max
 	set_nova()
-	print(health)
 	
 	if current == "crossbow": # Crossbow Animations
 		# attack while walking
@@ -155,6 +155,7 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	if area.get_name() == 'CameraArea':
 		var collision_shape = area.get_node("CollisionShape2D")
 		camera_pos = collision_shape.global_position
+		center = camera_pos
 
 func _on_hit_cooldown_timeout():
 	can_hit = true
@@ -168,11 +169,11 @@ func hit(ow):
 func boop(type):
 	if type == 1:
 		if velocity.y > 0: #down
-			global_position = global_position + Vector2(0,16)
+			global_position = center + Vector2(0,184)
 		elif velocity.y < 0: #up
-			global_position = global_position + Vector2(0,-16)
+			global_position = center + Vector2(0,-184)
 	elif type == 2:
 		if velocity.x < 0: #left
-			global_position = global_position + Vector2(-16,0)	
+			global_position = center + Vector2(-184,0)	
 		elif velocity.x > 0: #right
-			global_position = global_position + Vector2(16,0)
+			global_position = center + Vector2(184,0)

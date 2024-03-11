@@ -96,6 +96,7 @@ size = Vector2(0.1, 0.1)
 [node name="nova" type="CharacterBody2D"]
 z_as_relative = false
 collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_wapv4")
 arrow_scene = ExtResource("2_1l2sp")
 

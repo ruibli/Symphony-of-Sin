@@ -18,5 +18,4 @@ func _process(_delta):
 		set_collision_layer_value(1,false)
 
 func _on_door_hit_area_entered(area):
-	if area.is_in_group("nova"):
-		area.boop(type)
+	area.boop(type)

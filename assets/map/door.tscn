@@ -15,6 +15,7 @@ texture = ExtResource("2_fw36a")
 polygon = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
 
 [node name="DoorHit" type="Area2D" parent="."]
+collision_mask = 2
 
 [node name="DoorCollision" type="CollisionPolygon2D" parent="DoorHit"]
 polygon = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
