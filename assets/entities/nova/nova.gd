@@ -35,17 +35,17 @@ func set_nova():
 	hotbar = Glova.g_hotbar()
 	
 func _process(_delta):
-	velocity = Vector2.ZERO # The player's movement vector.
+	velocity = Vector2.ZERO
 	# Player Movement
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
-
+	if Input.is_action_pressed("move_down"):
+		velocity.y += 1
+	if Input.is_action_pressed("move_left"):
+		velocity.x -= 1
+	if Input.is_action_pressed("move_right"):
+		velocity.x += 1
+	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$NovaAnimation.play()
@@ -66,23 +66,7 @@ func _process(_delta):
 	
 	if current == "crossbow": # Crossbow Animations
 		# attack while walking
-		if Input.is_action_pressed("attack_left"):
-			$NovaAnimation.play("crossbow_left")
-			$NovaAnimation.flip_h = false
-			direction = "left"
-			if foot:
-				$NovaAnimation.frame = 1
-				foot = false
-			shoot()
-		elif Input.is_action_pressed("attack_right"):
-			$NovaAnimation.play("crossbow_right")
-			$NovaAnimation.flip_h = false
-			direction = "right"
-			if foot:
-				$NovaAnimation.frame = 1
-				foot = false
-			shoot()
-		elif Input.is_action_pressed("attack_up"):
+		if Input.is_action_pressed("attack_up"):
 			$NovaAnimation.play("crossbow_up")
 			$NovaAnimation.flip_h = false
 			direction = "up"
@@ -98,6 +82,23 @@ func _process(_delta):
 				$NovaAnimation.frame = 1
 				foot = false
 			shoot()
+		elif Input.is_action_pressed("attack_left"):
+			$NovaAnimation.play("crossbow_left")
+			$NovaAnimation.flip_h = false
+			direction = "left"
+			if foot:
+				$NovaAnimation.frame = 1
+				foot = false
+			shoot()
+		elif Input.is_action_pressed("attack_right"):
+			$NovaAnimation.play("crossbow_right")
+			$NovaAnimation.flip_h = false
+			direction = "right"
+			if foot:
+				$NovaAnimation.frame = 1
+				foot = false
+			shoot()
+
 		# if not shooting in a dirction, walk facing direction player is moving
 		elif Input.is_action_pressed("move_up"): 
 			$NovaAnimation.play("crossbow_up")
@@ -133,17 +134,17 @@ func shoot(): # attacking
 		can_shoot = false
 		$BowCooldown.start()
 		var b = arrow_scene.instantiate()
-		if direction == "right":
-			velocity.x += 1
-			b.global_position = $NovaCollision.global_position
-		elif direction == "left":
-			velocity.x -= 1
+		if direction == "up":
+			velocity.y -= 1
 			b.global_position = $NovaCollision.global_position
 		elif direction == "down":
 			velocity.y += 1
 			b.global_position = $NovaCollision.global_position
-		elif direction == "up":
-			velocity.y -= 1
+		elif direction == "left":
+			velocity.x -= 1
+			b.global_position = $NovaCollision.global_position
+		elif direction == "right":
+			velocity.x += 1
 			b.global_position = $NovaCollision.global_position
 		b.start(direction)
 		get_tree().root.add_child(b)
@@ -168,12 +169,12 @@ func hit(ow):
 
 func boop(type):
 	if type == 1:
-		if velocity.y > 0: #down
-			global_position = center + Vector2(0,184)
-		elif velocity.y < 0: #up
+		if velocity.y < 0: #up
 			global_position = center + Vector2(0,-184)
+		elif velocity.y > 0: #down
+			global_position = center + Vector2(0,184)
 	elif type == 2:
 		if velocity.x < 0: #left
-			global_position = center + Vector2(-184,0)	
+			global_position = center + Vector2(-184,0)
 		elif velocity.x > 0: #right
 			global_position = center + Vector2(184,0)
