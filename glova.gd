@@ -2,7 +2,7 @@ extends Node
 
 var level = 1
 var lap = 1
-var pos
+var pos = Vector2(0,0)
 var enemies = 0
 var item = [0]
 var weapon = [1]
