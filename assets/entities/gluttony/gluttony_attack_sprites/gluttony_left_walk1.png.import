@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://do2xkn5fhlb2k"
-path="res://.godot/imported/gluttony_left_walk1.png-12ef5af7cf85d8d2d2fc739e72a608bb.ctex"
+path="res://.godot/imported/gluttony_left_walk1.png-3d0463bde37ddeb0ac33cb37423aaf32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/gluttony/gluttony_sprites/gluttony_left_walk1.png"
-dest_files=["res://.godot/imported/gluttony_left_walk1.png-12ef5af7cf85d8d2d2fc739e72a608bb.ctex"]
+source_file="res://assets/entities/gluttony/gluttony_attack_sprites/gluttony_left_walk1.png"
+dest_files=["res://.godot/imported/gluttony_left_walk1.png-3d0463bde37ddeb0ac33cb37423aaf32.ctex"]
 
 [params]
 
