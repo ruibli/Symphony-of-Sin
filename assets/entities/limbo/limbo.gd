@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 # Enemy stats
 var lap = 1 + 0.25 * (Glova.g_lap()-1)
-var speed = 125 * lap
+var speed = 110 * lap
 var health = 50 * lap
 var damage = 25 * lap
 var can_hit = true

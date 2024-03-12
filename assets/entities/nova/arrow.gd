@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 100
+var speed = 150
 var damage = 20
 
 func start(direction):

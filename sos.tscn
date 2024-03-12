@@ -68,7 +68,7 @@ nova_scene = ExtResource("1_mjwfh")
 
 [node name="black" type="ColorRect" parent="CanvasLayer"]
 modulate = Color(0, 0, 0, 1)
-z_index = 2
+z_index = 3
 z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0

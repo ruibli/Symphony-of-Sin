@@ -210,7 +210,7 @@ collision_layer = 16
 collision_mask = 2
 script = ExtResource("14_mo2vk")
 
-[node name="LimboCollision" type="CollisionShape2D" parent="limbo_hurt"]
+[node name="LimboHurt" type="CollisionShape2D" parent="limbo_hurt"]
 shape = SubResource("CapsuleShape2D_u2f1h")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -219,10 +219,11 @@ shape = SubResource("CapsuleShape2D_u2f1h")
 wait_time = 0.1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 16.0
-target_desired_distance = 16.0
+path_desired_distance = 32.0
+target_desired_distance = 32.0
 path_max_distance = 64.0
 avoidance_enabled = true
+time_horizon_obstacles = 1.0
 
 [connection signal="area_entered" from="limbo_hurt" to="." method="_on_limbohit_hurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]

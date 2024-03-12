@@ -160,6 +160,8 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 
 func _on_hit_cooldown_timeout():
 	can_hit = true
+	set_collision_layer_value(2,false)
+	set_collision_layer_value(2,true)
 
 func hit(ow):
 	if can_hit:

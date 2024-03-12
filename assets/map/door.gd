@@ -18,4 +18,5 @@ func _process(_delta):
 		set_collision_layer_value(1,false)
 
 func _on_door_hit_area_entered(area):
-	area.boop(type)
+	if Glova.g_enemies() == 0:
+		area.boop(type)
