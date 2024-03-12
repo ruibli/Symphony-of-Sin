@@ -1,7 +1,6 @@
 extends StaticBody2D
 
 var state = 1 # 1 = not on screen, 2 = on screen waiting for no enemies, 3 = ready to tp
-var lap = Glova.g_lap()
 
 func _ready():
 	$lap.visible = false
@@ -13,7 +12,7 @@ func _process(_delta):
 func _on_lap_area_area_entered(_area):
 	if state == 3:
 		Glova.g_level(1)
-		Glova.g_lap(lap + 1)
+		Glova.g_mod(Glova.g_mod() + 1)
 
 func _on_timer_timeout():
 	$lap.visible = true

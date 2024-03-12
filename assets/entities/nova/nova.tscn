@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=20 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_1l2sp"]
@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://ddw5tvgset0no" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_up_walk1.png" id="13_04tot"]
 [ext_resource type="Texture2D" uid="uid://bfgnx6hk6dmbn" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_up_walk2.png" id="14_1qc7q"]
 [ext_resource type="Script" path="res://assets/entities/nova/novahurt.gd" id="15_7su4j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikotd"]
+size = Vector2(10, 5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wltb"]
 animations = [{
@@ -100,22 +103,23 @@ motion_mode = 1
 script = ExtResource("1_wapv4")
 arrow_scene = ExtResource("2_1l2sp")
 
-[node name="NovaAnimation" type="AnimatedSprite2D" parent="."]
-z_index = 1
+[node name="NovaCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_ikotd")
+
+[node name="NovaAnimation" type="AnimatedSprite2D" parent="NovaCollision"]
+z_index = 2
 z_as_relative = false
+position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
 animation = &"crossbow_down"
-
-[node name="NovaCollision" type="CollisionShape2D" parent="."]
-z_index = 1
-shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("15_7su4j")
 
-[node name="NovaCollision" type="CollisionShape2D" parent="novahurt"]
+[node name="NovaHurt" type="CollisionShape2D" parent="novahurt"]
 z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 

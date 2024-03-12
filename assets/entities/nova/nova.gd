@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var camera_pos = Vector2(0,0)
 var center = Vector2(0,0)
+var cam = false
+
 @export var arrow_scene : PackedScene
 var health = 100
 var health_max = 100
@@ -35,6 +37,7 @@ func set_nova():
 	hotbar = Glova.g_hotbar()
 	
 func _process(_delta):
+	$Camera2D.position_smoothing_enabled = cam
 	velocity = Vector2.ZERO
 	# Player Movement
 	if Input.is_action_pressed("move_up"):
@@ -48,18 +51,16 @@ func _process(_delta):
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
-		$NovaAnimation.play()
+		$NovaCollision/NovaAnimation.play()
 	else:
-		$NovaAnimation.stop()
+		$NovaCollision/NovaAnimation.stop()
 		foot = true
 	
 	move_and_slide()
-	global_position = $NovaCollision.global_position
-	Glova.g_pos($NovaCollision.global_position)
+	Glova.g_pos(global_position)
 	$Camera2D.global_position = camera_pos
 	if health <= 0:
 		Glova.g_level(-1)
-		queue_free()
 	if health > health_max:
 		health = health_max
 	set_nova()
@@ -67,66 +68,66 @@ func _process(_delta):
 	if current == "crossbow": # Crossbow Animations
 		# attack while walking
 		if Input.is_action_pressed("attack_up"):
-			$NovaAnimation.play("crossbow_up")
-			$NovaAnimation.flip_h = false
+			$NovaCollision/NovaAnimation.play("crossbow_up")
+			$NovaCollision/NovaAnimation.flip_h = false
 			direction = "up"
 			if foot:
-				$NovaAnimation.frame = 1
+				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
 			shoot()
 		elif Input.is_action_pressed("attack_down"):
-			$NovaAnimation.play("crossbow_down")
-			$NovaAnimation.flip_h = false
+			$NovaCollision/NovaAnimation.play("crossbow_down")
+			$NovaCollision/NovaAnimation.flip_h = false
 			direction = "down"
 			if foot:
-				$NovaAnimation.frame = 1
+				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
 			shoot()
 		elif Input.is_action_pressed("attack_left"):
-			$NovaAnimation.play("crossbow_left")
-			$NovaAnimation.flip_h = false
+			$NovaCollision/NovaAnimation.play("crossbow_left")
+			$NovaCollision/NovaAnimation.flip_h = false
 			direction = "left"
 			if foot:
-				$NovaAnimation.frame = 1
+				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
 			shoot()
 		elif Input.is_action_pressed("attack_right"):
-			$NovaAnimation.play("crossbow_right")
-			$NovaAnimation.flip_h = false
+			$NovaCollision/NovaAnimation.play("crossbow_right")
+			$NovaCollision/NovaAnimation.flip_h = false
 			direction = "right"
 			if foot:
-				$NovaAnimation.frame = 1
+				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
 			shoot()
 
 		# if not shooting in a dirction, walk facing direction player is moving
 		elif Input.is_action_pressed("move_up"): 
-			$NovaAnimation.play("crossbow_up")
-			$NovaAnimation.flip_h = false
+			$NovaCollision/NovaAnimation.play("crossbow_up")
+			$NovaCollision/NovaAnimation.flip_h = false
 			direction = "up"
 			if foot:
-				$NovaAnimation.frame = 1
+				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
 		elif Input.is_action_pressed("move_down"):
-			$NovaAnimation.play("crossbow_down")
-			$NovaAnimation.flip_h = false
+			$NovaCollision/NovaAnimation.play("crossbow_down")
+			$NovaCollision/NovaAnimation.flip_h = false
 			direction = "down"
 			if foot:
-				$NovaAnimation.frame = 1
+				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
 		elif Input.is_action_pressed("move_left"):
-			$NovaAnimation.play("crossbow_left")
-			$NovaAnimation.flip_h = false
+			$NovaCollision/NovaAnimation.play("crossbow_left")
+			$NovaCollision/NovaAnimation.flip_h = false
 			direction = "left"
 			if foot:
-				$NovaAnimation.frame = 1
+				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
 		elif Input.is_action_pressed("move_right"):
-			$NovaAnimation.play("crossbow_right")
-			$NovaAnimation.flip_h = false
+			$NovaCollision/NovaAnimation.play("crossbow_right")
+			$NovaCollision/NovaAnimation.flip_h = false
 			direction = "right"
 			if foot:
-				$NovaAnimation.frame = 1
+				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
 
 func shoot(): # attacking
@@ -136,16 +137,16 @@ func shoot(): # attacking
 		var b = arrow_scene.instantiate()
 		if direction == "up":
 			velocity.y -= 1
-			b.global_position = $NovaCollision.global_position
+			b.global_position = global_position
 		elif direction == "down":
 			velocity.y += 1
-			b.global_position = $NovaCollision.global_position
+			b.global_position = global_position
 		elif direction == "left":
 			velocity.x -= 1
-			b.global_position = $NovaCollision.global_position
+			b.global_position = global_position
 		elif direction == "right":
 			velocity.x += 1
-			b.global_position = $NovaCollision.global_position
+			b.global_position = global_position
 		b.start(direction)
 		get_tree().root.add_child(b)
 
@@ -160,10 +161,12 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 
 func _on_hit_cooldown_timeout():
 	can_hit = true
+	$novahurt.set_collision_layer_value(2,true)
 
 func hit(ow):
 	if can_hit:
 		can_hit = false
+		$novahurt.set_collision_layer_value(2,false)
 		$HitCooldown.start()
 		Glova.g_stats([-ow, 0, 0, 0, 0, 0])
 
