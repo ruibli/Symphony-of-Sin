@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://djmmvlqh4igbq"
-path="res://.godot/imported/gluttony_up.png-3c3fc307f2c91e7b36dfa490b480a1d9.ctex"
+path="res://.godot/imported/gluttony_up.png-86f456ef5faad22b5caec0ccd7b1ae1c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/gluttony/gluttony_sprites/gluttony_up.png"
-dest_files=["res://.godot/imported/gluttony_up.png-3c3fc307f2c91e7b36dfa490b480a1d9.ctex"]
+source_file="res://assets/entities/gluttony/gluttony_attack_sprites/gluttony_up.png"
+dest_files=["res://.godot/imported/gluttony_up.png-86f456ef5faad22b5caec0ccd7b1ae1c.ctex"]
 
 [params]
 
