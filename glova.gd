@@ -1,7 +1,7 @@
 extends Node
 
 var level = 1
-var lap = 1
+var mod = 0
 var pos = Vector2(0,0)
 var enemies = 0
 var item = [0]
@@ -18,7 +18,7 @@ var weapon_pool
 
 func reset():
 	level = 1
-	lap = 1
+	mod = 0
 	enemies = 0
 	stats = [100, 100, 150, 1, 1, 0]
 	
@@ -44,11 +44,11 @@ func g_level(l: int = 0):
 	else:
 		level = l
 
-func g_lap(l: int = 0):
-	if l == 0:
-		return lap
+func g_mod(m: int = 0):
+	if m == 0:
+		return mod
 	else:
-		lap = l
+		mod = m
 
 func g_pos(p: Vector2 = Vector2(9999, 9999)):
 	if p == Vector2(9999, 9999):

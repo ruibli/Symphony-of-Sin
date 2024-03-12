@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4fs2hi8i74nb"]
+[gd_scene load_steps=7 format=3 uid="uid://d4fs2hi8i74nb"]
 
 [ext_resource type="PackedScene" uid="uid://cgh0hydeq3fxq" path="res://assets/entities/nova/nova.tscn" id="1_mjwfh"]
 [ext_resource type="Script" path="res://sos.gd" id="1_mvx2q"]
@@ -17,22 +17,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_vt47i"]
-resource_name = "black"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/black:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_drj7n"]
@@ -54,7 +38,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tvbfg"]
 _data = {
 "RESET": SubResource("Animation_5afgr"),
-"black": SubResource("Animation_vt47i"),
 "clear": SubResource("Animation_drj7n")
 }
 

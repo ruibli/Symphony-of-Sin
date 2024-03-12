@@ -19,7 +19,6 @@ func _process(_delta):
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	move_and_slide()
-	global_position = $ArrowCollision.global_position
 	
 	if velocity.y < 0: #down
 		rotation_degrees = 180

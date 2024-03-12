@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://du7wg2sy0ohtd"]
+[gd_scene load_steps=32 format=3 uid="uid://du7wg2sy0ohtd"]
 
 [ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
 [ext_resource type="Texture2D" uid="uid://cmwtenhmj6rlg" path="res://assets/entities/limbo/limbo_attack/limbo_down_attack1.png" id="2_gvveb"]
@@ -28,6 +28,9 @@
 [ext_resource type="Texture2D" uid="uid://bo7k5k6o1f7ak" path="res://assets/entities/limbo/limbo_attack/limbo_left_attack2_w2.png" id="8_y8xxx"]
 [ext_resource type="Texture2D" uid="uid://cp45i7hw6lo78" path="res://assets/entities/limbo/limbo_attack/limbo_up_attack4.png" id="9_4g3sv"]
 [ext_resource type="Script" path="res://assets/entities/limbo/LimboHurt.gd" id="14_mo2vk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx0fn"]
+size = Vector2(10, 5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
 animations = [{
@@ -196,21 +199,23 @@ collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_a74ao")
 
-[node name="LimboAnimation" type="AnimatedSprite2D" parent="."]
+[node name="LimboCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_xx0fn")
+
+[node name="LimboAnimation" type="AnimatedSprite2D" parent="LimboCollision"]
 z_index = 1
 z_as_relative = false
+position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_left"
+animation = &"walk_down"
 
-[node name="LimboCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_u2f1h")
-
-[node name="limbo_hurt" type="Area2D" parent="."]
-collision_layer = 16
+[node name="limbohurt" type="Area2D" parent="."]
+collision_layer = 20
 collision_mask = 2
 script = ExtResource("14_mo2vk")
 
-[node name="LimboHurt" type="CollisionShape2D" parent="limbo_hurt"]
+[node name="LimboHurt" type="CollisionShape2D" parent="limbohurt"]
 shape = SubResource("CapsuleShape2D_u2f1h")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -219,13 +224,20 @@ shape = SubResource("CapsuleShape2D_u2f1h")
 wait_time = 0.1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 32.0
-target_desired_distance = 32.0
+path_desired_distance = 16.0
+target_desired_distance = 16.0
 path_max_distance = 64.0
 avoidance_enabled = true
-time_horizon_obstacles = 1.0
+radius = 16.0
+neighbor_distance = 16.0
+time_horizon_agents = 0.1
+time_horizon_obstacles = 0.1
 
-[connection signal="area_entered" from="limbo_hurt" to="." method="_on_limbohit_hurt_area_entered"]
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+position = Vector2(0, 6)
+vertices = PackedVector2Array(-3, -16, 3, -16, 5, -15, 9, -11, 10, -9, 10, -3, 9, -1, 5, 3, 3, 4, -3, 4, -5, 3, -9, -1, -10, -3, -10, -9, -9, -11, -5, -15)
+
+[connection signal="area_entered" from="limbohurt" to="." method="_on_limbohit_hurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]

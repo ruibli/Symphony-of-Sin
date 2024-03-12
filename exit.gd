@@ -17,6 +17,7 @@ func _on_exit_area_area_entered(_area):
 			Glova.g_level(-2)
 		elif level < last:
 			Glova.g_level(level + 1)
+			Glova.g_mod(Glova.g_mod() + 1)
 
 func _on_timer_timeout():
 	$exit.visible = true
