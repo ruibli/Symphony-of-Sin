@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bmbqvi4dlaswi" path="res://assets/map/manor/manor_blocker.png" id="1_ccyjg"]
 [ext_resource type="Script" path="res://assets/map/blocker.gd" id="1_ge3wm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t4k03"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7701s"]
 size = Vector2(32, 32)
 
 [node name="blocker" type="StaticBody2D"]
@@ -16,7 +16,8 @@ z_as_relative = false
 texture = ExtResource("1_ccyjg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_t4k03")
+shape = SubResource("RectangleShape2D_7701s")
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)

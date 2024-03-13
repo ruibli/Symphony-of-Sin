@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://doo7pq26uiny0"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_4r1km"]
+[ext_resource type="PackedScene" uid="uid://du7wg2sy0ohtd" path="res://assets/entities/limbo/limbo.tscn" id="2_de6ab"]
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_4r1km")
+limbo_scene = ExtResource("2_de6ab")

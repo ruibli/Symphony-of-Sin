@@ -13,10 +13,7 @@ func _ready():
 	$item.visible = false
 	$item.position = $pedestal.position + Vector2(0, -7)
 	
-	if type == "set":
-		pass
-		
-	elif type == "enemy":
+	if type == "enemy":
 		item = randi_range(1,10)
 		if item <= 4:
 			item = "coin"
