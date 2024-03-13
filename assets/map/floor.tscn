@@ -1,30 +1,22 @@
-[gd_scene load_steps=10 format=3 uid="uid://bo02l0cij368f"]
+[gd_scene load_steps=8 format=3 uid="uid://bo02l0cij368f"]
 
 [ext_resource type="Script" path="res://assets/map/floor.gd" id="1_wo4dn"]
-[ext_resource type="PackedScene" uid="uid://7h4761rqy8px" path="res://assets/map/blocker.tscn" id="2_qdn1h"]
-[ext_resource type="PackedScene" uid="uid://du7wg2sy0ohtd" path="res://assets/entities/limbo/limbo.tscn" id="3_xvf61"]
+[ext_resource type="PackedScene" uid="uid://c8wl0is3ji8ph" path="res://assets/map/layouts/boss.tscn" id="2_gixse"]
+[ext_resource type="PackedScene" uid="uid://ftsfmxroaf6g" path="res://assets/map/layouts/spawn.tscn" id="3_20jn3"]
+[ext_resource type="PackedScene" uid="uid://dw06fdjc7safu" path="res://assets/map/layouts/shop.tscn" id="3_n2t7b"]
 [ext_resource type="Texture2D" uid="uid://dd8ic20mgbjw1" path="res://assets/map/manor/manor_floor.png" id="4_1q312"]
-[ext_resource type="PackedScene" uid="uid://c2n8tr2r251qi" path="res://assets/map/exit.tscn" id="4_82x7m"]
-[ext_resource type="PackedScene" uid="uid://b5rm52irse7gj" path="res://assets/map/pedestal.tscn" id="4_qlvxx"]
-[ext_resource type="PackedScene" uid="uid://da8es6cp1n5rk" path="res://assets/map/lap.tscn" id="5_6ywmo"]
+[ext_resource type="PackedScene" uid="uid://cl6cn4d61p0hb" path="res://assets/map/layouts/enemy_0.tscn" id="5_57b8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tmqa"]
-size = Vector2(320, 320)
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_n0ye8"]
-vertices = PackedVector2Array(150, 150, -150, 150, -150, -150, 150, -150)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-160, -160, 160, -160, 160, 160, -160, 160)])
-source_geometry_group_name = &"navigation_polygon_source_group"
+size = Vector2(352, 352)
 
 [node name="floor" type="StaticBody2D"]
 collision_mask = 0
 script = ExtResource("1_wo4dn")
-blocker_scene = ExtResource("2_qdn1h")
-pedestal_scene = ExtResource("4_qlvxx")
-exit_scene = ExtResource("4_82x7m")
-lap_scene = ExtResource("5_6ywmo")
-limbo_scene = ExtResource("3_xvf61")
+boss_scene = ExtResource("2_gixse")
+spawn_scene = ExtResource("3_20jn3")
+shop_scene = ExtResource("3_n2t7b")
+enemy_0_scene = ExtResource("5_57b8v")
 
 [node name="floor" type="Sprite2D" parent="."]
 z_as_relative = false
@@ -34,6 +26,3 @@ texture = ExtResource("4_1q312")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor/CameraArea"]
 shape = SubResource("RectangleShape2D_7tmqa")
-
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_n0ye8")

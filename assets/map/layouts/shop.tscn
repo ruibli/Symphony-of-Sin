@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw06fdjc7safu"]
+
+[ext_resource type="Script" path="res://shop.gd" id="1_7bc07"]
+[ext_resource type="PackedScene" uid="uid://nr0hs8sfdwlj" path="res://assets/map/wall.tscn" id="2_o6gkv"]
+[ext_resource type="PackedScene" uid="uid://b5rm52irse7gj" path="res://assets/map/pedestal.tscn" id="2_r6de4"]
+
+[node name="shop" type="Node2D"]
+script = ExtResource("1_7bc07")
+pedestal_scene = ExtResource("2_r6de4")
+
+[node name="wall" parent="." instance=ExtResource("2_o6gkv")]

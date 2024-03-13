@@ -22,9 +22,6 @@ var current = "crossbow"
 var foot = true
 var can_hit = true
 
-func _ready():
-	$BowCooldown.wait_time = cooldown
-
 func set_nova():
 	health = Glova.g_stats()[0]
 	health_max = Glova.g_stats()[1]
@@ -35,6 +32,8 @@ func set_nova():
 	
 	inv = Glova.g_inv()
 	hotbar = Glova.g_hotbar()
+	
+	$BowCooldown.wait_time = 1 / attack
 	
 func _process(_delta):
 	$Camera2D.position_smoothing_enabled = cam
@@ -171,13 +170,11 @@ func hit(ow):
 		Glova.g_stats([-ow, 0, 0, 0, 0, 0])
 
 func boop(type):
-	if type == 1:
-		if velocity.y < 0: #up
-			global_position = center + Vector2(0,-184)
-		elif velocity.y > 0: #down
-			global_position = center + Vector2(0,184)
-	elif type == 2:
-		if velocity.x < 0: #left
-			global_position = center + Vector2(-184,0)
-		elif velocity.x > 0: #right
-			global_position = center + Vector2(184,0)
+	if type == "up":
+		global_position = center + Vector2(0,-224)
+	elif type == "down":
+		global_position = center + Vector2(0,224)
+	elif type == "left":
+		global_position = center + Vector2(-224,0)
+	elif type == "right":
+		global_position = center + Vector2(224,0)

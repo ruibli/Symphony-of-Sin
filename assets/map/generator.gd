@@ -44,59 +44,57 @@ func load_map():
 		elif(!spawn && dungeon.get(i).number_of_connections >= 3):
 			spawn = true
 			temp.type = "spawn"
-			spawn_point = i * 320
+			spawn_point = i * 352
 		elif(!lore && dungeon.get(i).number_of_connections == 1):
 			lore = true
 			temp.type = "lore"
 		elif(!shop && dungeon.get(i).number_of_connections == 1):
 			shop = true
 			temp.type = "shop"
-		temp.position = i * 320
-		map_node.add_child(temp)
-		
-		temp = wall_scene.instantiate()
-		temp.position = i * 320
+		temp.position = i * 352
 		map_node.add_child(temp)
 		
 		if(c_rooms.get(Vector2(1, 0)) == null):
 			temp = fill_scene.instantiate()
-			temp.position = i * 320 + Vector2(160, 0)
+			temp.position = i * 352 + Vector2(160, 0)
 			temp.rotation_degrees = 90
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
-			temp.type = 2
-			temp.position = i * 320 + Vector2(160, 0)
+			temp.type = "right"
+			temp.position = i * 352 + Vector2(160, 0)
 			temp.rotation_degrees = 90
 			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(-1, 0)) == null):
 			temp = fill_scene.instantiate()
-			temp.position = i * 320 - Vector2(160, 0)
-			temp.rotation_degrees = 90
+			temp.position = i * 352 + Vector2(-160, 0)
+			temp.rotation_degrees = 270
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
-			temp.type = 2
-			temp.position = i * 320 - Vector2(160, 0)
-			temp.rotation_degrees = 90
+			temp.type = "left"
+			temp.position = i * 352 + Vector2(-160, 0)
+			temp.rotation_degrees = 270
 			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(0, 1)) == null):
 			temp = fill_scene.instantiate()
-			temp.position = i * 320 + Vector2(0, 160)
+			temp.position = i * 352 + Vector2(0, 160)
+			temp.rotation_degrees = 180
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
-			temp.type = 1
-			temp.position = i * 320 + Vector2(0, 160)
+			temp.type = "down"
+			temp.position = i * 352 + Vector2(0, 160)
+			temp.rotation_degrees = 180
 			map_node.add_child(temp)
 		if(c_rooms.get(Vector2(0, -1)) == null):
 			temp = fill_scene.instantiate()
-			temp.position = i * 320 - Vector2(0, 160)
+			temp.position = i * 352 + Vector2(0, -160)
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
-			temp.type = 1
-			temp.position = i * 320 - Vector2(0, 160)
+			temp.type = "up"
+			temp.position = i * 352 + Vector2(0, -160)
 			map_node.add_child(temp)
 			
 func generate(room_seed):

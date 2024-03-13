@@ -7,7 +7,7 @@ extends CharacterBody2D
 
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
-var speed = 125 * mod
+var speed = 150 * mod
 var health = 50 * mod
 var damage = 25 * mod
 var attack = 1
@@ -22,7 +22,7 @@ func _physics_process(_delta):
 		if not wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
-		elif distance >= 16:
+		elif distance >= 24:
 			$NavigationAgent2D.set_target_position(Glova.g_pos())
 			var current_agent_position = global_position
 			var next_path_position = $NavigationAgent2D.get_next_path_position()
