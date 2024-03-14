@@ -1,44 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8wl0is3ji8ph"]
+[gd_scene load_steps=4 format=3 uid="uid://c8wl0is3ji8ph"]
 
 [ext_resource type="PackedScene" uid="uid://7h4761rqy8px" path="res://assets/map/blocker.tscn" id="2_ae6ta"]
 [ext_resource type="PackedScene" uid="uid://nr0hs8sfdwlj" path="res://assets/map/wall.tscn" id="2_x26x6"]
-[ext_resource type="PackedScene" uid="uid://da8es6cp1n5rk" path="res://assets/map/lap.tscn" id="3_rc5xr"]
-[ext_resource type="PackedScene" uid="uid://c2n8tr2r251qi" path="res://assets/map/exit.tscn" id="4_pdso6"]
-[ext_resource type="PackedScene" uid="uid://b5rm52irse7gj" path="res://assets/map/pedestal.tscn" id="6_1bxv7"]
-[ext_resource type="PackedScene" uid="uid://doo7pq26uiny0" path="res://assets/entities/enemy.tscn" id="6_65cjs"]
-
-[sub_resource type="GDScript" id="GDScript_mws58"]
-script/source = "extends Node2D
-
-@export var enemy_scene: PackedScene
-@export var pedestal_scene: PackedScene
-@export var exit_scene: PackedScene
-@export var lap_scene: PackedScene
-
-var temp
-var level = Glova.g_level()
-var lap_level = 1
-
-func _ready():
-	if level == 1: # spawn boss here
-		temp = enemy_scene.instantiate()
-		temp.position = $Marker2D.position
-		add_child(temp)
-			
-	temp = exit_scene.instantiate()
-	temp.position = Vector2(128,-128)
-	add_child(temp)
-		
-	if level == lap_level:
-		temp = lap_scene.instantiate()
-		temp.position = Vector2(-128,-128)
-		add_child(temp)
-		
-	temp = pedestal_scene.instantiate()
-	temp.position = Vector2(0,0)
-	temp.type = \"boss\"
-	add_child(temp)
-"
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_4owi2"]
 vertices = PackedVector2Array(90, -26, 38, -26, 26, -38, 26, -90, 134, -134, 134, 134, 90, 26, 26, 90, -134, 134, -26, 90, 38, 26, 26, 38, -26, 38, -38, 26, -38, -26, -26, -38, -134, -134, -26, -90, -90, -26, -90, 26)
@@ -47,11 +10,6 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-144, -144, 144, -144, 
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="boss" type="Node2D"]
-script = SubResource("GDScript_mws58")
-enemy_scene = ExtResource("6_65cjs")
-pedestal_scene = ExtResource("6_1bxv7")
-exit_scene = ExtResource("4_pdso6")
-lap_scene = ExtResource("3_rc5xr")
 
 [node name="wall" parent="." instance=ExtResource("2_x26x6")]
 

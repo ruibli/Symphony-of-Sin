@@ -25,7 +25,7 @@ func new_game():
 
 func new_floor():
 	generator.new_dungeon()
-	nova.cam = false
+	nova.cam = false	
 	nova.position = generator.get_spawn()
 	Glova.g_enemies(-999)
 	$CanvasLayer/black/AnimationPlayer.play("clear")
