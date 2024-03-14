@@ -1,16 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://cl6cn4d61p0hb"]
+[gd_scene load_steps=3 format=3 uid="uid://cl6cn4d61p0hb"]
 
-[ext_resource type="Script" path="res://enemy0.gd" id="1_t7iuf"]
-[ext_resource type="PackedScene" uid="uid://doo7pq26uiny0" path="res://assets/entities/enemy.tscn" id="2_47wrk"]
 [ext_resource type="PackedScene" uid="uid://nr0hs8sfdwlj" path="res://assets/map/wall.tscn" id="2_f3hcd"]
-[ext_resource type="PackedScene" uid="uid://b5rm52irse7gj" path="res://assets/map/pedestal.tscn" id="3_b5c0v"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_irgcc"]
+vertices = PackedVector2Array(134, 134, -134, 134, -134, -134, 134, -134)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-144, -144, 144, -144, 144, 144, -144, 144)])
+source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="enemy0" type="Node2D"]
-script = ExtResource("1_t7iuf")
-enemy_scene = ExtResource("2_47wrk")
-pedestal_scene = ExtResource("3_b5c0v")
 
 [node name="wall" parent="." instance=ExtResource("2_f3hcd")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_irgcc")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(32, 0)

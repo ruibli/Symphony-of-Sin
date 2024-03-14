@@ -1,0 +1,77 @@
+[gd_scene load_steps=4 format=3 uid="uid://co71a45g1lv24"]
+
+[ext_resource type="PackedScene" uid="uid://nr0hs8sfdwlj" path="res://assets/map/wall.tscn" id="1_iiunm"]
+[ext_resource type="PackedScene" uid="uid://7h4761rqy8px" path="res://assets/map/blocker.tscn" id="2_hl5pr"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_soqsm"]
+vertices = PackedVector2Array(90, 102, 38, 102, -38, 90, 38, 90, 38, -38, 134, 38, 102, 38, -38, -38, -38, -90, -38, -102, -38, -134, 38, -134, 38, -102, 90, -102, 90, -134, 134, -134, 134, -90, 102, -90, 102, -38, 134, -38, 90, -38, 90, -90, 38, -90, 102, 90, 134, 90, 134, 134, 90, 90, 90, 38, 38, 38, 90, 134, -38, 38, -90, -38, -90, 38, 38, 134, -38, 134, -38, 102, -90, 90, -90, 102, -102, 90, -90, 134, -134, 134, -134, 90, -102, 38, -102, -38, -134, 38, -134, -38, -90, -90, -102, -90, -134, -90, -134, -134, -90, -134, -90, -102)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12), PackedInt32Array(13, 14, 15, 16, 17), PackedInt32Array(18, 19, 5), PackedInt32Array(18, 5, 20), PackedInt32Array(17, 18, 20, 21), PackedInt32Array(13, 17, 21, 12), PackedInt32Array(12, 21, 22, 9), PackedInt32Array(23, 24, 25), PackedInt32Array(26, 23, 25, 0), PackedInt32Array(6, 23, 26, 27), PackedInt32Array(7, 6, 27), PackedInt32Array(7, 27, 28), PackedInt32Array(25, 29, 0), PackedInt32Array(3, 26, 0), PackedInt32Array(28, 3, 2, 30), PackedInt32Array(7, 28, 30, 31), PackedInt32Array(31, 30, 32), PackedInt32Array(1, 33, 34, 35), PackedInt32Array(2, 1, 35, 36), PackedInt32Array(36, 35, 37, 38), PackedInt32Array(37, 39, 40, 41, 38), PackedInt32Array(32, 36, 38, 42), PackedInt32Array(31, 32, 42, 43), PackedInt32Array(42, 44, 45, 43), PackedInt32Array(46, 31, 43, 47), PackedInt32Array(47, 48, 49, 50, 51), PackedInt32Array(46, 47, 51, 9), PackedInt32Array(8, 46, 9), PackedInt32Array(8, 9, 22, 4), PackedInt32Array(5, 4, 20)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-144, -144, 144, -144, 144, 144, -144, 144)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="enemy_7" type="Node2D"]
+
+[node name="wall" parent="." instance=ExtResource("1_iiunm")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_soqsm")
+
+[node name="blocker" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(64, 64)
+
+[node name="blocker2" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(-64, 64)
+
+[node name="blocker3" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(-64, -64)
+
+[node name="blocker4" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(64, -64)
+
+[node name="blocker5" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(64, 128)
+
+[node name="blocker6" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(-128, -64)
+
+[node name="blocker7" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(-64, 128)
+
+[node name="blocker8" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(128, -64)
+
+[node name="blocker9" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(128, 64)
+
+[node name="blocker10" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(-64, -128)
+
+[node name="blocker11" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(-128, 64)
+
+[node name="blocker12" parent="NavigationRegion2D" instance=ExtResource("2_hl5pr")]
+position = Vector2(64, -128)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(32, 32)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(-32, 32)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(-32, -32)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(32, -32)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(128, 128)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(-128, 128)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(-128, -128)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+position = Vector2(128, -128)
