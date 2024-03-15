@@ -7,14 +7,18 @@ extends CharacterBody2D
 
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
-var speed = 150 * mod
+var speed = 125 * mod
 var health = 50 * mod
-var damage = 25 * mod
+var damage = 10 * mod
 var attack = 1
-var distance = 0
-var can_hit = true
+
 var active = false
 var wait = false
+var distance = 0
+
+var can_hit = true
+var direction = "down"
+var type = "move"
 
 func _physics_process(_delta):
 	if active:
@@ -42,6 +46,7 @@ func _physics_process(_delta):
 		if health <= 0:
 			queue_free()
 			Glova.g_enemies(-1)
+		$AttackCooldown.wait_time = 1.0 / attack
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	active = false

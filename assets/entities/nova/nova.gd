@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 @onready var camera_pos = Vector2(0,0)
-var center = Vector2(0,0)
 var cam = false
 
 @export var arrow_scene : PackedScene
@@ -18,8 +17,10 @@ var hotbar = ["Crossbow", " ", " ", " ", " ", " ", " ", " "]
 var cooldown = 1
 var can_shoot = true
 var direction = "down"
-var current = "crossbow"
+var type = "move"
 var foot = true
+
+var current = "crossbow"
 var can_hit = true
 
 func set_nova():
@@ -33,12 +34,22 @@ func set_nova():
 	inv = Glova.g_inv()
 	hotbar = Glova.g_hotbar()
 	
-	$BowCooldown.wait_time = 1 / attack
+	if health <= 0:
+		Glova.g_level(-1)
+	if health > health_max:
+		Glova.g_stats([health_max-health, 0, 0, 0, 0, 0])
+	
+	Glova.g_pos(global_position)
+	$Camera2D.global_position = camera_pos
+	$Camera2D.position_smoothing_enabled = cam
+	
+	$BowCooldown.wait_time = 1.0 / attack
 	
 func _process(_delta):
-	$Camera2D.position_smoothing_enabled = cam
 	velocity = Vector2.ZERO
-	# Player Movement
+	type = "move"
+	
+	# Player Controls
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	if Input.is_action_pressed("move_down"):
@@ -47,93 +58,75 @@ func _process(_delta):
 		velocity.x -= 1
 	if Input.is_action_pressed("move_right"):
 		velocity.x += 1
+	if Input.is_action_pressed("attack_up"):
+		type = "attack"
+		direction = "up"
+	if Input.is_action_pressed("attack_down"):
+		type = "attack"
+		direction = "down"
+	if Input.is_action_pressed("attack_left"):
+		type = "attack"
+		direction = "left"
+	if Input.is_action_pressed("attack_right"):
+		type = "attack"
+		direction = "right"
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 		$NovaCollision/NovaAnimation.play()
 	else:
+		$NovaCollision/NovaAnimation.frame = 0
 		$NovaCollision/NovaAnimation.stop()
 		foot = true
 	
 	move_and_slide()
-	Glova.g_pos(global_position)
-	$Camera2D.global_position = camera_pos
-	if health <= 0:
-		Glova.g_level(-1)
-	if health > health_max:
-		health = health_max
 	set_nova()
+	if type == "move":
+		if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
+			direction = "up"
+		elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
+			direction = "down"
+		elif velocity.x < 0 and abs(velocity.x) > abs(velocity.y): #left
+			direction = "left"
+		elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
+			direction = "right"
 	
 	if current == "crossbow": # Crossbow Animations
-		# attack while walking
-		if Input.is_action_pressed("attack_up"):
+		if direction == "up":
 			$NovaCollision/NovaAnimation.play("crossbow_up")
-			$NovaCollision/NovaAnimation.flip_h = false
-			direction = "up"
-			if foot:
+			if velocity.length() > 0 and foot:
 				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
-			shoot()
-		elif Input.is_action_pressed("attack_down"):
+			if type == "attack":
+				shoot()
+		elif direction == "down":
 			$NovaCollision/NovaAnimation.play("crossbow_down")
-			$NovaCollision/NovaAnimation.flip_h = false
-			direction = "down"
-			if foot:
+			if velocity.length() > 0 and foot:
 				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
-			shoot()
-		elif Input.is_action_pressed("attack_left"):
+			if type == "attack":
+				shoot()
+		elif direction == "left":
 			$NovaCollision/NovaAnimation.play("crossbow_left")
-			$NovaCollision/NovaAnimation.flip_h = false
-			direction = "left"
-			if foot:
+			if velocity.length() > 0 and foot:
 				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
-			shoot()
-		elif Input.is_action_pressed("attack_right"):
+			if type == "attack":
+				shoot()
+		elif direction == "right":
 			$NovaCollision/NovaAnimation.play("crossbow_right")
-			$NovaCollision/NovaAnimation.flip_h = false
-			direction = "right"
-			if foot:
+			if velocity.length() > 0 and foot:
 				$NovaCollision/NovaAnimation.frame = 1
 				foot = false
-			shoot()
-
-		# if not shooting in a dirction, walk facing direction player is moving
-		elif Input.is_action_pressed("move_up"): 
-			$NovaCollision/NovaAnimation.play("crossbow_up")
-			$NovaCollision/NovaAnimation.flip_h = false
-			direction = "up"
-			if foot:
-				$NovaCollision/NovaAnimation.frame = 1
-				foot = false
-		elif Input.is_action_pressed("move_down"):
-			$NovaCollision/NovaAnimation.play("crossbow_down")
-			$NovaCollision/NovaAnimation.flip_h = false
-			direction = "down"
-			if foot:
-				$NovaCollision/NovaAnimation.frame = 1
-				foot = false
-		elif Input.is_action_pressed("move_left"):
-			$NovaCollision/NovaAnimation.play("crossbow_left")
-			$NovaCollision/NovaAnimation.flip_h = false
-			direction = "left"
-			if foot:
-				$NovaCollision/NovaAnimation.frame = 1
-				foot = false
-		elif Input.is_action_pressed("move_right"):
-			$NovaCollision/NovaAnimation.play("crossbow_right")
-			$NovaCollision/NovaAnimation.flip_h = false
-			direction = "right"
-			if foot:
-				$NovaCollision/NovaAnimation.frame = 1
-				foot = false
+			if type == "attack":
+				shoot()
 
 func shoot(): # attacking
 	if can_shoot:
 		can_shoot = false
 		$BowCooldown.start()
 		var b = arrow_scene.instantiate()
+		b.damage = b.damage * attack
 		if direction == "up":
 			velocity.y -= 1
 			b.global_position = global_position
@@ -156,7 +149,6 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	if area.get_name() == 'CameraArea':
 		var collision_shape = area.get_node("CollisionShape2D")
 		camera_pos = collision_shape.global_position
-		center = camera_pos
 
 func _on_hit_cooldown_timeout():
 	can_hit = true
@@ -169,12 +161,12 @@ func hit(ow):
 		$HitCooldown.start()
 		Glova.g_stats([-ow, 0, 0, 0, 0, 0])
 
-func boop(type):
-	if type == "up":
-		global_position = center + Vector2(0,-224)
-	elif type == "down":
-		global_position = center + Vector2(0,224)
-	elif type == "left":
-		global_position = center + Vector2(-224,0)
-	elif type == "right":
-		global_position = center + Vector2(224,0)
+func boop(dir):
+	if dir == "up":
+		global_position = camera_pos + Vector2(0,-224)
+	elif dir == "down":
+		global_position = camera_pos + Vector2(0,224)
+	elif dir == "left":
+		global_position = camera_pos + Vector2(-224,0)
+	elif dir == "right":
+		global_position = camera_pos + Vector2(224,0)

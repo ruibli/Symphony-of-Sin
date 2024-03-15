@@ -19,6 +19,7 @@ extends StaticBody2D
 
 @export var enemy_scene: PackedScene
 @export var pedestal_scene: PackedScene
+@export var lectern_scene: PackedScene
 @export var exit_scene: PackedScene
 @export var lap_scene: PackedScene
 
@@ -59,9 +60,20 @@ func _ready():
 	elif type == "spawn":
 		room = spawn_scene.instantiate()
 		add_child(room)
-		pass
+	
 	elif type == "lore":
-		pass
+		room = lore_scene.instantiate()
+		add_child(room)
+		
+		temp = pedestal_scene.instantiate()
+		temp.position = Vector2(0,64)
+		temp.type = "lore"
+		add_child(temp)
+		
+		temp = lectern_scene.instantiate()
+		temp.position = Vector2(0,-64)
+		add_child(temp)
+	
 	elif type == "shop":
 		room = shop_scene.instantiate()
 		add_child(room)
