@@ -1,0 +1,201 @@
+[gd_scene load_steps=21 format=3 uid="uid://brqiiuic5vy03"]
+
+[ext_resource type="Script" path="res://assets/entities/gluttony/gluttony.gd" id="1_dv0g7"]
+[ext_resource type="Texture2D" uid="uid://dltqk87eu44yd" path="res://assets/entities/gluttony/sprites/gluttony_down.png" id="2_7d3nc"]
+[ext_resource type="Texture2D" uid="uid://bthdl77vo3meo" path="res://assets/entities/gluttony/sprites/gluttony_down_attack2.png" id="3_c0lvf"]
+[ext_resource type="Texture2D" uid="uid://qry7ffpgk5hu" path="res://assets/entities/gluttony/sprites/gluttony_down_attack3.png" id="4_y0sxq"]
+[ext_resource type="Texture2D" uid="uid://dm0k0unvmk78b" path="res://assets/entities/gluttony/sprites/gluttony_down_attack4.png" id="5_a5adb"]
+[ext_resource type="Texture2D" uid="uid://lwfck4mycw41" path="res://assets/entities/gluttony/sprites/gluttony_right.png" id="6_mc8a2"]
+[ext_resource type="Texture2D" uid="uid://caf0rtgda8m3n" path="res://assets/entities/gluttony/sprites/gluttony_right_attack2.png" id="7_xibnh"]
+[ext_resource type="Texture2D" uid="uid://bwocluw3gbw1w" path="res://assets/entities/gluttony/sprites/gluttony_right_attack3.png" id="8_p0dcl"]
+[ext_resource type="Texture2D" uid="uid://5exxpuxdt1od" path="res://assets/entities/gluttony/sprites/gluttony_right_attack4.png" id="9_vgw6o"]
+[ext_resource type="Texture2D" uid="uid://b2nuden8am3ii" path="res://assets/entities/gluttony/sprites/gluttony_up.png" id="10_nec7l"]
+[ext_resource type="Texture2D" uid="uid://cp0plbh85ml8k" path="res://assets/entities/gluttony/sprites/gluttony_up_walk1.png" id="11_g1ibq"]
+[ext_resource type="Texture2D" uid="uid://4cgb1exveiwc" path="res://assets/entities/gluttony/sprites/gluttony_up_walk2.png" id="12_howru"]
+[ext_resource type="Texture2D" uid="uid://bcvw83ctaf4d2" path="res://assets/entities/gluttony/sprites/gluttony_down_walk1.png" id="13_kab2f"]
+[ext_resource type="Texture2D" uid="uid://djyyuk3lij4ct" path="res://assets/entities/gluttony/sprites/gluttony_down_walk2.png" id="14_6h2w6"]
+[ext_resource type="Script" path="res://assets/entities/limbo/LimboHurt.gd" id="14_mo2vk"]
+[ext_resource type="Texture2D" uid="uid://d1vd773osoyoy" path="res://assets/entities/gluttony/sprites/gluttony_right_walk1.png" id="15_2yx6j"]
+[ext_resource type="Texture2D" uid="uid://cxb565bserete" path="res://assets/entities/gluttony/sprites/gluttony_right_walk2.png" id="16_2numd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx0fn"]
+size = Vector2(10, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7d3nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c0lvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y0sxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a5adb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y0sxq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c0lvf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7d3nc")
+}],
+"loop": true,
+"name": &"attack_down",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mc8a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xibnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p0dcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_vgw6o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_p0dcl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xibnh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mc8a2")
+}],
+"loop": true,
+"name": &"attack_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_nec7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_g1ibq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nec7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_howru")
+}],
+"loop": true,
+"name": &"attack_up",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7d3nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kab2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7d3nc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_6h2w6")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mc8a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_2yx6j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mc8a2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2numd")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_nec7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_g1ibq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_nec7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_howru")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2f1h"]
+height = 20.0
+
+[node name="limbo" type="CharacterBody2D"]
+z_as_relative = false
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+script = ExtResource("1_dv0g7")
+
+[node name="GluttonyCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_xx0fn")
+
+[node name="GluttonyAnimation" type="AnimatedSprite2D" parent="GluttonyCollision"]
+z_index = 1
+z_as_relative = false
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_c3lg3")
+animation = &"attack_right"
+
+[node name="gluttonyhurt" type="Area2D" parent="."]
+collision_layer = 20
+collision_mask = 2
+script = ExtResource("14_mo2vk")
+
+[node name="GluttonyHurt" type="CollisionShape2D" parent="gluttonyhurt"]
+shape = SubResource("CapsuleShape2D_u2f1h")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="HitCooldown" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_desired_distance = 24.0
+target_desired_distance = 24.0
+path_max_distance = 64.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 16.0
+neighbor_distance = 16.0
+time_horizon_agents = 0.1
+time_horizon_obstacles = 0.1
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationAgent2D"]
+radius = 12.0
+vertices = PackedVector2Array(-10, -3, -9, -5, -5, -9, -3, -10, 3, -10, 5, -9, 9, -5, 10, -3, 10, 3, 9, 5, 5, 9, 3, 10, -3, 10, -5, 9, -9, 5, -10, 3)
+
+[node name="AttackCooldown" type="Timer" parent="."]
+
+[connection signal="area_entered" from="gluttonyhurt" to="." method="_on_limbohit_hurt_area_entered"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
