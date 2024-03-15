@@ -61,7 +61,7 @@ func load_map():
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
-			temp.type = "right"
+			temp.dir = "right"
 			temp.position = i * 352 + Vector2(160, 0)
 			temp.rotation_degrees = 90
 			map_node.add_child(temp)
@@ -72,7 +72,7 @@ func load_map():
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
-			temp.type = "left"
+			temp.dir = "left"
 			temp.position = i * 352 + Vector2(-160, 0)
 			temp.rotation_degrees = 270
 			map_node.add_child(temp)
@@ -83,7 +83,7 @@ func load_map():
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
-			temp.type = "down"
+			temp.dir = "down"
 			temp.position = i * 352 + Vector2(0, 160)
 			temp.rotation_degrees = 180
 			map_node.add_child(temp)
@@ -93,7 +93,7 @@ func load_map():
 			map_node.add_child(temp)
 		else:
 			temp = door_scene.instantiate()
-			temp.type = "up"
+			temp.dir = "up"
 			temp.position = i * 352 + Vector2(0, -160)
 			map_node.add_child(temp)
 			

@@ -2,7 +2,7 @@ extends StaticBody2D
 
 var door_closed = load("res://assets/map/manor/manor_door.png")
 var door_open = load("res://assets/map/manor/manor_door_open.png")
-var type
+var dir
 
 func _ready():
 	if Glova.g_level() == 1: # level 1 manor assets
@@ -19,4 +19,4 @@ func _process(_delta):
 
 func _on_door_hit_area_entered(area):
 	if Glova.g_enemies() == 0:
-		area.boop(type)
+		area.boop(dir)

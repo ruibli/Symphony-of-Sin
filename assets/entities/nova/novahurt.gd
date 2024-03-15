@@ -3,5 +3,5 @@ extends Area2D
 func hit(ow):
 	owner.hit(ow)
 
-func boop(type):
-	owner.boop(type)
+func boop(dir):
+	owner.boop(dir)

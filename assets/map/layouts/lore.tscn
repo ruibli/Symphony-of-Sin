@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ccka2c378ggsr"]
+
+[ext_resource type="PackedScene" uid="uid://nr0hs8sfdwlj" path="res://assets/map/wall.tscn" id="1_77fil"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6u8a7"]
+vertices = PackedVector2Array(134, 134, -134, 134, -134, -134, 134, -134)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-144, -144, 144, -144, 144, 144, -144, 144)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="lore" type="Node2D"]
+
+[node name="wall" parent="." instance=ExtResource("1_77fil")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_6u8a7")
