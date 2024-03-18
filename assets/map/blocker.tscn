@@ -18,6 +18,6 @@ texture = ExtResource("1_ccyjg")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7701s")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 24.0
+vertices = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)

@@ -15,6 +15,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_bp7un")
+constrain_avoidance = true
 
 [node name="blocker" parent="NavigationRegion2D" instance=ExtResource("2_xsc3f")]
 position = Vector2(32, 96)
