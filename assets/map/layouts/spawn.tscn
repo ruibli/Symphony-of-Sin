@@ -2,15 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://nr0hs8sfdwlj" path="res://assets/map/wall.tscn" id="1_eoc6h"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_vjq6w"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_c8iep"]
 vertices = PackedVector2Array(134, 134, -134, 134, -134, -134, 134, -134)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-144, -144, 144, -144, 144, 144, -144, 144)])
-source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="spawn" type="Node2D"]
 
 [node name="wall" parent="." instance=ExtResource("1_eoc6h")]
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
-navigation_polygon = SubResource("NavigationPolygon_vjq6w")
+navigation_polygon = SubResource("NavigationPolygon_c8iep")
+constrain_avoidance = true

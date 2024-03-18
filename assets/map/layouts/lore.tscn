@@ -14,3 +14,4 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_6u8a7")
+constrain_avoidance = true
