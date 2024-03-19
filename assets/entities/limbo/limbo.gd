@@ -21,7 +21,7 @@ var type = "move"
 
 func sight():
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(global_position, Glova.g_pos())
+	var query = PhysicsRayQueryParameters2D.create(global_position, Glova.g_pos() + Vector2(0,9))
 	var sight_check = space_state.intersect_ray(query)
 	if sight_check:
 		if sight_check.collider.name == "nova":
@@ -44,23 +44,21 @@ func _physics_process(_delta):
 			$NavigationAgent2D.set_velocity(velocity)
 		
 		# Animation
-		if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
-			$LimboCollision/LimboAnimation.play("walk_up")
-			direction = "up"
-		elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
-			$LimboCollision/LimboAnimation.play("walk_down")
-			direction = "down"
-		elif velocity.x < 0 and abs(velocity.x) > abs(velocity.y): #left
-			$LimboCollision/LimboAnimation.play("walk_left")
-			direction = "left"
-		elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
-			$LimboCollision/LimboAnimation.play("walk_right")
-			direction = "right"
-	
-		print(distance)
-		print(see)
+		if type == "move":
+			if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
+				$LimboCollision/LimboAnimation.play("walk_up")
+				direction = "up"
+			elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
+				$LimboCollision/LimboAnimation.play("walk_down")
+				direction = "down"
+			elif velocity.x < 0 and abs(velocity.x) > abs(velocity.y): #left
+				$LimboCollision/LimboAnimation.play("walk_left")
+				direction = "left"
+			elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
+				$LimboCollision/LimboAnimation.play("walk_right")
+				direction = "right"
+			
 		if (distance <= 32 and see):
-			print("weapon")
 			weapon()
 					
 		if health <= 0:
@@ -72,7 +70,17 @@ func weapon():
 	if can_attack:
 		$WeaponCooldown.start()
 		can_attack = false
-		print("AAA")		
+		type = "attack"
+		if direction == "up":
+			$LimboCollision/LimboAnimation.play("attack_up")
+		elif direction == "down":
+			$LimboCollision/LimboAnimation.play("attack_down")
+		elif direction == "left":
+			$LimboCollision/LimboAnimation.play("attack_left")
+		elif direction == "right":
+			$LimboCollision/LimboAnimation.play("attack_right")
+		await get_tree().create_timer(1).timeout
+		type = "move"
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	active = false

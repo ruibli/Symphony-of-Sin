@@ -224,8 +224,8 @@ shape = SubResource("CapsuleShape2D_u2f1h")
 wait_time = 0.1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 0.1
-target_desired_distance = 0.1
+path_desired_distance = 8.0
+target_desired_distance = 8.0
 path_max_distance = 64.0
 avoidance_enabled = true
 radius = 16.0
