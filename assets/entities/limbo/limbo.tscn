@@ -224,21 +224,20 @@ shape = SubResource("CapsuleShape2D_u2f1h")
 wait_time = 0.1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 24.0
-target_desired_distance = 24.0
+path_desired_distance = 0.1
+target_desired_distance = 0.1
 path_max_distance = 64.0
 avoidance_enabled = true
 radius = 16.0
 neighbor_distance = 16.0
 avoidance_layers = 0
 avoidance_priority = 0.0
-debug_enabled = true
 
-[node name="AttackCooldown" type="Timer" parent="."]
+[node name="WeaponCooldown" type="Timer" parent="."]
 
 [connection signal="area_entered" from="limbohurt" to="." method="_on_limbohit_hurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
-[connection signal="waypoint_reached" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_waypoint_reached"]
+[connection signal="timeout" from="WeaponCooldown" to="." method="_on_weapon_cooldown_timeout"]

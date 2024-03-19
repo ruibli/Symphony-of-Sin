@@ -15,6 +15,7 @@ var distance = 0
 var see = false
 
 var can_hit = true
+var can_attack = true
 var direction = "down"
 var type = "move"
 
@@ -25,8 +26,7 @@ func sight():
 	if sight_check:
 		if sight_check.collider.name == "nova":
 			return true
-		else:
-			return false
+	return false
 
 func _physics_process(_delta):
 	if active:
@@ -46,17 +46,33 @@ func _physics_process(_delta):
 		# Animation
 		if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
 			$LimboCollision/LimboAnimation.play("walk_up")
+			direction = "up"
 		elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
 			$LimboCollision/LimboAnimation.play("walk_down")
+			direction = "down"
 		elif velocity.x < 0 and abs(velocity.x) > abs(velocity.y): #left
 			$LimboCollision/LimboAnimation.play("walk_left")
+			direction = "left"
 		elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
 			$LimboCollision/LimboAnimation.play("walk_right")
+			direction = "right"
+	
+		print(distance)
+		print(see)
+		if (distance <= 32 and see):
+			print("weapon")
+			weapon()
 					
 		if health <= 0:
 			queue_free()
 			Glova.g_enemies(-1)
-		$AttackCooldown.wait_time = 1.0 / attack
+		$WeaponCooldown.wait_time = 1.0 / attack
+
+func weapon():
+	if can_attack:
+		$WeaponCooldown.start()
+		can_attack = false
+		print("AAA")		
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	active = false
@@ -86,3 +102,6 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	if active and (distance >= 24 or not see):
 		velocity = safe_velocity.normalized() * speed
 		move_and_slide()
+
+func _on_weapon_cooldown_timeout():
+	can_attack = true
