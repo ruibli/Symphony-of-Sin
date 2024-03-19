@@ -22,10 +22,9 @@ Glova="*res://glova.gd"
 [display]
 
 window/size/viewport_width=350
-window/size/viewport_height=350
+window/size/viewport_height=351
 window/size/mode=2
 window/stretch/mode="viewport"
-window/stretch/scale_mode="integer"
 
 [input]
 
