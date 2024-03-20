@@ -147,7 +147,7 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2f1h"]
 height = 20.0
 
-[node name="limbo" type="CharacterBody2D"]
+[node name="gluttony" type="CharacterBody2D"]
 z_as_relative = false
 collision_layer = 4
 collision_mask = 7
