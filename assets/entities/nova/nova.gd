@@ -81,6 +81,8 @@ func _process(_delta):
 	
 	move_and_slide()
 	set_nova()
+	print(health)
+	
 	if type == "move":
 		if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
 			direction = "up"
@@ -94,52 +96,36 @@ func _process(_delta):
 	if current == "crossbow": # Crossbow Animations
 		if direction == "up":
 			$NovaCollision/NovaAnimation.play("crossbow_up")
-			if velocity.length() > 0 and foot:
-				$NovaCollision/NovaAnimation.frame = 1
-				foot = false
-			if type == "attack":
-				shoot()
 		elif direction == "down":
 			$NovaCollision/NovaAnimation.play("crossbow_down")
-			if velocity.length() > 0 and foot:
-				$NovaCollision/NovaAnimation.frame = 1
-				foot = false
-			if type == "attack":
-				shoot()
 		elif direction == "left":
 			$NovaCollision/NovaAnimation.play("crossbow_left")
-			if velocity.length() > 0 and foot:
-				$NovaCollision/NovaAnimation.frame = 1
-				foot = false
-			if type == "attack":
-				shoot()
 		elif direction == "right":
 			$NovaCollision/NovaAnimation.play("crossbow_right")
-			if velocity.length() > 0 and foot:
-				$NovaCollision/NovaAnimation.frame = 1
-				foot = false
-			if type == "attack":
-				shoot()
+		if velocity.length() > 0 and foot:
+			$NovaCollision/NovaAnimation.frame = 1
+			foot = false
+		if type == "attack":
+			crossbow()
 
-func shoot(): # attacking
+func crossbow(): # attacking
 	if can_shoot:
 		can_shoot = false
 		$BowCooldown.start()
 		var b = arrow_scene.instantiate()
 		b.damage = b.damage * attack
+		b.global_position = global_position
 		if direction == "up":
-			velocity.y -= 1
-			b.global_position = global_position
+			b.velocity.y -= 1
+			b.rotation_degrees = 180
 		elif direction == "down":
-			velocity.y += 1
-			b.global_position = global_position
+			b.velocity.y += 1
 		elif direction == "left":
-			velocity.x -= 1
-			b.global_position = global_position
+			b.velocity.x -= 1
+			b.rotation_degrees = 90
 		elif direction == "right":
-			velocity.x += 1
-			b.global_position = global_position
-		b.start(direction)
+			b.velocity.x += 1
+			b.rotation_degrees = 270
 		get_tree().root.add_child(b)
 
 func _on_bow_cooldown_timeout(): # bow cooldown

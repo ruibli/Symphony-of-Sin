@@ -2,12 +2,14 @@
 
 extends CharacterBody2D
 
+@export var trident_scene : PackedScene
+
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
 var speed = 125 * mod
 var health = 50 * mod
 var damage = 10 * mod
-var attack = 1
+var attack = 1 * mod
 
 var active = false
 var wait = false
@@ -21,7 +23,7 @@ var type = "move"
 
 func sight():
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(global_position, Glova.g_pos() + Vector2(0,9))
+	var query = PhysicsRayQueryParameters2D.create(global_position, Glova.g_pos() + Vector2(0,9), 2)
 	var sight_check = space_state.intersect_ray(query)
 	if sight_check:
 		if sight_check.collider.name == "nova":
@@ -57,20 +59,33 @@ func _physics_process(_delta):
 			elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
 				$LimboCollision/LimboAnimation.play("walk_right")
 				direction = "right"
-			
+
 		if (distance <= 32 and see):
 			weapon()
 					
 		if health <= 0:
 			queue_free()
 			Glova.g_enemies(-1)
-		$WeaponCooldown.wait_time = 1.0 / attack
+		$WeaponCooldown.wait_time = 2 * 1.0 / attack
 
 func weapon():
 	if can_attack:
 		$WeaponCooldown.start()
 		can_attack = false
 		type = "attack"
+		
+		var w = trident_scene.instantiate()
+		w.damage = w.damage * attack
+		if direction == "up":
+			w.global_position = $WeaponPos.position
+		elif direction == "down":
+			w.global_position = $WeaponPos.position
+		elif direction == "left":
+			w.global_position = $WeaponPos.position
+		elif direction == "right":
+			w.global_position = $WeaponPos.position
+		$WeaponPos.add_child(w)
+		
 		if direction == "up":
 			$LimboCollision/LimboAnimation.play("attack_up")
 		elif direction == "down":
