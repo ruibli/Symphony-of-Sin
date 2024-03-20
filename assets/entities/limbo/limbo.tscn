@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=3 uid="uid://du7wg2sy0ohtd"]
+[gd_scene load_steps=33 format=3 uid="uid://du7wg2sy0ohtd"]
 
 [ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
+[ext_resource type="PackedScene" uid="uid://ftqbn6c8syws" path="res://assets/entities/limbo/trident.tscn" id="2_5y5cl"]
 [ext_resource type="Texture2D" uid="uid://cmwtenhmj6rlg" path="res://assets/entities/limbo/sprites/limbo_down_attack1.png" id="2_fp7cl"]
 [ext_resource type="Texture2D" uid="uid://tl1tyamycg5h" path="res://assets/entities/limbo/sprites/limbo_down_attack2.png" id="3_21ml7"]
 [ext_resource type="Texture2D" uid="uid://bgs3c55s2e211" path="res://assets/entities/limbo/sprites/limbo_down_attack3.png" id="4_cbys5"]
@@ -190,7 +191,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2f1h"]
-height = 20.0
+radius = 6.0
+height = 15.0
 
 [node name="limbo" type="CharacterBody2D"]
 z_as_relative = false
@@ -198,6 +200,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_a74ao")
+trident_scene = ExtResource("2_5y5cl")
 
 [node name="LimboCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -208,7 +211,8 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"walk_up"
+animation = &"attack_down"
+frame_progress = 0.888098
 
 [node name="limbohurt" type="Area2D" parent="."]
 collision_layer = 20
@@ -221,11 +225,10 @@ shape = SubResource("CapsuleShape2D_u2f1h")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="HitCooldown" type="Timer" parent="."]
-wait_time = 0.1
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 8.0
-target_desired_distance = 8.0
+path_desired_distance = 1.0
+target_desired_distance = 1.0
 path_max_distance = 64.0
 avoidance_enabled = true
 radius = 16.0
@@ -234,6 +237,10 @@ avoidance_layers = 0
 avoidance_priority = 0.0
 
 [node name="WeaponCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="WeaponPos" type="Marker2D" parent="."]
+position = Vector2(0, 8)
 
 [connection signal="area_entered" from="limbohurt" to="." method="_on_limbohit_hurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
