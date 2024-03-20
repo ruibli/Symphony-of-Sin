@@ -19,5 +19,4 @@ texture = ExtResource("1_ccyjg")
 shape = SubResource("RectangleShape2D_7701s")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 24.0
 vertices = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
