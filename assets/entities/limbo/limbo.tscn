@@ -212,7 +212,6 @@ z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
 animation = &"attack_down"
-frame_progress = 0.888098
 
 [node name="limbohurt" type="Area2D" parent="."]
 collision_layer = 20
