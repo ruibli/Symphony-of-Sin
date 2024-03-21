@@ -101,7 +101,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_down"
+animation = &"walk_down"
 
 [node name="wrathhurt" type="Area2D" parent="."]
 collision_layer = 20
