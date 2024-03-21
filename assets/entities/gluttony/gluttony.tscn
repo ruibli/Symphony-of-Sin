@@ -25,9 +25,6 @@ size = Vector2(10, 5)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_7d3nc")
-}, {
-"duration": 1.0,
 "texture": ExtResource("3_c0lvf")
 }, {
 "duration": 1.0,
@@ -41,18 +38,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_c0lvf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_7d3nc")
 }],
 "loop": true,
 "name": &"attack_down",
-"speed": 7.0
+"speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("6_mc8a2")
-}, {
 "duration": 1.0,
 "texture": ExtResource("7_xibnh")
 }, {
@@ -67,13 +58,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_xibnh")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_mc8a2")
 }],
 "loop": true,
 "name": &"attack_right",
-"speed": 4.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,7 +78,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_up",
-"speed": 7.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -163,7 +151,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_right"
+animation = &"walk_down"
 
 [node name="gluttonyhurt" type="Area2D" parent="."]
 collision_layer = 20
