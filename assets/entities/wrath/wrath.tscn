@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbyc866nmxwas" path="res://assets/entities/wrath/sprites/wrath_down.png" id="5_p6wfb"]
 [ext_resource type="Texture2D" uid="uid://tm1avf5mvoi3" path="res://assets/entities/wrath/sprites/wrath_down_walk1.png" id="6_6ld23"]
 [ext_resource type="Texture2D" uid="uid://o80x4debjrj5" path="res://assets/entities/wrath/sprites/wrath_down_walk2.png" id="7_nhd11"]
-[ext_resource type="Script" path="res://assets/entities/limbo/LimboHurt.gd" id="14_mo2vk"]
+[ext_resource type="Script" path="res://assets/entities/hurt.gd" id="14_mo2vk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx0fn"]
 size = Vector2(10, 5)
