@@ -1,12 +1,13 @@
 extends CharacterBody2D
 
+@export var trident_scene : PackedScene
+
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
 var speed = 125 * mod
 var health = 50 * mod
 var damage = 10 * mod
 var attack = 1 * mod
-var w_damage = 25 * mod
 
 var active = false
 var wait = false
@@ -76,20 +77,20 @@ func _physics_process(_delta):
 				$LimboCollision/LimboAnimation.play("walk_right")
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x): #up
-				$limbohit/LimboHit.position = Vector2(0,-10)
-				$limbohit/LimboHit.rotation_degrees = 180
+				$WeaponPos.position = Vector2(0,-10)
+				$WeaponPos.rotation_degrees = 180
 				$LimboCollision/LimboAnimation.play("attack_up")
 			elif nova_dir.y > 0 and abs(nova_dir.y) > abs(nova_dir.x): #down
-				$limbohit/LimboHit.position = Vector2(0,10)
-				$limbohit/LimboHit.rotation_degrees = 0
+				$WeaponPos.position = Vector2(0,10)
+				$WeaponPos.rotation_degrees = 0
 				$LimboCollision/LimboAnimation.play("attack_down")
 			elif nova_dir.x < 0 and abs(nova_dir.x) > abs(nova_dir.y): #left
-				$limbohit/LimboHit.position = Vector2(-10,0)
-				$limbohit/LimboHit.rotation_degrees = 90
+				$WeaponPos.position = Vector2(-10,0)
+				$WeaponPos.rotation_degrees = 90
 				$LimboCollision/LimboAnimation.play("attack_left")
 			elif nova_dir.x > 0 and abs(nova_dir.x) > abs(nova_dir.y): #right
-				$limbohit/LimboHit.position = Vector2(10,0)
-				$limbohit/LimboHit.rotation_degrees = 270
+				$WeaponPos.position = Vector2(10,0)
+				$WeaponPos.rotation_degrees = 270
 				$LimboCollision/LimboAnimation.play("attack_right")
 		
 		if health <= 0:
@@ -103,26 +104,28 @@ func weapon():
 		can_attack = false
 		type = "attack"
 		
+		var w = trident_scene.instantiate()
+		w.damage = w.damage * mod
+		
 		if direction == "up":
-			$limbohit/LimboHit.position = Vector2(0,-10)
-			$limbohit/LimboHit.rotation_degrees = 180
+			$WeaponPos.position = Vector2(0,-10)
+			$WeaponPos.rotation_degrees = 180
 			$LimboCollision/LimboAnimation.play("attack_up")
 		elif direction == "down":
-			$limbohit/LimboHit.position = Vector2(0,10)
-			$limbohit/LimboHit.rotation_degrees = 0
+			$WeaponPos.position = Vector2(0,10)
+			$WeaponPos.rotation_degrees = 0
 			$LimboCollision/LimboAnimation.play("attack_down")
 		elif direction == "left":
-			$limbohit/LimboHit.position = Vector2(-10,0)
-			$limbohit/LimboHit.rotation_degrees = 90
+			$WeaponPos.position = Vector2(-10,0)
+			$WeaponPos.rotation_degrees = 90
 			$LimboCollision/LimboAnimation.play("attack_left")
 		elif direction == "right":
-			$limbohit/LimboHit.position = Vector2(10,0)
-			$limbohit/LimboHit.rotation_degrees = 270
+			$WeaponPos.position = Vector2(10,0)
+			$WeaponPos.rotation_degrees = 270
 			$LimboCollision/LimboAnimation.play("attack_right")
 		await get_tree().create_timer(0.25).timeout
-		$limbohit.set_collision_mask_value(2,true)
-		await get_tree().create_timer(0.50).timeout
-		$limbohit.set_collision_mask_value(2,false)
+		$WeaponPos.add_child(w)
+		await get_tree().create_timer(0.75).timeout
 		type = "wait"
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -157,6 +160,3 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 func _on_weapon_cooldown_timeout():
 	can_attack = true
 	type = "move"
-
-func _on_limbohit_area_entered(area):
-	area.hit(w_damage)

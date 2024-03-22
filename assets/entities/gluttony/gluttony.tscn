@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://brqiiuic5vy03"]
+[gd_scene load_steps=22 format=3 uid="uid://brqiiuic5vy03"]
 
 [ext_resource type="Script" path="res://assets/entities/gluttony/gluttony.gd" id="1_dv0g7"]
 [ext_resource type="Texture2D" uid="uid://dltqk87eu44yd" path="res://assets/entities/gluttony/sprites/gluttony_down.png" id="2_7d3nc"]
+[ext_resource type="PackedScene" uid="uid://blmxou4747rx8" path="res://assets/entities/gluttony/bite.tscn" id="2_l1e4c"]
 [ext_resource type="Texture2D" uid="uid://bthdl77vo3meo" path="res://assets/entities/gluttony/sprites/gluttony_down_attack2.png" id="3_c0lvf"]
 [ext_resource type="Texture2D" uid="uid://qry7ffpgk5hu" path="res://assets/entities/gluttony/sprites/gluttony_down_attack3.png" id="4_y0sxq"]
 [ext_resource type="Texture2D" uid="uid://dm0k0unvmk78b" path="res://assets/entities/gluttony/sprites/gluttony_down_attack4.png" id="5_a5adb"]
@@ -14,9 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://4cgb1exveiwc" path="res://assets/entities/gluttony/sprites/gluttony_up_walk2.png" id="12_howru"]
 [ext_resource type="Texture2D" uid="uid://bcvw83ctaf4d2" path="res://assets/entities/gluttony/sprites/gluttony_down_walk1.png" id="13_kab2f"]
 [ext_resource type="Texture2D" uid="uid://djyyuk3lij4ct" path="res://assets/entities/gluttony/sprites/gluttony_down_walk2.png" id="14_6h2w6"]
-[ext_resource type="Script" path="res://assets/entities/limbo/LimboHurt.gd" id="14_mo2vk"]
 [ext_resource type="Texture2D" uid="uid://d1vd773osoyoy" path="res://assets/entities/gluttony/sprites/gluttony_right_walk1.png" id="15_2yx6j"]
 [ext_resource type="Texture2D" uid="uid://cxb565bserete" path="res://assets/entities/gluttony/sprites/gluttony_right_walk2.png" id="16_2numd"]
+[ext_resource type="Script" path="res://assets/entities/hurt.gd" id="18_u6f1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx0fn"]
 size = Vector2(10, 5)
@@ -132,8 +133,9 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2f1h"]
-height = 20.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nq6os"]
+radius = 6.0
+height = 15.0
 
 [node name="gluttony" type="CharacterBody2D"]
 z_as_relative = false
@@ -141,6 +143,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_dv0g7")
+bite_scene = ExtResource("2_l1e4c")
 
 [node name="GluttonyCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -156,34 +159,55 @@ animation = &"walk_down"
 [node name="gluttonyhurt" type="Area2D" parent="."]
 collision_layer = 20
 collision_mask = 2
-script = ExtResource("14_mo2vk")
+script = ExtResource("18_u6f1h")
 
 [node name="GluttonyHurt" type="CollisionShape2D" parent="gluttonyhurt"]
-shape = SubResource("CapsuleShape2D_u2f1h")
+shape = SubResource("CapsuleShape2D_nq6os")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="HitCooldown" type="Timer" parent="."]
-wait_time = 0.1
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 24.0
-target_desired_distance = 24.0
+path_desired_distance = 8.0
+target_desired_distance = 8.0
 path_max_distance = 64.0
-path_postprocessing = 1
 avoidance_enabled = true
-radius = 16.0
-neighbor_distance = 16.0
-time_horizon_agents = 0.1
-time_horizon_obstacles = 0.1
+avoidance_layers = 0
+avoidance_priority = 0.0
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="NavigationAgent2D"]
-radius = 12.0
-vertices = PackedVector2Array(-10, -3, -9, -5, -5, -9, -3, -10, 3, -10, 5, -9, 9, -5, 10, -3, 10, 3, 9, 5, 5, 9, 3, 10, -3, 10, -5, 9, -9, 5, -10, 3)
+[node name="HitCooldown" type="Timer" parent="."]
 
-[node name="AttackCooldown" type="Timer" parent="."]
+[node name="WeaponCooldown" type="Timer" parent="."]
+wait_time = 2.0
 
-[connection signal="area_entered" from="gluttonyhurt" to="." method="_on_limbohit_hurt_area_entered"]
+[node name="WeaponPos" type="Marker2D" parent="."]
+
+[node name="RayUp" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(0, -320)
+collision_mask = 32
+collide_with_areas = true
+
+[node name="RayDown" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(0, 320)
+collision_mask = 32
+collide_with_areas = true
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(-320, 0)
+collision_mask = 32
+collide_with_areas = true
+
+[node name="RayRight" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(320, 0)
+collision_mask = 32
+collide_with_areas = true
+
+[connection signal="area_entered" from="gluttonyhurt" to="." method="_on_gluttonyhurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
+[connection signal="timeout" from="WeaponCooldown" to="." method="_on_weapon_cooldown_timeout"]
