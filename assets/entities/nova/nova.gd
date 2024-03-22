@@ -4,6 +4,7 @@ extends CharacterBody2D
 var cam = false
 
 @export var arrow_scene : PackedScene
+
 var health = 100
 var health_max = 100
 var speed = 150
@@ -81,7 +82,6 @@ func _process(_delta):
 	
 	move_and_slide()
 	set_nova()
-	print(health)
 	
 	if type == "move":
 		if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
 [ext_resource type="Texture2D" uid="uid://cmwtenhmj6rlg" path="res://assets/entities/limbo/sprites/limbo_down_attack1.png" id="2_fp7cl"]
+[ext_resource type="PackedScene" uid="uid://idxn6lpg4526" path="res://assets/entities/limbo/trident.tscn" id="2_lc0vv"]
 [ext_resource type="Texture2D" uid="uid://tl1tyamycg5h" path="res://assets/entities/limbo/sprites/limbo_down_attack2.png" id="3_21ml7"]
 [ext_resource type="Texture2D" uid="uid://bgs3c55s2e211" path="res://assets/entities/limbo/sprites/limbo_down_attack3.png" id="4_cbys5"]
 [ext_resource type="Texture2D" uid="uid://23c3pm0xmktv" path="res://assets/entities/limbo/sprites/limbo_down_attack4.png" id="5_c7msb"]
@@ -14,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dmbyab0vmmdm1" path="res://assets/entities/limbo/sprites/limbo_up_attack1.png" id="12_ck2b4"]
 [ext_resource type="Texture2D" uid="uid://cew70u8kk6wte" path="res://assets/entities/limbo/sprites/limbo_up_attack2.png" id="13_frq6h"]
 [ext_resource type="Texture2D" uid="uid://ygx7mwgahx35" path="res://assets/entities/limbo/sprites/limbo_up_attack3.png" id="14_13xgr"]
-[ext_resource type="Script" path="res://assets/entities/limbo/LimboHurt.gd" id="14_mo2vk"]
 [ext_resource type="Texture2D" uid="uid://cp45i7hw6lo78" path="res://assets/entities/limbo/sprites/limbo_up_attack4.png" id="15_euuen"]
 [ext_resource type="Texture2D" uid="uid://o12hy3b2l12i" path="res://assets/entities/limbo/sprites/limbo_down.png" id="16_cru0w"]
 [ext_resource type="Texture2D" uid="uid://c2ojp3u0wiu7k" path="res://assets/entities/limbo/sprites/limbo_down_walk1.png" id="17_cymeu"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://ckjuldjctnu0q" path="res://assets/entities/limbo/sprites/limbo_up.png" id="25_gtfnc"]
 [ext_resource type="Texture2D" uid="uid://clpc0axtu1qmq" path="res://assets/entities/limbo/sprites/limbo_up_walk1.png" id="26_0sjju"]
 [ext_resource type="Texture2D" uid="uid://dp756uncmjrcq" path="res://assets/entities/limbo/sprites/limbo_up_walk2.png" id="27_54pd6"]
+[ext_resource type="Script" path="res://assets/entities/hurt.gd" id="29_2agmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx0fn"]
 size = Vector2(10, 5)
@@ -204,9 +205,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jdrf"]
-size = Vector2(8, 20)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2f1h"]
 radius = 6.0
 height = 15.0
@@ -217,6 +215,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_a74ao")
+trident_scene = ExtResource("2_lc0vv")
 
 [node name="LimboCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -227,19 +226,12 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_right"
-
-[node name="limbohit" type="Area2D" parent="."]
-collision_layer = 16
-collision_mask = 0
-
-[node name="LimboHit" type="CollisionShape2D" parent="limbohit"]
-shape = SubResource("RectangleShape2D_1jdrf")
+animation = &"walk_down"
 
 [node name="limbohurt" type="Area2D" parent="."]
 collision_layer = 20
 collision_mask = 2
-script = ExtResource("14_mo2vk")
+script = ExtResource("29_2agmf")
 
 [node name="LimboHurt" type="CollisionShape2D" parent="limbohurt"]
 shape = SubResource("CapsuleShape2D_u2f1h")
@@ -258,6 +250,8 @@ avoidance_priority = 0.0
 
 [node name="WeaponCooldown" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="WeaponPos" type="Marker2D" parent="."]
 
 [node name="RayUp" type="RayCast2D" parent="."]
 visible = false
@@ -283,7 +277,6 @@ target_position = Vector2(320, 0)
 collision_mask = 32
 collide_with_areas = true
 
-[connection signal="area_entered" from="limbohit" to="." method="_on_limbohit_area_entered"]
 [connection signal="area_entered" from="limbohurt" to="." method="_on_limbohit_hurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

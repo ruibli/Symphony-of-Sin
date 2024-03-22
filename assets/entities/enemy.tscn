@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://doo7pq26uiny0"]
+[gd_scene load_steps=4 format=3 uid="uid://doo7pq26uiny0"]
 
 [ext_resource type="Script" path="res://assets/entities/enemy.gd" id="1_qcn2q"]
 [ext_resource type="PackedScene" uid="uid://du7wg2sy0ohtd" path="res://assets/entities/limbo/limbo.tscn" id="2_de6ab"]
+[ext_resource type="PackedScene" uid="uid://brqiiuic5vy03" path="res://assets/entities/gluttony/gluttony.tscn" id="3_e60gt"]
 
 [node name="enemy" type="Node2D"]
 script = ExtResource("1_qcn2q")
 limbo_scene = ExtResource("2_de6ab")
+gluttony_scene = ExtResource("3_e60gt")

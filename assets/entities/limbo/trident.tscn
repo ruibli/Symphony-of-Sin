@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://idxn6lpg4526"]
+
+[ext_resource type="Script" path="res://assets/entities/limbo/trident.gd" id="1_j1x0m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3d2ho"]
+size = Vector2(8, 20)
+
+[node name="trident" type="StaticBody2D"]
+script = ExtResource("1_j1x0m")
+
+[node name="tridenthit" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="TridentHit" type="CollisionShape2D" parent="tridenthit"]
+shape = SubResource("RectangleShape2D_3d2ho")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="tridenthit" to="." method="_on_tridenthit_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
