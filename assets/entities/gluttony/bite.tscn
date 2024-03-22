@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://blmxou4747rx8"]
 
-[ext_resource type="Script" path="res://bite.gd" id="1_6g28p"]
+[ext_resource type="Script" path="res://assets/entities/gluttony/bite.gd" id="1_6g28p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fh5ix"]
 size = Vector2(12, 8)
