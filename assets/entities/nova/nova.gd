@@ -120,6 +120,7 @@ func crossbow(): # attacking
 			b.rotation_degrees = 180
 		elif direction == "down":
 			b.velocity.y += 1
+			b.rotation_degrees = 0
 		elif direction == "left":
 			b.velocity.x -= 1
 			b.rotation_degrees = 90
