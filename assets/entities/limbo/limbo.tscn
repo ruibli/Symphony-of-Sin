@@ -1,7 +1,6 @@
 [gd_scene load_steps=33 format=3 uid="uid://du7wg2sy0ohtd"]
 
 [ext_resource type="Script" path="res://assets/entities/limbo/limbo.gd" id="1_a74ao"]
-[ext_resource type="PackedScene" uid="uid://ftqbn6c8syws" path="res://assets/entities/limbo/trident.tscn" id="2_5y5cl"]
 [ext_resource type="Texture2D" uid="uid://cmwtenhmj6rlg" path="res://assets/entities/limbo/sprites/limbo_down_attack1.png" id="2_fp7cl"]
 [ext_resource type="Texture2D" uid="uid://tl1tyamycg5h" path="res://assets/entities/limbo/sprites/limbo_down_attack2.png" id="3_21ml7"]
 [ext_resource type="Texture2D" uid="uid://bgs3c55s2e211" path="res://assets/entities/limbo/sprites/limbo_down_attack3.png" id="4_cbys5"]
@@ -63,24 +62,39 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("19_vswip")
+}, {
+"duration": 1.0,
 "texture": ExtResource("6_6820o")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_fr2n0")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_6820o")
+"texture": ExtResource("8_8rq3n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_8rq3n")
+"texture": ExtResource("7_fr2n0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6820o")
 }],
-"loop": true,
+"loop": false,
 "name": &"attack_left",
-"speed": 4.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("22_h3c4q")
+}, {
+"duration": 1.0,
 "texture": ExtResource("9_vx0hm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rf0ao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_m3hi7")
 }, {
 "duration": 1.0,
 "texture": ExtResource("10_rf0ao")
@@ -89,11 +103,11 @@ animations = [{
 "texture": ExtResource("9_vx0hm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_m3hi7")
+"texture": ExtResource("22_h3c4q")
 }],
 "loop": true,
 "name": &"attack_right",
-"speed": 4.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -190,6 +204,9 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jdrf"]
+size = Vector2(8, 20)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u2f1h"]
 radius = 6.0
 height = 15.0
@@ -200,7 +217,6 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_a74ao")
-trident_scene = ExtResource("2_5y5cl")
 
 [node name="LimboCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -211,7 +227,14 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_down"
+animation = &"attack_right"
+
+[node name="limbohit" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="LimboHit" type="CollisionShape2D" parent="limbohit"]
+shape = SubResource("RectangleShape2D_1jdrf")
 
 [node name="limbohurt" type="Area2D" parent="."]
 collision_layer = 20
@@ -223,27 +246,47 @@ shape = SubResource("CapsuleShape2D_u2f1h")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="HitCooldown" type="Timer" parent="."]
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 1.0
-target_desired_distance = 1.0
+path_desired_distance = 8.0
+target_desired_distance = 8.0
 path_max_distance = 64.0
 avoidance_enabled = true
-radius = 16.0
-neighbor_distance = 16.0
 avoidance_layers = 0
 avoidance_priority = 0.0
+
+[node name="HitCooldown" type="Timer" parent="."]
 
 [node name="WeaponCooldown" type="Timer" parent="."]
 wait_time = 2.0
 
-[node name="WeaponPos" type="Marker2D" parent="."]
-position = Vector2(0, 8)
+[node name="RayUp" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(0, -320)
+collision_mask = 32
+collide_with_areas = true
 
+[node name="RayDown" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(0, 320)
+collision_mask = 32
+collide_with_areas = true
+
+[node name="RayLeft" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(-320, 0)
+collision_mask = 32
+collide_with_areas = true
+
+[node name="RayRight" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(320, 0)
+collision_mask = 32
+collide_with_areas = true
+
+[connection signal="area_entered" from="limbohit" to="." method="_on_limbohit_area_entered"]
 [connection signal="area_entered" from="limbohurt" to="." method="_on_limbohit_hurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
 [connection signal="timeout" from="WeaponCooldown" to="." method="_on_weapon_cooldown_timeout"]

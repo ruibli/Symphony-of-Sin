@@ -28,5 +28,8 @@ shape = SubResource("RectangleShape2D_b3llh")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-2, -4, 2, -4, 2, 4, -2, 4)
+
 [connection signal="area_entered" from="arrowhit" to="." method="_on_arrow_hit_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

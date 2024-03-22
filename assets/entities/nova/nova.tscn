@@ -91,8 +91,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
-radius = 5.0
-height = 20.0
+radius = 8.0
+height = 24.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e74t3"]
 size = Vector2(0.1, 0.1)
@@ -116,20 +116,13 @@ sprite_frames = SubResource("SpriteFrames_7wltb")
 animation = &"crossbow_down"
 
 [node name="novahurt" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 34
 collision_mask = 0
 script = ExtResource("15_7su4j")
 
 [node name="NovaHurt" type="CollisionShape2D" parent="novahurt"]
 z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_smoothed = true
-position_smoothing_enabled = true
-position_smoothing_speed = 15.0
-rotation_smoothing_enabled = true
-rotation_smoothing_speed = 15.0
 
 [node name="RoomDetector" type="Area2D" parent="."]
 
@@ -138,9 +131,19 @@ z_index = 1
 shape = SubResource("RectangleShape2D_e74t3")
 one_way_collision_margin = 0.1
 
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 15.0
+rotation_smoothing_enabled = true
+rotation_smoothing_speed = 15.0
+
 [node name="BowCooldown" type="Timer" parent="."]
 
 [node name="HitCooldown" type="Timer" parent="."]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-5, -10, 5, -10, 5, 10, -5, 10)
 
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
 [connection signal="timeout" from="BowCooldown" to="." method="_on_bow_cooldown_timeout"]
