@@ -1,5 +1,7 @@
 extends Node
 
+#the
+
 @onready var generator = $generator
 @export var nova_scene: PackedScene
 var nova
