@@ -18,7 +18,7 @@ func new_game():
 	generator.new_dungeon()
 	nova.cam = false
 	nova.position = generator.get_spawn()
-	$CanvasLayer/black/AnimationPlayer.play("clear")
+	$fade/black/AnimationPlayer.play("clear")
 	active = true
 	await get_tree().create_timer(0.25).timeout
 	nova.cam = true
@@ -28,7 +28,7 @@ func new_floor():
 	nova.cam = false	
 	nova.position = generator.get_spawn()
 	Glova.g_enemies(-999)
-	$CanvasLayer/black/AnimationPlayer.play("clear")
+	$fade/black/AnimationPlayer.play("clear")
 	active = true
 	await get_tree().create_timer(0.25).timeout
 	nova.cam = true
@@ -42,7 +42,7 @@ func _process(delta):
 			total += delta
 		elif Input.is_action_just_released("reset"):
 			total = 0
-		$CanvasLayer/black.modulate = Color(0, 0, 0, total/2)
+		$fade/black.modulate = Color(0, 0, 0, total/2)
 	
 		if total > 2: # r key
 			active = false
