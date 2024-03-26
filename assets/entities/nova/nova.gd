@@ -147,6 +147,10 @@ func hit(ow):
 		$novahurt.set_collision_layer_value(2,false)
 		$HitCooldown.start()
 		Glova.g_stats([-ow, 0, 0, 0, 0, 0])
+		
+		var tween = get_tree().create_tween()
+		tween.tween_property($NovaCollision/NovaAnimation, "modulate", Color(1, 1, 1, 0), 0.05)
+		tween.tween_property($NovaCollision/NovaAnimation, "modulate", Color(1, 1, 1, 1), 0.05)
 
 func boop(dir):
 	if dir == "up":
