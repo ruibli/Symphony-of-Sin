@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbjx02qmhx0a1"]
+
+[ext_resource type="Script" path="res://assets/gui/stats.gd" id="1_bl37g"]
+[ext_resource type="Texture2D" uid="uid://brh1rnh077sdw" path="res://assets/loot/generic/coin.png" id="2_k7j8y"]
+
+[node name="stats" type="Node2D"]
+script = ExtResource("1_bl37g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+grow_vertical = 2
+
+[node name="power" type="Sprite2D" parent="VBoxContainer"]
+texture = ExtResource("2_k7j8y")
+
+[node name="attack" type="Sprite2D" parent="VBoxContainer"]
+texture = ExtResource("2_k7j8y")
+
+[node name="gold" type="Sprite2D" parent="VBoxContainer"]
+texture = ExtResource("2_k7j8y")
+
+[node name="speed" type="Sprite2D" parent="VBoxContainer"]
+texture = ExtResource("2_k7j8y")

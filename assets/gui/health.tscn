@@ -1,0 +1,62 @@
+[gd_scene load_steps=7 format=3 uid="uid://bnyohaj72ns83"]
+
+[ext_resource type="Script" path="res://assets/gui/health.gd" id="1_62k26"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqqi0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr17a"]
+bg_color = Color(0.988235, 0.109804, 0.109804, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_03wh0"]
+font_size = 12
+font_color = Color(0.752941, 0.752941, 0.752941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a06d"]
+bg_color = Color(0, 0, 0, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5io3f"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="health" type="Node2D"]
+script = ExtResource("1_62k26")
+
+[node name="health" type="ProgressBar" parent="."]
+z_index = 1
+z_as_relative = false
+anchors_preset = -1
+offset_right = 64.0
+offset_bottom = 16.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_qqqi0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mr17a")
+max_value = 1.0
+value = 1.0
+show_percentage = false
+
+[node name="health_label" type="Label" parent="health"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -2.625
+anchor_top = -0.21875
+anchor_right = 3.625
+anchor_bottom = 1.21875
+offset_left = 168.0
+offset_top = 3.5
+offset_right = -168.0
+offset_bottom = -3.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "100 / 100"
+label_settings = SubResource("LabelSettings_03wh0")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
+
+[node name="iframes" type="ProgressBar" parent="."]
+offset_right = 64.0
+offset_bottom = 16.0
+theme_override_styles/background = SubResource("StyleBoxFlat_7a06d")
+theme_override_styles/fill = SubResource("StyleBoxFlat_5io3f")
+max_value = 1.0
+value = 1.0
+show_percentage = false
