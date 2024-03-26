@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
-var speed = 150 * mod
+var speed = 100 * mod
 var health = 25 * mod
 var damage = 10 * mod
 var attack = 1 * mod
