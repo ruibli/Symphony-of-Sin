@@ -26,6 +26,40 @@ window/size/viewport_height=351
 window/size/mode=2
 window/stretch/mode="viewport"
 
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+
+[importer_defaults]
+
+font_data_dynamic={
+"Compress": null,
+"Fallbacks": null,
+"Rendering": null,
+"allow_system_fallback": true,
+"antialiasing": 1,
+"compress": true,
+"fallbacks": [],
+"force_autohinter": false,
+"generate_mipmaps": true,
+"hinting": 2,
+"language_support": {},
+"msdf_pixel_range": 8,
+"msdf_size": 64,
+"multichannel_signed_distance_field": true,
+"opentype_features": {},
+"oversampling": 0.0,
+"preload": [{
+"chars": [],
+"glyphs": [],
+"name": "New Configuration",
+"size": Vector2i(16, 0),
+"variation_embolden": 0.0
+}],
+"script_support": {},
+"subpixel_positioning": 0
+}
+
 [input]
 
 move_up={
@@ -85,6 +119,7 @@ reset={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 textures/default_filters/use_nearest_mipmap_filter=true
 2d/snap/snap_2d_transforms_to_pixel=true
 2d/snap/snap_2d_vertices_to_pixel=true

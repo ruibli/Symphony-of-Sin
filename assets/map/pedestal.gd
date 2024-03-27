@@ -11,6 +11,7 @@ var stats
 func _ready():
 	$pedestal.visible = false
 	$item.visible = false
+	$cost.visible = false
 	$item.position = $pedestal.position + Vector2(0, -7)
 	
 	if type == "enemy":
@@ -48,11 +49,13 @@ func _ready():
 		if item <= 2:
 			item = "item"
 			cost = [0, 0, 0, 0, 0, -5]
+			$cost.text = "5g"
 			random_item()
 		elif item <=3:
 			item = "weapon"
 			cost = [0, 0, 0, 0, 0, -10]
-			random_weapon()		
+			$cost.text = "10g"
+			random_weapon()	
 	
 func random_item():
 	var item_pool = Glova.g_item_pool()
@@ -66,6 +69,7 @@ func random_item():
 		if nam == "breakfast":
 			$item.texture = load("res://assets/loot/items/breakfast.png")
 			stats = [25, 25, 0, 0, 0, 0]
+			
 
 func random_weapon():
 	var weapon_pool = Glova.g_weapon_pool()
@@ -87,6 +91,7 @@ func breakfast():
 	
 	if type == "shop":
 		cost = [0, 0, 0, 0, 0, -5]
+		$cost.text = "5g"
 
 func _process(_delta):
 	if state == 2 and Glova.g_enemies() > 0:
@@ -97,10 +102,12 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 	state = 2
 	$pedestal.visible = false
 	$item.visible = false
+	$cost.visible = false
 
 func _on_timer_timeout():
 	$pedestal.visible = true
 	$item.visible = true
+	$cost.visible = true
 	state = 3
 
 func _on_pedestal_area_area_entered(_area):
@@ -121,3 +128,4 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	state = 1
 	$pedestal.visible = false
 	$item.visible = false
+	$cost.visible = false
