@@ -1,11 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp04shdgsunlt"]
+[gd_scene load_steps=2 format=3 uid="uid://cp04shdgsunlt"]
 
 [ext_resource type="PackedScene" uid="uid://bnyohaj72ns83" path="res://assets/gui/health.tscn" id="1_eu024"]
-[ext_resource type="PackedScene" uid="uid://cbjx02qmhx0a1" path="res://assets/gui/stats.tscn" id="2_seg3n"]
 
 [node name="gui" type="CanvasLayer"]
-
-[node name="health" parent="." instance=ExtResource("1_eu024")]
 
 [node name="stats" parent="." instance=ExtResource("2_seg3n")]
 position = Vector2(0, 64)
