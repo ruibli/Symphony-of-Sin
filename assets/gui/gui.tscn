@@ -4,4 +4,5 @@
 
 [node name="gui" type="CanvasLayer"]
 
-[node name="health" parent="." instance=ExtResource("1_eu024")]
+[node name="stats" parent="." instance=ExtResource("2_seg3n")]
+position = Vector2(0, 64)

@@ -1,7 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbjx02qmhx0a1"]
+[gd_scene load_steps=5 format=3 uid="uid://cbjx02qmhx0a1"]
 
 [ext_resource type="Script" path="res://assets/gui/stats.gd" id="1_bl37g"]
 [ext_resource type="Texture2D" uid="uid://brh1rnh077sdw" path="res://assets/loot/generic/coin.png" id="2_k7j8y"]
+[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/dogicapixel.ttf" id="3_aoyvh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3c6pa"]
+font = ExtResource("3_aoyvh")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="stats" type="Node2D"]
 script = ExtResource("1_bl37g")
@@ -10,14 +17,56 @@ script = ExtResource("1_bl37g")
 offset_right = 40.0
 grow_vertical = 2
 
-[node name="power" type="Sprite2D" parent="VBoxContainer"]
-texture = ExtResource("2_k7j8y")
+[node name="speed_con" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
 
-[node name="attack" type="Sprite2D" parent="VBoxContainer"]
+[node name="speed_icon" type="TextureRect" parent="VBoxContainer/speed_con"]
+layout_mode = 2
 texture = ExtResource("2_k7j8y")
+stretch_mode = 2
 
-[node name="gold" type="Sprite2D" parent="VBoxContainer"]
-texture = ExtResource("2_k7j8y")
+[node name="speed" type="Label" parent="VBoxContainer/speed_con"]
+layout_mode = 2
+text = "150
+"
+label_settings = SubResource("LabelSettings_3c6pa")
 
-[node name="speed" type="Sprite2D" parent="VBoxContainer"]
+[node name="power_con" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="power_icon" type="TextureRect" parent="VBoxContainer/power_con"]
+layout_mode = 2
 texture = ExtResource("2_k7j8y")
+stretch_mode = 2
+
+[node name="power" type="Label" parent="VBoxContainer/power_con"]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_3c6pa")
+
+[node name="attack_con" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="attack_icon" type="TextureRect" parent="VBoxContainer/attack_con"]
+layout_mode = 2
+texture = ExtResource("2_k7j8y")
+stretch_mode = 2
+
+[node name="attack" type="Label" parent="VBoxContainer/attack_con"]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_3c6pa")
+
+[node name="gold_con" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="gold_icon" type="TextureRect" parent="VBoxContainer/gold_con"]
+layout_mode = 2
+texture = ExtResource("2_k7j8y")
+stretch_mode = 2
+
+[node name="gold" type="Label" parent="VBoxContainer/gold_con"]
+layout_mode = 2
+text = "0
+"
+label_settings = SubResource("LabelSettings_3c6pa")
