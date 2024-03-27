@@ -7,7 +7,7 @@ var cam = false
 
 var health = 100
 var health_max = 100
-var speed = 150
+var speed = 100
 var power = 1
 var attack = 1
 var gold = 0
