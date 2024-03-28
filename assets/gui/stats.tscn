@@ -25,10 +25,9 @@ layout_mode = 2
 texture = ExtResource("2_k7j8y")
 stretch_mode = 2
 
-[node name="speed" type="Label" parent="VBoxContainer/speed_con"]
+[node name="speed_label" type="Label" parent="VBoxContainer/speed_con"]
 layout_mode = 2
-text = "150
-"
+text = "1"
 label_settings = SubResource("LabelSettings_3c6pa")
 
 [node name="power_con" type="HBoxContainer" parent="VBoxContainer"]
@@ -39,7 +38,7 @@ layout_mode = 2
 texture = ExtResource("2_k7j8y")
 stretch_mode = 2
 
-[node name="power" type="Label" parent="VBoxContainer/power_con"]
+[node name="power_label" type="Label" parent="VBoxContainer/power_con"]
 layout_mode = 2
 text = "1"
 label_settings = SubResource("LabelSettings_3c6pa")
@@ -52,7 +51,7 @@ layout_mode = 2
 texture = ExtResource("2_k7j8y")
 stretch_mode = 2
 
-[node name="attack" type="Label" parent="VBoxContainer/attack_con"]
+[node name="attack_label" type="Label" parent="VBoxContainer/attack_con"]
 layout_mode = 2
 text = "1"
 label_settings = SubResource("LabelSettings_3c6pa")
@@ -65,7 +64,7 @@ layout_mode = 2
 texture = ExtResource("2_k7j8y")
 stretch_mode = 2
 
-[node name="gold" type="Label" parent="VBoxContainer/gold_con"]
+[node name="gold_label" type="Label" parent="VBoxContainer/gold_con"]
 layout_mode = 2
 text = "0
 "

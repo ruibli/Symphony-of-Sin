@@ -11,7 +11,6 @@ var speed = 75 * mod
 
 var health = 25 * mod
 var damage = 10 * mod
-var attack = 1 * mod
 
 var active = false
 var wait = false
@@ -50,9 +49,9 @@ func _physics_process(_delta):
 		if not wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
-		elif distance <= 24 and see:
+		elif distance <= 28 and see:
 			weapon()
-		elif distance >= 16 or not see:
+		elif distance >= 20 or not see:
 			$NavigationAgent2D.set_target_position(Glova.g_pos())
 			var current_agent_position = global_position
 			var next_path_position = $NavigationAgent2D.get_next_path_position()
@@ -61,7 +60,7 @@ func _physics_process(_delta):
 		
 		# Animation
 		var nova_dir = Glova.g_pos() - global_position
-		if type == "wait" and distance <= 24:
+		if type == "wait" and distance <= 28:
 			if direction == "up":
 				$GluttonyCollision/GluttonyAnimation.play("walk_up")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
@@ -109,7 +108,7 @@ func _physics_process(_delta):
 				$GluttonyCollision/GluttonyAnimation.play("attack_right")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
 		
-		$WeaponCooldown.wait_time = 1 * 1.0 / attack
+		$WeaponCooldown.wait_time = 1 * 1.0 / mod
 
 func weapon():
 	if can_attack:
@@ -166,7 +165,7 @@ func hit(ow):
 			tween.tween_property($GluttonyCollision/GluttonyAnimation, "modulate", Color(1, 1, 1, 1), 0.05)
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
-	if active and (distance >= 16 or not see):
+	if active and (distance >= 20 or not see):
 		velocity = safe_velocity.normalized() * speed
 		move_and_slide()
 

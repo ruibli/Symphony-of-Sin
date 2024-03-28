@@ -7,13 +7,13 @@ var cam = false
 
 var health = 100
 var health_max = 100
-var speed = 100
+var speed = 1
 var power = 1
 var attack = 1
 var gold = 0
 
 var inv = []
-var hotbar = ["Crossbow", " ", " ", " ", " ", " ", " ", " "]
+var hotbar = ["crossbow", " ", " ", " ", " ", " ", " ", " "]
 
 var cooldown = 1
 var can_shoot = true
@@ -71,7 +71,7 @@ func _process(_delta):
 		direction = "right"
 	
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
+		velocity = velocity.normalized() * 100 * speed
 		$NovaCollision/NovaAnimation.play()
 	else:
 		$NovaCollision/NovaAnimation.frame = 0
