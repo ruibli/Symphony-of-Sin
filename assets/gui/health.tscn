@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnyohaj72ns83"]
+[gd_scene load_steps=9 format=3 uid="uid://bnyohaj72ns83"]
 
 [ext_resource type="Script" path="res://assets/gui/health.gd" id="1_62k26"]
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/dogicapixel.ttf" id="2_hhu2u"]
+[ext_resource type="Texture2D" uid="uid://b6s7wigb2haci" path="res://assets/gui/art/heath_bar_border.png" id="3_i4j6t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqqi0"]
 
@@ -59,6 +60,12 @@ vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 3
 metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="health"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 16.0
+texture = ExtResource("3_i4j6t")
 
 [node name="iframes" type="ProgressBar" parent="."]
 offset_right = 64.0
