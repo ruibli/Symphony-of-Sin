@@ -1,11 +1,12 @@
 extends Node2D
 
+var speed = 1
+var power = 1 
+var attack = 1
+var gold = 0
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	$VBoxContainer/speed_con/speed_label.text = str(Glova.g_stats()[2])
+	$VBoxContainer/power_con/power_label.text = str(Glova.g_stats()[3])
+	$VBoxContainer/attack_con/attack_label.text = str(Glova.g_stats()[4])
+	$VBoxContainer/gold_con/gold_label.text = str(Glova.g_stats()[5])

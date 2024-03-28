@@ -85,7 +85,7 @@ func random_weapon():
 
 func breakfast():
 	item = "item"
-	nam = "Breakfast"
+	nam = "breakfast"
 	$item.texture = load("res://assets/loot/items/breakfast.png")
 	stats = [25, 25, 0, 0, 0, 0]
 	

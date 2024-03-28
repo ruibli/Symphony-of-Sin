@@ -6,7 +6,6 @@ var pos = Vector2(0,0)
 var enemies = 0
 var item = [0]
 var weapon = [1]
-var foot = 1
 
 var stats
 
@@ -19,11 +18,11 @@ func reset():
 	level = 1
 	mod = 0
 	enemies = 0
-	stats = [100, 100, 100, 1, 1, 0]
+	stats = [100, 100, 1, 1, 1, 0]
 	# health, health_max, speed, power, attack, gold
 	
 	inv = []
-	hotbar = ["Crossbow", " ", " ", " ", " ", " ", " ", " "]
+	hotbar = ["crossbow", " ", " ", " ", " ", " ", " ", " "]
 	item_pool = ["breakfast"]
 	weapon_pool = []
 
