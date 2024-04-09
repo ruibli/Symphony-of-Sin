@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/gui/health.gd" id="1_62k26"]
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/dogicapixel.ttf" id="2_hhu2u"]
-[ext_resource type="Texture2D" uid="uid://b6s7wigb2haci" path="res://assets/gui/art/heath_bar_border.png" id="3_i4j6t"]
+[ext_resource type="Texture2D" uid="uid://cgi11g1c5t3gf" path="res://assets/gui/art/health_bar_border.png" id="3_ejhf0"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqqi0"]
 
@@ -65,7 +65,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 0
 offset_right = 64.0
 offset_bottom = 16.0
-texture = ExtResource("3_i4j6t")
+texture = ExtResource("3_ejhf0")
 
 [node name="iframes" type="ProgressBar" parent="."]
 offset_right = 64.0
