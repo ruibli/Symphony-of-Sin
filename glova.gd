@@ -11,6 +11,8 @@ var stats
 
 var inv
 var hotbar
+var current
+
 var item_pool
 var weapon_pool
 
@@ -23,6 +25,8 @@ func reset():
 	
 	inv = []
 	hotbar = ["crossbow", " ", " ", " ", " ", " ", " ", " "]
+	current = "crossbow"
+	
 	item_pool = ["breakfast"]
 	weapon_pool = []
 
@@ -89,6 +93,12 @@ func g_hotbar(h: String = "0"):
 			hotbar[6] = h
 		else:
 			hotbar[7] = h
+			
+func g_current(c: String = "0"):
+	if c == "0":
+		return current
+	else:
+		current = c
 			
 func g_item_pool(i: String = "0"):
 	if i == "0":

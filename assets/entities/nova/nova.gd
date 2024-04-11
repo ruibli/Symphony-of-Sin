@@ -14,14 +14,13 @@ var gold = 0
 
 var inv = []
 var hotbar = ["crossbow", " ", " ", " ", " ", " ", " ", " "]
+var current = "crossbow"
 
-var cooldown = 1
 var can_shoot = true
 var direction = "down"
 var type = "move"
 var foot = true
 
-var current = "crossbow"
 var can_hit = true
 
 func set_nova():
@@ -34,6 +33,7 @@ func set_nova():
 	
 	inv = Glova.g_inv()
 	hotbar = Glova.g_hotbar()
+	current = Glova.g_current()
 	
 	if health > health_max:
 		Glova.g_stats([health_max-health, 0, 0, 0, 0, 0])
