@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b85dgg62gt5fc"]
+[gd_scene load_steps=5 format=3 uid="uid://b85dgg62gt5fc"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/arrow.gd" id="1_7expc"]
 [ext_resource type="Texture2D" uid="uid://d03y6lxexnpnf" path="res://assets/entities/nova/nova_crossbow/nova_arrow.png" id="2_whlwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3llh"]
 size = Vector2(4.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jjimp"]
+size = Vector2(0.1, 0.1)
 
 [node name="arrow" type="CharacterBody2D"]
 collision_layer = 8
@@ -26,10 +29,16 @@ collision_mask = 4
 [node name="ArrowHit" type="CollisionShape2D" parent="arrowhit"]
 shape = SubResource("RectangleShape2D_b3llh")
 
+[node name="roomdetector" type="Area2D" parent="."]
+
+[node name="RoomHit" type="CollisionShape2D" parent="roomdetector"]
+shape = SubResource("RectangleShape2D_jjimp")
+
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-2, -4, 2, -4, 2, 4, -2, 4)
 
 [connection signal="area_entered" from="arrowhit" to="." method="_on_arrow_hit_area_entered"]
+[connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

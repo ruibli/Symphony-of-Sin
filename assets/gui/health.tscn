@@ -30,8 +30,10 @@ script = ExtResource("1_62k26")
 [node name="health" type="ProgressBar" parent="."]
 z_index = 1
 z_as_relative = false
-offset_right = 64.0
-offset_bottom = 16.0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 65.0
+offset_bottom = 17.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_qqqi0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mr17a")
 max_value = 1.0
@@ -63,8 +65,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="health"]
 layout_mode = 0
-offset_right = 64.0
-offset_bottom = 16.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 63.0
+offset_bottom = 15.0
 texture = ExtResource("3_ejhf0")
 
 [node name="iframes" type="ProgressBar" parent="."]

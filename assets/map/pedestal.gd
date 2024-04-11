@@ -113,16 +113,16 @@ func _on_timer_timeout():
 func _on_pedestal_area_area_entered(_area):
 	if state == 3:
 		if type == "shop" and Glova.g_stats()[5] >= abs(cost[5]) or type != "shop":
-			if item == "coin" or item == "potion":
-				pass
-			elif item == "item":
-				Glova.g_inv(nam)
-			elif item == "weapon":
-				Glova.g_hotbar(nam)
-			Glova.g_stats(stats)
-			Glova.g_stats(cost)
-			queue_free()
-
+			if (item == "potion" and Glova.g_stats()[1] != Glova.g_stats()[0]) or item != "potion":
+				if item == "coin" or item == "potion":
+					pass
+				elif item == "item":
+					Glova.g_inv(nam)
+				elif item == "weapon":
+					Glova.g_hotbar(nam)
+				Glova.g_stats(stats)
+				Glova.g_stats(cost)
+				queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	state = 1
