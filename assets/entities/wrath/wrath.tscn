@@ -31,6 +31,26 @@ size = Vector2(10, 5)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("8_88w3t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_imklm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_8528c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_imklm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_88w3t")
+}],
+"loop": true,
+"name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("2_ua7lh")
 }, {
 "duration": 1.0,
@@ -67,26 +87,6 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("8_88w3t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_imklm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_8528c")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_imklm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_88w3t")
-}],
-"loop": true,
-"name": &"attak_down",
 "speed": 5.0
 }, {
 "frames": [{
@@ -178,7 +178,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_right"
+animation = &"attack_up"
 
 [node name="wrathhurt" type="Area2D" parent="."]
 collision_layer = 20
