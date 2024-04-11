@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6s7wigb2haci"
-path="res://.godot/imported/heath_bar_border.png-f568a54b72198b8daa550c4236f7c12f.ctex"
+uid="uid://cgi11g1c5t3gf"
+path="res://.godot/imported/health_bar_border.png-b75d9deaaac454101eb17adb08ebd5e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/art/heath_bar_border.png"
-dest_files=["res://.godot/imported/heath_bar_border.png-f568a54b72198b8daa550c4236f7c12f.ctex"]
+source_file="res://assets/gui/art/health_bar_border.png"
+dest_files=["res://.godot/imported/health_bar_border.png-b75d9deaaac454101eb17adb08ebd5e4.ctex"]
 
 [params]
 
