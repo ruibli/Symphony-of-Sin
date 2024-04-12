@@ -1,15 +1,18 @@
-[gd_scene load_steps=27 format=3 uid="uid://crlrdxnbaeitg"]
+[gd_scene load_steps=30 format=3 uid="uid://crlrdxnbaeitg"]
 
 [ext_resource type="Script" path="res://assets/entities/wrath/wrath.gd" id="1_shbfm"]
 [ext_resource type="Texture2D" uid="uid://cnh4tmsrr6bjq" path="res://assets/entities/wrath/sprites/wrath_right_attack1.png" id="2_ua7lh"]
 [ext_resource type="Texture2D" uid="uid://ddabri06ubxcy" path="res://assets/entities/wrath/sprites/wrath_right_attack2.png" id="3_mf5bh"]
 [ext_resource type="Texture2D" uid="uid://bnh21ubm2grjh" path="res://assets/entities/wrath/sprites/wrath_right_attack3.png" id="4_grli7"]
 [ext_resource type="Texture2D" uid="uid://bwii0qsjsiwh6" path="res://assets/entities/wrath/sprites/wrath_up_attack1.png" id="5_p7df2"]
+[ext_resource type="Texture2D" uid="uid://dh2m23w45qj51" path="res://assets/entities/wrath/sprites/wrath_left_attack1.png" id="5_qf5rb"]
 [ext_resource type="Texture2D" uid="uid://ci77j351qthog" path="res://assets/entities/wrath/sprites/wrath_up_attack2.png" id="6_46ald"]
+[ext_resource type="Texture2D" uid="uid://c2oqhjc8oek1x" path="res://assets/entities/wrath/sprites/wrath_left_attack2.png" id="6_b2nga"]
+[ext_resource type="Texture2D" uid="uid://86j6brchd5jy" path="res://assets/entities/wrath/sprites/wrath_left_attack3.png" id="7_m6eyg"]
 [ext_resource type="Texture2D" uid="uid://dsnwys5oyn50p" path="res://assets/entities/wrath/sprites/wrath_up_attack3.png" id="7_to1u4"]
-[ext_resource type="Texture2D" uid="uid://dyb5lscamhuu6" path="res://assets/entities/wrath/sprites/wrath_down_attack2.png" id="8_88w3t"]
-[ext_resource type="Texture2D" uid="uid://b1pacoal1fwwg" path="res://assets/entities/wrath/sprites/wrath_down_attack3.png" id="9_imklm"]
-[ext_resource type="Texture2D" path="res://assets/entities/wrath/sprites/wrath_down_attack4.png" id="10_8528c"]
+[ext_resource type="Texture2D" uid="uid://bmrxcm0mis8m5" path="res://assets/entities/wrath/sprites/wrath_down_attack1.png" id="8_88w3t"]
+[ext_resource type="Texture2D" uid="uid://dyb5lscamhuu6" path="res://assets/entities/wrath/sprites/wrath_down_attack2.png" id="9_imklm"]
+[ext_resource type="Texture2D" uid="uid://b1pacoal1fwwg" path="res://assets/entities/wrath/sprites/wrath_down_attack3.png" id="10_8528c"]
 [ext_resource type="Texture2D" uid="uid://duipcbcny1laq" path="res://assets/entities/wrath/sprites/wrath_down.png" id="11_leqxv"]
 [ext_resource type="Texture2D" uid="uid://bddpldghok0vj" path="res://assets/entities/wrath/sprites/wrath_down_walk1.png" id="12_b8xna"]
 [ext_resource type="Texture2D" uid="uid://ckmwp4niim25b" path="res://assets/entities/wrath/sprites/wrath_down_walk2.png" id="13_xqgd8"]
@@ -47,6 +50,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qf5rb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b2nga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_m6eyg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_b2nga")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qf5rb")
+}],
+"loop": true,
+"name": &"attack_left",
 "speed": 5.0
 }, {
 "frames": [{
@@ -178,7 +201,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_up"
+animation = &"attack_right"
 
 [node name="wrathhurt" type="Area2D" parent="."]
 collision_layer = 20
