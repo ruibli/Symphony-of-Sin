@@ -126,7 +126,7 @@ animations = [{
 "texture": ExtResource("13_xqgd8")
 }],
 "loop": true,
-"name": &"walk_down",
+"name": &"move_down",
 "speed": 4.0
 }, {
 "frames": [{
@@ -143,7 +143,7 @@ animations = [{
 "texture": ExtResource("16_8usso")
 }],
 "loop": true,
-"name": &"walk_left",
+"name": &"move_left",
 "speed": 4.0
 }, {
 "frames": [{
@@ -160,7 +160,7 @@ animations = [{
 "texture": ExtResource("19_sbrym")
 }],
 "loop": true,
-"name": &"walk_right",
+"name": &"move_right",
 "speed": 4.0
 }, {
 "frames": [{
@@ -177,7 +177,7 @@ animations = [{
 "texture": ExtResource("22_li5x7")
 }],
 "loop": true,
-"name": &"walk_up",
+"name": &"move_up",
 "speed": 4.0
 }]
 
@@ -201,7 +201,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_right"
+animation = &"move_up"
 
 [node name="wrathhurt" type="Area2D" parent="."]
 collision_layer = 20

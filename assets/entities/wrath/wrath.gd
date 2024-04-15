@@ -60,22 +60,22 @@ func _physics_process(_delta):
 		var nova_dir = Glova.g_pos() - global_position
 		if type == "wait" and distance <= 28:
 			if direction == "up":
-				$WrathCollision/WrathAnimation.play("walk_up")
+				$WrathCollision/WrathAnimation.play("move_up")
 			elif direction == "down":
-				$WrathCollision/WrathAnimation.play("walk_down")
+				$WrathCollision/WrathAnimation.play("move_down")
 			elif direction == "left":
-				$WrathCollision/WrathAnimation.play("walk_left")
+				$WrathCollision/WrathAnimation.play("move_left")
 			elif direction == "right":
-				$WrathCollision/WrathAnimation.play("walk_right")
+				$WrathCollision/WrathAnimation.play("move_right")
 		elif type == "move":
 			if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
-				$WrathCollision/WrathAnimation.play("walk_up")
+				$WrathCollision/WrathAnimation.play("move_up")
 			elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
-				$WrathCollision/WrathAnimation.play("walk_down")
+				$WrathCollision/WrathAnimation.play("move_down")
 			elif velocity.x < 0 and abs(velocity.x) > abs(velocity.y): #left
-				$WrathCollision/WrathAnimation.play("walk_left")
+				$WrathCollision/WrathAnimation.play("move_left")
 			elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
-				$WrathCollision/WrathAnimation.play("walk_right")
+				$WrathCollision/WrathAnimation.play("move_right")
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x): #up
 				$WeaponPos.position = Vector2(0,-10)
