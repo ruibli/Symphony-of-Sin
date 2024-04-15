@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cbjx02qmhx0a1"]
 
 [ext_resource type="Script" path="res://assets/gui/stats.gd" id="1_bl37g"]
+[ext_resource type="Texture2D" uid="uid://b8by1dkd5pojv" path="res://assets/gui/icons/speed_icon.png" id="2_4unwn"]
 [ext_resource type="Texture2D" uid="uid://brh1rnh077sdw" path="res://assets/loot/generic/coin.png" id="2_k7j8y"]
-[ext_resource type="Texture2D" uid="uid://b8by1dkd5pojv" path="res://assets/gui/art/speed_icon.png" id="2_p3cwo"]
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/dogicapixel.ttf" id="3_aoyvh"]
-[ext_resource type="Texture2D" uid="uid://dk4o8p4keau4s" path="res://assets/gui/art/damage_icon.png" id="4_r03ws"]
-[ext_resource type="Texture2D" uid="uid://d2xfaugj8ai2e" path="res://assets/gui/art/attack_icon.png" id="5_j77y3"]
+[ext_resource type="Texture2D" uid="uid://dk4o8p4keau4s" path="res://assets/gui/icons/damage_icon.png" id="4_eb21j"]
+[ext_resource type="Texture2D" uid="uid://d2xfaugj8ai2e" path="res://assets/gui/icons/attack_icon.png" id="5_7kbac"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3c6pa"]
 font = ExtResource("3_aoyvh")
@@ -14,6 +14,7 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [node name="stats" type="Node2D"]
+modulate = Color(1, 1, 1, 0.501961)
 script = ExtResource("1_bl37g")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -25,12 +26,12 @@ layout_mode = 2
 
 [node name="speed_icon" type="TextureRect" parent="VBoxContainer/speed_con"]
 layout_mode = 2
-texture = ExtResource("2_p3cwo")
+texture = ExtResource("2_4unwn")
 stretch_mode = 2
 
 [node name="speed_label" type="Label" parent="VBoxContainer/speed_con"]
 layout_mode = 2
-text = "1"
+text = "1.00"
 label_settings = SubResource("LabelSettings_3c6pa")
 
 [node name="power_con" type="HBoxContainer" parent="VBoxContainer"]
@@ -38,12 +39,12 @@ layout_mode = 2
 
 [node name="power_icon" type="TextureRect" parent="VBoxContainer/power_con"]
 layout_mode = 2
-texture = ExtResource("4_r03ws")
+texture = ExtResource("4_eb21j")
 stretch_mode = 2
 
 [node name="power_label" type="Label" parent="VBoxContainer/power_con"]
 layout_mode = 2
-text = "1"
+text = "1.00"
 label_settings = SubResource("LabelSettings_3c6pa")
 
 [node name="attack_con" type="HBoxContainer" parent="VBoxContainer"]
@@ -51,12 +52,12 @@ layout_mode = 2
 
 [node name="attack_icon" type="TextureRect" parent="VBoxContainer/attack_con"]
 layout_mode = 2
-texture = ExtResource("5_j77y3")
+texture = ExtResource("5_7kbac")
 stretch_mode = 2
 
 [node name="attack_label" type="Label" parent="VBoxContainer/attack_con"]
 layout_mode = 2
-text = "1"
+text = "1.00"
 label_settings = SubResource("LabelSettings_3c6pa")
 
 [node name="gold_con" type="HBoxContainer" parent="VBoxContainer"]

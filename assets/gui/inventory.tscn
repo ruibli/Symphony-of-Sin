@@ -3,10 +3,11 @@
 [ext_resource type="Script" path="res://assets/gui/inventory.gd" id="1_n81ww"]
 
 [node name="inventory" type="Node2D"]
+modulate = Color(1, 1, 1, 0.501961)
 script = ExtResource("1_n81ww")
 
 [node name="inv_con" type="HFlowContainer" parent="."]
 clip_contents = true
-offset_right = 48.0
-offset_bottom = 128.0
+offset_right = 64.0
+offset_bottom = 116.0
 alignment = 2

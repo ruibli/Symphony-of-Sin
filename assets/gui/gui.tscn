@@ -12,4 +12,4 @@
 position = Vector2(0, 64)
 
 [node name="inventory" parent="." instance=ExtResource("3_qm3s2")]
-position = Vector2(302, 223)
+position = Vector2(285, 234)
