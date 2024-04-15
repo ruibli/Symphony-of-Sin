@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0nhlp3n6amkn"
-path="res://.godot/imported/empty_attack_right_0.png-f1095a72f82bfeacbcfee46d9659bcb1.ctex"
+uid="uid://c3h3xno0crlla"
+path="res://.godot/imported/empty_move_right_2.png-994f12633142158d70a0901f62d88ab8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/redundant art/empty_attack_right_0.png"
-dest_files=["res://.godot/imported/empty_attack_right_0.png-f1095a72f82bfeacbcfee46d9659bcb1.ctex"]
+source_file="res://assets/entities/nova/nova_empty/empty_move_right_2.png"
+dest_files=["res://.godot/imported/empty_move_right_2.png-994f12633142158d70a0901f62d88ab8.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://k5agb7n4sg11"
-path="res://.godot/imported/crossbow_attack_down_1.png-f82eefb243bd0f5ecbabb8b86887793e.ctex"
+uid="uid://dox0cmd4bmw4d"
+path="res://.godot/imported/empty_move_right_1.png-5f17fa29ad7bb24fb3d889f779d10835.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/redundant art/crossbow_attack_down_1.png"
-dest_files=["res://.godot/imported/crossbow_attack_down_1.png-f82eefb243bd0f5ecbabb8b86887793e.ctex"]
+source_file="res://assets/entities/nova/nova_empty/empty_move_right_1.png"
+dest_files=["res://.godot/imported/empty_move_right_1.png-5f17fa29ad7bb24fb3d889f779d10835.ctex"]
 
 [params]
 
