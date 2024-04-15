@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk4o8p4keau4s"
-path="res://.godot/imported/damage_icon.png-022896d572d77f56cf851d85530ca8dc.ctex"
+uid="uid://b8by1dkd5pojv"
+path="res://.godot/imported/speed_icon.png-ff4a3f78064068b3971f93f45cad3a8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/art/damage_icon.png"
-dest_files=["res://.godot/imported/damage_icon.png-022896d572d77f56cf851d85530ca8dc.ctex"]
+source_file="res://assets/gui/icons/speed_icon.png"
+dest_files=["res://.godot/imported/speed_icon.png-ff4a3f78064068b3971f93f45cad3a8d.ctex"]
 
 [params]
 

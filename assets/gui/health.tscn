@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/gui/health.gd" id="1_62k26"]
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/dogicapixel.ttf" id="2_hhu2u"]
-[ext_resource type="Texture2D" uid="uid://cgi11g1c5t3gf" path="res://assets/gui/art/health_bar_border.png" id="3_ejhf0"]
+[ext_resource type="Texture2D" uid="uid://cgi11g1c5t3gf" path="res://assets/gui/borders/health_bar_border.png" id="3_i4efy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqqi0"]
 
@@ -25,15 +25,14 @@ bg_color = Color(0, 0, 0, 0.501961)
 bg_color = Color(1, 1, 1, 1)
 
 [node name="health" type="Node2D"]
+position = Vector2(1, 1)
 script = ExtResource("1_62k26")
 
 [node name="health" type="ProgressBar" parent="."]
 z_index = 1
 z_as_relative = false
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 65.0
-offset_bottom = 17.0
+offset_right = 64.0
+offset_bottom = 16.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_qqqi0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mr17a")
 max_value = 1.0
@@ -69,7 +68,7 @@ offset_left = -1.0
 offset_top = -1.0
 offset_right = 63.0
 offset_bottom = 15.0
-texture = ExtResource("3_ejhf0")
+texture = ExtResource("3_i4efy")
 
 [node name="iframes" type="ProgressBar" parent="."]
 offset_right = 64.0
