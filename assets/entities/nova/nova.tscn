@@ -1,19 +1,31 @@
-[gd_scene load_steps=20 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=32 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_1l2sp"]
 [ext_resource type="Texture2D" uid="uid://ca8fp0g5bomlc" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_down.png" id="3_a4ka7"]
+[ext_resource type="Texture2D" uid="uid://blmothbwnh2jn" path="res://assets/entities/nova/nova_axe/walk/nova_axe_down.png" id="3_ahlkj"]
+[ext_resource type="Texture2D" uid="uid://dxds0yn4tuwp3" path="res://assets/entities/nova/nova_axe/walk/nova_axe_down_walk1.png" id="4_4qdqo"]
 [ext_resource type="Texture2D" uid="uid://hm76gw007l40" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_down_walk1.png" id="4_f1gha"]
 [ext_resource type="Texture2D" uid="uid://dge7bishrebxm" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_down_walk2.png" id="5_47kky"]
+[ext_resource type="Texture2D" uid="uid://brsnab46skvml" path="res://assets/entities/nova/nova_axe/walk/nova_axe_down_walk2.png" id="5_187it"]
 [ext_resource type="Texture2D" uid="uid://d1d5pa7hiau7" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_left.png" id="6_6q5y5"]
+[ext_resource type="Texture2D" uid="uid://dvk1oux7s25yd" path="res://assets/entities/nova/nova_axe/walk/nova_axe_left.png" id="6_s5dhk"]
 [ext_resource type="Texture2D" uid="uid://d3gydi68goob4" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_left_walk1.png" id="7_epl3y"]
+[ext_resource type="Texture2D" uid="uid://d2fcsnugymvwy" path="res://assets/entities/nova/nova_axe/walk/nova_axe_left_walk1.png" id="7_fmusf"]
+[ext_resource type="Texture2D" uid="uid://d0yfxnu0i1dip" path="res://assets/entities/nova/nova_axe/walk/nova_axe_left_walk2.png" id="8_ix3ym"]
 [ext_resource type="Texture2D" uid="uid://6adfe8ajor8t" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_left_walk2.png" id="8_kmtlt"]
 [ext_resource type="Texture2D" uid="uid://bnaue2535b4s2" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_right.png" id="9_td65m"]
+[ext_resource type="Texture2D" uid="uid://kpvbon654ame" path="res://assets/entities/nova/nova_axe/walk/nova_axe_right.png" id="9_ujrgh"]
 [ext_resource type="Texture2D" uid="uid://2l1qaghgmpvf" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_right_walk1.png" id="10_41goi"]
+[ext_resource type="Texture2D" uid="uid://cccksrqj8ikoe" path="res://assets/entities/nova/nova_axe/walk/nova_axe_right_walk1.png" id="10_yywb6"]
 [ext_resource type="Texture2D" uid="uid://dabgmhgk820mo" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_right_walk2.png" id="11_1tirn"]
+[ext_resource type="Texture2D" uid="uid://dehujsiubeukd" path="res://assets/entities/nova/nova_axe/walk/nova_axe_right_walk2.png" id="11_svdrq"]
+[ext_resource type="Texture2D" uid="uid://xf4a1xil2byh" path="res://assets/entities/nova/nova_axe/walk/nova_axe_up.png" id="12_dpx0q"]
 [ext_resource type="Texture2D" uid="uid://b0dnen2ugjref" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_up.png" id="12_hyiue"]
 [ext_resource type="Texture2D" uid="uid://ddw5tvgset0no" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_up_walk1.png" id="13_04tot"]
+[ext_resource type="Texture2D" uid="uid://6qi7lfn5xw3w" path="res://assets/entities/nova/nova_axe/walk/nova_axe_up_walk1.png" id="13_gs6ud"]
 [ext_resource type="Texture2D" uid="uid://bfgnx6hk6dmbn" path="res://assets/entities/nova/nova_crossbow/nova_crossbow_up_walk2.png" id="14_1qc7q"]
+[ext_resource type="Texture2D" uid="uid://d2ti0vmn8i0nv" path="res://assets/entities/nova/nova_axe/walk/nova_axe_up_walk2.png" id="14_rfp76"]
 [ext_resource type="Script" path="res://assets/entities/hurt.gd" id="15_gea65"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikotd"]
@@ -21,6 +33,74 @@ size = Vector2(10, 5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wltb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ahlkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4qdqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ahlkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_187it")
+}],
+"loop": true,
+"name": &"axe_down_walk",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_s5dhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fmusf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s5dhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ix3ym")
+}],
+"loop": true,
+"name": &"axe_left_walk",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ujrgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yywb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ujrgh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_svdrq")
+}],
+"loop": true,
+"name": &"axe_right_walk",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_dpx0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_gs6ud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_dpx0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rfp76")
+}],
+"loop": true,
+"name": &"axe_up_walk",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_a4ka7")
@@ -113,7 +193,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"crossbow_down"
+animation = &"axe_right_walk"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
