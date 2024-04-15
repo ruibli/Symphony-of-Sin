@@ -62,29 +62,29 @@ func _physics_process(_delta):
 		var nova_dir = Glova.g_pos() - global_position
 		if type == "wait" and distance <= 28:
 			if direction == "up":
-				$GluttonyCollision/GluttonyAnimation.play("walk_up")
+				$GluttonyCollision/GluttonyAnimation.play("move_up")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
 			elif direction == "down":
-				$GluttonyCollision/GluttonyAnimation.play("walk_down")
+				$GluttonyCollision/GluttonyAnimation.play("move_down")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
 			elif direction == "left":
-				$GluttonyCollision/GluttonyAnimation.play("walk_right")
+				$GluttonyCollision/GluttonyAnimation.play("move_right")
 				$GluttonyCollision/GluttonyAnimation.flip_h = true
 			elif direction == "right":
-				$GluttonyCollision/GluttonyAnimation.play("walk_right")
+				$GluttonyCollision/GluttonyAnimation.play("move_right")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
 		elif type == "move":
 			if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
-				$GluttonyCollision/GluttonyAnimation.play("walk_up")
+				$GluttonyCollision/GluttonyAnimation.play("move_up")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
 			elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
-				$GluttonyCollision/GluttonyAnimation.play("walk_down")
+				$GluttonyCollision/GluttonyAnimation.play("move_down")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
 			elif velocity.x < 0 and abs(velocity.x) > abs(velocity.y): #left
-				$GluttonyCollision/GluttonyAnimation.play("walk_right")
+				$GluttonyCollision/GluttonyAnimation.play("move_right")
 				$GluttonyCollision/GluttonyAnimation.flip_h = true
 			elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
-				$GluttonyCollision/GluttonyAnimation.play("walk_right")
+				$GluttonyCollision/GluttonyAnimation.play("move_right")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x): #up

@@ -60,22 +60,22 @@ func _physics_process(_delta):
 		var nova_dir = Glova.g_pos() - global_position
 		if type == "wait" and distance <= 28:
 			if direction == "up":
-				$LimboCollision/LimboAnimation.play("walk_up")
+				$LimboCollision/LimboAnimation.play("move_up")
 			elif direction == "down":
-				$LimboCollision/LimboAnimation.play("walk_down")
+				$LimboCollision/LimboAnimation.play("move_down")
 			elif direction == "left":
-				$LimboCollision/LimboAnimation.play("walk_left")
+				$LimboCollision/LimboAnimation.play("move_left")
 			elif direction == "right":
-				$LimboCollision/LimboAnimation.play("walk_right")
+				$LimboCollision/LimboAnimation.play("move_right")
 		elif type == "move":
 			if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
-				$LimboCollision/LimboAnimation.play("walk_up")
+				$LimboCollision/LimboAnimation.play("move_up")
 			elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
-				$LimboCollision/LimboAnimation.play("walk_down")
+				$LimboCollision/LimboAnimation.play("move_down")
 			elif velocity.x < 0 and abs(velocity.x) > abs(velocity.y): #left
-				$LimboCollision/LimboAnimation.play("walk_left")
+				$LimboCollision/LimboAnimation.play("move_left")
 			elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
-				$LimboCollision/LimboAnimation.play("walk_right")
+				$LimboCollision/LimboAnimation.play("move_right")
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x): #up
 				$WeaponPos.position = Vector2(0,-10)
