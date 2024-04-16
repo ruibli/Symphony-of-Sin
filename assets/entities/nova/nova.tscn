@@ -1,19 +1,31 @@
-[gd_scene load_steps=44 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=56 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_1l2sp"]
 [ext_resource type="Texture2D" uid="uid://c3swyegnwdc71" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_0.png" id="3_b8ilj"]
+[ext_resource type="Texture2D" uid="uid://iphjynudvv3j" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_1.png" id="3_m2cyi"]
+[ext_resource type="Texture2D" uid="uid://cpt1lsgl38w7p" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_2.png" id="4_7gbkw"]
 [ext_resource type="Texture2D" uid="uid://dvycliiilo7do" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_1.png" id="4_feket"]
+[ext_resource type="Texture2D" uid="uid://biydppq7mlwpr" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_3.png" id="5_1yt1b"]
 [ext_resource type="Texture2D" uid="uid://b5w3cv0bhoaa2" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_2.png" id="5_tpm4f"]
+[ext_resource type="Texture2D" uid="uid://dsqnlg16bc1tt" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_1.png" id="6_i4qsf"]
 [ext_resource type="Texture2D" uid="uid://l0h40x2oa4h2" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_0.png" id="6_y2km1"]
+[ext_resource type="Texture2D" uid="uid://p5vun1lc1224" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_2.png" id="7_52bci"]
 [ext_resource type="Texture2D" uid="uid://mr7auccjodg7" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_1.png" id="7_nd452"]
 [ext_resource type="Texture2D" uid="uid://csdjc5ar1pxy5" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_2.png" id="8_qtlc0"]
+[ext_resource type="Texture2D" uid="uid://dyilrcx6ank00" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_3.png" id="8_xpjux"]
 [ext_resource type="Texture2D" uid="uid://dwrjphk5sq1rd" path="res://assets/entities/nova/nova_axe/walk/axe_move_right_0.png" id="9_im5q2"]
+[ext_resource type="Texture2D" uid="uid://iio44onudddm" path="res://assets/entities/nova/nova_axe/attack/axe_attack_right_1.png" id="9_yv0in"]
+[ext_resource type="Texture2D" uid="uid://c66k3cggfqn5v" path="res://assets/entities/nova/nova_axe/attack/axe_attack_right_2.png" id="10_l3yj3"]
 [ext_resource type="Texture2D" uid="uid://d31yvq3at13c" path="res://assets/entities/nova/nova_axe/walk/axe_move_right_1.png" id="10_uo7e2"]
 [ext_resource type="Texture2D" uid="uid://503otarqflx7" path="res://assets/entities/nova/nova_axe/walk/axe_move_right_2.png" id="11_lcq6h"]
+[ext_resource type="Texture2D" uid="uid://b0afvhkgan46s" path="res://assets/entities/nova/nova_axe/attack/axe_attack_right_3.png" id="11_shwlu"]
 [ext_resource type="Texture2D" uid="uid://bp1v2xgyvvudq" path="res://assets/entities/nova/nova_axe/walk/axe_move_up_0.png" id="12_ipjsu"]
+[ext_resource type="Texture2D" uid="uid://psdhthom8cnc" path="res://assets/entities/nova/nova_axe/attack/axe_attack_up_1.png" id="12_wq2lc"]
+[ext_resource type="Texture2D" uid="uid://csmukc6fvdce4" path="res://assets/entities/nova/nova_axe/attack/axe_attack_up_2.png" id="13_7bbht"]
 [ext_resource type="Texture2D" uid="uid://5c5veil6sbqa" path="res://assets/entities/nova/nova_axe/walk/axe_move_up_1.png" id="13_fhvet"]
 [ext_resource type="Texture2D" uid="uid://bww1ygql74ytp" path="res://assets/entities/nova/nova_axe/walk/axe_move_up_2.png" id="14_0id4c"]
+[ext_resource type="Texture2D" uid="uid://bgm13w62b2m7o" path="res://assets/entities/nova/nova_axe/attack/axe_attack_up_3.png" id="14_rs6x3"]
 [ext_resource type="Script" path="res://assets/entities/hurt.gd" id="15_gea65"]
 [ext_resource type="Texture2D" uid="uid://dl86jralou8a0" path="res://assets/entities/nova/nova_crossbow/crossbow_move_down_0.png" id="15_gfhes"]
 [ext_resource type="Texture2D" uid="uid://b4v4l8hqya1eg" path="res://assets/entities/nova/nova_crossbow/crossbow_move_down_1.png" id="16_kuo8b"]
@@ -45,6 +57,86 @@ size = Vector2(10, 5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wltb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_m2cyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7gbkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1yt1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7gbkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m2cyi")
+}],
+"loop": true,
+"name": &"axe_attack_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_i4qsf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_52bci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xpjux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_52bci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i4qsf")
+}],
+"loop": true,
+"name": &"axe_attack_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_yv0in")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l3yj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_shwlu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_l3yj3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yv0in")
+}],
+"loop": true,
+"name": &"axe_attack_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_wq2lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7bbht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_rs6x3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7bbht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wq2lc")
+}],
+"loop": true,
+"name": &"axe_attack_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_b8ilj")
@@ -409,7 +501,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"empty_attack_up"
+animation = &"axe_attack_up"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
