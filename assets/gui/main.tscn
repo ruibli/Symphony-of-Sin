@@ -37,7 +37,6 @@ grow_vertical = 0
 [node name="start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../quit")
-theme_type_variation = &"FlatButton"
 
 [node name="start_label" type="Label" parent="VBoxContainer/start"]
 layout_mode = 0
@@ -50,6 +49,7 @@ label_settings = SubResource("LabelSettings_1t51u")
 layout_mode = 2
 
 [node name="menu_label" type="Label" parent="VBoxContainer/menu"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Menu
@@ -61,6 +61,7 @@ layout_mode = 2
 focus_neighbor_bottom = NodePath("../start")
 
 [node name="quit_label" type="Label" parent="VBoxContainer/quit"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Quit"
