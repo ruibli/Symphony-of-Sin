@@ -93,13 +93,13 @@ func _process(_delta):
 	
 	if current == "crossbow": # Crossbow Animations
 		if direction == "up":
-			$NovaCollision/NovaAnimation.play("crossbow_up")
+			$NovaCollision/NovaAnimation.play("crossbow_move_up")
 		elif direction == "down":
-			$NovaCollision/NovaAnimation.play("crossbow_down")
+			$NovaCollision/NovaAnimation.play("crossbow_move_down")
 		elif direction == "left":
-			$NovaCollision/NovaAnimation.play("crossbow_left")
+			$NovaCollision/NovaAnimation.play("crossbow_move_left")
 		elif direction == "right":
-			$NovaCollision/NovaAnimation.play("crossbow_right")
+			$NovaCollision/NovaAnimation.play("crossbow_move_right")
 		if velocity.length() > 0 and foot:
 			$NovaCollision/NovaAnimation.frame = 1
 			foot = false

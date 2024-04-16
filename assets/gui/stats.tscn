@@ -1,16 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbjx02qmhx0a1"]
+[gd_scene load_steps=9 format=3 uid="uid://cbjx02qmhx0a1"]
 
 [ext_resource type="Script" path="res://assets/gui/stats.gd" id="1_bl37g"]
 [ext_resource type="Texture2D" uid="uid://b8by1dkd5pojv" path="res://assets/gui/icons/speed_icon.png" id="2_4unwn"]
 [ext_resource type="Texture2D" uid="uid://brh1rnh077sdw" path="res://assets/loot/generic/coin.png" id="2_k7j8y"]
-[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/dogicapixel.ttf" id="3_aoyvh"]
+[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="3_lpw4j"]
 [ext_resource type="Texture2D" uid="uid://dk4o8p4keau4s" path="res://assets/gui/icons/damage_icon.png" id="4_eb21j"]
 [ext_resource type="Texture2D" uid="uid://d2xfaugj8ai2e" path="res://assets/gui/icons/attack_icon.png" id="5_7kbac"]
 
+[sub_resource type="FontVariation" id="FontVariation_0h5dx"]
+base_font = ExtResource("3_lpw4j")
+spacing_glyph = -2
+
 [sub_resource type="LabelSettings" id="LabelSettings_3c6pa"]
-font = ExtResource("3_aoyvh")
+font = SubResource("FontVariation_0h5dx")
 font_size = 8
-outline_size = 4
+outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
 [node name="stats" type="Node2D"]

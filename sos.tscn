@@ -52,6 +52,7 @@ nova_scene = ExtResource("1_mjwfh")
 layer = 2
 
 [node name="black" type="ColorRect" parent="fade"]
+modulate = Color(0, 0, 0, 1)
 top_level = true
 z_as_relative = false
 anchors_preset = 15
@@ -60,6 +61,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="fade/black"]
 reset_on_save = false
