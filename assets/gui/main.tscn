@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqwyusw6vcq3d"]
+
+[ext_resource type="Script" path="res://assets/gui/main.gd" id="1_4q3pa"]
+[ext_resource type="Texture2D" uid="uid://edb4rit2nkw2" path="res://assets/important/logo.png" id="1_ouiih"]
+[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="2_ihos0"]
+
+[sub_resource type="FontVariation" id="FontVariation_g7khs"]
+base_font = ExtResource("2_ihos0")
+spacing_glyph = -2
+
+[sub_resource type="LabelSettings" id="LabelSettings_1t51u"]
+font = SubResource("FontVariation_g7khs")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4q3pa")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -33.0
+offset_right = 33.0
+offset_bottom = -1.0
+grow_vertical = 0
+
+[node name="start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../quit")
+theme_type_variation = &"FlatButton"
+
+[node name="start_label" type="Label" parent="VBoxContainer/start"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Start"
+label_settings = SubResource("LabelSettings_1t51u")
+
+[node name="menu" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="menu_label" type="Label" parent="VBoxContainer/menu"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Menu
+"
+label_settings = SubResource("LabelSettings_1t51u")
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../start")
+
+[node name="quit_label" type="Label" parent="VBoxContainer/quit"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Quit"
+label_settings = SubResource("LabelSettings_1t51u")
+
+[node name="logo" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ouiih")
+centered = false
+
+[connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

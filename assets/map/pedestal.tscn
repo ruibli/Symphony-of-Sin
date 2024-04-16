@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://assets/map/pedestal.gd" id="1_fsjma"]
 [ext_resource type="Texture2D" uid="uid://dggsv5c1mrh0h" path="res://assets/map/generic/pedestal.png" id="2_23qff"]
-[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/dogicapixel.ttf" id="3_pulnx"]
+[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="3_pulnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vy5kp"]
 size = Vector2(32, 32)

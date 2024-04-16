@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bspyg6cma6ji8"
-path="res://.godot/imported/dogicapixel.ttf-6d22ef34de41b5b4751986240a16f833.fontdata"
+path="res://.godot/imported/font.ttf-36f61ac0d97ebeb521aae9b1b0b1b489.fontdata"
 
 [deps]
 
-source_file="res://assets/gui/dogicapixel.ttf"
-dest_files=["res://.godot/imported/dogicapixel.ttf-6d22ef34de41b5b4751986240a16f833.fontdata"]
+source_file="res://assets/gui/font.ttf"
+dest_files=["res://.godot/imported/font.ttf-36f61ac0d97ebeb521aae9b1b0b1b489.fontdata"]
 
 [params]
 
