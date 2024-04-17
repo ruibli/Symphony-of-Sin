@@ -16,6 +16,8 @@ var current
 var item_pool
 var weapon_pool
 
+var volume = 100
+
 func reset():
 	level = 1
 	mod = 0
@@ -111,3 +113,9 @@ func g_weapon_pool(w: String = "0"):
 		return weapon_pool
 	else:
 		weapon_pool.remove_at(weapon_pool.find(w,0))
+
+func g_volume(v: float = -1):
+	if v == -1:
+		return volume
+	else:
+		volume = v
