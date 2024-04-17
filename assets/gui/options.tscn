@@ -1,0 +1,158 @@
+[gd_scene load_steps=12 format=3 uid="uid://caqct7evm6wnn"]
+
+[ext_resource type="Script" path="res://assets/gui/options.gd" id="1_f465f"]
+[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="1_tvuwl"]
+[ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="3_4xyov"]
+
+[sub_resource type="FontVariation" id="FontVariation_ptybv"]
+base_font = ExtResource("1_tvuwl")
+spacing_glyph = -2
+
+[sub_resource type="LabelSettings" id="LabelSettings_71qru"]
+font = SubResource("FontVariation_ptybv")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_32bqv"]
+base_font = ExtResource("1_tvuwl")
+spacing_glyph = -2
+
+[sub_resource type="FontVariation" id="FontVariation_ahqxx"]
+base_font = SubResource("FontVariation_32bqv")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7kps2"]
+font = SubResource("FontVariation_ahqxx")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_rr6ie"]
+base_font = ExtResource("1_tvuwl")
+spacing_glyph = -2
+
+[sub_resource type="LabelSettings" id="LabelSettings_xj7hw"]
+font = SubResource("FontVariation_rr6ie")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mpr1"]
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f465f")
+
+[node name="controls" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 10.0
+offset_right = 54.0
+offset_bottom = 106.0
+grow_horizontal = 2
+text = "Game Controls:
+
+WASD: Movement
+Arrows: Attack
+1-8: Select Weapon
+
+R (Hold): Reset
+Tab: Minimap
+ESC: Pause"
+label_settings = SubResource("LabelSettings_71qru")
+horizontal_alignment = 1
+
+[node name="volume" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -15.0
+offset_right = 64.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Volume Controls:
+
+Master Volune:"
+label_settings = SubResource("LabelSettings_7kps2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="volume_slider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 17.5
+offset_right = 50.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbor_top = NodePath("../main")
+value = 100.0
+
+[node name="budget" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.0
+offset_top = 38.5
+offset_right = 88.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sound wasn't in the budget..."
+label_settings = SubResource("LabelSettings_xj7hw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="main" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -18.0
+offset_right = 28.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_4mpr1")
+flat = true
+
+[node name="Label" type="Label" parent="main"]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 23.0
+focus_neighbor_bottom = NodePath("../../volume_slider")
+text = "Main Menu"
+label_settings = ExtResource("3_4xyov")
+horizontal_alignment = 1
+
+[connection signal="focus_entered" from="volume_slider" to="." method="_on_volume_slider_focus_entered"]
+[connection signal="focus_exited" from="volume_slider" to="." method="_on_volume_slider_focus_exited"]
+[connection signal="value_changed" from="volume_slider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="focus_entered" from="main" to="." method="_on_main_focus_entered"]
+[connection signal="focus_exited" from="main" to="." method="_on_main_focus_exited"]
+[connection signal="pressed" from="main" to="." method="_on_main_pressed"]

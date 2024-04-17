@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=3 format=3 uid="uid://1phn4kwkxmof"]
+
+[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="1_3yk6f"]
+
+[sub_resource type="FontVariation" id="FontVariation_g7khs"]
+base_font = ExtResource("1_3yk6f")
+spacing_glyph = -2
+
+[resource]
+font = SubResource("FontVariation_g7khs")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)

@@ -1,18 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqwyusw6vcq3d"]
+[gd_scene load_steps=7 format=3 uid="uid://cqwyusw6vcq3d"]
 
 [ext_resource type="Script" path="res://assets/gui/main.gd" id="1_4q3pa"]
 [ext_resource type="Texture2D" uid="uid://edb4rit2nkw2" path="res://assets/important/logo.png" id="1_ouiih"]
-[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="2_ihos0"]
+[ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="2_67h0h"]
 
-[sub_resource type="FontVariation" id="FontVariation_g7khs"]
-base_font = ExtResource("2_ihos0")
-spacing_glyph = -2
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bd7tv"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_1t51u"]
-font = SubResource("FontVariation_g7khs")
-font_size = 8
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fohwf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_so6lc"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -25,53 +21,70 @@ script = ExtResource("1_4q3pa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 1.0
-offset_top = -33.0
-offset_right = 33.0
-offset_bottom = -1.0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="start" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../quit")
+theme_override_styles/focus = SubResource("StyleBoxTexture_bd7tv")
+flat = true
 
 [node name="start_label" type="Label" parent="VBoxContainer/start"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Start"
-label_settings = SubResource("LabelSettings_1t51u")
+label_settings = ExtResource("2_67h0h")
+horizontal_alignment = 1
 
-[node name="menu" type="Button" parent="VBoxContainer"]
+[node name="options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_fohwf")
+flat = true
 
-[node name="menu_label" type="Label" parent="VBoxContainer/menu"]
+[node name="options_label" type="Label" parent="VBoxContainer/options"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Menu
-"
-label_settings = SubResource("LabelSettings_1t51u")
+text = "Options"
+label_settings = ExtResource("2_67h0h")
+horizontal_alignment = 1
 
 [node name="quit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../start")
+theme_override_styles/focus = SubResource("StyleBoxTexture_so6lc")
+flat = true
 
 [node name="quit_label" type="Label" parent="VBoxContainer/quit"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Quit"
-label_settings = SubResource("LabelSettings_1t51u")
+label_settings = ExtResource("2_67h0h")
+horizontal_alignment = 1
 
 [node name="logo" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.507246, 0.5)
 texture = ExtResource("1_ouiih")
 centered = false
 
+[connection signal="focus_entered" from="VBoxContainer/start" to="." method="_on_start_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/start" to="." method="_on_start_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/menu" to="." method="_on_menu_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/options" to="." method="_on_options_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/options" to="." method="_on_options_focus_exited"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/quit" to="." method="_on_quit_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/quit" to="." method="_on_quit_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
