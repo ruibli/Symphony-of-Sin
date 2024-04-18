@@ -7,12 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://dk4o8p4keau4s" path="res://assets/gui/icons/damage_icon.png" id="4_eb21j"]
 [ext_resource type="Texture2D" uid="uid://d2xfaugj8ai2e" path="res://assets/gui/icons/attack_icon.png" id="5_7kbac"]
 
-[sub_resource type="FontVariation" id="FontVariation_0h5dx"]
+[sub_resource type="FontVariation" id="FontVariation_mqe1d"]
 base_font = ExtResource("3_lpw4j")
 spacing_glyph = -2
 
 [sub_resource type="LabelSettings" id="LabelSettings_3c6pa"]
-font = SubResource("FontVariation_0h5dx")
+font = SubResource("FontVariation_mqe1d")
 font_size = 8
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)

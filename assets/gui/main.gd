@@ -2,16 +2,22 @@ extends Control
 
 func _ready():
 	$VBoxContainer/start.grab_focus()
+	$fade/black/AnimationPlayer.play("clear")
 
 func _on_start_pressed():
+	$fade/black/AnimationPlayer.play("black")
+	await get_tree().create_timer(0.25).timeout
 	get_tree().change_scene_to_file("res://sos.tscn")
 
 func _on_options_pressed():
+	$fade/black/AnimationPlayer.play("black")
+	await get_tree().create_timer(0.25).timeout
 	get_tree().change_scene_to_file("res://assets/gui/options.tscn")
 
 func _on_quit_pressed():
+	$fade/black/AnimationPlayer.play("black")
+	await get_tree().create_timer(0.25).timeout
 	get_tree().quit()
-
 
 func _on_start_focus_entered():
 	$VBoxContainer/start/start_label.modulate = Color(190/255.0,118/255.0,253/255.0, 1)

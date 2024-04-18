@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://drlqqt2jf5cwt"]
+
+[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="1_gyagt"]
+[ext_resource type="Script" path="res://assets/gui/pause.gd" id="2_x2piu"]
+
+[sub_resource type="FontVariation" id="FontVariation_ptybv"]
+base_font = ExtResource("1_gyagt")
+spacing_glyph = -2
+
+[sub_resource type="LabelSettings" id="LabelSettings_yguds"]
+font = SubResource("FontVariation_ptybv")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_0h5dx"]
+base_font = ExtResource("1_gyagt")
+spacing_glyph = -2
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2fxt"]
+font = SubResource("FontVariation_0h5dx")
+font_size = 8
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_x2piu")
+
+[node name="pause" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_top = 10.0
+offset_right = 54.0
+offset_bottom = 40.0
+grow_horizontal = 2
+text = "Paused
+
+Game Stats:"
+label_settings = SubResource("LabelSettings_yguds")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -23.0
+offset_top = 50.0
+offset_right = 23.0
+offset_bottom = 86.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="level_con" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="level_label" type="Label" parent="VBoxContainer/level_con"]
+layout_mode = 2
+text = "Level:"
+label_settings = SubResource("LabelSettings_k2fxt")
+
+[node name="level" type="Label" parent="VBoxContainer/level_con"]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_k2fxt")
+
+[node name="mod_con" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="mod_label" type="Label" parent="VBoxContainer/mod_con"]
+layout_mode = 2
+text = "Levels Played:"
+label_settings = SubResource("LabelSettings_k2fxt")
+
+[node name="mod" type="Label" parent="VBoxContainer/mod_con"]
+layout_mode = 2
+text = "1"
+label_settings = SubResource("LabelSettings_k2fxt")
+
+[node name="time_con" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="time_label" type="Label" parent="VBoxContainer/time_con"]
+layout_mode = 2
+text = "Time:"
+label_settings = SubResource("LabelSettings_k2fxt")
+
+[node name="time" type="Label" parent="VBoxContainer/time_con"]
+layout_mode = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_k2fxt")

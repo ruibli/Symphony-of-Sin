@@ -1,9 +1,13 @@
 extends Node2D
 
 var speed = 1
+var speed_save = 1
 var power = 1 
+var power_save = 1
 var attack = 1
+var attack_save = 1
 var gold = 0
+var gold_save = 0
 
 func _process(_delta):
 	speed = snapped(Glova.g_stats()[2], 0.01)
@@ -36,3 +40,47 @@ func _process(_delta):
 	$VBoxContainer/power_con/power_label.text = power
 	$VBoxContainer/attack_con/attack_label.text = attack
 	$VBoxContainer/gold_con/gold_label.text = gold
+	
+	if float(speed) > speed_save:
+		speed_save = float(speed)
+		var tween = get_tree().create_tween()
+		tween.tween_property($VBoxContainer/speed_con/speed_label, "modulate", Color(0, 1, 0, 1), 0.05)
+		tween.tween_property($VBoxContainer/speed_con/speed_label, "modulate", Color(1, 1, 1, 1), 0.05)
+	if float(speed) < speed_save:
+		speed_save = float(speed)
+		var tween = get_tree().create_tween()
+		tween.tween_property($VBoxContainer/speed_con/speed_label, "modulate", Color(1, 0, 0, 1), 0.05)
+		tween.tween_property($VBoxContainer/speed_con/speed_label, "modulate", Color(1, 1, 1, 1), 0.05)
+
+	if float(power) > power_save:
+		power_save = float(power)
+		var tween = get_tree().create_tween()
+		tween.tween_property($VBoxContainer/power_con/power_label, "modulate", Color(0, 1, 0, 1), 0.05)
+		tween.tween_property($VBoxContainer/power_con/power_label, "modulate", Color(1, 1, 1, 1), 0.05)
+	if float(power) < power_save:
+		power_save = float(power)
+		var tween = get_tree().create_tween()
+		tween.tween_property($VBoxContainer/power_con/power_label, "modulate", Color(1, 0, 0, 1), 0.05)
+		tween.tween_property($VBoxContainer/power_con/power_label, "modulate", Color(1, 1, 1, 1), 0.05)
+		
+	if float(attack) > attack_save:
+		attack_save = float(attack)
+		var tween = get_tree().create_tween()
+		tween.tween_property($VBoxContainer/attack_con/attack_label, "modulate", Color(0, 1, 0, 1), 0.05)
+		tween.tween_property($VBoxContainer/attack_con/attack_label, "modulate", Color(1, 1, 1, 1), 0.05)
+	if float(attack) < attack_save:
+		attack_save = float(attack)
+		var tween = get_tree().create_tween()
+		tween.tween_property($VBoxContainer/attack_con/attack_label, "modulate", Color(1, 0, 0, 1), 0.05)
+		tween.tween_property($VBoxContainer/attack_con/attack_label, "modulate", Color(1, 1, 1, 1), 0.05)
+	
+	if float(gold) > gold_save:
+		gold_save = float(gold)
+		var tween = get_tree().create_tween()
+		tween.tween_property($VBoxContainer/gold_con/gold_label, "modulate", Color(0, 1, 0, 1), 0.05)
+		tween.tween_property($VBoxContainer/gold_con/gold_label, "modulate", Color(1, 1, 1, 1), 0.05)
+	if float(gold) < gold_save:
+		gold_save = float(gold)
+		var tween = get_tree().create_tween()
+		tween.tween_property($VBoxContainer/gold_con/gold_label, "modulate", Color(1, 0, 0, 1), 0.05)
+		tween.tween_property($VBoxContainer/gold_con/gold_label, "modulate", Color(1, 1, 1, 1), 0.05)
