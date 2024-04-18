@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=68 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_1l2sp"]
@@ -57,6 +57,12 @@
 [ext_resource type="Texture2D" uid="uid://cj8ybpuqds7nf" path="res://assets/entities/nova/nova_spear/spear_move_left_0.png" id="54_qk26k"]
 [ext_resource type="Texture2D" uid="uid://btiewvo3o3gu0" path="res://assets/entities/nova/nova_spear/spear_move_left_1.png" id="55_8eqsx"]
 [ext_resource type="Texture2D" uid="uid://bxyc52lnmh06a" path="res://assets/entities/nova/nova_spear/spear_move_left_2.png" id="56_rhng7"]
+[ext_resource type="Texture2D" uid="uid://ddydcymfjurjv" path="res://assets/entities/nova/nova_spear/spear_move_right_0.png" id="57_i7ou5"]
+[ext_resource type="Texture2D" uid="uid://dwmh7fg28ipnx" path="res://assets/entities/nova/nova_spear/spear_move_right_1.png" id="58_vmjot"]
+[ext_resource type="Texture2D" uid="uid://ddywhu4ow3n0b" path="res://assets/entities/nova/nova_spear/spear_move_right_2.png" id="59_2h5ew"]
+[ext_resource type="Texture2D" uid="uid://bhvei5q434qx4" path="res://assets/entities/nova/nova_spear/spear_move_up_0.png" id="60_juatf"]
+[ext_resource type="Texture2D" uid="uid://reurjlbp182j" path="res://assets/entities/nova/nova_spear/spear_move_up_1.png" id="61_sx5xv"]
+[ext_resource type="Texture2D" uid="uid://cln4sk0bra7fo" path="res://assets/entities/nova/nova_spear/spear_move_up_2.png" id="62_ck708"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikotd"]
 size = Vector2(10, 5)
@@ -498,7 +504,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"spear_move_down",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -515,7 +521,41 @@ animations = [{
 }],
 "loop": true,
 "name": &"spear_move_left",
-"speed": 5.0
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_i7ou5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_vmjot")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_i7ou5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_2h5ew")
+}],
+"loop": true,
+"name": &"spear_move_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("60_juatf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_sx5xv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_juatf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_ck708")
+}],
+"loop": true,
+"name": &"spear_move_up",
+"speed": 4.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
@@ -541,7 +581,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"spear_move_left"
+animation = &"spear_move_down"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
