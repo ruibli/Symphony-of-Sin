@@ -1,15 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://caqct7evm6wnn"]
+[gd_scene load_steps=16 format=3 uid="uid://caqct7evm6wnn"]
 
 [ext_resource type="Script" path="res://assets/gui/options.gd" id="1_f465f"]
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="1_tvuwl"]
 [ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="3_4xyov"]
 
-[sub_resource type="FontVariation" id="FontVariation_ptybv"]
+[sub_resource type="FontVariation" id="FontVariation_1g02v"]
 base_font = ExtResource("1_tvuwl")
 spacing_glyph = -2
 
 [sub_resource type="LabelSettings" id="LabelSettings_71qru"]
-font = SubResource("FontVariation_ptybv")
+font = SubResource("FontVariation_1g02v")
 font_size = 8
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
@@ -38,6 +38,60 @@ outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mpr1"]
+
+[sub_resource type="Animation" id="Animation_5afgr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade/black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_drj7n"]
+resource_name = "clear"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade/black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i2q6o"]
+resource_name = "black"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade/black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvbfg"]
+_data = {
+"RESET": SubResource("Animation_5afgr"),
+"black": SubResource("Animation_i2q6o"),
+"clear": SubResource("Animation_drj7n")
+}
 
 [node name="options" type="Control"]
 layout_mode = 3
@@ -85,7 +139,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Volume Controls:
 
-Master Volune:"
+Master Volume:"
 label_settings = SubResource("LabelSettings_7kps2")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -149,6 +203,30 @@ focus_neighbor_bottom = NodePath("../../volume_slider")
 text = "Main Menu"
 label_settings = ExtResource("3_4xyov")
 horizontal_alignment = 1
+
+[node name="fade" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="black" type="ColorRect" parent="fade"]
+modulate = Color(0, 0, 0, 1)
+top_level = true
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fade/black"]
+reset_on_save = false
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_tvbfg")
+}
+autoplay = "RESET"
 
 [connection signal="focus_entered" from="volume_slider" to="." method="_on_volume_slider_focus_entered"]
 [connection signal="focus_exited" from="volume_slider" to="." method="_on_volume_slider_focus_exited"]
