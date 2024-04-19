@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cqwyusw6vcq3d"]
+[gd_scene load_steps=12 format=3 uid="uid://cqwyusw6vcq3d"]
 
 [ext_resource type="Script" path="res://assets/gui/main.gd" id="1_4q3pa"]
 [ext_resource type="Texture2D" uid="uid://edb4rit2nkw2" path="res://assets/important/logo.png" id="1_ouiih"]
 [ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="2_67h0h"]
+[ext_resource type="Texture2D" uid="uid://df564q11ccfgi" path="res://assets/important/background.png" id="4_wvn85"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bd7tv"]
 
@@ -25,22 +26,6 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_drj7n"]
-resource_name = "clear"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("fade/black:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_i2q6o"]
 resource_name = "black"
 length = 0.25
@@ -55,6 +40,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_drj7n"]
+resource_name = "clear"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade/black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tvbfg"]
@@ -74,6 +75,7 @@ grow_vertical = 2
 script = ExtResource("1_4q3pa")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,6 +131,7 @@ label_settings = ExtResource("2_67h0h")
 horizontal_alignment = 1
 
 [node name="logo" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(0, 50)
 scale = Vector2(0.507246, 0.5)
 texture = ExtResource("1_ouiih")
@@ -138,7 +141,6 @@ centered = false
 layer = 2
 
 [node name="black" type="ColorRect" parent="fade"]
-modulate = Color(0, 0, 0, 1)
 top_level = true
 z_as_relative = false
 anchors_preset = 15
@@ -156,6 +158,11 @@ libraries = {
 "": SubResource("AnimationLibrary_tvbfg")
 }
 autoplay = "RESET"
+
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("4_wvn85")
+centered = false
 
 [connection signal="focus_entered" from="VBoxContainer/start" to="." method="_on_start_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/start" to="." method="_on_start_focus_exited"]
