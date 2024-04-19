@@ -49,12 +49,12 @@ func _ready():
 		if item <= 2:
 			item = "item"
 			cost = [0, 0, 0, 0, 0, -5]
-			$cost.text = "5g"
+			$cost.text = "5G"
 			random_item()
 		elif item <=3:
 			item = "weapon"
 			cost = [0, 0, 0, 0, 0, -10]
-			$cost.text = "10g"
+			$cost.text = "10G"
 			random_weapon()	
 	
 func random_item():
@@ -91,7 +91,7 @@ func breakfast():
 	
 	if type == "shop":
 		cost = [0, 0, 0, 0, 0, -5]
-		$cost.text = "5g"
+		$cost.text = "5G"
 
 func _process(_delta):
 	if state == 2 and Glova.g_enemies() > 0:

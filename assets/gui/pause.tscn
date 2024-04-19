@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://drlqqt2jf5cwt"]
+[gd_scene load_steps=14 format=3 uid="uid://drlqqt2jf5cwt"]
 
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="1_gyagt"]
 [ext_resource type="Script" path="res://assets/gui/pause.gd" id="2_x2piu"]
+[ext_resource type="Texture2D" uid="uid://cor3e4soivngc" path="res://assets/important/pause.png" id="3_pniwp"]
+[ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="4_312x5"]
 
 [sub_resource type="FontVariation" id="FontVariation_ptybv"]
 base_font = ExtResource("1_gyagt")
@@ -23,6 +25,51 @@ font_size = 8
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lleuw"]
+
+[sub_resource type="Animation" id="Animation_5afgr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade/black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_i2q6o"]
+resource_name = "black"
+length = 0.25
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_drj7n"]
+resource_name = "clear"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("fade/black:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tvbfg"]
+_data = {
+"RESET": SubResource("Animation_5afgr"),
+"black": SubResource("Animation_i2q6o"),
+"clear": SubResource("Animation_drj7n")
+}
+
 [node name="pause" type="Control"]
 process_mode = 3
 layout_mode = 3
@@ -34,6 +81,7 @@ grow_vertical = 2
 script = ExtResource("2_x2piu")
 
 [node name="pause" type="Label" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -50,6 +98,7 @@ label_settings = SubResource("LabelSettings_yguds")
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -66,7 +115,7 @@ layout_mode = 2
 
 [node name="level_label" type="Label" parent="VBoxContainer/level_con"]
 layout_mode = 2
-text = "Level:"
+text = "Current Level:"
 label_settings = SubResource("LabelSettings_k2fxt")
 
 [node name="level" type="Label" parent="VBoxContainer/level_con"]
@@ -79,23 +128,102 @@ layout_mode = 2
 
 [node name="mod_label" type="Label" parent="VBoxContainer/mod_con"]
 layout_mode = 2
-text = "Levels Played:"
+text = "Levels Passed:"
 label_settings = SubResource("LabelSettings_k2fxt")
 
 [node name="mod" type="Label" parent="VBoxContainer/mod_con"]
 layout_mode = 2
-text = "1"
+text = "0"
 label_settings = SubResource("LabelSettings_k2fxt")
 
 [node name="time_con" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
-[node name="time_label" type="Label" parent="VBoxContainer/time_con"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/time_con"]
+layout_mode = 2
+
+[node name="time_label" type="Label" parent="VBoxContainer/time_con/HBoxContainer"]
 layout_mode = 2
 text = "Time:"
 label_settings = SubResource("LabelSettings_k2fxt")
 
-[node name="time" type="Label" parent="VBoxContainer/time_con"]
+[node name="hours" type="Label" parent="VBoxContainer/time_con/HBoxContainer"]
 layout_mode = 2
-text = "00:00"
+text = "00:"
 label_settings = SubResource("LabelSettings_k2fxt")
+horizontal_alignment = 2
+
+[node name="minutes" type="Label" parent="VBoxContainer/time_con/HBoxContainer"]
+layout_mode = 2
+text = "00:"
+label_settings = SubResource("LabelSettings_k2fxt")
+horizontal_alignment = 2
+
+[node name="seconds" type="Label" parent="VBoxContainer/time_con/HBoxContainer"]
+layout_mode = 2
+text = "00"
+label_settings = SubResource("LabelSettings_k2fxt")
+horizontal_alignment = 2
+
+[node name="pause_timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="gray" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("3_pniwp")
+centered = false
+
+[node name="main" type="Button" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -28.0
+offset_top = -18.0
+offset_right = 28.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxTexture_lleuw")
+flat = true
+
+[node name="Label" type="Label" parent="main"]
+layout_mode = 0
+offset_right = 56.0
+offset_bottom = 23.0
+focus_neighbor_bottom = NodePath("../../volume_slider")
+text = "Main Menu"
+label_settings = ExtResource("4_312x5")
+horizontal_alignment = 1
+
+[node name="fade" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="black" type="ColorRect" parent="fade"]
+modulate = Color(0, 0, 0, 1)
+top_level = true
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="fade/black"]
+reset_on_save = false
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_tvbfg")
+}
+autoplay = "RESET"
+
+[connection signal="timeout" from="pause_timer" to="." method="_on_timer_timeout"]
+[connection signal="focus_entered" from="main" to="." method="_on_main_focus_entered"]
+[connection signal="focus_exited" from="main" to="." method="_on_main_focus_exited"]
+[connection signal="pressed" from="main" to="." method="_on_main_pressed"]

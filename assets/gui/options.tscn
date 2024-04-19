@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://caqct7evm6wnn"]
+[gd_scene load_steps=17 format=3 uid="uid://caqct7evm6wnn"]
 
 [ext_resource type="Script" path="res://assets/gui/options.gd" id="1_f465f"]
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="1_tvuwl"]
 [ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="3_4xyov"]
+[ext_resource type="Texture2D" uid="uid://df564q11ccfgi" path="res://assets/important/background.png" id="4_2y87g"]
 
 [sub_resource type="FontVariation" id="FontVariation_1g02v"]
 base_font = ExtResource("1_tvuwl")
@@ -54,6 +55,11 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_i2q6o"]
+resource_name = "black"
+length = 0.25
+loop_mode = 1
+
 [sub_resource type="Animation" id="Animation_drj7n"]
 resource_name = "clear"
 length = 0.25
@@ -68,22 +74,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_i2q6o"]
-resource_name = "black"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("fade/black:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tvbfg"]
@@ -103,6 +93,7 @@ grow_vertical = 2
 script = ExtResource("1_f465f")
 
 [node name="controls" type="Label" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -125,6 +116,7 @@ label_settings = SubResource("LabelSettings_71qru")
 horizontal_alignment = 1
 
 [node name="volume" type="Label" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -145,6 +137,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="volume_slider" type="HSlider" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -162,6 +155,7 @@ value = 100.0
 
 [node name="budget" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -180,6 +174,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="main" type="Button" parent="."]
+z_index = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -206,10 +201,9 @@ horizontal_alignment = 1
 
 [node name="fade" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 
 [node name="black" type="ColorRect" parent="fade"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0)
 top_level = true
 z_as_relative = false
 anchors_preset = 15
@@ -227,6 +221,11 @@ libraries = {
 "": SubResource("AnimationLibrary_tvbfg")
 }
 autoplay = "RESET"
+
+[node name="background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("4_2y87g")
+centered = false
 
 [connection signal="focus_entered" from="volume_slider" to="." method="_on_volume_slider_focus_entered"]
 [connection signal="focus_exited" from="volume_slider" to="." method="_on_volume_slider_focus_exited"]
