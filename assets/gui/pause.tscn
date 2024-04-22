@@ -204,7 +204,7 @@ horizontal_alignment = 1
 layer = 2
 
 [node name="black" type="ColorRect" parent="fade"]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0)
 top_level = true
 z_as_relative = false
 anchors_preset = 15

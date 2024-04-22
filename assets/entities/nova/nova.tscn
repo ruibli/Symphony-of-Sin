@@ -285,16 +285,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("21_3umxn")
+"texture": ExtResource("24_ufcdg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_2r5ek")
+"texture": ExtResource("25_iqe61")
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_3umxn")
+"texture": ExtResource("24_ufcdg")
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_im05k")
+"texture": ExtResource("26_4eu65")
 }],
 "loop": true,
 "name": &"crossbow_attack_up",
@@ -694,7 +694,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"spear_attack_down"
+animation = &"crossbow_move_up"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
@@ -719,7 +719,7 @@ position_smoothing_speed = 15.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 15.0
 
-[node name="BowCooldown" type="Timer" parent="."]
+[node name="CrossbowCooldown" type="Timer" parent="."]
 
 [node name="HitCooldown" type="Timer" parent="."]
 
@@ -727,5 +727,5 @@ rotation_smoothing_speed = 15.0
 vertices = PackedVector2Array(-5, -10, 5, -10, 5, 10, -5, 10)
 
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
-[connection signal="timeout" from="BowCooldown" to="." method="_on_bow_cooldown_timeout"]
+[connection signal="timeout" from="CrossbowCooldown" to="." method="_on_crossbow_cooldown_timeout"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]

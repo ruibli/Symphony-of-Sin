@@ -26,7 +26,7 @@ func reset():
 	# health, health_max, speed, power, attack, gold
 	
 	inv = []
-	hotbar = ["crossbow", " ", " ", " ", " ", " ", " ", " "]
+	hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]
 	current = "crossbow"
 	
 	item_pool = ["breakfast"]
@@ -79,19 +79,19 @@ func g_hotbar(h: String = "0"):
 	if h == "0":
 		return hotbar
 	else:
-		if hotbar[0] == "0":
+		if hotbar[0] == "empty":
 			hotbar[0] = h
-		elif hotbar[1] == "0":
+		elif hotbar[1] == "empty":
 			hotbar[1] = h
-		elif hotbar[2] == "0":
+		elif hotbar[2] == "empty":
 			hotbar[2] = h
-		elif hotbar[3] == "0":
+		elif hotbar[3] == "empty":
 			hotbar[3] = h
-		elif hotbar[4] == "0":
+		elif hotbar[4] == "empty":
 			hotbar[4] = h
-		elif hotbar[5] == "0":
+		elif hotbar[5] == "empty":
 			hotbar[5] = h
-		elif hotbar[6] == "0":
+		elif hotbar[6] == "empty":
 			hotbar[6] = h
 		else:
 			hotbar[7] = h
