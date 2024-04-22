@@ -694,7 +694,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"crossbow_move_up"
+animation = &"spear_attack_right"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
