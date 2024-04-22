@@ -63,6 +63,7 @@ func _on_main_pressed():
 	print("test")
 	$fade/black/AnimationPlayer.play("black")
 	await get_tree().create_timer(0.25).timeout
+	get_tree().paused = false
 	get_tree().change_scene_to_file("res://assets/gui/main.tscn")
 
 func _on_main_focus_entered():

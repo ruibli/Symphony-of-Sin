@@ -66,6 +66,8 @@ _data = {
 }
 
 [node name="main" type="Control"]
+z_index = 4
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -141,6 +143,7 @@ centered = false
 layer = 2
 
 [node name="black" type="ColorRect" parent="fade"]
+modulate = Color(1, 1, 1, 0)
 top_level = true
 z_as_relative = false
 anchors_preset = 15

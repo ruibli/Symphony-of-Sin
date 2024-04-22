@@ -13,15 +13,16 @@ var attack = 1
 var gold = 0
 
 var inv = []
-var hotbar = ["crossbow", " ", " ", " ", " ", " ", " ", " "]
+var hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]
 var current = "crossbow"
 
-var can_shoot = true
 var direction = "down"
 var type = "move"
 var foot = true
-
 var can_hit = true
+
+var w
+var can_crossbow = true
 
 func set_nova():
 	health = Glova.g_stats()[0]
@@ -42,7 +43,7 @@ func set_nova():
 	$Camera2D.global_position = camera_pos
 	$Camera2D.position_smoothing_enabled = cam
 	
-	$BowCooldown.wait_time = 1.0 / attack
+	$CrossbowCooldown.wait_time = 1.0 / attack
 	
 func _process(_delta):
 	velocity = Vector2.ZERO
@@ -91,44 +92,40 @@ func _process(_delta):
 		elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y): #right
 			direction = "right"
 	
-	if current == "crossbow": # Crossbow Animations
-		if direction == "up":
-			$NovaCollision/NovaAnimation.play("crossbow_move_up")
-		elif direction == "down":
-			$NovaCollision/NovaAnimation.play("crossbow_move_down")
-		elif direction == "left":
-			$NovaCollision/NovaAnimation.play("crossbow_move_left")
-		elif direction == "right":
-			$NovaCollision/NovaAnimation.play("crossbow_move_right")
-		if velocity.length() > 0 and foot:
-			$NovaCollision/NovaAnimation.frame = 1
-			foot = false
-		if type == "attack":
-			crossbow()
+	if type == "attack":
+		if current == "crossbow" and can_crossbow:
+			can_crossbow = false
+			$CrossbowCooldown.start()
+			w = arrow_scene.instantiate()
+			weapon(true)
+		else:
+			type = "move"
+	
+	$NovaCollision/NovaAnimation.play(current+"_"+type+"_"+direction)
+	if velocity.length() > 0 and foot:
+		$NovaCollision/NovaAnimation.frame = 1
+		foot = false
 
-func crossbow(): # attacking
-	if can_shoot:
-		can_shoot = false
-		$BowCooldown.start()
-		var b = arrow_scene.instantiate()
-		b.damage = b.damage * attack
-		b.global_position = global_position
-		if direction == "up":
-			b.velocity.y -= 1
-			b.rotation_degrees = 180
-		elif direction == "down":
-			b.velocity.y += 1
-			b.rotation_degrees = 0
-		elif direction == "left":
-			b.velocity.x -= 1
-			b.rotation_degrees = 90
-		elif direction == "right":
-			b.velocity.x += 1
-			b.rotation_degrees = 270
-		get_tree().root.add_child(b)
-
-func _on_bow_cooldown_timeout(): # bow cooldown
-	can_shoot = true
+func weapon(projectile): # attacking
+	if direction == "up":
+		w.velocity.y -= 1
+		w.rotation_degrees = 180
+	elif direction == "down":
+		w.velocity.y += 1
+		w.rotation_degrees = 0
+	elif direction == "left":
+		w.velocity.x -= 1
+		w.rotation_degrees = 90
+	elif direction == "right":
+		w.velocity.x += 1
+		w.rotation_degrees = 270
+	
+	if !projectile:
+		w.velocity = Vector2(0,0)
+	
+	w.damage = w.damage * attack
+	w.global_position = global_position
+	get_tree().root.add_child(w)
 
 func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	if area.get_name() == 'CameraArea':
@@ -163,3 +160,6 @@ func boop(dir):
 		global_position = camera_pos + Vector2(-224,0)
 	elif dir == "right":
 		global_position = camera_pos + Vector2(224,0)
+
+func _on_crossbow_cooldown_timeout(): # bow cooldown
+	can_crossbow = true
