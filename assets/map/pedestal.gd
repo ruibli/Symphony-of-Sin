@@ -14,6 +14,7 @@ func _ready():
 	$cost.visible = false
 	$item.position = $pedestal.position + Vector2(0, -7)
 	
+func reward():
 	if type == "enemy":
 		item = randi_range(1,10)
 		if item <= 4:
@@ -58,7 +59,7 @@ func _ready():
 			random_weapon()	
 	
 func random_item():
-	var item_pool = Glova.g_item_pool()
+	var item_pool = Glova.g_item_pool("0")
 	if len(item_pool) == 0 or item_pool.is_empty():
 		breakfast()
 	else:
@@ -69,19 +70,21 @@ func random_item():
 		if nam == "breakfast":
 			$item.texture = load("res://assets/loot/items/breakfast.png")
 			stats = [25, 25, 0, 0, 0, 0]
-			
 
 func random_weapon():
-	var weapon_pool = Glova.g_weapon_pool()
+	var weapon_pool = Glova.g_weapon_pool("0")
 	if len(weapon_pool) == 0 or weapon_pool.is_empty():
 		breakfast()
 	else:
 		nam = randi_range(0, len(weapon_pool)-1) # get lengths
 		nam = weapon_pool[nam]
-		Glova.g_weapon_pool(name)
+		Glova.g_weapon_pool(nam)
+	
 		
-		#if nam == "breakfast":
-		#	stats = [25, 25, 0, 0, 0, 0]
+		if nam == "spear":
+			$item.texture = load("res://assets/loot/weapons/spear.png")
+		elif nam == "axe":
+			$item.texture = load("res://assets/loot/weapons/axe.png")
 
 func breakfast():
 	item = "item"
@@ -105,6 +108,8 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 	$cost.visible = false
 
 func _on_timer_timeout():
+	if state == 2:
+		reward()		
 	$pedestal.visible = true
 	$item.visible = true
 	$cost.visible = true
@@ -115,12 +120,12 @@ func _on_pedestal_area_area_entered(_area):
 		if type == "shop" and Glova.g_stats()[5] >= abs(cost[5]) or type != "shop":
 			if (item == "potion" and Glova.g_stats()[1] != Glova.g_stats()[0]) or item != "potion":
 				if item == "coin" or item == "potion":
-					pass
+					Glova.g_stats(stats)
 				elif item == "item":
 					Glova.g_inv(nam)
+					Glova.g_stats(stats)
 				elif item == "weapon":
 					Glova.g_hotbar(nam)
-				Glova.g_stats(stats)
 				Glova.g_stats(cost)
 				queue_free()
 

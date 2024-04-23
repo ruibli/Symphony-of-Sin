@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5dh1yoyfrvr"]
+[gd_scene load_steps=7 format=3 uid="uid://c5dh1yoyfrvr"]
 
 [ext_resource type="Script" path="res://assets/gui/hotbar.gd" id="1_fvm14"]
 [ext_resource type="Texture2D" uid="uid://dud0u50bllnay" path="res://assets/loot/weapons/crossbow.png" id="2_mkacq"]
 [ext_resource type="Texture2D" uid="uid://i7uce1oi7yf" path="res://assets/loot/weapons/empty.png" id="3_7gfiy"]
 [ext_resource type="Texture2D" uid="uid://ch53uonxhtli2" path="res://assets/gui/icons/current.png" id="4_8hc84"]
 [ext_resource type="Texture2D" uid="uid://breoqbtl1l50u" path="res://assets/gui/borders/hotbar_border.png" id="5_cqcl3"]
+[ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="6_242an"]
 
 [node name="hotbar" type="Node2D"]
 script = ExtResource("1_fvm14")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 128.0
-offset_bottom = 16.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 159.0
+offset_bottom = 19.0
 
 [node name="slot1" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
@@ -55,13 +58,21 @@ stretch_mode = 2
 
 [node name="current" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(3, 3)
 texture = ExtResource("4_8hc84")
 centered = false
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = -3.0
-offset_top = -12.0
-offset_right = 159.0
-offset_bottom = 28.0
+[node name="border" type="TextureRect" parent="."]
+z_index = 1
+offset_right = 40.0
+offset_bottom = 40.0
 texture = ExtResource("5_cqcl3")
-stretch_mode = 3
+stretch_mode = 2
+
+[node name="remind" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_top = -10.0
+offset_right = 152.0
+offset_bottom = 13.0
+text = "Try equiping something..."
+label_settings = ExtResource("6_242an")

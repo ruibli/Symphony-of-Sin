@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5hjf4nfxuust"
-path="res://.godot/imported/greataxe.png-9d36ebbe54aa4330b16e76a3bb1e85c8.ctex"
+path="res://.godot/imported/axe.png-7e5a272db1636688d29a5b155b2ef6b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loot/weapons/greataxe.png"
-dest_files=["res://.godot/imported/greataxe.png-9d36ebbe54aa4330b16e76a3bb1e85c8.ctex"]
+source_file="res://assets/loot/weapons/axe.png"
+dest_files=["res://.godot/imported/axe.png-7e5a272db1636688d29a5b155b2ef6b9.ctex"]
 
 [params]
 
