@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b85dgg62gt5fc"]
 
-[ext_resource type="Script" path="res://assets/entities/nova/arrow.gd" id="1_7expc"]
+[ext_resource type="Script" path="res://assets/entities/nova/crossbow.gd" id="1_7expc"]
 [ext_resource type="Texture2D" uid="uid://d03y6lxexnpnf" path="res://assets/entities/nova/nova_crossbow/nova_arrow.png" id="2_whlwy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3llh"]

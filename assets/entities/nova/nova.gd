@@ -3,7 +3,9 @@ extends CharacterBody2D
 @onready var camera_pos = Vector2(0,0)
 var cam = false
 
-@export var arrow_scene : PackedScene
+@export var crossbow_scene : PackedScene
+@export var spear_scene : PackedScene
+@export var axe_scene : PackedScene
 
 var health = 100
 var health_max = 100
@@ -23,6 +25,8 @@ var can_hit = true
 
 var w
 var can_crossbow = true
+var can_spear = true
+var can_axe = true
 
 func set_nova():
 	health = Glova.g_stats()[0]
@@ -44,6 +48,8 @@ func set_nova():
 	$Camera2D.position_smoothing_enabled = cam
 	
 	$CrossbowCooldown.wait_time = 1.0 / attack
+	$SpearCooldown.wait_time = 1.0 / attack
+	$AxeCooldown.wait_time = 2.0 / attack
 	
 func _process(_delta):
 	velocity = Vector2.ZERO
@@ -96,8 +102,18 @@ func _process(_delta):
 		if current == "crossbow" and can_crossbow:
 			can_crossbow = false
 			$CrossbowCooldown.start()
-			w = arrow_scene.instantiate()
-			weapon(true)
+			w = crossbow_scene.instantiate()
+			weapon(true,0)
+		elif current == "spear" and can_spear:
+			can_spear = false
+			$SpearCooldown.start()
+			w = spear_scene.instantiate()
+			weapon(true,0)
+		elif current == "axe" and can_axe:
+			can_axe = false
+			$AxeCooldown.start()
+			w = axe_scene.instantiate()
+			weapon(true,0)
 		else:
 			type = "move"
 	
@@ -106,19 +122,23 @@ func _process(_delta):
 		$NovaCollision/NovaAnimation.frame = 1
 		foot = false
 
-func weapon(projectile): # attacking
+func weapon(projectile, offset): # attacking
 	if direction == "up":
 		w.velocity.y -= 1
 		w.rotation_degrees = 180
+		w.position = Vector2(0,-offset)
 	elif direction == "down":
 		w.velocity.y += 1
 		w.rotation_degrees = 0
+		w.position = Vector2(0,offset)
 	elif direction == "left":
 		w.velocity.x -= 1
 		w.rotation_degrees = 90
+		w.position = Vector2(-offset,0)
 	elif direction == "right":
 		w.velocity.x += 1
 		w.rotation_degrees = 270
+		w.position = Vector2(offset,0)
 	
 	if !projectile:
 		w.velocity = Vector2(0,0)
@@ -163,3 +183,9 @@ func boop(dir):
 
 func _on_crossbow_cooldown_timeout(): # bow cooldown
 	can_crossbow = true
+
+func _on_spear_cooldown_timeout():
+	can_spear = true
+
+func _on_axe_cooldown_timeout():
+	can_axe = true

@@ -30,7 +30,7 @@ func reset():
 	current = "crossbow"
 	
 	item_pool = ["breakfast"]
-	weapon_pool = []
+	weapon_pool = ["spear","axe"]
 
 func g_stats(s: Array = [0]):
 	if s == [0]:

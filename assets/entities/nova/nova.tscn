@@ -1,7 +1,7 @@
 [gd_scene load_steps=83 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
-[ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/arrow.tscn" id="2_1l2sp"]
+[ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
 [ext_resource type="Texture2D" uid="uid://c3swyegnwdc71" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_0.png" id="3_b8ilj"]
 [ext_resource type="Texture2D" uid="uid://iphjynudvv3j" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_1.png" id="3_m2cyi"]
 [ext_resource type="Texture2D" uid="uid://cpt1lsgl38w7p" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_2.png" id="4_7gbkw"]
@@ -683,7 +683,7 @@ z_as_relative = false
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_wapv4")
-arrow_scene = ExtResource("2_1l2sp")
+crossbow_scene = ExtResource("2_o8asn")
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -694,7 +694,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"spear_attack_right"
+animation = &"crossbow_attack_down"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
@@ -719,13 +719,20 @@ position_smoothing_speed = 15.0
 rotation_smoothing_enabled = true
 rotation_smoothing_speed = 15.0
 
-[node name="CrossbowCooldown" type="Timer" parent="."]
-
 [node name="HitCooldown" type="Timer" parent="."]
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-5, -10, 5, -10, 5, 10, -5, 10)
 
+[node name="CrossbowCooldown" type="Timer" parent="."]
+
+[node name="SpearCooldown" type="Timer" parent="."]
+
+[node name="AxeCooldown" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
-[connection signal="timeout" from="CrossbowCooldown" to="." method="_on_crossbow_cooldown_timeout"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
+[connection signal="timeout" from="CrossbowCooldown" to="." method="_on_crossbow_cooldown_timeout"]
+[connection signal="timeout" from="SpearCooldown" to="." method="_on_spear_cooldown_timeout"]
+[connection signal="timeout" from="AxeCooldown" to="." method="_on_axe_cooldown_timeout"]
