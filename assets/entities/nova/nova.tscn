@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=115 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -59,6 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://dhfppmebvga0a" path="res://assets/entities/nova/nova_crossbow/crossbow_move_right_2.png" id="23_im05k"]
 [ext_resource type="Texture2D" uid="uid://bfmh15ljcpbok" path="res://assets/entities/nova/nova_antlers/antlers_move_down_2.png" id="24_4q4qd"]
 [ext_resource type="Texture2D" uid="uid://diegq6ehtm63w" path="res://assets/entities/nova/nova_crossbow/crossbow_move_up_0.png" id="24_ufcdg"]
+[ext_resource type="Texture2D" uid="uid://clyeqwmshw280" path="res://assets/entities/nova/nova_antlers/antlers_attack_up_6.png" id="25_8xowd"]
 [ext_resource type="Texture2D" uid="uid://74jst8smslau" path="res://assets/entities/nova/nova_antlers/antlers_move_left_0.png" id="25_71mf8"]
 [ext_resource type="Texture2D" uid="uid://cnxh3u3m2of84" path="res://assets/entities/nova/nova_crossbow/crossbow_move_up_1.png" id="25_iqe61"]
 [ext_resource type="Texture2D" uid="uid://cev3nqef7wbcc" path="res://assets/entities/nova/nova_crossbow/crossbow_move_up_2.png" id="26_4eu65"]
@@ -182,6 +183,29 @@ animations = [{
 }],
 "loop": true,
 "name": &"antlers_attack_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_vw2p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_2ty86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vw2p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_tapnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vw2p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_8xowd")
+}],
+"loop": true,
+"name": &"antlers_attack_up",
 "speed": 6.0
 }, {
 "frames": [{
@@ -863,7 +887,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"crossbow_move_down"
+animation = &"antlers_attack_up"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
