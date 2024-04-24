@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmvphmx1bj8td"]
+
+[ext_resource type="Script" path="res://assets/entities/nova/spear.gd" id="1_xf42a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d44h5"]
+size = Vector2(8, 30)
+
+[node name="spear" type="StaticBody2D"]
+script = ExtResource("1_xf42a")
+
+[node name="spearhit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="SpearHit" type="CollisionShape2D" parent="spearhit"]
+shape = SubResource("RectangleShape2D_d44h5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="spearhit" to="." method="_on_spearhit_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

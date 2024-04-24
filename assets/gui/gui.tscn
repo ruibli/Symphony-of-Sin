@@ -20,4 +20,4 @@ position = Vector2(285, 234)
 z_index = 3
 
 [node name="hotbar" parent="." instance=ExtResource("5_qkwni")]
-position = Vector2(0, 329)
+position = Vector2(0, 327)

@@ -15,12 +15,13 @@ var attack = 1
 var gold = 0
 
 var inv = []
-var hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]
+var hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty"]
 var current = "crossbow"
 
 var direction = "down"
 var type = "move"
 var foot = true
+var lock = false
 var can_hit = true
 
 var w
@@ -48,12 +49,13 @@ func set_nova():
 	$Camera2D.position_smoothing_enabled = cam
 	
 	$CrossbowCooldown.wait_time = 1.0 / attack
-	$SpearCooldown.wait_time = 1.0 / attack
+	$SpearCooldown.wait_time = 1.5 / attack
 	$AxeCooldown.wait_time = 2.0 / attack
 	
 func _process(_delta):
 	velocity = Vector2.ZERO
-	type = "move"
+	if !lock:
+		type = "move"
 	
 	# Player Controls
 	if Input.is_action_pressed("move_up"):
@@ -67,20 +69,28 @@ func _process(_delta):
 	if Input.is_action_pressed("attack_up"):
 		type = "attack"
 		direction = "up"
+		$WeaponPos.position = Vector2(0,-10)
+		$WeaponPos.rotation_degrees = 180
 	if Input.is_action_pressed("attack_down"):
 		type = "attack"
 		direction = "down"
+		$WeaponPos.position = Vector2(0,10)
+		$WeaponPos.rotation_degrees = 0
 	if Input.is_action_pressed("attack_left"):
 		type = "attack"
 		direction = "left"
+		$WeaponPos.position = Vector2(-10,0)
+		$WeaponPos.rotation_degrees = 90
 	if Input.is_action_pressed("attack_right"):
 		type = "attack"
 		direction = "right"
+		$WeaponPos.position = Vector2(10,0)
+		$WeaponPos.rotation_degrees = 270
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * 100 * speed
 		$NovaCollision/NovaAnimation.play()
-	else:
+	elif type == "move":
 		$NovaCollision/NovaAnimation.frame = 0
 		$NovaCollision/NovaAnimation.stop()
 		foot = true
@@ -108,44 +118,48 @@ func _process(_delta):
 			can_spear = false
 			$SpearCooldown.start()
 			w = spear_scene.instantiate()
-			weapon(true,0)
+			weapon(false,1)
 		elif current == "axe" and can_axe:
 			can_axe = false
 			$AxeCooldown.start()
 			w = axe_scene.instantiate()
-			weapon(true,0)
+			weapon(false,1.5)
 		else:
-			type = "move"
+			if !lock:
+				type = "move"
 	
 	$NovaCollision/NovaAnimation.play(current+"_"+type+"_"+direction)
 	if velocity.length() > 0 and foot:
 		$NovaCollision/NovaAnimation.frame = 1
 		foot = false
 
-func weapon(projectile, offset): # attacking
-	if direction == "up":
-		w.velocity.y -= 1
-		w.rotation_degrees = 180
-		w.position = Vector2(0,-offset)
-	elif direction == "down":
-		w.velocity.y += 1
-		w.rotation_degrees = 0
-		w.position = Vector2(0,offset)
-	elif direction == "left":
-		w.velocity.x -= 1
-		w.rotation_degrees = 90
-		w.position = Vector2(-offset,0)
-	elif direction == "right":
-		w.velocity.x += 1
-		w.rotation_degrees = 270
-		w.position = Vector2(offset,0)
-	
-	if !projectile:
-		w.velocity = Vector2(0,0)
+func weapon(projectile, time): # attacking
+	if projectile:
+		if direction == "up":
+			w.velocity.y -= 1
+			w.rotation_degrees = 180
+		elif direction == "down":
+			w.velocity.y += 1
+			w.rotation_degrees = 0
+		elif direction == "left":
+			w.velocity.x -= 1
+			w.rotation_degrees = 90
+		elif direction == "right":
+			w.velocity.x += 1
+			w.rotation_degrees = 270
 	
 	w.damage = w.damage * attack
-	w.global_position = global_position
-	get_tree().root.add_child(w)
+	$NovaCollision/NovaAnimation.play(current+"_"+type+"_"+direction)
+	
+	if !projectile:
+		lock = true
+		await get_tree().create_timer(time/4.0).timeout
+		$WeaponPos.add_child(w)
+		await get_tree().create_timer(time*3/4.0).timeout
+		lock = false
+	else:
+		w.global_position = global_position
+		get_tree().root.add_child(w)
 
 func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	if area.get_name() == 'CameraArea':

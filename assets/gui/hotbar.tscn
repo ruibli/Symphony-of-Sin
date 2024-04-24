@@ -51,14 +51,9 @@ layout_mode = 2
 texture = ExtResource("3_7gfiy")
 stretch_mode = 2
 
-[node name="slot8" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_7gfiy")
-stretch_mode = 2
-
 [node name="current" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.25098)
-position = Vector2(3, 3)
+position = Vector2(4, 4)
 texture = ExtResource("4_8hc84")
 centered = false
 

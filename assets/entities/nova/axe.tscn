@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8dfynw33f4dd"]
+
+[ext_resource type="Script" path="res://assets/entities/nova/axe.gd" id="1_4pydc"]
+
+[node name="axe" type="StaticBody2D"]
+script = ExtResource("1_4pydc")

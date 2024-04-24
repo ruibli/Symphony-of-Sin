@@ -26,7 +26,7 @@ func reset():
 	# health, health_max, speed, power, attack, gold
 	
 	inv = []
-	hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty", "empty"]
+	hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty"]
 	current = "crossbow"
 	
 	item_pool = ["breakfast"]
