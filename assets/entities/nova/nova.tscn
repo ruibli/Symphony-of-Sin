@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=116 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cpt1lsgl38w7p" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_2.png" id="4_7gbkw"]
 [ext_resource type="Texture2D" uid="uid://dr8vqqywfpwli" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_1.png" id="4_b0uhc"]
 [ext_resource type="Texture2D" uid="uid://dvycliiilo7do" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_1.png" id="4_feket"]
+[ext_resource type="PackedScene" uid="uid://b8dfynw33f4dd" path="res://assets/entities/nova/axe.tscn" id="4_s1sm1"]
 [ext_resource type="Texture2D" uid="uid://biydppq7mlwpr" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_3.png" id="5_1yt1b"]
 [ext_resource type="Texture2D" uid="uid://batusg2bn513g" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_2.png" id="5_ejog2"]
 [ext_resource type="Texture2D" uid="uid://b5w3cv0bhoaa2" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_2.png" id="5_tpm4f"]
@@ -877,6 +878,7 @@ motion_mode = 1
 script = ExtResource("1_wapv4")
 crossbow_scene = ExtResource("2_o8asn")
 spear_scene = ExtResource("3_4ve7n")
+axe_scene = ExtResource("4_s1sm1")
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)

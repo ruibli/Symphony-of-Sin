@@ -9,7 +9,7 @@ var hours = 0
 var minutes = 0
 var seconds = 0
 
-var code = ["move_down","move_up","move_left","move_down","move_up","move_right","move_down","move_up"]
+var code = ["ui_down","ui_up","ui_left","ui_down","ui_up","ui_right","ui_down","ui_up"]
 var index = 0
 
 func _ready():
@@ -27,7 +27,7 @@ func _process(delta):
 			else: # pause
 				show()
 				get_tree().paused = true
-				$main.grab_focus()
+				$continue.grab_focus()
 				index = 0
 	
 	if get_tree().paused == false:
@@ -60,11 +60,11 @@ func _process(delta):
 	$VBoxContainer/time_con/HBoxContainer/minutes.text = minutes
 	$VBoxContainer/time_con/HBoxContainer/seconds.text = seconds
 
-	if Input.is_action_just_pressed("move_up") or Input.is_action_just_pressed("move_down") or Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+	if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
 		if Input.is_action_just_pressed(code[index], true) and get_tree().paused == true:
 			index += 1
 			if index == code.size():
-				print(":3")
+				$debug.show()
 				index = 0
 		else:
 			index = 0
@@ -84,3 +84,17 @@ func _on_main_focus_entered():
 
 func _on_main_focus_exited():
 	$main.modulate = Color(1,1,1,1)
+
+func _on_continue_pressed():
+	if can_pause:
+		if get_tree().paused == true: # unpause
+			hide()
+			get_tree().paused = false
+			can_pause = false
+			$pause_timer.start()
+
+func _on_continue_focus_entered():
+	$continue.modulate = Color(190/255.0,118/255.0,253/255.0, 1)
+
+func _on_continue_focus_exited():
+	$continue.modulate = Color(1,1,1,1)
