@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=115 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -6,47 +6,78 @@
 [ext_resource type="Texture2D" uid="uid://c3swyegnwdc71" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_0.png" id="3_b8ilj"]
 [ext_resource type="Texture2D" uid="uid://iphjynudvv3j" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_1.png" id="3_m2cyi"]
 [ext_resource type="Texture2D" uid="uid://cpt1lsgl38w7p" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_2.png" id="4_7gbkw"]
+[ext_resource type="Texture2D" uid="uid://dr8vqqywfpwli" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_1.png" id="4_b0uhc"]
 [ext_resource type="Texture2D" uid="uid://dvycliiilo7do" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_1.png" id="4_feket"]
 [ext_resource type="Texture2D" uid="uid://biydppq7mlwpr" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_3.png" id="5_1yt1b"]
+[ext_resource type="Texture2D" uid="uid://batusg2bn513g" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_2.png" id="5_ejog2"]
 [ext_resource type="Texture2D" uid="uid://b5w3cv0bhoaa2" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_2.png" id="5_tpm4f"]
+[ext_resource type="Texture2D" uid="uid://bqri3tlx8dubv" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_3.png" id="6_8rvns"]
 [ext_resource type="Texture2D" uid="uid://dsqnlg16bc1tt" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_1.png" id="6_i4qsf"]
 [ext_resource type="Texture2D" uid="uid://l0h40x2oa4h2" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_0.png" id="6_y2km1"]
 [ext_resource type="Texture2D" uid="uid://p5vun1lc1224" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_2.png" id="7_52bci"]
 [ext_resource type="Texture2D" uid="uid://mr7auccjodg7" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_1.png" id="7_nd452"]
+[ext_resource type="Texture2D" uid="uid://bjinoeah3howq" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_4.png" id="7_snec2"]
 [ext_resource type="Texture2D" uid="uid://csdjc5ar1pxy5" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_2.png" id="8_qtlc0"]
+[ext_resource type="Texture2D" uid="uid://bqb2uiu3xujum" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_5.png" id="8_rp3hj"]
 [ext_resource type="Texture2D" uid="uid://dyilrcx6ank00" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_3.png" id="8_xpjux"]
 [ext_resource type="Texture2D" uid="uid://dwrjphk5sq1rd" path="res://assets/entities/nova/nova_axe/walk/axe_move_right_0.png" id="9_im5q2"]
+[ext_resource type="Texture2D" uid="uid://chlhb4ttgpg5s" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_6.png" id="9_jsima"]
 [ext_resource type="Texture2D" uid="uid://iio44onudddm" path="res://assets/entities/nova/nova_axe/attack/axe_attack_right_1.png" id="9_yv0in"]
+[ext_resource type="Texture2D" uid="uid://b63455xxtlu41" path="res://assets/entities/nova/nova_antlers/antlers_attack_left_1.png" id="10_1den1"]
 [ext_resource type="Texture2D" uid="uid://c66k3cggfqn5v" path="res://assets/entities/nova/nova_axe/attack/axe_attack_right_2.png" id="10_l3yj3"]
 [ext_resource type="Texture2D" uid="uid://d31yvq3at13c" path="res://assets/entities/nova/nova_axe/walk/axe_move_right_1.png" id="10_uo7e2"]
 [ext_resource type="Texture2D" uid="uid://503otarqflx7" path="res://assets/entities/nova/nova_axe/walk/axe_move_right_2.png" id="11_lcq6h"]
+[ext_resource type="Texture2D" uid="uid://cf1moqs8apuwj" path="res://assets/entities/nova/nova_antlers/antlers_attack_left_2.png" id="11_pbxbf"]
 [ext_resource type="Texture2D" uid="uid://b0afvhkgan46s" path="res://assets/entities/nova/nova_axe/attack/axe_attack_right_3.png" id="11_shwlu"]
 [ext_resource type="Texture2D" uid="uid://bp1v2xgyvvudq" path="res://assets/entities/nova/nova_axe/walk/axe_move_up_0.png" id="12_ipjsu"]
+[ext_resource type="Texture2D" uid="uid://3ra8loob3jbi" path="res://assets/entities/nova/nova_antlers/antlers_attack_left_3.png" id="12_tq16w"]
 [ext_resource type="Texture2D" uid="uid://psdhthom8cnc" path="res://assets/entities/nova/nova_axe/attack/axe_attack_up_1.png" id="12_wq2lc"]
 [ext_resource type="Texture2D" uid="uid://csmukc6fvdce4" path="res://assets/entities/nova/nova_axe/attack/axe_attack_up_2.png" id="13_7bbht"]
+[ext_resource type="Texture2D" uid="uid://1rc1sqngn8wi" path="res://assets/entities/nova/nova_antlers/antlers_attack_left_4.png" id="13_ewxlt"]
 [ext_resource type="Texture2D" uid="uid://5c5veil6sbqa" path="res://assets/entities/nova/nova_axe/walk/axe_move_up_1.png" id="13_fhvet"]
 [ext_resource type="Texture2D" uid="uid://bww1ygql74ytp" path="res://assets/entities/nova/nova_axe/walk/axe_move_up_2.png" id="14_0id4c"]
+[ext_resource type="Texture2D" uid="uid://b4d6exie5uc35" path="res://assets/entities/nova/nova_antlers/antlers_attack_left_5.png" id="14_ldal0"]
 [ext_resource type="Texture2D" uid="uid://bgm13w62b2m7o" path="res://assets/entities/nova/nova_axe/attack/axe_attack_up_3.png" id="14_rs6x3"]
+[ext_resource type="Texture2D" uid="uid://d3wjffeahkeuu" path="res://assets/entities/nova/nova_antlers/antlers_attack_left_6.png" id="15_84r8g"]
 [ext_resource type="Script" path="res://assets/entities/hurt.gd" id="15_gea65"]
 [ext_resource type="Texture2D" uid="uid://dl86jralou8a0" path="res://assets/entities/nova/nova_crossbow/crossbow_move_down_0.png" id="15_gfhes"]
 [ext_resource type="Texture2D" uid="uid://b4v4l8hqya1eg" path="res://assets/entities/nova/nova_crossbow/crossbow_move_down_1.png" id="16_kuo8b"]
+[ext_resource type="Texture2D" uid="uid://cwfap2oovhm4x" path="res://assets/entities/nova/nova_antlers/antlers_attack_right_1.png" id="16_w7nxa"]
+[ext_resource type="Texture2D" uid="uid://beruuykilwpx6" path="res://assets/entities/nova/nova_antlers/antlers_attack_right_2.png" id="17_50fbi"]
 [ext_resource type="Texture2D" uid="uid://sbl514tbj0pc" path="res://assets/entities/nova/nova_crossbow/crossbow_move_down_2.png" id="17_kbu08"]
+[ext_resource type="Texture2D" uid="uid://bw6nrk34uq1hv" path="res://assets/entities/nova/nova_antlers/antlers_attack_right_3.png" id="18_br1o0"]
 [ext_resource type="Texture2D" uid="uid://de44c0yicw56l" path="res://assets/entities/nova/nova_crossbow/crossbow_move_left_0.png" id="18_r5nxf"]
+[ext_resource type="Texture2D" uid="uid://bvacotyhdy15q" path="res://assets/entities/nova/nova_antlers/antlers_attack_right_4.png" id="19_cmiyl"]
 [ext_resource type="Texture2D" uid="uid://bofvmksrialr7" path="res://assets/entities/nova/nova_crossbow/crossbow_move_left_1.png" id="19_k3t06"]
+[ext_resource type="Texture2D" uid="uid://cvrbm6tro3wrb" path="res://assets/entities/nova/nova_antlers/antlers_attack_right_5.png" id="20_dt7cv"]
 [ext_resource type="Texture2D" uid="uid://dld5mgpouwba6" path="res://assets/entities/nova/nova_crossbow/crossbow_move_left_2.png" id="20_fsu2e"]
 [ext_resource type="Texture2D" uid="uid://ixfxiuhkg20g" path="res://assets/entities/nova/nova_crossbow/crossbow_move_right_0.png" id="21_3umxn"]
+[ext_resource type="Texture2D" uid="uid://u8phv6rjf1tm" path="res://assets/entities/nova/nova_antlers/antlers_attack_right_6.png" id="21_wtxtn"]
 [ext_resource type="Texture2D" uid="uid://bao0wfq006ban" path="res://assets/entities/nova/nova_crossbow/crossbow_move_right_1.png" id="22_2r5ek"]
+[ext_resource type="Texture2D" uid="uid://deynf8l1spblq" path="res://assets/entities/nova/nova_antlers/antlers_move_down_0.png" id="22_578k5"]
+[ext_resource type="Texture2D" uid="uid://cesfon6n5hste" path="res://assets/entities/nova/nova_antlers/antlers_move_down_1.png" id="23_dlgxk"]
 [ext_resource type="Texture2D" uid="uid://dhfppmebvga0a" path="res://assets/entities/nova/nova_crossbow/crossbow_move_right_2.png" id="23_im05k"]
+[ext_resource type="Texture2D" uid="uid://bfmh15ljcpbok" path="res://assets/entities/nova/nova_antlers/antlers_move_down_2.png" id="24_4q4qd"]
 [ext_resource type="Texture2D" uid="uid://diegq6ehtm63w" path="res://assets/entities/nova/nova_crossbow/crossbow_move_up_0.png" id="24_ufcdg"]
+[ext_resource type="Texture2D" uid="uid://clyeqwmshw280" path="res://assets/entities/nova/nova_antlers/antlers_attack_up_6.png" id="25_8xowd"]
+[ext_resource type="Texture2D" uid="uid://74jst8smslau" path="res://assets/entities/nova/nova_antlers/antlers_move_left_0.png" id="25_71mf8"]
 [ext_resource type="Texture2D" uid="uid://cnxh3u3m2of84" path="res://assets/entities/nova/nova_crossbow/crossbow_move_up_1.png" id="25_iqe61"]
 [ext_resource type="Texture2D" uid="uid://cev3nqef7wbcc" path="res://assets/entities/nova/nova_crossbow/crossbow_move_up_2.png" id="26_4eu65"]
+[ext_resource type="Texture2D" uid="uid://bjjhcvbby5cq0" path="res://assets/entities/nova/nova_antlers/antlers_move_left_1.png" id="26_ysaia"]
 [ext_resource type="Texture2D" uid="uid://bwxtd8xxbp51a" path="res://assets/entities/nova/nova_empty/empty_move_down_0.png" id="27_f58wr"]
+[ext_resource type="Texture2D" uid="uid://cbm2dvbqmqgaw" path="res://assets/entities/nova/nova_antlers/antlers_move_left_2.png" id="27_w07ag"]
 [ext_resource type="Texture2D" uid="uid://c7ufy2116abcs" path="res://assets/entities/nova/nova_empty/empty_move_down_1.png" id="28_1qm5g"]
+[ext_resource type="Texture2D" uid="uid://c0frg2lmfx7wq" path="res://assets/entities/nova/nova_antlers/antlers_move_right_0.png" id="28_i8nnf"]
+[ext_resource type="Texture2D" uid="uid://q78gyytxyr8y" path="res://assets/entities/nova/nova_antlers/antlers_move_right_1.png" id="29_2kgna"]
 [ext_resource type="Texture2D" uid="uid://bte3k3dffbej7" path="res://assets/entities/nova/nova_empty/empty_move_down_2.png" id="29_gukyo"]
 [ext_resource type="Texture2D" uid="uid://dvnnahpx0qit3" path="res://assets/entities/nova/nova_empty/empty_move_left_0.png" id="30_bbja6"]
+[ext_resource type="Texture2D" uid="uid://gg1vla14gppu" path="res://assets/entities/nova/nova_antlers/antlers_move_right_2.png" id="30_binvw"]
 [ext_resource type="Texture2D" uid="uid://d04fcydxartt1" path="res://assets/entities/nova/nova_empty/empty_move_left_1.png" id="31_n2gej"]
+[ext_resource type="Texture2D" uid="uid://cudk3slgywkq" path="res://assets/entities/nova/nova_antlers/antlers_move_up_0.png" id="31_vw2p1"]
+[ext_resource type="Texture2D" uid="uid://cun8rb24sp4yp" path="res://assets/entities/nova/nova_antlers/antlers_move_up_1.png" id="32_2ty86"]
 [ext_resource type="Texture2D" uid="uid://ds8uwfnvk7sju" path="res://assets/entities/nova/nova_empty/empty_move_left_2.png" id="32_6oy0e"]
 [ext_resource type="Texture2D" uid="uid://pcged1o8ssvf" path="res://assets/entities/nova/nova_empty/empty_move_right_0.png" id="33_bjdb4"]
+[ext_resource type="Texture2D" uid="uid://dn2onrt868tor" path="res://assets/entities/nova/nova_antlers/antlers_move_up_2.png" id="33_tapnl"]
 [ext_resource type="Texture2D" uid="uid://dox0cmd4bmw4d" path="res://assets/entities/nova/nova_empty/empty_move_right_1.png" id="34_t7cr5"]
 [ext_resource type="Texture2D" uid="uid://c3h3xno0crlla" path="res://assets/entities/nova/nova_empty/empty_move_right_2.png" id="35_vtny5"]
 [ext_resource type="Texture2D" uid="uid://bns5hux3ah5gm" path="res://assets/entities/nova/nova_empty/empty_move_up_0.png" id="36_2o382"]
@@ -85,6 +116,166 @@ size = Vector2(10, 5)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wltb"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_b0uhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ejog2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8rvns")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_snec2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rp3hj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jsima")
+}],
+"loop": true,
+"name": &"antlers_attack_down",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_1den1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pbxbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_tq16w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ewxlt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ldal0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_84r8g")
+}],
+"loop": true,
+"name": &"antlers_attack_left",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_w7nxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_50fbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_br1o0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_cmiyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_dt7cv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_wtxtn")
+}],
+"loop": true,
+"name": &"antlers_attack_right",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_vw2p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_2ty86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vw2p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_tapnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vw2p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_8xowd")
+}],
+"loop": true,
+"name": &"antlers_attack_up",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_578k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_dlgxk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_578k5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4q4qd")
+}],
+"loop": true,
+"name": &"antlers_move_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_71mf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_ysaia")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_71mf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_w07ag")
+}],
+"loop": true,
+"name": &"antlers_move_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_i8nnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_2kgna")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_i8nnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_binvw")
+}],
+"loop": true,
+"name": &"antlers_move_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_vw2p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_2ty86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vw2p1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_tapnl")
+}],
+"loop": true,
+"name": &"antlers_move_up",
+"speed": 4.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_m2cyi")
@@ -696,8 +887,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"spear_attack_down"
-frame_progress = 0.880558
+animation = &"antlers_attack_up"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
