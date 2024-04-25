@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8dfynw33f4dd"]
+[gd_scene load_steps=3 format=3 uid="uid://b8dfynw33f4dd"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/axe.gd" id="1_4pydc"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lpun0"]
+size = Vector2(25, 20)
+
 [node name="axe" type="StaticBody2D"]
 script = ExtResource("1_4pydc")
+
+[node name="axehit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="AxeHit" type="CollisionShape2D" parent="axehit"]
+shape = SubResource("RectangleShape2D_lpun0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_exited" from="axehit" to="." method="_on_axehit_area_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

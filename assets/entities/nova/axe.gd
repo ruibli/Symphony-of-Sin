@@ -1,10 +1,12 @@
 extends StaticBody2D
 
+var damage = 35
 
 func _ready():
-	pass # Replace with function body.
+	$Timer.start()
 
+func _on_timer_timeout():
+	queue_free()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_axehit_area_exited(area):
+	area.hit(damage)

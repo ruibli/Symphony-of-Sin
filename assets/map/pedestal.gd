@@ -1,11 +1,14 @@
 extends StaticBody2D
 
-var type = "enemy"
 var state = 1 # 1 = not on screen, 2 = on screen waiting for no enemies, 3 = spawned award 
+var rewarded = false
+
+var type = "enemy"
+var nam
 var cost = [0, 0, 0, 0, 0, 0]
+
 var temp
 var item
-var nam
 var stats
 
 func _ready():
@@ -15,7 +18,19 @@ func _ready():
 	$item.position = $pedestal.position + Vector2(0, -7)
 	
 func reward():
-	if type == "enemy":
+	rewarded = true
+	if type == "debug":
+		if item == "coin":
+			$item.texture = load("res://assets/loot/generic/coin.png")
+			stats = [0, 0, 0, 0, 0, 1]
+		elif item == "potion":	
+			$item.texture = load("res://assets/loot/generic/potion.png")
+			stats = [25, 0, 0, 0, 0, 0]
+		elif item == "item":
+			random_item()
+		elif item == "weapon":	
+			random_weapon()
+	elif type == "enemy":
 		item = randi_range(1,10)
 		if item <= 4:
 			item = "coin"
@@ -46,26 +61,27 @@ func reward():
 		random_weapon()
 	
 	elif type == "shop":
-		item = randi_range(1,3)
-		if item <= 2:
+		item = randi_range(1,5)
+		if item <= 4:
 			item = "item"
 			cost = [0, 0, 0, 0, 0, -5]
 			$cost.text = "5G"
 			random_item()
-		elif item <=3:
-			item = "weapon"
-			cost = [0, 0, 0, 0, 0, -10]
-			$cost.text = "10G"
-			random_weapon()	
+		elif item <=5:
+			item = "potion"
+			cost = [0, 0, 0, 0, 0, -2]
+			$cost.text = "2G"
+			$item.texture = load("res://assets/loot/generic/potion.png")
+			stats = [25, 0, 0, 0, 0, 0]
 	
 func random_item():
 	var item_pool = Glova.g_item_pool("0")
 	if len(item_pool) == 0 or item_pool.is_empty():
 		breakfast()
 	else:
-		nam = randi_range(0, len(item_pool)-1) # get lengths
-		nam = item_pool[nam]
-		Glova.g_item_pool(nam)
+		if type != "debug":
+			nam = randi_range(0, len(item_pool)-1) # get lengths
+			nam = item_pool[nam]
 		
 		if nam == "breakfast":
 			$item.texture = load("res://assets/loot/items/breakfast.png")
@@ -76,11 +92,11 @@ func random_weapon():
 	if len(weapon_pool) == 0 or weapon_pool.is_empty():
 		breakfast()
 	else:
-		nam = randi_range(0, len(weapon_pool)-1) # get lengths
-		nam = weapon_pool[nam]
+		if type != "debug":
+			nam = randi_range(0, len(weapon_pool)-1) # get lengths
+			nam = weapon_pool[nam]
 		Glova.g_weapon_pool(nam)
 	
-		
 		if nam == "spear":
 			$item.texture = load("res://assets/loot/weapons/spear.png")
 		elif nam == "axe":
@@ -107,9 +123,9 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 	$item.visible = false
 	$cost.visible = false
 
-func _on_timer_timeout():
-	if state == 2:
-		reward()		
+func _on_timer_timeout():	
+	if !rewarded:
+		reward()
 	$pedestal.visible = true
 	$item.visible = true
 	$cost.visible = true

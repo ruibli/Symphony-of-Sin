@@ -113,17 +113,17 @@ func _process(_delta):
 			can_crossbow = false
 			$CrossbowCooldown.start()
 			w = crossbow_scene.instantiate()
-			weapon(true,0)
+			weapon(true)
 		elif current == "spear" and can_spear:
 			can_spear = false
 			$SpearCooldown.start()
 			w = spear_scene.instantiate()
-			weapon(false,1)
+			weapon(false)
 		elif current == "axe" and can_axe:
 			can_axe = false
 			$AxeCooldown.start()
 			w = axe_scene.instantiate()
-			weapon(false,1.5)
+			weapon(false)
 		else:
 			if !lock:
 				type = "move"
@@ -133,7 +133,7 @@ func _process(_delta):
 		$NovaCollision/NovaAnimation.frame = 1
 		foot = false
 
-func weapon(projectile, time): # attacking
+func weapon(projectile): # attacking
 	if projectile:
 		if direction == "up":
 			w.velocity.y -= 1
@@ -153,9 +153,9 @@ func weapon(projectile, time): # attacking
 	
 	if !projectile:
 		lock = true
-		await get_tree().create_timer(time/4.0).timeout
+		await get_tree().create_timer(0.25).timeout
 		$WeaponPos.add_child(w)
-		await get_tree().create_timer(time*3/4.0).timeout
+		await get_tree().create_timer(0.75).timeout
 		lock = false
 	else:
 		w.global_position = global_position
