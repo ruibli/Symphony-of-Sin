@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=114 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -93,7 +93,6 @@
 [ext_resource type="Texture2D" uid="uid://cj8ybpuqds7nf" path="res://assets/entities/nova/nova_spear/spear_move_left_0.png" id="54_qk26k"]
 [ext_resource type="Texture2D" uid="uid://bgpw5c0q0nucb" path="res://assets/entities/nova/nova_spear/spear_attack_down_4.png" id="54_vflvq"]
 [ext_resource type="Texture2D" uid="uid://btiewvo3o3gu0" path="res://assets/entities/nova/nova_spear/spear_move_left_1.png" id="55_8eqsx"]
-[ext_resource type="Texture2D" uid="uid://drhdo5w5brbu0" path="res://assets/entities/nova/nova_spear/spear_attack_left_1.png" id="55_thx7v"]
 [ext_resource type="Texture2D" uid="uid://r8dt3stvla1e" path="res://assets/entities/nova/nova_spear/spear_attack_left_2.png" id="56_nkktj"]
 [ext_resource type="Texture2D" uid="uid://bxyc52lnmh06a" path="res://assets/entities/nova/nova_spear/spear_move_left_2.png" id="56_rhng7"]
 [ext_resource type="Texture2D" uid="uid://bikoavbdg766l" path="res://assets/entities/nova/nova_spear/spear_attack_left_3.png" id="57_h4y7y"]
@@ -107,7 +106,6 @@
 [ext_resource type="Texture2D" uid="uid://reurjlbp182j" path="res://assets/entities/nova/nova_spear/spear_move_up_1.png" id="61_sx5xv"]
 [ext_resource type="Texture2D" uid="uid://b7o053frhjnoo" path="res://assets/entities/nova/nova_spear/spear_attack_right_3.png" id="61_v30ro"]
 [ext_resource type="Texture2D" uid="uid://cln4sk0bra7fo" path="res://assets/entities/nova/nova_spear/spear_move_up_2.png" id="62_ck708"]
-[ext_resource type="Texture2D" uid="uid://di4sosu4knkpw" path="res://assets/entities/nova/nova_spear/spear_attack_up_1.png" id="62_dppmu"]
 [ext_resource type="Texture2D" uid="uid://bn67epbas2ba0" path="res://assets/entities/nova/nova_spear/spear_attack_up_2.png" id="63_rqdx2"]
 [ext_resource type="Texture2D" uid="uid://b0vkmsltvn34o" path="res://assets/entities/nova/nova_spear/spear_attack_up_3.png" id="64_qg0ia"]
 [ext_resource type="Texture2D" uid="uid://chrgq1j1326pg" path="res://assets/entities/nova/nova_spear/spear_attack_up_4.png" id="65_6avmk"]
@@ -725,9 +723,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("55_thx7v")
-}, {
-"duration": 1.0,
 "texture": ExtResource("56_nkktj")
 }, {
 "duration": 1.0,
@@ -741,13 +736,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("56_nkktj")
-}, {
-"duration": 1.0,
-"texture": ExtResource("55_thx7v")
 }],
 "loop": true,
 "name": &"spear_attack_left",
-"speed": 7.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -771,9 +763,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("62_dppmu")
-}, {
-"duration": 1.0,
 "texture": ExtResource("63_rqdx2")
 }, {
 "duration": 1.0,
@@ -787,13 +776,10 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("63_rqdx2")
-}, {
-"duration": 1.0,
-"texture": ExtResource("62_dppmu")
 }],
 "loop": true,
 "name": &"spear_attack_up",
-"speed": 7.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -889,7 +875,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"antlers_attack_up"
+animation = &"spear_attack_down"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
