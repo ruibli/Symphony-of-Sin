@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=115 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -109,6 +109,7 @@
 [ext_resource type="Texture2D" uid="uid://bn67epbas2ba0" path="res://assets/entities/nova/nova_spear/spear_attack_up_2.png" id="63_rqdx2"]
 [ext_resource type="Texture2D" uid="uid://b0vkmsltvn34o" path="res://assets/entities/nova/nova_spear/spear_attack_up_3.png" id="64_qg0ia"]
 [ext_resource type="Texture2D" uid="uid://chrgq1j1326pg" path="res://assets/entities/nova/nova_spear/spear_attack_up_4.png" id="65_6avmk"]
+[ext_resource type="Texture2D" uid="uid://di4sosu4knkpw" path="res://assets/entities/nova/nova_spear/spear_attack_up_1.png" id="94_4fd34"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikotd"]
 size = Vector2(10, 5)
@@ -134,7 +135,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("9_jsima")
 }],
-"loop": true,
+"loop": false,
 "name": &"antlers_attack_down",
 "speed": 6.0
 }, {
@@ -291,7 +292,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("3_m2cyi")
 }],
-"loop": true,
+"loop": false,
 "name": &"axe_attack_down",
 "speed": 5.0
 }, {
@@ -696,10 +697,10 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("51_w3rxb")
 }, {
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("52_6a4fn")
 }, {
 "duration": 1.0,
@@ -711,18 +712,18 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("53_wt4qo")
 }, {
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("52_6a4fn")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("51_w3rxb")
 }],
 "loop": true,
 "name": &"spear_attack_down",
-"speed": 7.0
+"speed": 5.5
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("56_nkktj")
 }, {
 "duration": 1.0,
@@ -734,15 +735,15 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("57_h4y7y")
 }, {
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("56_nkktj")
 }],
 "loop": true,
 "name": &"spear_attack_left",
-"speed": 5.0
+"speed": 4.5
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("59_k2n27")
 }, {
 "duration": 1.0,
@@ -754,15 +755,18 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("60_f4n6u")
 }, {
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("59_k2n27")
 }],
 "loop": true,
 "name": &"spear_attack_right",
-"speed": 5.0
+"speed": 4.5
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
+"texture": ExtResource("94_4fd34")
+}, {
+"duration": 0.75,
 "texture": ExtResource("63_rqdx2")
 }, {
 "duration": 1.0,
@@ -774,12 +778,15 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("64_qg0ia")
 }, {
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("63_rqdx2")
+}, {
+"duration": 0.5,
+"texture": ExtResource("94_4fd34")
 }],
-"loop": true,
+"loop": false,
 "name": &"spear_attack_up",
-"speed": 5.0
+"speed": 5.5
 }, {
 "frames": [{
 "duration": 1.0,
