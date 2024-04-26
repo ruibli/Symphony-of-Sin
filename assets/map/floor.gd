@@ -27,6 +27,7 @@ var type = "enemy"
 var level = Glova.g_level()
 var temp
 var room
+var on = false
 
 var lap_level = 1
 
@@ -158,3 +159,21 @@ func _ready():
 		temp.position = Vector2(0,0)
 		temp.type = "enemy"
 		add_child(temp)
+
+func _process(_delta):
+	if Glova.spawn([0]) != [0,0] and on:
+		temp = pedestal_scene.instantiate()
+		temp.position = Vector2(0,32)
+		temp.type = "debug"
+		print(Glova.spawn([0])[0])
+		print(Glova.spawn([0])[1])
+		temp.item = Glova.spawn([0])[0]
+		temp.nam = Glova.spawn([0])[1]
+		Glova.spawn([0,0])
+		add_child(temp)
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	on = true
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	on = false

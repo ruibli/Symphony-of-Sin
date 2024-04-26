@@ -32,6 +32,7 @@ func _process(delta):
 	
 	if get_tree().paused == false:
 		time += delta
+		hide()
 	
 	level = str(Glova.g_level(0))
 	mod = str(Glova.g_mod(0))
@@ -60,6 +61,7 @@ func _process(delta):
 	$VBoxContainer/time_con/HBoxContainer/minutes.text = minutes
 	$VBoxContainer/time_con/HBoxContainer/seconds.text = seconds
 
+	print(index)
 	if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
 		if Input.is_action_just_pressed(code[index], true) and get_tree().paused == true:
 			index += 1
@@ -73,7 +75,6 @@ func _on_timer_timeout():
 	can_pause = true
 
 func _on_main_pressed():
-	print("test")
 	$fade/black/AnimationPlayer.play("black")
 	await get_tree().create_timer(0.25).timeout
 	get_tree().paused = false

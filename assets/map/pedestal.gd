@@ -32,27 +32,24 @@ func reward():
 			random_weapon()
 	elif type == "enemy":
 		item = randi_range(1,10)
-		if item <= 4:
+		if item <= 5:
 			item = "coin"
 			$item.texture = load("res://assets/loot/generic/coin.png")
 			stats = [0, 0, 0, 0, 0, 1]
-		elif item <= 7:
+		elif item <= 9:
 			item = "potion"
 			$item.texture = load("res://assets/loot/generic/potion.png")
 			stats = [25, 0, 0, 0, 0, 0]
-		elif item <= 9:
+		elif item <= 10:
 			item = "item"
 			random_item()
-		elif item <=10:
-			item = "weapon"
-			random_weapon()
 			
 	elif type == "lore":
-		item = randi_range(1,3)
-		if item <= 2:
+		item = randi_range(1,5)
+		if item <= 4:
 			item = "item"
 			random_item()
-		elif item <=3:
+		elif item <=5:
 			item = "weapon"
 			random_weapon()
 			
@@ -82,6 +79,7 @@ func random_item():
 		if type != "debug":
 			nam = randi_range(0, len(item_pool)-1) # get lengths
 			nam = item_pool[nam]
+			Glova.g_item_pool(nam)
 		
 		if nam == "breakfast":
 			$item.texture = load("res://assets/loot/items/breakfast.png")
@@ -95,7 +93,7 @@ func random_weapon():
 		if type != "debug":
 			nam = randi_range(0, len(weapon_pool)-1) # get lengths
 			nam = weapon_pool[nam]
-		Glova.g_weapon_pool(nam)
+			Glova.g_weapon_pool(nam)
 	
 		if nam == "spear":
 			$item.texture = load("res://assets/loot/weapons/spear.png")
