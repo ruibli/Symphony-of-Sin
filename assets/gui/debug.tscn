@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd34un78dupu2"]
+[gd_scene load_steps=8 format=3 uid="uid://cd34un78dupu2"]
 
 [ext_resource type="Script" path="res://assets/gui/debug.gd" id="1_skyv3"]
 [ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="2_d47i5"]
 [ext_resource type="PackedScene" uid="uid://b5rm52irse7gj" path="res://assets/map/pedestal.tscn" id="2_xv1br"]
+[ext_resource type="Texture2D" uid="uid://brh1rnh077sdw" path="res://assets/loot/generic/coin.png" id="4_beabh"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aqsvd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jwcyb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j37lq"]
 
 [node name="debug" type="Control"]
 process_mode = 3
@@ -15,18 +18,31 @@ anchors_preset = 0
 script = ExtResource("1_skyv3")
 pedestal_scene = ExtResource("2_xv1br")
 
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_right = 68.0
+offset_bottom = -5.0
+grow_vertical = 0
+text = "Debug Menu:"
+label_settings = ExtResource("2_d47i5")
+vertical_alignment = 2
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 82.0
 offset_bottom = 40.0
 
 [node name="itemcon" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="itemup" type="Button" parent="HBoxContainer/itemcon"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../itemdown")
-focus_neighbor_right = NodePath("../../namcon/nameup")
 focus_neighbor_bottom = NodePath("../itemdown")
 theme_override_styles/focus = SubResource("StyleBoxTexture_aqsvd")
 flat = true
@@ -46,7 +62,6 @@ label_settings = ExtResource("2_d47i5")
 [node name="itemdown" type="Button" parent="HBoxContainer/itemcon"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../itemup")
-focus_neighbor_right = NodePath("../../namcon/namdown")
 focus_neighbor_bottom = NodePath("../itemup")
 theme_override_styles/focus = SubResource("StyleBoxTexture_jwcyb")
 flat = true
@@ -60,35 +75,58 @@ label_settings = ExtResource("2_d47i5")
 
 [node name="namcon" type="VBoxContainer" parent="HBoxContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="nameup" type="Button" parent="HBoxContainer/namcon"]
+[node name="namup" type="Button" parent="HBoxContainer/namcon"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../namdown")
+focus_neighbor_bottom = NodePath("../namdown")
 theme_override_styles/focus = SubResource("StyleBoxTexture_aqsvd")
 flat = true
 
-[node name="Label" type="Label" parent="HBoxContainer/namcon/nameup"]
+[node name="Label" type="Label" parent="HBoxContainer/namcon/namup"]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 16.0
 offset_bottom = 23.0
 text = "^"
 label_settings = ExtResource("2_d47i5")
+horizontal_alignment = 1
 
-[node name="nam" type="Label" parent="HBoxContainer/namcon"]
+[node name="namicon" type="TextureRect" parent="HBoxContainer/namcon"]
 layout_mode = 2
-text = " "
-label_settings = ExtResource("2_d47i5")
+texture = ExtResource("4_beabh")
+stretch_mode = 3
 
 [node name="namdown" type="Button" parent="HBoxContainer/namcon"]
 layout_mode = 2
+focus_neighbor_top = NodePath("../namup")
+focus_neighbor_bottom = NodePath("../namup")
 theme_override_styles/focus = SubResource("StyleBoxTexture_jwcyb")
 flat = true
 
 [node name="Label" type="Label" parent="HBoxContainer/namcon/namdown"]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 16.0
 offset_bottom = 23.0
 text = "v"
 label_settings = ExtResource("2_d47i5")
+horizontal_alignment = 1
+
+[node name="spawn" type="Button" parent="HBoxContainer"]
+z_index = 1
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_j37lq")
+flat = true
+
+[node name="Label" type="Label" parent="HBoxContainer/spawn"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 40.0
+focus_neighbor_bottom = NodePath("../../volume_slider")
+text = "Spawn"
+label_settings = ExtResource("2_d47i5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="focus_entered" from="HBoxContainer/itemcon/itemup" to="." method="_on_itemup_focus_entered"]
 [connection signal="focus_exited" from="HBoxContainer/itemcon/itemup" to="." method="_on_itemup_focus_exited"]
@@ -96,9 +134,12 @@ label_settings = ExtResource("2_d47i5")
 [connection signal="focus_entered" from="HBoxContainer/itemcon/itemdown" to="." method="_on_itemdown_focus_entered"]
 [connection signal="focus_exited" from="HBoxContainer/itemcon/itemdown" to="." method="_on_itemdown_focus_exited"]
 [connection signal="pressed" from="HBoxContainer/itemcon/itemdown" to="." method="_on_itemdown_pressed"]
-[connection signal="focus_entered" from="HBoxContainer/namcon/nameup" to="." method="_on_nameup_focus_entered"]
-[connection signal="focus_exited" from="HBoxContainer/namcon/nameup" to="." method="_on_nameup_focus_exited"]
-[connection signal="pressed" from="HBoxContainer/namcon/nameup" to="." method="_on_nameup_pressed"]
+[connection signal="focus_entered" from="HBoxContainer/namcon/namup" to="." method="_on_nameup_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/namcon/namup" to="." method="_on_nameup_focus_exited"]
+[connection signal="pressed" from="HBoxContainer/namcon/namup" to="." method="_on_nameup_pressed"]
 [connection signal="focus_entered" from="HBoxContainer/namcon/namdown" to="." method="_on_namdown_focus_entered"]
 [connection signal="focus_exited" from="HBoxContainer/namcon/namdown" to="." method="_on_namdown_focus_exited"]
 [connection signal="pressed" from="HBoxContainer/namcon/namdown" to="." method="_on_namdown_pressed"]
+[connection signal="focus_entered" from="HBoxContainer/spawn" to="." method="_on_spawn_focus_entered"]
+[connection signal="focus_exited" from="HBoxContainer/spawn" to="." method="_on_spawn_focus_exited"]
+[connection signal="pressed" from="HBoxContainer/spawn" to="." method="_on_spawn_pressed"]

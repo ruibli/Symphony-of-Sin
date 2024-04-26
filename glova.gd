@@ -13,10 +13,19 @@ var inv
 var hotbar
 var current
 
+var i_pool_full = ["breakfast"]
+var w_pool_full = ["spear","axe"]
 var item_pool
 var weapon_pool
+var spawn_vars = [0,0]
 
 var volume = 100
+
+func debug(d):
+	if d == "item":
+		return i_pool_full
+	elif d == "weapon":
+		return w_pool_full
 
 func reset():
 	level = 1
@@ -29,8 +38,9 @@ func reset():
 	hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty"]
 	current = "crossbow"
 	
-	item_pool = ["breakfast"]
-	weapon_pool = ["spear","axe"]
+	item_pool = i_pool_full
+	weapon_pool = w_pool_full
+
 
 func g_stats(s: Array = [0]):
 	if s == [0]:
@@ -119,3 +129,9 @@ func g_volume(v: float = -1):
 		return volume
 	else:
 		volume = v
+
+func spawn(s: Array = [0]):
+	if s == [0]:
+		return spawn_vars
+	else:
+		spawn_vars = s

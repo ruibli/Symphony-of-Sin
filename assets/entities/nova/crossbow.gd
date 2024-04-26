@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 150
-var damage = 20
+var damage = 10
 var wait = false
 
 func _process(_delta):

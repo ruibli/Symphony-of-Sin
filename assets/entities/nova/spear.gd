@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-var damage = 25
+var damage = 20
 
 func _ready():
 	$Timer.start()

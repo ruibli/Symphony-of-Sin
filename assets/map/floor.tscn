@@ -57,3 +57,8 @@ texture = ExtResource("4_1q312")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor/CameraArea"]
 shape = SubResource("RectangleShape2D_7tmqa")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
