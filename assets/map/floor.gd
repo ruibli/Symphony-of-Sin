@@ -165,8 +165,6 @@ func _process(_delta):
 		temp = pedestal_scene.instantiate()
 		temp.position = Vector2(0,32)
 		temp.type = "debug"
-		print(Glova.spawn([0])[0])
-		print(Glova.spawn([0])[1])
 		temp.item = Glova.spawn([0])[0]
 		temp.nam = Glova.spawn([0])[1]
 		Glova.spawn([0,0])

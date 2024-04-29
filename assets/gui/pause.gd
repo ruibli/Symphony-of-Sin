@@ -9,7 +9,7 @@ var hours = 0
 var minutes = 0
 var seconds = 0
 
-var code = ["ui_down","ui_up","ui_left","ui_down","ui_up","ui_right","ui_down","ui_up"]
+var code = ["slot1","slot2","slot1","slot2","slot2","slot2","slot1","slot2","slot3","slot1","slot4","slot2","slot3","slot1"]
 var index = 0
 
 func _ready():
@@ -61,9 +61,9 @@ func _process(delta):
 	$VBoxContainer/time_con/HBoxContainer/minutes.text = minutes
 	$VBoxContainer/time_con/HBoxContainer/seconds.text = seconds
 
-	print(index)
-	if Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_down") or Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+	if Input.is_action_just_pressed("slot1") or Input.is_action_just_pressed("slot2") or Input.is_action_just_pressed("slot3") or Input.is_action_just_pressed("slot4"):
 		if Input.is_action_just_pressed(code[index], true) and get_tree().paused == true:
+			$index_timer.start()
 			index += 1
 			if index == code.size():
 				$debug.show()
@@ -99,3 +99,6 @@ func _on_continue_focus_entered():
 
 func _on_continue_focus_exited():
 	$continue.modulate = Color(1,1,1,1)
+
+func _on_index_timer_timeout():
+	index = 0

@@ -112,16 +112,19 @@ func _process(_delta):
 		if current == "crossbow" and can_crossbow:
 			can_crossbow = false
 			$CrossbowCooldown.start()
+			Glova.g_cooldown($CrossbowCooldown.wait_time)
 			w = crossbow_scene.instantiate()
 			weapon(true,0)
 		elif current == "spear" and can_spear:
 			can_spear = false
 			$SpearCooldown.start()
+			Glova.g_cooldown($SpearCooldown.wait_time)
 			w = spear_scene.instantiate()
 			weapon(false,0)
 		elif current == "axe" and can_axe:
 			can_axe = false
 			$AxeCooldown.start()
+			Glova.g_cooldown($AxeCooldown.wait_time)
 			w = axe_scene.instantiate()
 			weapon(false,0)
 		else:
