@@ -140,7 +140,6 @@ func _process(_delta):
 			else:
 				pass
 				# cant swap while on cd
-			await get_tree().create_timer(0.25).timeout
 		
 		if swap[0] != 0:
 			$swap.modulate = Color(1,1,1,0.5)
