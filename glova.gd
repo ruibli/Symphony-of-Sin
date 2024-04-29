@@ -12,6 +12,7 @@ var stats
 var inv
 var hotbar
 var current
+var cooldown = 0
 
 var i_pool_full = ["breakfast"]
 var w_pool_full = ["spear","axe"]
@@ -135,3 +136,9 @@ func spawn(s: Array = [0]):
 		return spawn_vars
 	else:
 		spawn_vars = s
+
+func g_cooldown(c: float = -1):
+	if c == -1:
+		return cooldown
+	else:
+		cooldown = c

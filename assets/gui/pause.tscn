@@ -266,6 +266,9 @@ offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="index_timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="timeout" from="pause_timer" to="." method="_on_timer_timeout"]
 [connection signal="focus_entered" from="continue" to="." method="_on_continue_focus_entered"]
 [connection signal="focus_exited" from="continue" to="." method="_on_continue_focus_exited"]
@@ -273,3 +276,4 @@ grow_vertical = 0
 [connection signal="focus_entered" from="main" to="." method="_on_main_focus_entered"]
 [connection signal="focus_exited" from="main" to="." method="_on_main_focus_exited"]
 [connection signal="pressed" from="main" to="." method="_on_main_pressed"]
+[connection signal="timeout" from="index_timer" to="." method="_on_index_timer_timeout"]
