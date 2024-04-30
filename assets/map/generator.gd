@@ -37,6 +37,7 @@ func load_map():
 		
 	for i in dungeon.keys():
 		temp = floor_scene.instantiate()
+		temp.id = i
 		var c_rooms = dungeon.get(i).connected_rooms
 		if(!boss && dungeon.get(i).number_of_connections == 1):
 			boss = true

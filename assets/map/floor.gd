@@ -28,7 +28,7 @@ var level = Glova.g_level()
 var temp
 var room
 var on = false
-
+var id
 var lap_level = 1
 
 func _ready():	
@@ -172,6 +172,7 @@ func _process(_delta):
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	on = true
+	Glova.g_ids([id.x,id.y,type])
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	on = false
