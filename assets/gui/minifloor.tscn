@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpahi3plhj3h1"]
 
 [ext_resource type="Texture2D" uid="uid://bpw0y37mxspfr" path="res://assets/gui/minimap/enemy.png" id="1_j4uh3"]
-[ext_resource type="Script" path="res://assets/gui/mini_floor.gd" id="2_8aiox"]
+[ext_resource type="Script" path="res://assets/gui/minifloor.gd" id="2_8aiox"]
 
-[node name="mini_floor" type="Sprite2D"]
+[node name="minifloor" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.501961)
 texture = ExtResource("1_j4uh3")
 script = ExtResource("2_8aiox")
