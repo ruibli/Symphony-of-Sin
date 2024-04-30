@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://euhirrdqa8po"]
+
+[ext_resource type="Script" path="res://assets/gui/minimap.gd" id="1_ujmek"]
+[ext_resource type="PackedScene" uid="uid://bpahi3plhj3h1" path="res://assets/gui/minifloor.tscn" id="2_lt05a"]
+
+[node name="minimap" type="Node2D"]
+script = ExtResource("1_ujmek")
+mini_floor = ExtResource("2_lt05a")

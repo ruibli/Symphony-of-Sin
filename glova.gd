@@ -21,6 +21,7 @@ var weapon_pool
 var spawn_vars = [0,0]
 
 var volume = 100
+var ids = []
 
 func debug(d):
 	if d == "item":
@@ -142,3 +143,11 @@ func g_cooldown(c: float = -1):
 		return cooldown
 	else:
 		cooldown = c
+
+func g_ids(i: Array = [0]):
+	if i == [0]:
+		return ids
+	elif ids.has(i):
+		pass
+	else:
+		ids.append(i)
