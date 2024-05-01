@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=141 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -109,7 +109,33 @@
 [ext_resource type="Texture2D" uid="uid://bn67epbas2ba0" path="res://assets/entities/nova/nova_spear/spear_attack_up_2.png" id="63_rqdx2"]
 [ext_resource type="Texture2D" uid="uid://b0vkmsltvn34o" path="res://assets/entities/nova/nova_spear/spear_attack_up_3.png" id="64_qg0ia"]
 [ext_resource type="Texture2D" uid="uid://chrgq1j1326pg" path="res://assets/entities/nova/nova_spear/spear_attack_up_4.png" id="65_6avmk"]
+[ext_resource type="Texture2D" uid="uid://b8p7wax8gw6o5" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_down_1.png" id="84_ylifk"]
+[ext_resource type="Texture2D" uid="uid://dnb0r40p8j03w" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_down_1.png" id="85_18vru"]
+[ext_resource type="Texture2D" uid="uid://b7ebcb2xdt85a" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_down_3.png" id="86_50unm"]
+[ext_resource type="Texture2D" uid="uid://dp12oo4x5vufs" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_down_4.png" id="87_agf33"]
+[ext_resource type="Texture2D" uid="uid://b2duuaivqx8g0" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_1.png" id="88_mbjcp"]
+[ext_resource type="Texture2D" uid="uid://clrnm5jjufjmh" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_2.png" id="89_iei17"]
+[ext_resource type="Texture2D" uid="uid://b0o46tkrw5l1t" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_3.png" id="90_24o2n"]
+[ext_resource type="Texture2D" uid="uid://cdntoore57s4e" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_4.png" id="91_v2n5g"]
+[ext_resource type="Texture2D" uid="uid://bt8p7jel7xqxb" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_1.png" id="92_7saq6"]
+[ext_resource type="Texture2D" uid="uid://dhv0we6v1qljt" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_2.png" id="93_otnxu"]
 [ext_resource type="Texture2D" uid="uid://di4sosu4knkpw" path="res://assets/entities/nova/nova_spear/spear_attack_up_1.png" id="94_4fd34"]
+[ext_resource type="Texture2D" uid="uid://bso7a6ws3y3kk" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_3.png" id="94_yvs14"]
+[ext_resource type="Texture2D" uid="uid://c8353ljck5lcf" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_4.png" id="95_75csd"]
+[ext_resource type="Texture2D" uid="uid://ilpw4r7g0tyi" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_up_1.png" id="96_631bp"]
+[ext_resource type="Texture2D" uid="uid://c5too1seytuse" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_up_1.png" id="97_hb8ou"]
+[ext_resource type="Texture2D" uid="uid://byi73cqkfot3g" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_up_3.png" id="98_chlau"]
+[ext_resource type="Texture2D" uid="uid://cosd1neunu2y8" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_up_4.png" id="99_mtthf"]
+[ext_resource type="Texture2D" uid="uid://c2ejuxnabryk5" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_down_0.png" id="100_l3khj"]
+[ext_resource type="Texture2D" uid="uid://0bd6vhjukxew" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_down_2.png" id="101_yobpy"]
+[ext_resource type="Texture2D" uid="uid://c7r1a8w0dx1fb" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_left_0.png" id="102_a0i2o"]
+[ext_resource type="Texture2D" uid="uid://egm5o2m4rle8" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_left_1.png" id="103_meokb"]
+[ext_resource type="Texture2D" uid="uid://dkwndrtd8lkh6" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_left_2.png" id="104_oitj2"]
+[ext_resource type="Texture2D" uid="uid://hqi48c1oqt2i" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_right_0.png" id="105_v6f0b"]
+[ext_resource type="Texture2D" uid="uid://hra6q1cnwk1i" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_right_1.png" id="106_8q0as"]
+[ext_resource type="Texture2D" uid="uid://cvb30j0l8ndih" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_right_2.png" id="107_b65gn"]
+[ext_resource type="Texture2D" uid="uid://cu5nsiaawtufg" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_up_0.png" id="108_xerca"]
+[ext_resource type="Texture2D" uid="uid://dkusri17cnbs0" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_up_2.png" id="109_kyy1y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikotd"]
 size = Vector2(10, 5)
@@ -697,6 +723,178 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("84_ylifk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_18vru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_50unm")
+}, {
+"duration": 2.0,
+"texture": ExtResource("87_agf33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_50unm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_18vru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_ylifk")
+}],
+"loop": false,
+"name": &"gauntlets_attack_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("88_mbjcp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_iei17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_24o2n")
+}, {
+"duration": 2.0,
+"texture": ExtResource("91_v2n5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_24o2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_iei17")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_mbjcp")
+}],
+"loop": false,
+"name": &"gauntlets_attack_left",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("92_7saq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_otnxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_yvs14")
+}, {
+"duration": 2.0,
+"texture": ExtResource("95_75csd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_yvs14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_otnxu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_7saq6")
+}],
+"loop": false,
+"name": &"gauntlets_attack_right",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("96_631bp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_hb8ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_chlau")
+}, {
+"duration": 2.0,
+"texture": ExtResource("99_mtthf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_chlau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_hb8ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_631bp")
+}],
+"loop": false,
+"name": &"gauntlets_attack_up",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("100_l3khj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_18vru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_l3khj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_yobpy")
+}],
+"loop": true,
+"name": &"gauntlets_move_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("102_a0i2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_meokb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_a0i2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_oitj2")
+}],
+"loop": true,
+"name": &"gauntlets_move_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("105_v6f0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_8q0as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_v6f0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_b65gn")
+}],
+"loop": true,
+"name": &"gauntlets_move_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("108_xerca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_hb8ou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_xerca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_kyy1y")
+}],
+"loop": true,
+"name": &"gauntlets_move_up",
+"speed": 4.0
+}, {
+"frames": [{
 "duration": 0.5,
 "texture": ExtResource("51_w3rxb")
 }, {
@@ -882,7 +1080,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"spear_attack_down"
+animation = &"gauntlets_move_up"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
