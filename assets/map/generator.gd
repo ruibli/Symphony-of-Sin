@@ -38,6 +38,7 @@ func load_map():
 	for i in dungeon.keys():
 		temp = floor_scene.instantiate()
 		temp.id = i
+		
 		var c_rooms = dungeon.get(i).connected_rooms
 		if(!boss && dungeon.get(i).number_of_connections == 1):
 			boss = true
@@ -53,6 +54,16 @@ func load_map():
 			shop = true
 			temp.type = "shop"
 		temp.position = i * 352
+		
+		if(c_rooms.get(Vector2(1, 0)) == null):
+			temp.right = false
+		if(c_rooms.get(Vector2(-1, 0)) == null):
+			temp.left = false
+		if(c_rooms.get(Vector2(0, 1)) == null):
+			temp.down = false
+		if(c_rooms.get(Vector2(0, -1)) == null):
+			temp.up = false
+		
 		map_node.add_child(temp)
 		
 		if(c_rooms.get(Vector2(1, 0)) == null):
