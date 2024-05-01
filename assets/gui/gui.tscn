@@ -24,4 +24,4 @@ z_index = 3
 position = Vector2(0, 327)
 
 [node name="minimap" parent="." instance=ExtResource("6_uot0c")]
-position = Vector2(180, 180)
+position = Vector2(350, 0)

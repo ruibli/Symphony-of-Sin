@@ -147,7 +147,5 @@ func g_cooldown(c: float = -1):
 func g_ids(i: Array = [0]):
 	if i == [0]:
 		return ids
-	elif ids.has(i):
-		pass
-	else:
+	elif !ids.has(i):
 		ids.append(i)

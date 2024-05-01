@@ -113,6 +113,7 @@ Arrows: Attack
 
 R (Hold): Reset
 ESC: Pause
+Tab: Minimap
 Tab (Paused): Swap Hotbar
 "
 label_settings = SubResource("LabelSettings_71qru")

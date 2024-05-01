@@ -4,5 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://bpahi3plhj3h1" path="res://assets/gui/minifloor.tscn" id="2_lt05a"]
 
 [node name="minimap" type="Node2D"]
+modulate = Color(1, 1, 1, 0.752941)
 script = ExtResource("1_ujmek")
 mini_floor = ExtResource("2_lt05a")
+
+[node name="swap_cd" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="swap_cd" to="." method="_on_swap_cd_timeout"]

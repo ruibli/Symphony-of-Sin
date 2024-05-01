@@ -44,7 +44,7 @@ func _physics_process(_delta):
 		distance = global_position.distance_to(Glova.g_pos())
 		see = sight()
 		
-		if not wait:
+		if !wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
 		elif distance <= 28 and see:

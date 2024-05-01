@@ -28,8 +28,13 @@ var level = Glova.g_level()
 var temp
 var room
 var on = false
-var id
 var lap_level = 1
+
+var id
+var right = true
+var left = true
+var down = true
+var up = true
 
 func _ready():	
 	if level == 1: # level 1 manor assets
@@ -172,7 +177,7 @@ func _process(_delta):
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	on = true
-	Glova.g_ids([id.x,id.y,type])
+	Glova.g_ids([id.x,id.y,type,right,left,down,up])
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	on = false

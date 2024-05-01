@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://assets/gui/inventory.gd" id="1_n81ww"]
 
 [node name="inventory" type="Node2D"]
-modulate = Color(1, 1, 1, 0.501961)
+modulate = Color(1, 1, 1, 0.752941)
 script = ExtResource("1_n81ww")
 
 [node name="inv_con" type="HFlowContainer" parent="."]
