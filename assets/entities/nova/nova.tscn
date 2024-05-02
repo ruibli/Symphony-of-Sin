@@ -1,4 +1,4 @@
-[gd_scene load_steps=141 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=153 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -136,6 +136,18 @@
 [ext_resource type="Texture2D" uid="uid://cvb30j0l8ndih" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_right_2.png" id="107_b65gn"]
 [ext_resource type="Texture2D" uid="uid://cu5nsiaawtufg" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_up_0.png" id="108_xerca"]
 [ext_resource type="Texture2D" uid="uid://dkusri17cnbs0" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_up_2.png" id="109_kyy1y"]
+[ext_resource type="Texture2D" uid="uid://77xw7pbdlnlv" path="res://assets/entities/nova/nova_homer/homer_move_down_0.png" id="110_fa3dp"]
+[ext_resource type="Texture2D" uid="uid://dsovfv3v70hpl" path="res://assets/entities/nova/nova_homer/homer_move_down_1.png" id="111_p73cm"]
+[ext_resource type="Texture2D" uid="uid://cnklmbn3re054" path="res://assets/entities/nova/nova_homer/homer_move_down_2.png" id="112_r5kh7"]
+[ext_resource type="Texture2D" uid="uid://1lvg7rxfrbgj" path="res://assets/entities/nova/nova_homer/homer_move_left_0.png" id="113_81qk4"]
+[ext_resource type="Texture2D" uid="uid://bcj8owrn6oxsc" path="res://assets/entities/nova/nova_homer/homer_move_left_1.png" id="114_wacsu"]
+[ext_resource type="Texture2D" uid="uid://b45poc5sacbcs" path="res://assets/entities/nova/nova_homer/homer_move_left_2.png" id="115_shfyh"]
+[ext_resource type="Texture2D" uid="uid://ca3vyia8soutx" path="res://assets/entities/nova/nova_homer/homer_move_right_0.png" id="116_622rv"]
+[ext_resource type="Texture2D" uid="uid://donk42c8s5nvm" path="res://assets/entities/nova/nova_homer/homer_move_right_1.png" id="117_hokyj"]
+[ext_resource type="Texture2D" uid="uid://ch8v63nlspitn" path="res://assets/entities/nova/nova_homer/homer_move_right_2.png" id="118_2cox3"]
+[ext_resource type="Texture2D" uid="uid://b1e8qbn125hnm" path="res://assets/entities/nova/nova_homer/homer_move_up_0.png" id="119_bk04y"]
+[ext_resource type="Texture2D" uid="uid://bn325csvu311d" path="res://assets/entities/nova/nova_homer/homer_move_up_1.png" id="120_n0sct"]
+[ext_resource type="Texture2D" uid="uid://dcrx8c4ihlf14" path="res://assets/entities/nova/nova_homer/homer_move_up_2.png" id="121_1uwm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikotd"]
 size = Vector2(10, 5)
@@ -895,6 +907,142 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("110_fa3dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_p73cm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_fa3dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_r5kh7")
+}],
+"loop": true,
+"name": &"homer_attack_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("113_81qk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_wacsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_81qk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_shfyh")
+}],
+"loop": true,
+"name": &"homer_attack_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("116_622rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_hokyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_622rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_2cox3")
+}],
+"loop": true,
+"name": &"homer_attack_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("119_bk04y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_n0sct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_bk04y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_1uwm4")
+}],
+"loop": true,
+"name": &"homer_attack_up",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("110_fa3dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_p73cm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_fa3dp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_r5kh7")
+}],
+"loop": true,
+"name": &"homer_move_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("113_81qk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_wacsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_81qk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_shfyh")
+}],
+"loop": true,
+"name": &"homer_move_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("116_622rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_hokyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_622rv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_2cox3")
+}],
+"loop": true,
+"name": &"homer_move_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("119_bk04y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_n0sct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_bk04y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_1uwm4")
+}],
+"loop": true,
+"name": &"homer_move_up",
+"speed": 4.0
+}, {
+"frames": [{
 "duration": 0.5,
 "texture": ExtResource("51_w3rxb")
 }, {
@@ -1080,7 +1228,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"gauntlets_move_up"
+animation = &"homer_move_right"
 
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
