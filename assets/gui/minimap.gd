@@ -20,15 +20,17 @@ func _process(_delta):
 			hide()
 		else:
 			show()
-	position = Vector2(350-(x+2)*16,(-y+2)*16)
+	position = Vector2(350-(x+4)*8,(-y+4)*8)
 	
 	if not wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
 	else:
 		ids = Glova.g_ids([0])
-	
-		if !save.has(ids[ids.size()-1]):
+		
+		if ids == []:
+			get_tree().reload_current_scene()
+		elif !save.has(ids[ids.size()-1]):
 			var id = ids[ids.size()-1]
 			var temp = mini_floor.instantiate()
 			temp.type = id[2]

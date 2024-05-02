@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://bpahi3plhj3h1"]
 
-[ext_resource type="Texture2D" uid="uid://bi1gwn8uyktnq" path="res://assets/gui/minimap/minienemy.png" id="1_ix06t"]
+[ext_resource type="Texture2D" uid="uid://cardyuic6dgd0" path="res://assets/gui/minimap/minifloor_enemy.png" id="1_uafit"]
 [ext_resource type="Script" path="res://assets/gui/minifloor.gd" id="2_8aiox"]
 
 [node name="minifloor" type="Sprite2D"]
-texture = ExtResource("1_ix06t")
+texture = ExtResource("1_uafit")
 script = ExtResource("2_8aiox")

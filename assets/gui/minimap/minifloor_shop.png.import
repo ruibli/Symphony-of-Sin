@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfigav2y4ljkj"
-path="res://.godot/imported/minilore.png-47dc02eb79d15a7afa9a67b07387efc4.ctex"
+uid="uid://crmp1t223hwid"
+path="res://.godot/imported/minifloor_shop.png-fa20942aaedc697974fa39fc724dbd0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/minimap/minilore.png"
-dest_files=["res://.godot/imported/minilore.png-47dc02eb79d15a7afa9a67b07387efc4.ctex"]
+source_file="res://assets/gui/minimap/minifloor_shop.png"
+dest_files=["res://.godot/imported/minifloor_shop.png-fa20942aaedc697974fa39fc724dbd0a.ctex"]
 
 [params]
 

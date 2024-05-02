@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp20a5f6mi87t"
-path="res://.godot/imported/minispawn.png-0d0d9fe174374242889c43d75b0ff402.ctex"
+uid="uid://cepcppi7t430w"
+path="res://.godot/imported/minifill_shop.png-be103ee32881351a4663c8a1a4187e78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/minimap/minispawn.png"
-dest_files=["res://.godot/imported/minispawn.png-0d0d9fe174374242889c43d75b0ff402.ctex"]
+source_file="res://assets/gui/minimap/minifill_shop.png"
+dest_files=["res://.godot/imported/minifill_shop.png-be103ee32881351a4663c8a1a4187e78.ctex"]
 
 [params]
 
