@@ -1266,6 +1266,8 @@ wait_time = 1.5
 [node name="AxeCooldown" type="Timer" parent="."]
 wait_time = 2.0
 
+[node name="HomerCooldown" type="Timer" parent="."]
+
 [node name="WeaponPos" type="Marker2D" parent="."]
 
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]

@@ -1,0 +1,34 @@
+extends CharacterBody2D
+
+var speed = 300
+var damage = 9999
+var wait = false
+
+func _process(_delta):
+	if not wait:
+			await get_tree().create_timer(0.05).timeout
+			wait = true
+	
+	if velocity.length() > 0:
+		velocity = velocity.normalized() * speed
+	move_and_slide()
+	
+	for index in get_slide_collision_count():
+		queue_free()
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
+
+func _on_roomdetector_area_entered(area: Area2D) -> void:
+	if area.get_name() == 'CameraArea' and wait == true:
+		queue_free()
+
+func _on_homer_hit_area_entered(area):
+		area.hit(damage)
+		queue_free()
+
+func _on_homerhit_area_entered(area):
+	pass # Replace with function body.
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity):
+	pass # Replace with function body.

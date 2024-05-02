@@ -6,6 +6,7 @@ var cam = false
 @export var crossbow_scene : PackedScene
 @export var spear_scene : PackedScene
 @export var axe_scene : PackedScene
+@export var homer_scene : PackedScene
 
 var health = 100
 var health_max = 100
@@ -28,6 +29,7 @@ var w
 var can_crossbow = true
 var can_spear = true
 var can_axe = true
+var can_homer = true
 
 func set_nova():
 	health = Glova.g_stats()[0]
@@ -127,6 +129,12 @@ func _process(_delta):
 			Glova.g_cooldown($AxeCooldown.wait_time)
 			w = axe_scene.instantiate()
 			weapon(false,0)
+		elif current == "homer" and can_homer:
+			can_homer = false
+			$HomerCooldown.start()
+			Glova.g_cooldown($HomerCooldown.wait_time)
+			w = homer_scene.instantiate()
+			weapon(true,0)
 		else:
 			if !lock:
 				type = "move"

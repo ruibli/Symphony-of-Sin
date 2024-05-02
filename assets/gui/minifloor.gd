@@ -12,7 +12,7 @@ func _ready():
 	texture = load("res://assets/gui/minimap/minifloor_"+type+".png")
 	
 	temp = Sprite2D.new()
-	temp.position = Vector2(3, 0)
+	temp.position = Vector2(6, 0)
 	temp.rotation_degrees = 90
 	if !right:
 		temp.texture = load("res://assets/gui/minimap/minifill.png")
@@ -21,7 +21,7 @@ func _ready():
 	add_child(temp)
 	
 	temp = Sprite2D.new()
-	temp.position = Vector2(-3, 0)
+	temp.position = Vector2(-6, 0)
 	temp.rotation_degrees = 270
 	if !left:
 		temp.texture = load("res://assets/gui/minimap/minifill.png")
@@ -30,7 +30,7 @@ func _ready():
 	add_child(temp)
 	
 	temp = Sprite2D.new()
-	temp.position = Vector2(0, 3)
+	temp.position = Vector2(0, 6)
 	temp.rotation_degrees = 180
 	if !down:
 		temp.texture = load("res://assets/gui/minimap/minifill.png")
@@ -39,7 +39,7 @@ func _ready():
 	add_child(temp)
 	
 	temp = Sprite2D.new()
-	temp.position = Vector2(0, -3)
+	temp.position = Vector2(0, -6)
 	temp.rotation_degrees = 0
 	if !up:
 		temp.texture = load("res://assets/gui/minimap/minifill.png")

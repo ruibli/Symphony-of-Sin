@@ -11,6 +11,9 @@ var ids = []
 var x = 0
 var y = 0
 
+func _ready():
+	hide()
+
 func _process(_delta):
 	
 	if Input.is_action_pressed("swap") and can_swap:
@@ -20,11 +23,12 @@ func _process(_delta):
 			hide()
 		else:
 			show()
-	position = Vector2(350-(x+4)*8,(-y+4)*8)
+	position = Vector2(350-(x+2)*16,(-y+2)*16)
 	
 	if not wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
+			show()
 	else:
 		ids = Glova.g_ids([0])
 		
@@ -38,7 +42,7 @@ func _process(_delta):
 			temp.left = id[4]
 			temp.down = id[5]
 			temp.up = id[6]
-			temp.position = Vector2(id[0],id[1]) * 8
+			temp.position = Vector2(id[0],id[1]) * 16
 			
 			if id[0] > x:
 				x = id[0]
