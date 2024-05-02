@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi1gwn8uyktnq"
-path="res://.godot/imported/minienemy.png-dbac1b5f39a09b424c8364b92b7c33a3.ctex"
+uid="uid://cs3tvadif3r6s"
+path="res://.godot/imported/minifloor_lore.png-8c8e7b5648a5ab1e8a47780d351c130f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/minimap/minienemy.png"
-dest_files=["res://.godot/imported/minienemy.png-dbac1b5f39a09b424c8364b92b7c33a3.ctex"]
+source_file="res://assets/gui/minimap/minifloor_lore.png"
+dest_files=["res://.godot/imported/minifloor_lore.png-8c8e7b5648a5ab1e8a47780d351c130f.ctex"]
 
 [params]
 

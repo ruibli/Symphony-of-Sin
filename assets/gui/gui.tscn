@@ -15,7 +15,7 @@
 position = Vector2(0, 64)
 
 [node name="inventory" parent="." instance=ExtResource("3_qm3s2")]
-position = Vector2(285, 234)
+position = Vector2(284, 234)
 
 [node name="pause" parent="." instance=ExtResource("4_i06mm")]
 z_index = 3

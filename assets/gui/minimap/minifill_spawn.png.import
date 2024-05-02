@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d03s7bxg7dknc"
-path="res://.godot/imported/miniboss.png-e809063aa7fab61b9889040583c1015c.ctex"
+uid="uid://rwisip0yixsi"
+path="res://.godot/imported/minifill_spawn.png-c7783b470a1b2e0691519141bc4be25f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/minimap/miniboss.png"
-dest_files=["res://.godot/imported/miniboss.png-e809063aa7fab61b9889040583c1015c.ctex"]
+source_file="res://assets/gui/minimap/minifill_spawn.png"
+dest_files=["res://.godot/imported/minifill_spawn.png-c7783b470a1b2e0691519141bc4be25f.ctex"]
 
 [params]
 

@@ -40,8 +40,8 @@ func reset():
 	hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty"]
 	current = "crossbow"
 	
-	item_pool = i_pool_full
-	weapon_pool = w_pool_full
+	item_pool = i_pool_full.duplicate()
+	weapon_pool = w_pool_full.duplicate()
 
 
 func g_stats(s: Array = [0]):
@@ -147,5 +147,7 @@ func g_cooldown(c: float = -1):
 func g_ids(i: Array = [0]):
 	if i == [0]:
 		return ids
+	if i == [-1]:
+		ids = []
 	elif !ids.has(i):
 		ids.append(i)
