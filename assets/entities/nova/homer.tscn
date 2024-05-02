@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2m4vch7s7lf7"]
+
+[ext_resource type="Script" path="res://assets/entities/nova/homer.gd" id="1_umxd2"]
+[ext_resource type="Texture2D" uid="uid://bkius253y4q1v" path="res://assets/loot/weapons/homer.png" id="2_ljrtx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vcv3"]
+size = Vector2(4.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g6p35"]
+size = Vector2(0.1, 0.1)
+
+[node name="homer" type="CharacterBody2D"]
+script = ExtResource("1_umxd2")
+
+[node name="HomerCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0vcv3")
+
+[node name="Homer" type="Sprite2D" parent="HomerCollision"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("2_ljrtx")
+
+[node name="homerhit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="HomerHit" type="CollisionShape2D" parent="homerhit"]
+shape = SubResource("RectangleShape2D_0vcv3")
+
+[node name="homerdetector" type="Area2D" parent="."]
+
+[node name="HomerHit" type="CollisionShape2D" parent="homerdetector"]
+shape = SubResource("RectangleShape2D_g6p35")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="area_entered" from="homerhit" to="." method="_on_homerhit_area_entered"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
