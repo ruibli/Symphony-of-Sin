@@ -5,3 +5,6 @@ func hit(ow):
 
 func boop(dir):
 	owner.boop(dir)
+
+func is_active():
+	return owner.is_active()

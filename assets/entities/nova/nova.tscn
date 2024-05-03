@@ -1,4 +1,4 @@
-[gd_scene load_steps=153 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=158 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dvycliiilo7do" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_1.png" id="4_feket"]
 [ext_resource type="PackedScene" uid="uid://b8dfynw33f4dd" path="res://assets/entities/nova/axe.tscn" id="4_s1sm1"]
 [ext_resource type="Texture2D" uid="uid://biydppq7mlwpr" path="res://assets/entities/nova/nova_axe/attack/axe_attack_down_3.png" id="5_1yt1b"]
+[ext_resource type="PackedScene" uid="uid://d2m4vch7s7lf7" path="res://assets/entities/nova/homer.tscn" id="5_c34g0"]
 [ext_resource type="Texture2D" uid="uid://batusg2bn513g" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_2.png" id="5_ejog2"]
 [ext_resource type="Texture2D" uid="uid://b5w3cv0bhoaa2" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_2.png" id="5_tpm4f"]
 [ext_resource type="Texture2D" uid="uid://bqri3tlx8dubv" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_3.png" id="6_8rvns"]
@@ -1203,6 +1204,60 @@ animations = [{
 "speed": 4.0
 }]
 
+[sub_resource type="Animation" id="Animation_fagb7"]
+resource_name = "hurt"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2qf01"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_40a8a"]
+resource_name = "clear"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ijn07"]
+_data = {
+"RESET": SubResource("Animation_2qf01"),
+"clear": SubResource("Animation_40a8a"),
+"hurt": SubResource("Animation_fagb7")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g5e2g"]
 radius = 8.0
 height = 24.0
@@ -1218,6 +1273,7 @@ script = ExtResource("1_wapv4")
 crossbow_scene = ExtResource("2_o8asn")
 spear_scene = ExtResource("3_4ve7n")
 axe_scene = ExtResource("4_s1sm1")
+homer_scene = ExtResource("5_c34g0")
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -1230,6 +1286,11 @@ position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
 animation = &"homer_move_right"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NovaCollision/NovaAnimation"]
+libraries = {
+"": SubResource("AnimationLibrary_ijn07")
+}
+
 [node name="novahurt" type="Area2D" parent="."]
 collision_layer = 34
 collision_mask = 0
@@ -1240,6 +1301,7 @@ z_index = 1
 shape = SubResource("CapsuleShape2D_g5e2g")
 
 [node name="RoomDetector" type="Area2D" parent="."]
+collision_layer = 0
 
 [node name="RoomHitbox" type="CollisionShape2D" parent="RoomDetector"]
 z_index = 1
@@ -1257,6 +1319,7 @@ rotation_smoothing_speed = 15.0
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-5, -10, 5, -10, 5, 10, -5, 10)
+avoidance_layers = 2
 
 [node name="CrossbowCooldown" type="Timer" parent="."]
 
@@ -1275,3 +1338,4 @@ wait_time = 2.0
 [connection signal="timeout" from="CrossbowCooldown" to="." method="_on_crossbow_cooldown_timeout"]
 [connection signal="timeout" from="SpearCooldown" to="." method="_on_spear_cooldown_timeout"]
 [connection signal="timeout" from="AxeCooldown" to="." method="_on_axe_cooldown_timeout"]
+[connection signal="timeout" from="HomerCooldown" to="." method="_on_homer_cooldown_timeout"]

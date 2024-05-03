@@ -224,6 +224,8 @@ swap={
 2d_physics/layer_4="nova attacks"
 2d_physics/layer_5="enemy attacks"
 2d_physics/layer_6="sight"
+avoidance/layer_1="map"
+avoidance/layer_2="nova"
 
 [rendering]
 

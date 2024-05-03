@@ -4,6 +4,9 @@ var speed = 150
 var damage = 10
 var wait = false
 
+func _ready():
+	$Timer.start()
+
 func _process(_delta):
 	if not wait:
 			await get_tree().create_timer(0.05).timeout
@@ -23,6 +26,9 @@ func _on_roomdetector_area_entered(area: Area2D) -> void:
 	if area.get_name() == 'CameraArea' and wait == true:
 		queue_free()
 
-func _on_arrow_hit_area_entered(area):
-		area.hit(damage)
-		queue_free()
+func _on_crossbowhit_area_entered(area):
+	area.hit(damage)
+	queue_free()
+
+func _on_timer_timeout():
+	queue_free()

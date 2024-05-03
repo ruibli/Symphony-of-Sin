@@ -10,7 +10,7 @@ func _process(_delta):
 	$health.value = health/health_max
 	$health/health_label.text = str(int(health)) + "/" +str(int(health_max))
 	
-	if health/health_max < save:
+	if health/health_max != save:
 		var tween = get_tree().create_tween()
 		tween.tween_property($iframes, "value", health/health_max, 1)
 		save = health/health_max

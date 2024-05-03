@@ -147,14 +147,13 @@ func hit(ow):
 		$HitCooldown.start()
 		health -= ow
 		
-		var tween = get_tree().create_tween()
-		tween.tween_property($PrideCollision/PrideAnimation, "modulate", Color(1, 0, 0, 1), 0.05)
+		$PrideCollision/PrideAnimation/AnimationPlayer.play("hurt")
 		if health <= 0:
 			await get_tree().create_timer(0.05).timeout
 			Glova.g_enemies(-1)
 			queue_free()
 		else:
-			tween.tween_property($PrideCollision/PrideAnimation, "modulate", Color(1, 1, 1, 1), 0.05)
+			$PrideCollision/PrideAnimation/AnimationPlayer.play("clear")
 
 func _on_pridehit_hurt_area_entered(area):
 		area.hit(damage)
@@ -167,3 +166,6 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 func _on_weapon_cooldown_timeout():
 	can_attack = true
 	type = "move"
+
+func is_active():
+	return active

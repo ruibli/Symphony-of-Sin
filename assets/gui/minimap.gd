@@ -26,7 +26,7 @@ func _process(_delta):
 	position = Vector2(350-(x+2)*16,(-y+2)*16)
 	
 	if not wait:
-			await get_tree().create_timer(0.25).timeout
+			await get_tree().create_timer(0.05).timeout
 			wait = true
 			show()
 	else:
@@ -34,6 +34,8 @@ func _process(_delta):
 		
 		if ids == []:
 			get_tree().reload_current_scene()
+		elif ids[0][2] != "spawn":
+			Glova.g_ids([-1])
 		elif !save.has(ids[ids.size()-1]):
 			var id = ids[ids.size()-1]
 			var temp = mini_floor.instantiate()

@@ -81,9 +81,11 @@ func random_item():
 			nam = item_pool[nam]
 			Glova.g_item_pool(nam)
 		
+		$item.texture = load("res://assets/loot/items/"+nam+".png")
+		
 		if nam == "breakfast":
-			$item.texture = load("res://assets/loot/items/breakfast.png")
 			stats = [25, 25, 0, 0, 0, 0]
+			
 
 func random_weapon():
 	var weapon_pool = Glova.g_weapon_pool("0")
@@ -95,10 +97,7 @@ func random_weapon():
 			nam = weapon_pool[nam]
 			Glova.g_weapon_pool(nam)
 	
-		if nam == "spear":
-			$item.texture = load("res://assets/loot/weapons/spear.png")
-		elif nam == "axe":
-			$item.texture = load("res://assets/loot/weapons/axe.png")
+		$item.texture = load("res://assets/loot/weapons/"+nam+".png")
 
 func breakfast():
 	item = "item"

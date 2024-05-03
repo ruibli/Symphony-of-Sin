@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cbjx02qmhx0a1"]
+[gd_scene load_steps=11 format=3 uid="uid://cbjx02qmhx0a1"]
 
 [ext_resource type="Script" path="res://assets/gui/stats.gd" id="1_bl37g"]
 [ext_resource type="Texture2D" uid="uid://b8by1dkd5pojv" path="res://assets/gui/icons/speed_icon.png" id="2_4unwn"]
@@ -16,6 +16,14 @@ font = SubResource("FontVariation_mqe1d")
 font_size = 8
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_qgikx"]
+resource_name = "good"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s7g3r"]
+_data = {
+"good": SubResource("Animation_qgikx")
+}
 
 [node name="stats" type="Node2D"]
 modulate = Color(1, 1, 1, 0.752941)
@@ -37,6 +45,11 @@ stretch_mode = 2
 layout_mode = 2
 text = "1.00"
 label_settings = SubResource("LabelSettings_3c6pa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/speed_con/speed_label"]
+libraries = {
+"": SubResource("AnimationLibrary_s7g3r")
+}
 
 [node name="power_con" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
