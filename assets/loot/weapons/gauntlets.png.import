@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2g7ehd8u7ybx"
-path="res://.godot/imported/gauntlet.png-8f95a49846c50db2609cf8813aa21c1e.ctex"
+uid="uid://dow1hrqs2hltp"
+path="res://.godot/imported/gauntlets.png-e9622ea357da60aba7ce1e9e2fb41bf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loot/weapons/gauntlet.png"
-dest_files=["res://.godot/imported/gauntlet.png-8f95a49846c50db2609cf8813aa21c1e.ctex"]
+source_file="res://assets/loot/weapons/gauntlets.png"
+dest_files=["res://.godot/imported/gauntlets.png-e9622ea357da60aba7ce1e9e2fb41bf1.ctex"]
 
 [params]
 

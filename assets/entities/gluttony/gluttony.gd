@@ -155,14 +155,13 @@ func hit(ow):
 		$HitCooldown.start()
 		health -= ow
 		
-		var tween = get_tree().create_tween()
-		tween.tween_property($GluttonyCollision/GluttonyAnimation, "modulate", Color(1, 0, 0, 1), 0.05)
+		$GluttonyCollision/GluttonyAnimation/AnimationPlayer.play("hurt")
 		if health <= 0:
 			await get_tree().create_timer(0.05).timeout
 			Glova.g_enemies(-1)
 			queue_free()
 		else:
-			tween.tween_property($GluttonyCollision/GluttonyAnimation, "modulate", Color(1, 1, 1, 1), 0.05)
+			$GluttonyCollision/GluttonyAnimation/AnimationPlayer.play("clear")
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	if active and (distance >= 20 or not see):
@@ -185,3 +184,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 	active = false
 	wait = false
 	Glova.g_enemies(-1)
+
+func is_active():
+	return active

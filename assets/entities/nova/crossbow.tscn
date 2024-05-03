@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b85dgg62gt5fc"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/crossbow.gd" id="1_7expc"]
-[ext_resource type="Texture2D" uid="uid://d03y6lxexnpnf" path="res://assets/entities/nova/nova_crossbow/nova_arrow.png" id="2_whlwy"]
+[ext_resource type="Texture2D" uid="uid://d03y6lxexnpnf" path="res://assets/entities/nova/nova_crossbow/crossbow.png" id="2_pbba3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3llh"]
 size = Vector2(4.5, 8)
@@ -9,27 +9,28 @@ size = Vector2(4.5, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjimp"]
 size = Vector2(0.1, 0.1)
 
-[node name="arrow" type="CharacterBody2D"]
+[node name="crossbow" type="CharacterBody2D"]
 collision_layer = 8
 motion_mode = 1
 script = ExtResource("1_7expc")
 
-[node name="ArrowCollision" type="CollisionShape2D" parent="."]
+[node name="CrossbowCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_b3llh")
 
-[node name="Arrow" type="Sprite2D" parent="ArrowCollision"]
+[node name="Crossbow" type="Sprite2D" parent="CrossbowCollision"]
 z_index = 1
 z_as_relative = false
-texture = ExtResource("2_whlwy")
+texture = ExtResource("2_pbba3")
 
-[node name="arrowhit" type="Area2D" parent="."]
+[node name="crossbowhit" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 4
 
-[node name="ArrowHit" type="CollisionShape2D" parent="arrowhit"]
+[node name="CrossbowHit" type="CollisionShape2D" parent="crossbowhit"]
 shape = SubResource("RectangleShape2D_b3llh")
 
 [node name="roomdetector" type="Area2D" parent="."]
+collision_layer = 8
 
 [node name="RoomHit" type="CollisionShape2D" parent="roomdetector"]
 shape = SubResource("RectangleShape2D_jjimp")
@@ -39,6 +40,11 @@ shape = SubResource("RectangleShape2D_jjimp")
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-2, -4, 2, -4, 2, 4, -2, 4)
 
-[connection signal="area_entered" from="arrowhit" to="." method="_on_arrow_hit_area_entered"]
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="area_entered" from="crossbowhit" to="." method="_on_crossbowhit_area_entered"]
 [connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

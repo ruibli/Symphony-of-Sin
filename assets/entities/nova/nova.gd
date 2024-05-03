@@ -188,13 +188,12 @@ func hit(ow):
 		$HitCooldown.start()
 		Glova.g_stats([-ow, 0, 0, 0, 0, 0])
 		
-		var tween = get_tree().create_tween()
-		tween.tween_property($NovaCollision/NovaAnimation, "modulate", Color(1, 0, 0, 1), 0.05)
+		$NovaCollision/NovaAnimation/AnimationPlayer.play("hurt")
 		if Glova.g_stats()[0] <= 0:
 			await get_tree().create_timer(0.05).timeout
 			Glova.g_level(-1)
 		else:
-			tween.tween_property($NovaCollision/NovaAnimation, "modulate", Color(1, 1, 1, 1), 0.05)
+			$NovaCollision/NovaAnimation/AnimationPlayer.play("clear")
 
 func boop(dir):
 	if dir == "up":
@@ -214,3 +213,6 @@ func _on_spear_cooldown_timeout():
 
 func _on_axe_cooldown_timeout():
 	can_axe = true
+
+func _on_homer_cooldown_timeout():
+	can_homer = true
