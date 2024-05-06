@@ -9,16 +9,14 @@ var item_pool
 var item_index = 0
 var weapon_pool
 var weapon_index = 0
-var homer = true
 
 func _ready():
 	hide()
 
 func _process(_delta):
-	item_pool = Glova.debug("item")
-	weapon_pool = Glova.debug("weapon")
-	if homer:
-		weapon_pool.append("homer")
+	item_pool = Glova.debug("item").duplicate()
+	weapon_pool = Glova.debug("weapon").duplicate()
+	weapon_pool.append("homer")
 	$HBoxContainer/itemcon/item.text = items[items_index]
 	
 	if items[items_index] == "coin":
@@ -103,9 +101,8 @@ func _on_namdown_focus_exited():
 	$HBoxContainer/namcon/namdown.modulate = Color(1,1,1,1)
 
 func _on_spawn_pressed():
-	if nam == "homer":
-		homer = false
 	Glova.spawn([items[items_index], nam])
+	
 	get_tree().paused = false
 
 func _on_spawn_focus_entered():

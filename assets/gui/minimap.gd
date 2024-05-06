@@ -51,9 +51,10 @@ func _process(_delta):
 			if id[1] < y:
 				y = id[1]
 			
+			$mininova.position = Vector2(id[0],id[1]) * 16
+			
 			add_child(temp)
 			save.append(id)
-
 
 func _on_swap_cd_timeout():
 	can_swap = true

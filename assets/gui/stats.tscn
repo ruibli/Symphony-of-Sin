@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cbjx02qmhx0a1"]
+[gd_scene load_steps=13 format=3 uid="uid://cbjx02qmhx0a1"]
 
 [ext_resource type="Script" path="res://assets/gui/stats.gd" id="1_bl37g"]
 [ext_resource type="Texture2D" uid="uid://b8by1dkd5pojv" path="res://assets/gui/icons/speed_icon.png" id="2_4unwn"]
@@ -19,9 +19,55 @@ outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_qgikx"]
 resource_name = "good"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_07i2s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dupwc"]
+resource_name = "bad"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s7g3r"]
 _data = {
+"RESET": SubResource("Animation_07i2s"),
+"bad": SubResource("Animation_dupwc"),
 "good": SubResource("Animation_qgikx")
 }
 
@@ -64,6 +110,11 @@ layout_mode = 2
 text = "1.00"
 label_settings = SubResource("LabelSettings_3c6pa")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/power_con/power_label"]
+libraries = {
+"": SubResource("AnimationLibrary_s7g3r")
+}
+
 [node name="attack_con" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 
@@ -76,6 +127,11 @@ stretch_mode = 2
 layout_mode = 2
 text = "1.00"
 label_settings = SubResource("LabelSettings_3c6pa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/attack_con/attack_label"]
+libraries = {
+"": SubResource("AnimationLibrary_s7g3r")
+}
 
 [node name="gold_con" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -90,3 +146,8 @@ layout_mode = 2
 text = "0
 "
 label_settings = SubResource("LabelSettings_3c6pa")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/gold_con/gold_label"]
+libraries = {
+"": SubResource("AnimationLibrary_s7g3r")
+}

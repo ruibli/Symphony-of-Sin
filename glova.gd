@@ -22,6 +22,7 @@ var spawn_vars = [0,0]
 
 var volume = 100
 var ids = []
+var doors = []
 
 func debug(d):
 	if d == "item":
@@ -42,7 +43,9 @@ func reset():
 	
 	item_pool = i_pool_full.duplicate()
 	weapon_pool = w_pool_full.duplicate()
-
+	
+	ids = []
+	doors = []
 
 func g_stats(s: Array = [0]):
 	if s == [0]:
@@ -151,3 +154,9 @@ func g_ids(i: Array = [0]):
 		ids = []
 	elif !ids.has(i):
 		ids.append(i)
+
+func g_doors(d: Array = [0]):
+	if d == [0]:
+		return doors
+	else:
+		doors = d
