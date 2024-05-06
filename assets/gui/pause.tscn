@@ -2,7 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="1_gyagt"]
 [ext_resource type="Script" path="res://assets/gui/pause.gd" id="2_x2piu"]
-[ext_resource type="Texture2D" uid="uid://cor3e4soivngc" path="res://assets/important/pause.png" id="3_pniwp"]
+[ext_resource type="Texture2D" uid="uid://cor3e4soivngc" path="res://assets/gui/icons/pause.png" id="3_6xkyc"]
 [ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="4_312x5"]
 [ext_resource type="PackedScene" uid="uid://cd34un78dupu2" path="res://assets/gui/debug.tscn" id="5_824ic"]
 
@@ -172,7 +172,7 @@ one_shot = true
 
 [node name="gray" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.501961)
-texture = ExtResource("3_pniwp")
+texture = ExtResource("3_6xkyc")
 centered = false
 
 [node name="continue" type="Button" parent="."]

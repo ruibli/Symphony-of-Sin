@@ -18,7 +18,6 @@ func new_game():
 	generator.new_dungeon()
 	nova.cam = false
 	nova.position = generator.get_spawn()
-	Glova.g_ids([-1])
 	$fade/black/AnimationPlayer.play("clear")
 	active = true
 	await get_tree().create_timer(0.25).timeout
@@ -30,6 +29,7 @@ func new_floor():
 	nova.position = generator.get_spawn()
 	Glova.g_enemies(-999)
 	Glova.g_ids([-1])
+	Glova.g_doors([-1])
 	$fade/black/AnimationPlayer.play("clear")
 	active = true
 	await get_tree().create_timer(0.25).timeout

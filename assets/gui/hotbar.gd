@@ -9,6 +9,7 @@ var can_swap = true
 
 func _process(_delta):
 	hotbar = Glova.g_hotbar("0")
+	Glova.g_current(hotbar[slot-1])
 	$HBoxContainer/slot1.texture = load("res://assets/loot/weapons/"+hotbar[0]+".png")
 	$HBoxContainer/slot2.texture = load("res://assets/loot/weapons/"+hotbar[1]+".png")
 	$HBoxContainer/slot3.texture = load("res://assets/loot/weapons/"+hotbar[2]+".png")

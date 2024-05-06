@@ -15,6 +15,10 @@ var generation_chance = 20
 
 var spawn_point
 
+var boss_id
+var shop_id
+var lore_id
+
 @onready var map_node = $MapNode
 
 func get_spawn():
@@ -24,6 +28,7 @@ func new_dungeon():
 	randomize()
 	dungeon = generate(randf_range(-1000, 1000))
 	load_map()
+	Glova.g_doors([boss_id,shop_id,lore_id])
 	
 func load_map():
 	
@@ -43,6 +48,7 @@ func load_map():
 		if(!boss && dungeon.get(i).number_of_connections == 1):
 			boss = true
 			temp.type = "boss"
+			boss_id = i
 		elif(!spawn && dungeon.get(i).number_of_connections >= 3):
 			spawn = true
 			temp.type = "spawn"
@@ -50,9 +56,11 @@ func load_map():
 		elif(!lore && dungeon.get(i).number_of_connections == 1):
 			lore = true
 			temp.type = "lore"
+			lore_id = i
 		elif(!shop && dungeon.get(i).number_of_connections == 1):
 			shop = true
 			temp.type = "shop"
+			shop_id = i
 		temp.position = i * 352
 		
 		if(c_rooms.get(Vector2(1, 0)) == null):
@@ -74,6 +82,7 @@ func load_map():
 		else:
 			temp = door_scene.instantiate()
 			temp.dir = "right"
+			temp.id = i
 			temp.position = i * 352 + Vector2(160, 0)
 			temp.rotation_degrees = 90
 			map_node.add_child(temp)
@@ -85,6 +94,7 @@ func load_map():
 		else:
 			temp = door_scene.instantiate()
 			temp.dir = "left"
+			temp.id = i
 			temp.position = i * 352 + Vector2(-160, 0)
 			temp.rotation_degrees = 270
 			map_node.add_child(temp)
@@ -96,6 +106,7 @@ func load_map():
 		else:
 			temp = door_scene.instantiate()
 			temp.dir = "down"
+			temp.id = i
 			temp.position = i * 352 + Vector2(0, 160)
 			temp.rotation_degrees = 180
 			map_node.add_child(temp)
@@ -106,6 +117,7 @@ func load_map():
 		else:
 			temp = door_scene.instantiate()
 			temp.dir = "up"
+			temp.id = i
 			temp.position = i * 352 + Vector2(0, -160)
 			map_node.add_child(temp)
 			

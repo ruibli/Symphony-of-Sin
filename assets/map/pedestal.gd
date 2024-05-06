@@ -110,7 +110,7 @@ func breakfast():
 		$cost.text = "5G"
 
 func _process(_delta):
-	if state == 2 and Glova.g_enemies() > 0:
+	if state == 2 and Glova.g_enemies() > 0 and type != "debug":
 		$Timer.start()
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
