@@ -66,24 +66,6 @@ func _on_itemdown_focus_exited():
 
 func _on_nameup_pressed():
 	if items[items_index] == "item":
-		if item_index == len(item_pool)-1:
-			item_index = 0
-		else:
-			item_index += 1
-	elif items[items_index] == "weapon":
-		if weapon_index == len(weapon_pool)-1:
-			weapon_index = 0
-		else:
-			weapon_index += 1
-
-func _on_nameup_focus_entered():
-	$HBoxContainer/namcon/namup.modulate = Color(190/255.0,118/255.0,253/255.0, 1)
-
-func _on_nameup_focus_exited():
-	$HBoxContainer/namcon/namup.modulate = Color(1,1,1,1)
-
-func _on_namdown_pressed():
-	if items[items_index] == "item":
 		if item_index == 0:
 			item_index = len(item_pool)-1
 		else:
@@ -93,6 +75,24 @@ func _on_namdown_pressed():
 			weapon_index = len(weapon_pool)-1
 		else:
 			weapon_index -= 1
+
+func _on_nameup_focus_entered():
+	$HBoxContainer/namcon/namup.modulate = Color(190/255.0,118/255.0,253/255.0, 1)
+
+func _on_nameup_focus_exited():
+	$HBoxContainer/namcon/namup.modulate = Color(1,1,1,1)
+
+func _on_namdown_pressed():
+	if items[items_index] == "item":
+		if item_index == len(item_pool)-1:
+			item_index = 0
+		else:
+			item_index += 1
+	elif items[items_index] == "weapon":
+		if weapon_index == len(weapon_pool)-1:
+			weapon_index = 0
+		else:
+			weapon_index += 1
 
 func _on_namdown_focus_entered():
 	$HBoxContainer/namcon/namdown.modulate = Color(190/255.0,118/255.0,253/255.0, 1)

@@ -174,10 +174,12 @@ func _process(_delta):
 		temp.nam = Glova.spawn([0])[1]
 		Glova.spawn([0,0])
 		add_child(temp)
+	
+	$Label.text = str(id)
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	on = true
-	Glova.g_ids([id.x,id.y,type,right,left,down,up])
+	Glova.g_id([id.x,id.y,type,right,left,down,up])
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	on = false

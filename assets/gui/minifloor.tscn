@@ -4,5 +4,6 @@
 [ext_resource type="Script" path="res://assets/gui/minifloor.gd" id="2_8aiox"]
 
 [node name="minifloor" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.752941)
 texture = ExtResource("1_uafit")
 script = ExtResource("2_8aiox")

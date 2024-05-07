@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl5gjl8pyfksx"
-path="res://.godot/imported/manor_lore_door.png-51874f04846de0c96b021988d7708eea.ctex"
+uid="uid://bt0dsemh5ar8v"
+path="res://.godot/imported/manor_enemy_door_closed.png-64fdbe1eb3022b3ff065f18a2784194f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/manor/manor_lore_door.png"
-dest_files=["res://.godot/imported/manor_lore_door.png-51874f04846de0c96b021988d7708eea.ctex"]
+source_file="res://assets/map/manor/manor_enemy_door_closed.png"
+dest_files=["res://.godot/imported/manor_enemy_door_closed.png-64fdbe1eb3022b3ff065f18a2784194f.ctex"]
 
 [params]
 

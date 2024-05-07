@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0rf0m5263ma"
-path="res://.godot/imported/manor_shop.png-85fdba9ea0d0dad08b97c57ac1969fa4.ctex"
+uid="uid://c4yfguwqnbc65"
+path="res://.godot/imported/manor_enemy_door_open.png-3fe56e9262039bfa39a27ca17350b66c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/manor/manor_shop.png"
-dest_files=["res://.godot/imported/manor_shop.png-85fdba9ea0d0dad08b97c57ac1969fa4.ctex"]
+source_file="res://assets/map/manor/manor_enemy_door_open.png"
+dest_files=["res://.godot/imported/manor_enemy_door_open.png-3fe56e9262039bfa39a27ca17350b66c.ctex"]
 
 [params]
 

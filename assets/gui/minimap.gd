@@ -4,12 +4,12 @@ extends Node2D
 
 var can_swap = true
 var wait = false
-
+var spawn = false
 var save = []
-var ids = []
+var id = []
 
-var x = 0
-var y = 0
+var x = -9
+var y = 9
 
 func _ready():
 	hide()
@@ -30,31 +30,35 @@ func _process(_delta):
 			wait = true
 			show()
 	else:
-		ids = Glova.g_ids([0])
+		id = Glova.g_id([0])
 		
-		if ids == []:
-			get_tree().reload_current_scene()
-		elif ids[0][2] != "spawn":
-			Glova.g_ids([-1])
-		elif !save.has(ids[ids.size()-1]):
-			var id = ids[ids.size()-1]
-			var temp = mini_floor.instantiate()
-			temp.type = id[2]
-			temp.right = id[3]
-			temp.left = id[4]
-			temp.down = id[5]
-			temp.up = id[6]
-			temp.position = Vector2(id[0],id[1]) * 16
-			
-			if id[0] > x:
-				x = id[0]
-			if id[1] < y:
-				y = id[1]
-			
+		if id == [-1]:
+			get_tree().reload_scene()
+		elif id == []:
+			pass
+		elif id[2] != "spawn" and !spawn:
+			Glova.g_id([])
+		else:
 			$mininova.position = Vector2(id[0],id[1]) * 16
-			
-			add_child(temp)
-			save.append(id)
+			if !save.has(id):
+				spawn = true
+				
+				var temp = mini_floor.instantiate()
+				temp.type = id[2]
+				temp.right = id[3]
+				temp.left = id[4]
+				temp.down = id[5]
+				temp.up = id[6]
+				temp.position = Vector2(id[0],id[1]) * 16
+				
+				if id[0] > x:
+					x = id[0]
+				if id[1] < y:
+					y = id[1]
+				
+				Glova.g_id([])
+				add_child(temp)
+				save.append(id)
 
 func _on_swap_cd_timeout():
 	can_swap = true
