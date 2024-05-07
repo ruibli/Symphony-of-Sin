@@ -1,11 +1,13 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	var lore = Glova.g_lore(-1)
+	if  lore >= 16:
+		modulate = Color(1,1,1,0)
+	else:
+		modulate = Color(1,1,1,1-(lore/16))
+	
+	var level = Glova.g_level(0)
+	
+	if level == 1:
+		$lore.text = "level 1"

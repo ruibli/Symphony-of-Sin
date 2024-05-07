@@ -21,8 +21,9 @@ var weapon_pool
 var spawn_vars = [0,0]
 
 var volume = 100
-var ids = []
+var id = []
 var doors = []
+var lore
 
 func debug(d):
 	if d == "item":
@@ -44,7 +45,7 @@ func reset():
 	item_pool = i_pool_full.duplicate()
 	weapon_pool = w_pool_full.duplicate()
 	
-	ids = []
+	id = [-1]
 	doors = []
 
 func g_stats(s: Array = [0]):
@@ -147,16 +148,20 @@ func g_cooldown(c: float = -1):
 	else:
 		cooldown = c
 
-func g_ids(i: Array = [0]):
+func g_id(i: Array = [0]):
 	if i == [0]:
-		return ids
-	if i == [-1]:
-		ids = []
-	elif !ids.has(i):
-		ids.append(i)
+		return id
+	else:
+		id = i
 
 func g_doors(d: Array = [0]):
 	if d == [0]:
 		return doors
 	else:
 		doors = d
+
+func g_lore(l: float = -1):
+	if l == -1:
+		return lore
+	else:
+		lore = l

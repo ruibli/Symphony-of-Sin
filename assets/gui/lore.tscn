@@ -13,8 +13,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ohhew")
 
-[node name="Label" type="Label" parent="."]
+[node name="lore" type="Label" parent="."]
 z_index = 1
+layout_mode = 0
 offset_right = 350.0
 offset_bottom = 351.0
 text = "lore"
