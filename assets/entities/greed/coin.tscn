@@ -1,15 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://8hvro5jlo4j3"]
 
 [ext_resource type="Script" path="res://assets/entities/greed/coin.gd" id="1_kr43f"]
-[ext_resource type="Texture2D" uid="uid://d03y6lxexnpnf" path="res://assets/entities/nova/nova_crossbow/crossbow.png" id="2_oni55"]
+[ext_resource type="Texture2D" uid="uid://brh1rnh077sdw" path="res://assets/loot/generic/coin.png" id="2_j67t1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkp6o"]
-size = Vector2(4.5, 8)
+size = Vector2(8, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmtc"]
 size = Vector2(0.1, 0.1)
 
 [node name="coin" type="CharacterBody2D"]
+collision_layer = 16
 script = ExtResource("1_kr43f")
 
 [node name="CoinCollision" type="CollisionShape2D" parent="."]
@@ -18,11 +19,11 @@ shape = SubResource("RectangleShape2D_tkp6o")
 [node name="Coin" type="Sprite2D" parent="CoinCollision"]
 z_index = 1
 z_as_relative = false
-texture = ExtResource("2_oni55")
+texture = ExtResource("2_j67t1")
 
 [node name="coinhit" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 4
+collision_layer = 16
+collision_mask = 2
 
 [node name="CoinHit" type="CollisionShape2D" parent="coinhit"]
 shape = SubResource("RectangleShape2D_tkp6o")
@@ -34,9 +35,6 @@ collision_layer = 8
 shape = SubResource("RectangleShape2D_3hmtc")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-vertices = PackedVector2Array(-2, -4, 2, -4, 2, 4, -2, 4)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
