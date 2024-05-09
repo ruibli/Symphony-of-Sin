@@ -94,7 +94,7 @@ func _physics_process(_delta):
 				$WeaponPos.rotation_degrees = 270
 				$PrideCollision/PrideAnimation.play("attack_right")
 	
-		$WeaponCooldown.wait_time = 2 * 1.0 / mod
+		$WeaponCooldown.wait_time = 1 * 1.0 / mod
 
 func weapon():
 	if can_attack:

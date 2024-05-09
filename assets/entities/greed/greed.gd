@@ -47,9 +47,9 @@ func _physics_process(_delta):
 		if !wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
-		elif distance <= 28 and see:
+		elif distance <= 136 and see:
 			weapon()
-		elif distance >= 20 or not see:
+		elif distance >= 128 or not see:
 			$NavigationAgent2D.set_target_position(Glova.g_pos())
 			var current_agent_position = global_position
 			var next_path_position = $NavigationAgent2D.get_next_path_position()
@@ -58,7 +58,7 @@ func _physics_process(_delta):
 		
 		# Animation
 		var nova_dir = Glova.g_pos() - global_position
-		if type == "wait" and distance <= 28:
+		if type == "wait" and distance <= 128:
 			if direction == "up":
 				$GreedCollision/GreedAnimation.play("move_up")
 			elif direction == "down":
@@ -168,7 +168,7 @@ func _on_greedhit_hurt_area_entered(area):
 		area.hit(damage)
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
-	if active and (distance >= 20 or not see):
+	if active and (distance >= 128 or not see):
 		velocity = safe_velocity.normalized() * speed
 		move_and_slide()
 

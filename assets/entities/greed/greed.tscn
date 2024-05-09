@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://b3dytvsrqcvtw"]
+[gd_scene load_steps=34 format=3 uid="uid://b3dytvsrqcvtw"]
 
 [ext_resource type="Script" path="res://assets/entities/greed/greed.gd" id="1_qcrjb"]
+[ext_resource type="PackedScene" uid="uid://8hvro5jlo4j3" path="res://assets/entities/greed/coin.tscn" id="2_lhh2b"]
 [ext_resource type="Texture2D" uid="uid://dpisbbly7j2x3" path="res://assets/entities/greed/sprites/greed_attack_down_1.png" id="2_wity6"]
 [ext_resource type="Texture2D" uid="uid://bijj1e58pceh4" path="res://assets/entities/greed/sprites/greed_attack_down_2.png" id="3_ywaeu"]
 [ext_resource type="Texture2D" uid="uid://u0vesiavuof5" path="res://assets/entities/greed/sprites/greed_attack_down_4.png" id="4_sk0xt"]
@@ -232,6 +233,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_qcrjb")
+coin_scene = ExtResource("2_lhh2b")
 
 [node name="GreedCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -242,7 +244,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
-animation = &"attack_up"
+animation = &"move_up"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GreedCollision/GreedAnimation"]
 libraries = {
@@ -278,24 +280,28 @@ one_shot = true
 
 [node name="RayUp" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(0, 5)
 target_position = Vector2(0, -320)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayDown" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(0, 5)
 target_position = Vector2(0, 320)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(0, 5)
 target_position = Vector2(-320, 0)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayRight" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(0, 5)
 target_position = Vector2(320, 0)
 collision_mask = 32
 collide_with_areas = true
