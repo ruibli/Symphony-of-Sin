@@ -2,16 +2,20 @@ extends Node2D
 
 @export var mini_floor: PackedScene
 
+@onready var map_node = $MapNode
+
 var can_swap = true
 var wait = false
 var spawn = false
 var save = []
 var id = []
+var mod
 
 var x = -9
 var y = 9
 
 func _ready():
+	mod = Glova.g_mod(0)
 	hide()
 
 func _process(_delta):
@@ -32,9 +36,15 @@ func _process(_delta):
 	else:
 		id = Glova.g_id([0])
 		
-		if id == [-1]:
-			get_tree().reload_scene()
-		elif id == []:
+		if Glova.g_mod(0) != mod:
+			mod = Glova.g_mod(0)
+			spawn = false
+			save = []
+			x = -9
+			y = 9
+			for i in range(0, map_node.get_child_count()):
+				map_node.get_child(i).queue_free()
+		if id == []:
 			pass
 		elif id[2] != "spawn" and !spawn:
 			Glova.g_id([])
@@ -57,7 +67,7 @@ func _process(_delta):
 					y = id[1]
 				
 				Glova.g_id([])
-				add_child(temp)
+				map_node.add_child(temp)
 				save.append(id)
 
 func _on_swap_cd_timeout():

@@ -10,14 +10,13 @@ func _ready():
 func _process(_delta):
 	if state == 2 and Glova.g_enemies() > 0:
 		$Timer.start()
-
-func _on_exit_area_area_entered(_area):
-	if state == 3:
-		if level == last:
-			Glova.g_level(-2)
-		elif level < last:
-			Glova.g_level(level + 1)
-			Glova.g_mod(Glova.g_mod() + 1)
+	for _area in $ExitArea.get_overlapping_areas():
+		if state == 3:
+			if level == last:
+				Glova.g_level(-2)
+			elif level < last:
+				Glova.g_level(level + 1)
+				Glova.g_mod(Glova.g_mod() + 1)
 
 func _on_timer_timeout():
 	$exit.visible = true

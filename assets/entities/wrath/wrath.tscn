@@ -1,6 +1,7 @@
-[gd_scene load_steps=34 format=3 uid="uid://crlrdxnbaeitg"]
+[gd_scene load_steps=35 format=3 uid="uid://crlrdxnbaeitg"]
 
 [ext_resource type="Script" path="res://assets/entities/wrath/wrath.gd" id="1_shbfm"]
+[ext_resource type="PackedScene" uid="uid://tenqgovy77yl" path="res://assets/entities/wrath/greataxe.tscn" id="2_ogqcj"]
 [ext_resource type="Texture2D" uid="uid://cnh4tmsrr6bjq" path="res://assets/entities/wrath/sprites/wrath_right_attack1.png" id="2_ua7lh"]
 [ext_resource type="Texture2D" uid="uid://ddabri06ubxcy" path="res://assets/entities/wrath/sprites/wrath_right_attack2.png" id="3_mf5bh"]
 [ext_resource type="Texture2D" uid="uid://bnh21ubm2grjh" path="res://assets/entities/wrath/sprites/wrath_right_attack3.png" id="4_grli7"]
@@ -28,7 +29,7 @@
 [ext_resource type="Script" path="res://assets/entities/hurt.gd" id="29_2agmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx0fn"]
-size = Vector2(10, 5)
+size = Vector2(10, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
 animations = [{
@@ -181,22 +182,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="Animation" id="Animation_fagb7"]
-resource_name = "hurt"
-length = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_2qf01"]
 length = 0.001
 tracks/0/type = "value"
@@ -228,6 +213,22 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_fagb7"]
+resource_name = "hurt"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijn07"]
 _data = {
 "RESET": SubResource("Animation_2qf01"),
@@ -245,6 +246,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_shbfm")
+greataxe_scene = ExtResource("2_ogqcj")
 
 [node name="WrathCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -253,7 +255,7 @@ shape = SubResource("RectangleShape2D_xx0fn")
 [node name="WrathAnimation" type="AnimatedSprite2D" parent="WrathCollision"]
 z_index = 1
 z_as_relative = false
-position = Vector2(0, -6)
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
 animation = &"move_up"
 
@@ -282,9 +284,11 @@ avoidance_mask = 3
 avoidance_priority = 0.0
 
 [node name="HitCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="WeaponCooldown" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 
 [node name="WeaponPos" type="Marker2D" parent="."]
 

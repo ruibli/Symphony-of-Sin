@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cox1ggdcgxc1e"]
+
+[ext_resource type="Script" path="res://assets/entities/nova/gauntlets.gd" id="1_paf0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghhoa"]
+size = Vector2(12, 8)
+
+[node name="gauntlets" type="StaticBody2D"]
+script = ExtResource("1_paf0q")
+
+[node name="gauntletshit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="GauntletsHit" type="CollisionShape2D" parent="gauntletshit"]
+shape = SubResource("RectangleShape2D_ghhoa")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="gauntletshit" to="." method="_on_gauntletshit_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

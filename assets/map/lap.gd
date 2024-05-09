@@ -8,11 +8,10 @@ func _ready():
 func _process(_delta):
 	if state == 2 and Glova.g_enemies() > 0:
 		$Timer.start()
-
-func _on_lap_area_area_entered(_area):
-	if state == 3:
-		Glova.g_level(1)
-		Glova.g_mod(Glova.g_mod() + 1)
+	for _area in $LapArea.get_overlapping_areas():
+		if state == 3:
+			Glova.g_level(1)
+			Glova.g_mod(Glova.g_mod() + 1)
 
 func _on_timer_timeout():
 	$lap.visible = true

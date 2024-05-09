@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://tenqgovy77yl"]
+
+[ext_resource type="Script" path="res://assets/entities/wrath/greataxe.gd" id="1_1dvqw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_frq55"]
+size = Vector2(25, 20)
+
+[node name="greataxe" type="StaticBody2D"]
+script = ExtResource("1_1dvqw")
+
+[node name="greataxehit" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="GreataxeHit" type="CollisionShape2D" parent="greataxehit"]
+shape = SubResource("RectangleShape2D_frq55")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="greataxehit" to="." method="_on_greataxehit_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

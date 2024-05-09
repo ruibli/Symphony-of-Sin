@@ -15,7 +15,7 @@ var current
 var cooldown = 0
 
 var i_pool_full = ["breakfast"]
-var w_pool_full = ["spear","axe"]
+var w_pool_full = ["spear","axe","gauntlets"]
 var item_pool
 var weapon_pool
 var spawn_vars = [0,0]

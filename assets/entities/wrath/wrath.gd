@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@export var trident_scene : PackedScene
+@export var greataxe_scene : PackedScene
 
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
 
-var speed = 50 * mod
+var speed = 30 * mod
 
-var health = 50 * mod
+var health = 100 * mod
 var damage = 10 * mod
 
 var active = false
@@ -78,19 +78,19 @@ func _physics_process(_delta):
 				$WrathCollision/WrathAnimation.play("move_right")
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x): #up
-				$WeaponPos.position = Vector2(0,-10)
+				$WeaponPos.position = Vector2(0,-5)
 				$WeaponPos.rotation_degrees = 180
 				$WrathCollision/WrathAnimation.play("attack_up")
 			elif nova_dir.y > 0 and abs(nova_dir.y) > abs(nova_dir.x): #down
-				$WeaponPos.position = Vector2(0,10)
+				$WeaponPos.position = Vector2(0,15)
 				$WeaponPos.rotation_degrees = 0
 				$WrathCollision/WrathAnimation.play("attack_down")
 			elif nova_dir.x < 0 and abs(nova_dir.x) > abs(nova_dir.y): #left
-				$WeaponPos.position = Vector2(-10,0)
+				$WeaponPos.position = Vector2(-10,5)
 				$WeaponPos.rotation_degrees = 90
 				$WrathCollision/WrathAnimation.play("attack_left")
 			elif nova_dir.x > 0 and abs(nova_dir.x) > abs(nova_dir.y): #right
-				$WeaponPos.position = Vector2(10,0)
+				$WeaponPos.position = Vector2(10,5)
 				$WeaponPos.rotation_degrees = 270
 				$WrathCollision/WrathAnimation.play("attack_right")
 	
@@ -102,7 +102,7 @@ func weapon():
 		can_attack = false
 		type = "attack"
 		
-		var w = trident_scene.instantiate()
+		var w = greataxe_scene.instantiate()
 		w.damage = w.damage * mod
 		
 		if direction == "up":

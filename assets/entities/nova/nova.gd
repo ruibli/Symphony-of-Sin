@@ -7,6 +7,7 @@ var cam = false
 @export var spear_scene : PackedScene
 @export var axe_scene : PackedScene
 @export var homer_scene : PackedScene
+@export var gauntlets_scene : PackedScene
 
 var health = 100
 var health_max = 100
@@ -30,6 +31,7 @@ var can_crossbow = true
 var can_spear = true
 var can_axe = true
 var can_homer = true
+var can_gauntlets = true
 
 func set_nova():
 	health = Glova.g_stats()[0]
@@ -53,6 +55,8 @@ func set_nova():
 	$CrossbowCooldown.wait_time = 1.0 / attack
 	$SpearCooldown.wait_time = 1.5 / attack
 	$AxeCooldown.wait_time = 2.0 / attack
+	$HomerCooldown.wait_time = 1.0 / attack
+	$GauntletsCooldown.wait_time = 1.0 / attack
 	
 func _process(_delta):
 	velocity = Vector2.ZERO
@@ -71,22 +75,22 @@ func _process(_delta):
 	if Input.is_action_pressed("attack_up"):
 		type = "attack"
 		direction = "up"
-		$WeaponPos.position = Vector2(0,-10)
+		$WeaponPos.position = Vector2(0,-5)
 		$WeaponPos.rotation_degrees = 180
 	if Input.is_action_pressed("attack_down"):
 		type = "attack"
 		direction = "down"
-		$WeaponPos.position = Vector2(0,10)
+		$WeaponPos.position = Vector2(0,15)
 		$WeaponPos.rotation_degrees = 0
 	if Input.is_action_pressed("attack_left"):
 		type = "attack"
 		direction = "left"
-		$WeaponPos.position = Vector2(-10,0)
+		$WeaponPos.position = Vector2(-10,5)
 		$WeaponPos.rotation_degrees = 90
 	if Input.is_action_pressed("attack_right"):
 		type = "attack"
 		direction = "right"
-		$WeaponPos.position = Vector2(10,0)
+		$WeaponPos.position = Vector2(10,5)
 		$WeaponPos.rotation_degrees = 270
 	
 	if velocity.length() > 0:
@@ -99,9 +103,6 @@ func _process(_delta):
 	
 	move_and_slide()
 	set_nova()
-	
-	if abs(global_position.x - camera_pos.x) > 175 or abs(global_position.y - camera_pos.y) > 175:
-		$NoClip.start()
 	
 	if type == "move":
 		if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
@@ -138,6 +139,12 @@ func _process(_delta):
 			Glova.g_cooldown($HomerCooldown.wait_time)
 			w = homer_scene.instantiate()
 			weapon(true,0)
+		elif current == "gauntlets" and can_gauntlets:
+			can_gauntlets = false
+			$GauntletsCooldown.start()
+			Glova.g_cooldown($GauntletsCooldown.wait_time)
+			w = gauntlets_scene.instantiate()
+			weapon(false,0)
 		else:
 			if !lock:
 				type = "move"
@@ -172,7 +179,7 @@ func weapon(projectile, delay): # attacking
 		await get_tree().create_timer(0.75).timeout
 		lock = false
 	else:
-		w.global_position = global_position
+		w.global_position = $WeaponPos.global_position
 		get_tree().root.add_child(w)
 
 func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
@@ -206,10 +213,6 @@ func boop(dir):
 	elif dir == "right":
 		global_position = camera_pos + Vector2(224,0)
 
-func _on_no_clip_timeout():
-	if abs(global_position.x - camera_pos.x) > 175 or abs(global_position.y - camera_pos.y) > 175:
-		global_position = camera_pos
-
 func _on_crossbow_cooldown_timeout(): # bow cooldown
 	can_crossbow = true
 
@@ -221,3 +224,6 @@ func _on_axe_cooldown_timeout():
 
 func _on_homer_cooldown_timeout():
 	can_homer = true
+
+func _on_gauntlets_cooldown_timeout():
+	can_gauntlets = true

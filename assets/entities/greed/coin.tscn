@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://8hvro5jlo4j3"]
+
+[ext_resource type="Script" path="res://assets/entities/greed/coin.gd" id="1_kr43f"]
+[ext_resource type="Texture2D" uid="uid://d03y6lxexnpnf" path="res://assets/entities/nova/nova_crossbow/crossbow.png" id="2_oni55"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tkp6o"]
+size = Vector2(4.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmtc"]
+size = Vector2(0.1, 0.1)
+
+[node name="coin" type="CharacterBody2D"]
+script = ExtResource("1_kr43f")
+
+[node name="CoinCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_tkp6o")
+
+[node name="Coin" type="Sprite2D" parent="CoinCollision"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("2_oni55")
+
+[node name="coinhit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CoinHit" type="CollisionShape2D" parent="coinhit"]
+shape = SubResource("RectangleShape2D_tkp6o")
+
+[node name="roomdetector" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="RoomHit" type="CollisionShape2D" parent="roomdetector"]
+shape = SubResource("RectangleShape2D_3hmtc")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-2, -4, 2, -4, 2, 4, -2, 4)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="area_entered" from="coinhit" to="." method="_on_coinhit_area_entered"]
+[connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
