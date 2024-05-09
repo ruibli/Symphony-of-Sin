@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=159 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://batusg2bn513g" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_2.png" id="5_ejog2"]
 [ext_resource type="Texture2D" uid="uid://b5w3cv0bhoaa2" path="res://assets/entities/nova/nova_axe/walk/axe_move_down_2.png" id="5_tpm4f"]
 [ext_resource type="Texture2D" uid="uid://bqri3tlx8dubv" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_3.png" id="6_8rvns"]
+[ext_resource type="PackedScene" uid="uid://cox1ggdcgxc1e" path="res://assets/entities/nova/gauntlets.tscn" id="6_b1abx"]
 [ext_resource type="Texture2D" uid="uid://dsqnlg16bc1tt" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_1.png" id="6_i4qsf"]
 [ext_resource type="Texture2D" uid="uid://l0h40x2oa4h2" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_0.png" id="6_y2km1"]
 [ext_resource type="Texture2D" uid="uid://p5vun1lc1224" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_2.png" id="7_52bci"]
@@ -151,7 +152,7 @@
 [ext_resource type="Texture2D" uid="uid://dcrx8c4ihlf14" path="res://assets/entities/nova/nova_homer/homer_move_up_2.png" id="121_1uwm4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikotd"]
-size = Vector2(10, 5)
+size = Vector2(10, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7wltb"]
 animations = [{
@@ -1274,17 +1275,18 @@ crossbow_scene = ExtResource("2_o8asn")
 spear_scene = ExtResource("3_4ve7n")
 axe_scene = ExtResource("4_s1sm1")
 homer_scene = ExtResource("5_c34g0")
+gauntlets_scene = ExtResource("6_b1abx")
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9)
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_ikotd")
 
 [node name="NovaAnimation" type="AnimatedSprite2D" parent="NovaCollision"]
 z_index = 2
 z_as_relative = false
-position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"homer_move_right"
+animation = &"gauntlets_attack_right"
+offset = Vector2(0, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NovaCollision/NovaAnimation"]
 libraries = {
@@ -1316,22 +1318,30 @@ rotation_smoothing_enabled = true
 rotation_smoothing_speed = 15.0
 
 [node name="HitCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 vertices = PackedVector2Array(-5, -10, 5, -10, 5, 10, -5, 10)
 avoidance_layers = 2
 
+[node name="WeaponPos" type="Marker2D" parent="."]
+
 [node name="CrossbowCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="SpearCooldown" type="Timer" parent="."]
 wait_time = 1.5
+one_shot = true
 
 [node name="AxeCooldown" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 
 [node name="HomerCooldown" type="Timer" parent="."]
+one_shot = true
 
-[node name="WeaponPos" type="Marker2D" parent="."]
+[node name="GauntletsCooldown" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
@@ -1339,3 +1349,4 @@ wait_time = 2.0
 [connection signal="timeout" from="SpearCooldown" to="." method="_on_spear_cooldown_timeout"]
 [connection signal="timeout" from="AxeCooldown" to="." method="_on_axe_cooldown_timeout"]
 [connection signal="timeout" from="HomerCooldown" to="." method="_on_homer_cooldown_timeout"]
+[connection signal="timeout" from="GauntletsCooldown" to="." method="_on_gauntlets_cooldown_timeout"]

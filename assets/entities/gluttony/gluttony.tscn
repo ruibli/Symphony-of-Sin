@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://assets/entities/hurt.gd" id="18_u6f1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx0fn"]
-size = Vector2(10, 5)
+size = Vector2(10, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
 animations = [{
@@ -133,22 +133,6 @@ animations = [{
 "speed": 4.0
 }]
 
-[sub_resource type="Animation" id="Animation_fagb7"]
-resource_name = "hurt"
-length = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_2qf01"]
 length = 0.001
 tracks/0/type = "value"
@@ -180,6 +164,22 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_fagb7"]
+resource_name = "hurt"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ijn07"]
 _data = {
 "RESET": SubResource("Animation_2qf01"),
@@ -206,7 +206,7 @@ shape = SubResource("RectangleShape2D_xx0fn")
 [node name="GluttonyAnimation" type="AnimatedSprite2D" parent="GluttonyCollision"]
 z_index = 1
 z_as_relative = false
-position = Vector2(0, -6)
+position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
 animation = &"move_up"
 
@@ -235,9 +235,10 @@ avoidance_mask = 3
 avoidance_priority = 0.0
 
 [node name="HitCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="WeaponCooldown" type="Timer" parent="."]
-wait_time = 2.0
+one_shot = true
 
 [node name="WeaponPos" type="Marker2D" parent="."]
 

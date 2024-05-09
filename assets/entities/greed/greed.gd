@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var trident_scene : PackedScene
+@export var coin_scene : PackedScene
 
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
@@ -78,23 +78,23 @@ func _physics_process(_delta):
 				$GreedCollision/GreedAnimation.play("move_right")
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x): #up
-				$WeaponPos.position = Vector2(0,-10)
+				$WeaponPos.position = Vector2(0,-5)
 				$WeaponPos.rotation_degrees = 180
 				$GreedCollision/GreedAnimation.play("attack_up")
 			elif nova_dir.y > 0 and abs(nova_dir.y) > abs(nova_dir.x): #down
-				$WeaponPos.position = Vector2(0,10)
+				$WeaponPos.position = Vector2(0,15)
 				$WeaponPos.rotation_degrees = 0
 				$GreedCollision/GreedAnimation.play("attack_down")
 			elif nova_dir.x < 0 and abs(nova_dir.x) > abs(nova_dir.y): #left
-				$WeaponPos.position = Vector2(-10,0)
+				$WeaponPos.position = Vector2(-10,5)
 				$WeaponPos.rotation_degrees = 90
 				$GreedCollision/GreedAnimation.play("attack_left")
 			elif nova_dir.x > 0 and abs(nova_dir.x) > abs(nova_dir.y): #right
-				$WeaponPos.position = Vector2(10,0)
+				$WeaponPos.position = Vector2(10,5)
 				$WeaponPos.rotation_degrees = 270
 				$GreedCollision/GreedAnimation.play("attack_right")
 	
-		$WeaponCooldown.wait_time = 2 * 1.0 / mod
+		$WeaponCooldown.wait_time = 1 * 1.0 / mod
 
 func weapon():
 	if can_attack:
@@ -102,27 +102,36 @@ func weapon():
 		can_attack = false
 		type = "attack"
 		
-		var w = trident_scene.instantiate()
+		var w = coin_scene.instantiate()
 		w.damage = w.damage * mod
 		
 		if direction == "up":
 			$WeaponPos.position = Vector2(0,-10)
 			$WeaponPos.rotation_degrees = 180
 			$GreedCollision/GreedAnimation.play("attack_up")
+			w.velocity.y -= 1
+			w.rotation_degrees = 180
 		elif direction == "down":
 			$WeaponPos.position = Vector2(0,10)
 			$WeaponPos.rotation_degrees = 0
 			$GreedCollision/GreedAnimation.play("attack_down")
+			w.velocity.y += 1
+			w.rotation_degrees = 0
 		elif direction == "left":
 			$WeaponPos.position = Vector2(-10,0)
 			$WeaponPos.rotation_degrees = 90
 			$GreedCollision/GreedAnimation.play("attack_left")
+			w.velocity.x -= 1
+			w.rotation_degrees = 90
 		elif direction == "right":
 			$WeaponPos.position = Vector2(10,0)
 			$WeaponPos.rotation_degrees = 270
 			$GreedCollision/GreedAnimation.play("attack_right")
+			w.velocity.x += 1
+			w.rotation_degrees = 270
 		await get_tree().create_timer(0.25).timeout
-		$WeaponPos.add_child(w)
+		w.global_position = $WeaponPos.global_position
+		get_tree().root.add_child(w)
 		await get_tree().create_timer(0.75).timeout
 		type = "wait"
 

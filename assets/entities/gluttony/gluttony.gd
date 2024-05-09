@@ -120,22 +120,22 @@ func weapon():
 		w.damage = w.damage * mod
 		
 		if direction == "up":
-			$WeaponPos.position = Vector2(0,-10)
+			$WeaponPos.position = Vector2(0,-5)
 			$WeaponPos.rotation_degrees = 180
 			$GluttonyCollision/GluttonyAnimation.play("attack_up")
 			$GluttonyCollision/GluttonyAnimation.flip_h = false
 		elif direction == "down":
-			$WeaponPos.position = Vector2(0,10)
+			$WeaponPos.position = Vector2(0,15)
 			$WeaponPos.rotation_degrees = 0
 			$GluttonyCollision/GluttonyAnimation.play("attack_down")
 			$GluttonyCollision/GluttonyAnimation.flip_h = false
 		elif direction == "left":
-			$WeaponPos.position = Vector2(-10,0)
+			$WeaponPos.position = Vector2(-10,5)
 			$WeaponPos.rotation_degrees = 90
 			$GluttonyCollision/GluttonyAnimation.play("attack_right")
 			$GluttonyCollision/GluttonyAnimation.flip_h = true
 		elif direction == "right":
-			$WeaponPos.position = Vector2(10,0)
+			$WeaponPos.position = Vector2(10,5)
 			$WeaponPos.rotation_degrees = 270
 			$GluttonyCollision/GluttonyAnimation.play("attack_right")
 			$GluttonyCollision/GluttonyAnimation.flip_h = false

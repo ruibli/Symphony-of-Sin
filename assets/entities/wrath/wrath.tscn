@@ -29,7 +29,7 @@
 [ext_resource type="Script" path="res://assets/entities/hurt.gd" id="29_2agmf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx0fn"]
-size = Vector2(10, 5)
+size = Vector2(10, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_c3lg3"]
 animations = [{
@@ -255,7 +255,7 @@ shape = SubResource("RectangleShape2D_xx0fn")
 [node name="WrathAnimation" type="AnimatedSprite2D" parent="WrathCollision"]
 z_index = 1
 z_as_relative = false
-position = Vector2(0, -6)
+position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_c3lg3")
 animation = &"move_up"
 
@@ -284,9 +284,11 @@ avoidance_mask = 3
 avoidance_priority = 0.0
 
 [node name="HitCooldown" type="Timer" parent="."]
+one_shot = true
 
 [node name="WeaponCooldown" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 
 [node name="WeaponPos" type="Marker2D" parent="."]
 

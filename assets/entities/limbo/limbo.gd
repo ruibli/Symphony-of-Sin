@@ -94,7 +94,7 @@ func _physics_process(_delta):
 				$WeaponPos.rotation_degrees = 270
 				$LimboCollision/LimboAnimation.play("attack_right")
 	
-		$WeaponCooldown.wait_time = 2 * 1.0 / mod
+		$WeaponCooldown.wait_time = 1.5 * 1.0 / mod
 
 func weapon():
 	if can_attack:
@@ -106,19 +106,19 @@ func weapon():
 		w.damage = w.damage * mod
 		
 		if direction == "up":
-			$WeaponPos.position = Vector2(0,-10)
+			$WeaponPos.position = Vector2(0,-5)
 			$WeaponPos.rotation_degrees = 180
 			$LimboCollision/LimboAnimation.play("attack_up")
 		elif direction == "down":
-			$WeaponPos.position = Vector2(0,10)
+			$WeaponPos.position = Vector2(0,15)
 			$WeaponPos.rotation_degrees = 0
 			$LimboCollision/LimboAnimation.play("attack_down")
 		elif direction == "left":
-			$WeaponPos.position = Vector2(-10,0)
+			$WeaponPos.position = Vector2(-10,5)
 			$WeaponPos.rotation_degrees = 90
 			$LimboCollision/LimboAnimation.play("attack_left")
 		elif direction == "right":
-			$WeaponPos.position = Vector2(10,0)
+			$WeaponPos.position = Vector2(10,5)
 			$WeaponPos.rotation_degrees = 270
 			$LimboCollision/LimboAnimation.play("attack_right")
 		await get_tree().create_timer(0.25).timeout

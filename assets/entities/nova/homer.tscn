@@ -10,7 +10,7 @@ size = Vector2(4.5, 8)
 size = Vector2(0.1, 0.1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57hhr"]
-size = Vector2(350, 351)
+size = Vector2(700, 702)
 
 [node name="homer" type="CharacterBody2D"]
 collision_layer = 8
