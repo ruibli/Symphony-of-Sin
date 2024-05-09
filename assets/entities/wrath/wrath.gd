@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@export var trident_scene : PackedScene
+@export var greataxe_scene : PackedScene
 
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
 
-var speed = 50 * mod
+var speed = 30 * mod
 
-var health = 50 * mod
+var health = 100 * mod
 var damage = 10 * mod
 
 var active = false
@@ -102,7 +102,7 @@ func weapon():
 		can_attack = false
 		type = "attack"
 		
-		var w = trident_scene.instantiate()
+		var w = greataxe_scene.instantiate()
 		w.damage = w.damage * mod
 		
 		if direction == "up":

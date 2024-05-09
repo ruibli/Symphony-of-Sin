@@ -28,8 +28,8 @@ func new_floor():
 	nova.cam = false	
 	nova.position = generator.get_spawn()
 	Glova.g_enemies(-999)
-	Glova.g_id([-1])
-	Glova.g_doors([-1])
+	Glova.g_id([])
+	Glova.g_doors([])
 	$fade/black/AnimationPlayer.play("clear")
 	active = true
 	await get_tree().create_timer(0.25).timeout

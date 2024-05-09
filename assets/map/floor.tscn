@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bo02l0cij368f"]
+[gd_scene load_steps=23 format=3 uid="uid://bo02l0cij368f"]
 
 [ext_resource type="Script" path="res://assets/map/floor.gd" id="1_wo4dn"]
 [ext_resource type="PackedScene" uid="uid://c8wl0is3ji8ph" path="res://assets/map/layouts/boss.tscn" id="2_gixse"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://cuw3oonwerjw7" path="res://assets/map/layouts/enemy_8.tscn" id="13_bvo6u"]
 [ext_resource type="PackedScene" uid="uid://d0dpf18ckk27d" path="res://assets/map/layouts/enemy_10.tscn" id="14_st2lc"]
 [ext_resource type="PackedScene" uid="uid://dfnah8rfagywa" path="res://assets/map/lectern.tscn" id="18_yevcx"]
-[ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="22_07hi3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tmqa"]
 size = Vector2(352, 352)
@@ -60,11 +59,6 @@ texture = ExtResource("4_1q312")
 shape = SubResource("RectangleShape2D_7tmqa")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-label_settings = ExtResource("22_07hi3")
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -100,9 +100,6 @@ func _process(_delta):
 	move_and_slide()
 	set_nova()
 	
-	if abs(global_position.x - camera_pos.x) > 175 or abs(global_position.y - camera_pos.y) > 175:
-		$NoClip.start()
-	
 	if type == "move":
 		if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
 			direction = "up"
@@ -205,10 +202,6 @@ func boop(dir):
 		global_position = camera_pos + Vector2(-224,0)
 	elif dir == "right":
 		global_position = camera_pos + Vector2(224,0)
-
-func _on_no_clip_timeout():
-	if abs(global_position.x - camera_pos.x) > 175 or abs(global_position.y - camera_pos.y) > 175:
-		global_position = camera_pos
 
 func _on_crossbow_cooldown_timeout(): # bow cooldown
 	can_crossbow = true

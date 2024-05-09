@@ -1,0 +1,12 @@
+extends StaticBody2D
+
+var damage = 40
+
+func _ready():
+	$Timer.start()
+
+func _on_timer_timeout():
+	queue_free()
+
+func _on_greataxehit_area_entered(area):
+	area.hit(damage)

@@ -18,7 +18,10 @@ z_index = 1
 layout_mode = 0
 offset_right = 350.0
 offset_bottom = 351.0
-text = "lore"
+text = "You are in memories of your past life.
+You were of nobility.
+You were sent here to train.
+You will learn the truth instead."
 label_settings = ExtResource("2_521ie")
 horizontal_alignment = 1
 vertical_alignment = 1
