@@ -1,4 +1,4 @@
-[gd_scene load_steps=159 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=177 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -150,6 +150,24 @@
 [ext_resource type="Texture2D" uid="uid://b1e8qbn125hnm" path="res://assets/entities/nova/nova_homer/homer_move_up_0.png" id="119_bk04y"]
 [ext_resource type="Texture2D" uid="uid://bn325csvu311d" path="res://assets/entities/nova/nova_homer/homer_move_up_1.png" id="120_n0sct"]
 [ext_resource type="Texture2D" uid="uid://dcrx8c4ihlf14" path="res://assets/entities/nova/nova_homer/homer_move_up_2.png" id="121_1uwm4"]
+[ext_resource type="Texture2D" uid="uid://deppbqbyfytvp" path="res://assets/entities/nova/nova_molotov/molotov_move_down_0.png" id="124_xxotd"]
+[ext_resource type="Texture2D" uid="uid://d3fj71fy76p6p" path="res://assets/entities/nova/nova_molotov/molotov_move_down_1.png" id="125_6hkjv"]
+[ext_resource type="Texture2D" uid="uid://cmrlrhpvpi24f" path="res://assets/entities/nova/nova_molotov/molotov_attack_down_3.png" id="126_pi0n2"]
+[ext_resource type="Texture2D" uid="uid://qy7u1ph6udgk" path="res://assets/entities/nova/nova_molotov/molotov_move_down_2.png" id="127_8kwu0"]
+[ext_resource type="Texture2D" uid="uid://idflacsyq0sf" path="res://assets/entities/nova/nova_molotov/molotov_move_left_0.png" id="128_l6emy"]
+[ext_resource type="Texture2D" uid="uid://bkdm47lrwdirw" path="res://assets/entities/nova/nova_molotov/molotov_move_left_2.png" id="129_lul48"]
+[ext_resource type="Texture2D" uid="uid://d2inptb8ottcs" path="res://assets/entities/nova/nova_molotov/molotov_move_left_1.png" id="130_xbqpg"]
+[ext_resource type="Texture2D" uid="uid://ymtvfum204sf" path="res://assets/entities/nova/nova_molotov/molotov_move_right_0.png" id="131_s7i66"]
+[ext_resource type="Texture2D" uid="uid://dp7p8xnjsscb8" path="res://assets/entities/nova/nova_molotov/molotov_move_right_1.png" id="132_rpk65"]
+[ext_resource type="Texture2D" uid="uid://bhvio40fe104k" path="res://assets/entities/nova/nova_molotov/molotov_attack_right_3.png" id="133_oiybq"]
+[ext_resource type="Texture2D" uid="uid://bkrgtitavxfgp" path="res://assets/entities/nova/nova_molotov/molotov_attack_right_4.png" id="134_dy660"]
+[ext_resource type="Texture2D" uid="uid://4pehu4eqm6i5" path="res://assets/entities/nova/nova_molotov/molotov_move_up_0.png" id="135_wcdkd"]
+[ext_resource type="Texture2D" uid="uid://c1h4e3gg4xjx7" path="res://assets/entities/nova/nova_molotov/molotov_move_up_1.png" id="136_wwy0u"]
+[ext_resource type="Texture2D" uid="uid://bnggj26hddnhs" path="res://assets/entities/nova/nova_molotov/molotov_attack_up_3.png" id="137_bxpb0"]
+[ext_resource type="Texture2D" uid="uid://b7qdasln8gb2r" path="res://assets/entities/nova/nova_molotov/molotov_attack_up_4.png" id="138_incu6"]
+[ext_resource type="Texture2D" uid="uid://yeqs7m2xvwpd" path="res://assets/entities/nova/nova_molotov/molotov_attack_up_5.png" id="139_gbqf6"]
+[ext_resource type="Texture2D" uid="uid://bop1byh4d4qad" path="res://assets/entities/nova/nova_molotov/molotov_move_right_2.png" id="140_p84r6"]
+[ext_resource type="Texture2D" uid="uid://dm7hhk3d8q4nw" path="res://assets/entities/nova/nova_molotov/molotov_move_up_2.png" id="141_qsd8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ikotd"]
 size = Vector2(10, 12)
@@ -1045,6 +1063,145 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
+"duration": 1.0,
+"texture": ExtResource("124_xxotd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_6hkjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_pi0n2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_8kwu0")
+}],
+"loop": true,
+"name": &"molotov_attack_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("128_l6emy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_lul48")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_l6emy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_xbqpg")
+}],
+"loop": true,
+"name": &"molotov_attack_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("131_s7i66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_rpk65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_oiybq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_dy660")
+}],
+"loop": true,
+"name": &"molotov_attack_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("135_wcdkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_wwy0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_bxpb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_incu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_gbqf6")
+}],
+"loop": true,
+"name": &"molotov_attack_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("124_xxotd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_6hkjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_xxotd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_8kwu0")
+}],
+"loop": true,
+"name": &"molotov_move_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("128_l6emy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_xbqpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_l6emy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_lul48")
+}],
+"loop": true,
+"name": &"molotov_move_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("131_s7i66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_rpk65")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_s7i66")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_p84r6")
+}],
+"loop": true,
+"name": &"molotov_move_right",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("135_wcdkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_wwy0u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_wcdkd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_qsd8n")
+}],
+"loop": false,
+"name": &"molotov_move_up",
+"speed": 4.0
+}, {
+"frames": [{
 "duration": 0.5,
 "texture": ExtResource("51_w3rxb")
 }, {
@@ -1285,7 +1442,7 @@ shape = SubResource("RectangleShape2D_ikotd")
 z_index = 2
 z_as_relative = false
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"gauntlets_attack_right"
+animation = &"molotov_attack_up"
 offset = Vector2(0, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NovaCollision/NovaAnimation"]
