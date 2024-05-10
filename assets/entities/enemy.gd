@@ -5,9 +5,8 @@ extends Node2D
 @export var greed_scene: PackedScene
 @export var wrath_scene: PackedScene
 
-# "limbo","gluttony","greed","wrath"
-
-var enemies = ["greed"]
+#var enemies = ["gluttony"]
+var enemies = ["limbo","gluttony","greed","wrath"]
 var temp
 
 # Called when the node enters the scene tree for the first time.

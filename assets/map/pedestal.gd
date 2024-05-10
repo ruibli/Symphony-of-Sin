@@ -85,7 +85,12 @@ func random_item():
 		
 		if nam == "breakfast":
 			stats = [25, 25, 0, 0, 0, 0]
-			
+		elif nam == "platinum":
+			stats = [0, 0, 0, 0, 0, 5]
+		elif nam == "glass":
+			stats = [-50, -50, 0, 0.5, 0, 0]
+		#elif nam == "feather":
+			#stats = [-25, -25, 0.25, -0.25, 0.25, 5]
 
 func random_weapon():
 	var weapon_pool = Glova.g_weapon_pool("0")

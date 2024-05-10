@@ -58,16 +58,7 @@ func _physics_process(_delta):
 		
 		# Animation
 		var nova_dir = Glova.g_pos() - global_position
-		if type == "wait" and distance <= 28:
-			if direction == "up":
-				$HeresyCollision/HeresyAnimation.play("move_up")
-			elif direction == "down":
-				$HeresyCollision/HeresyAnimation.play("move_down")
-			elif direction == "left":
-				$HeresyCollision/HeresyAnimation.play("move_left")
-			elif direction == "right":
-				$HeresyCollision/HeresyAnimation.play("move_right")
-		elif type == "move":
+		if type == "move":
 			if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
 				$HeresyCollision/HeresyAnimation.play("move_up")
 			elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
@@ -78,19 +69,19 @@ func _physics_process(_delta):
 				$HeresyCollision/HeresyAnimation.play("move_right")
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x): #up
-				$WeaponPos.position = Vector2(0,-5)
+				$WeaponPos.position = Vector2(0,-10)
 				$WeaponPos.rotation_degrees = 180
 				$HeresyCollision/HeresyAnimation.play("attack_up")
 			elif nova_dir.y > 0 and abs(nova_dir.y) > abs(nova_dir.x): #down
-				$WeaponPos.position = Vector2(0,15)
+				$WeaponPos.position = Vector2(0,10)
 				$WeaponPos.rotation_degrees = 0
 				$HeresyCollision/HeresyAnimation.play("attack_down")
 			elif nova_dir.x < 0 and abs(nova_dir.x) > abs(nova_dir.y): #left
-				$WeaponPos.position = Vector2(-10,5)
+				$WeaponPos.position = Vector2(-10,0)
 				$WeaponPos.rotation_degrees = 90
 				$HeresyCollision/HeresyAnimation.play("attack_left")
 			elif nova_dir.x > 0 and abs(nova_dir.x) > abs(nova_dir.y): #right
-				$WeaponPos.position = Vector2(10,5)
+				$WeaponPos.position = Vector2(10,0)
 				$WeaponPos.rotation_degrees = 270
 				$HeresyCollision/HeresyAnimation.play("attack_right")
 	
@@ -124,7 +115,7 @@ func weapon():
 		await get_tree().create_timer(0.25).timeout
 		$WeaponPos.add_child(w)
 		await get_tree().create_timer(0.75).timeout
-		type = "wait"
+		type = "move"
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	active = false
@@ -155,9 +146,6 @@ func hit(ow):
 		else:
 			$HeresyCollision/HeresyAnimation/AnimationPlayer.play("clear")
 
-func _on_heresyhit_hurt_area_entered(area):
-		area.hit(damage)
-
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	if active and (distance >= 20 or not see):
 		velocity = safe_velocity.normalized() * speed
@@ -165,7 +153,9 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 
 func _on_weapon_cooldown_timeout():
 	can_attack = true
-	type = "move"
 
 func is_active():
 	return active
+
+func _on_heresyhurt_area_entered(area):
+	area.hit(damage)

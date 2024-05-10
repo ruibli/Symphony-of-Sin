@@ -60,20 +60,7 @@ func _physics_process(_delta):
 		
 		# Animation
 		var nova_dir = Glova.g_pos() - global_position
-		if type == "wait" and distance <= 28:
-			if direction == "up":
-				$GluttonyCollision/GluttonyAnimation.play("move_up")
-				$GluttonyCollision/GluttonyAnimation.flip_h = false
-			elif direction == "down":
-				$GluttonyCollision/GluttonyAnimation.play("move_down")
-				$GluttonyCollision/GluttonyAnimation.flip_h = false
-			elif direction == "left":
-				$GluttonyCollision/GluttonyAnimation.play("move_right")
-				$GluttonyCollision/GluttonyAnimation.flip_h = true
-			elif direction == "right":
-				$GluttonyCollision/GluttonyAnimation.play("move_right")
-				$GluttonyCollision/GluttonyAnimation.flip_h = false
-		elif type == "move":
+		if type == "move":
 			if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
 				$GluttonyCollision/GluttonyAnimation.play("move_up")
 				$GluttonyCollision/GluttonyAnimation.flip_h = false
@@ -120,29 +107,29 @@ func weapon():
 		w.damage = w.damage * mod
 		
 		if direction == "up":
-			$WeaponPos.position = Vector2(0,-5)
+			$WeaponPos.position = Vector2(0,-10)
 			$WeaponPos.rotation_degrees = 180
 			$GluttonyCollision/GluttonyAnimation.play("attack_up")
 			$GluttonyCollision/GluttonyAnimation.flip_h = false
 		elif direction == "down":
-			$WeaponPos.position = Vector2(0,15)
+			$WeaponPos.position = Vector2(0,10)
 			$WeaponPos.rotation_degrees = 0
 			$GluttonyCollision/GluttonyAnimation.play("attack_down")
 			$GluttonyCollision/GluttonyAnimation.flip_h = false
 		elif direction == "left":
-			$WeaponPos.position = Vector2(-10,5)
+			$WeaponPos.position = Vector2(-10,0)
 			$WeaponPos.rotation_degrees = 90
 			$GluttonyCollision/GluttonyAnimation.play("attack_right")
 			$GluttonyCollision/GluttonyAnimation.flip_h = true
 		elif direction == "right":
-			$WeaponPos.position = Vector2(10,5)
+			$WeaponPos.position = Vector2(10,0)
 			$WeaponPos.rotation_degrees = 270
 			$GluttonyCollision/GluttonyAnimation.play("attack_right")
 			$GluttonyCollision/GluttonyAnimation.flip_h = false
 		await get_tree().create_timer(0.25).timeout
 		$WeaponPos.add_child(w)
 		await get_tree().create_timer(0.75).timeout
-		type = "wait"
+		type = "move"	
 
 func _on_hit_cooldown_timeout():
 	can_hit = true
@@ -170,7 +157,6 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 
 func _on_weapon_cooldown_timeout():
 	can_attack = true
-	type = "move"	
 
 func _on_gluttonyhurt_area_entered(area):
 	area.hit(damage)

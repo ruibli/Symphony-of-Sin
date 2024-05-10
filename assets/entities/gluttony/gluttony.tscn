@@ -200,7 +200,6 @@ script = ExtResource("1_dv0g7")
 bite_scene = ExtResource("2_l1e4c")
 
 [node name="GluttonyCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_xx0fn")
 
 [node name="GluttonyAnimation" type="AnimatedSprite2D" parent="GluttonyCollision"]
@@ -216,6 +215,7 @@ libraries = {
 }
 
 [node name="gluttonyhurt" type="Area2D" parent="."]
+position = Vector2(0, -3)
 collision_layer = 20
 collision_mask = 2
 script = ExtResource("18_u6f1h")
@@ -230,9 +230,7 @@ path_desired_distance = 8.0
 target_desired_distance = 8.0
 path_max_distance = 64.0
 avoidance_enabled = true
-avoidance_layers = 0
 avoidance_mask = 3
-avoidance_priority = 0.0
 
 [node name="HitCooldown" type="Timer" parent="."]
 one_shot = true
@@ -244,28 +242,24 @@ one_shot = true
 
 [node name="RayUp" type="RayCast2D" parent="."]
 visible = false
-position = Vector2(0, 5)
 target_position = Vector2(0, -320)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayDown" type="RayCast2D" parent="."]
 visible = false
-position = Vector2(0, 5)
 target_position = Vector2(0, 320)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 visible = false
-position = Vector2(0, 5)
 target_position = Vector2(-320, 0)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayRight" type="RayCast2D" parent="."]
 visible = false
-position = Vector2(0, 5)
 target_position = Vector2(320, 0)
 collision_mask = 32
 collide_with_areas = true

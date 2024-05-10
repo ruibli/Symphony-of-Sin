@@ -249,7 +249,6 @@ script = ExtResource("1_shbfm")
 greataxe_scene = ExtResource("2_ogqcj")
 
 [node name="WrathCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_xx0fn")
 
 [node name="WrathAnimation" type="AnimatedSprite2D" parent="WrathCollision"]
@@ -265,6 +264,7 @@ libraries = {
 }
 
 [node name="wrathhurt" type="Area2D" parent="."]
+position = Vector2(0, -3)
 collision_layer = 20
 collision_mask = 2
 script = ExtResource("29_2agmf")
@@ -279,9 +279,7 @@ path_desired_distance = 8.0
 target_desired_distance = 8.0
 path_max_distance = 64.0
 avoidance_enabled = true
-avoidance_layers = 0
 avoidance_mask = 3
-avoidance_priority = 0.0
 
 [node name="HitCooldown" type="Timer" parent="."]
 one_shot = true
@@ -294,33 +292,29 @@ one_shot = true
 
 [node name="RayUp" type="RayCast2D" parent="."]
 visible = false
-position = Vector2(0, 5)
 target_position = Vector2(0, -320)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayDown" type="RayCast2D" parent="."]
 visible = false
-position = Vector2(0, 5)
 target_position = Vector2(0, 320)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 visible = false
-position = Vector2(0, 5)
 target_position = Vector2(-320, 0)
 collision_mask = 32
 collide_with_areas = true
 
 [node name="RayRight" type="RayCast2D" parent="."]
 visible = false
-position = Vector2(0, 5)
 target_position = Vector2(320, 0)
 collision_mask = 32
 collide_with_areas = true
 
-[connection signal="area_entered" from="wrathhurt" to="." method="_on_limbohit_hurt_area_entered"]
+[connection signal="area_entered" from="wrathhurt" to="." method="_on_wrathhurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
