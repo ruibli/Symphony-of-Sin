@@ -52,6 +52,7 @@ target_desired_distance = 2.0
 path_max_distance = 10.0
 avoidance_enabled = true
 avoidance_layers = 0
+avoidance_priority = 0.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0

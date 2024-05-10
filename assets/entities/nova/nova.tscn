@@ -1435,12 +1435,12 @@ homer_scene = ExtResource("5_c34g0")
 gauntlets_scene = ExtResource("6_b1abx")
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_ikotd")
 
 [node name="NovaAnimation" type="AnimatedSprite2D" parent="NovaCollision"]
 z_index = 2
 z_as_relative = false
+position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_7wltb")
 animation = &"molotov_attack_up"
 offset = Vector2(0, -7)
@@ -1451,6 +1451,7 @@ libraries = {
 }
 
 [node name="novahurt" type="Area2D" parent="."]
+position = Vector2(0, -6)
 collision_layer = 34
 collision_mask = 0
 script = ExtResource("15_gea65")
@@ -1478,6 +1479,8 @@ rotation_smoothing_speed = 15.0
 one_shot = true
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+visible = false
+position = Vector2(0, -6)
 vertices = PackedVector2Array(-5, -10, 5, -10, 5, 10, -5, 10)
 avoidance_layers = 2
 

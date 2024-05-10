@@ -58,16 +58,7 @@ func _physics_process(_delta):
 		
 		# Animation
 		var nova_dir = Glova.g_pos() - global_position
-		if type == "wait" and distance <= 28:
-			if direction == "up":
-				$PrideCollision/PrideAnimation.play("move_up")
-			elif direction == "down":
-				$PrideCollision/PrideAnimation.play("move_down")
-			elif direction == "left":
-				$PrideCollision/PrideAnimation.play("move_left")
-			elif direction == "right":
-				$PrideCollision/PrideAnimation.play("move_right")
-		elif type == "move":
+		if type == "move":
 			if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
 				$PrideCollision/PrideAnimation.play("move_up")
 			elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
@@ -106,25 +97,25 @@ func weapon():
 		w.damage = w.damage * mod
 		
 		if direction == "up":
-			$WeaponPos.position = Vector2(0,-5)
+			$WeaponPos.position = Vector2(0,-10)
 			$WeaponPos.rotation_degrees = 180
 			$PrideCollision/PrideAnimation.play("attack_up")
 		elif direction == "down":
-			$WeaponPos.position = Vector2(0,15)
+			$WeaponPos.position = Vector2(0,10)
 			$WeaponPos.rotation_degrees = 0
 			$PrideCollision/PrideAnimation.play("attack_down")
 		elif direction == "left":
-			$WeaponPos.position = Vector2(-10,5)
+			$WeaponPos.position = Vector2(-10,0)
 			$WeaponPos.rotation_degrees = 90
 			$PrideCollision/PrideAnimation.play("attack_left")
 		elif direction == "right":
-			$WeaponPos.position = Vector2(10,5)
+			$WeaponPos.position = Vector2(10,0)
 			$WeaponPos.rotation_degrees = 270
 			$PrideCollision/PrideAnimation.play("attack_right")
 		await get_tree().create_timer(0.25).timeout
 		$WeaponPos.add_child(w)
 		await get_tree().create_timer(0.75).timeout
-		type = "wait"
+		type = "move"
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	active = false
@@ -155,9 +146,6 @@ func hit(ow):
 		else:
 			$PrideCollision/PrideAnimation/AnimationPlayer.play("clear")
 
-func _on_pridehit_hurt_area_entered(area):
-		area.hit(damage)
-
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	if active and (distance >= 20 or not see):
 		velocity = safe_velocity.normalized() * speed
@@ -165,7 +153,9 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 
 func _on_weapon_cooldown_timeout():
 	can_attack = true
-	type = "move"
 
 func is_active():
 	return active
+
+func _on_pridehurt_area_entered(area):
+	area.hit(damage)
