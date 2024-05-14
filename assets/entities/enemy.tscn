@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://doo7pq26uiny0"]
+[gd_scene load_steps=7 format=3 uid="uid://doo7pq26uiny0"]
 
 [ext_resource type="Script" path="res://assets/entities/enemy.gd" id="1_qcn2q"]
 [ext_resource type="PackedScene" uid="uid://du7wg2sy0ohtd" path="res://assets/entities/limbo/limbo.tscn" id="2_de6ab"]
 [ext_resource type="PackedScene" uid="uid://brqiiuic5vy03" path="res://assets/entities/gluttony/gluttony.tscn" id="3_escfi"]
 [ext_resource type="PackedScene" uid="uid://crlrdxnbaeitg" path="res://assets/entities/wrath/wrath.tscn" id="4_5kp80"]
 [ext_resource type="PackedScene" uid="uid://b3dytvsrqcvtw" path="res://assets/entities/greed/greed.tscn" id="4_tolu5"]
+[ext_resource type="PackedScene" uid="uid://cv831f1s73mov" path="res://assets/entities/heresy/heresy.tscn" id="6_gdg4a"]
 
 [node name="enemy" type="Node2D"]
 script = ExtResource("1_qcn2q")
@@ -12,3 +13,4 @@ limbo_scene = ExtResource("2_de6ab")
 gluttony_scene = ExtResource("3_escfi")
 greed_scene = ExtResource("4_tolu5")
 wrath_scene = ExtResource("4_5kp80")
+heresy_scene = ExtResource("6_gdg4a")

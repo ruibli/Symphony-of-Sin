@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2e2hro31a5js"
-path="res://.godot/imported/heresy_fire.png-5f71ac46ba976446470e909bfd355f61.ctex"
+uid="uid://b43bt4508xfih"
+path="res://.godot/imported/heresy_lava.png-7e100c81df9ee702e008e906b7236be4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/heresy/sprites/heresy_fire.png"
-dest_files=["res://.godot/imported/heresy_fire.png-5f71ac46ba976446470e909bfd355f61.ctex"]
+source_file="res://assets/entities/heresy/sprites/heresy_lava.png"
+dest_files=["res://.godot/imported/heresy_lava.png-7e100c81df9ee702e008e906b7236be4.ctex"]
 
 [params]
 

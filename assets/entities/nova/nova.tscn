@@ -1,4 +1,4 @@
-[gd_scene load_steps=177 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=178 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cox1ggdcgxc1e" path="res://assets/entities/nova/gauntlets.tscn" id="6_b1abx"]
 [ext_resource type="Texture2D" uid="uid://dsqnlg16bc1tt" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_1.png" id="6_i4qsf"]
 [ext_resource type="Texture2D" uid="uid://l0h40x2oa4h2" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_0.png" id="6_y2km1"]
+[ext_resource type="PackedScene" uid="uid://2ip3bj5d6mje" path="res://assets/entities/nova/molotov.tscn" id="7_1um0f"]
 [ext_resource type="Texture2D" uid="uid://p5vun1lc1224" path="res://assets/entities/nova/nova_axe/attack/axe_attack_left_2.png" id="7_52bci"]
 [ext_resource type="Texture2D" uid="uid://mr7auccjodg7" path="res://assets/entities/nova/nova_axe/walk/axe_move_left_1.png" id="7_nd452"]
 [ext_resource type="Texture2D" uid="uid://bjinoeah3howq" path="res://assets/entities/nova/nova_antlers/antlers_attack_down_4.png" id="7_snec2"]
@@ -1433,6 +1434,7 @@ spear_scene = ExtResource("3_4ve7n")
 axe_scene = ExtResource("4_s1sm1")
 homer_scene = ExtResource("5_c34g0")
 gauntlets_scene = ExtResource("6_b1abx")
+molotov_scene = ExtResource("7_1um0f")
 
 [node name="NovaCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ikotd")
@@ -1503,6 +1505,10 @@ one_shot = true
 [node name="GauntletsCooldown" type="Timer" parent="."]
 one_shot = true
 
+[node name="MolotovCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="area_entered" from="RoomDetector" to="." method="_on_room_detector_area_entered"]
 [connection signal="timeout" from="HitCooldown" to="." method="_on_hit_cooldown_timeout"]
 [connection signal="timeout" from="CrossbowCooldown" to="." method="_on_crossbow_cooldown_timeout"]
@@ -1510,3 +1516,4 @@ one_shot = true
 [connection signal="timeout" from="AxeCooldown" to="." method="_on_axe_cooldown_timeout"]
 [connection signal="timeout" from="HomerCooldown" to="." method="_on_homer_cooldown_timeout"]
 [connection signal="timeout" from="GauntletsCooldown" to="." method="_on_gauntlets_cooldown_timeout"]
+[connection signal="timeout" from="MolotovCooldown" to="." method="_on_molotov_cooldown_timeout"]

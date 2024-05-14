@@ -4,9 +4,10 @@ extends Node2D
 @export var gluttony_scene: PackedScene
 @export var greed_scene: PackedScene
 @export var wrath_scene: PackedScene
+@export var heresy_scene: PackedScene
 
-#var enemies = ["gluttony"]
-var enemies = ["limbo","gluttony","greed","wrath"]
+var enemies = ["heresy"]
+#var enemies = ["limbo","gluttony","greed","wrath","heresy"]
 var temp
 
 # Called when the node enters the scene tree for the first time.
@@ -20,4 +21,6 @@ func _ready():
 		temp = greed_scene.instantiate()
 	elif enemy == "wrath":
 		temp = wrath_scene.instantiate()
+	elif enemy == "heresy":
+		temp = heresy_scene.instantiate()
 	add_child(temp)

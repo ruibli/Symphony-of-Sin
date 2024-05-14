@@ -14,8 +14,8 @@ var hotbar
 var current
 var cooldown = 0
 
-var i_pool_full = ["breakfast","platinum","glass"]
-var w_pool_full = ["spear","axe","gauntlets"]
+var i_pool_full = ["breakfast","platinum","glass","feather","vest","scale","colon","boots"]
+var w_pool_full = ["spear","axe","gauntlets","molotov"]
 var item_pool
 var weapon_pool
 var spawn_vars = [0,0]

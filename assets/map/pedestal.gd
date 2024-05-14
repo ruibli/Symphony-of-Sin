@@ -89,8 +89,17 @@ func random_item():
 			stats = [0, 0, 0, 0, 0, 5]
 		elif nam == "glass":
 			stats = [-50, -50, 0, 0.5, 0, 0]
-		#elif nam == "feather":
-			#stats = [-25, -25, 0.25, -0.25, 0.25, 5]
+		elif nam == "feather":
+			stats = [-25, -25, 0.25, -0.25, 0.25, 0]
+		elif nam == "vest":
+			stats = [50, 50, -0.5, 0, 0, 0]
+		elif nam == "scale":
+			var ave = (Glova.g_stats()[2] + Glova.g_stats()[3] + Glova.g_stats()[4])/3
+			stats = [0, 0, ave-Glova.g_stats()[2], ave-Glova.g_stats()[3], ave-Glova.g_stats()[4], 0]
+		elif nam == "colon":
+			stats = [25, 25, 0.25, 0.25, 0.25, 1]
+		elif nam == "boots":
+			stats = [0, 0, 0.25, 0, 0, 0]
 
 func random_weapon():
 	var weapon_pool = Glova.g_weapon_pool("0")

@@ -21,20 +21,20 @@ var type = "move"
 var direction = "down"
 
 func sight():
-	if $RayUp.is_colliding():
-		if $RayUp.get_collider().name == "novahurt":
+	if $RayUp.is_colliding() and $RayUp2.is_colliding():
+		if $RayUp.get_collider().name == "novahurt" and $RayUp2.get_collider().name == "novahurt":
 			direction = "up"
 			return true
-	if $RayDown.is_colliding():
-		if $RayDown.get_collider().name == "novahurt":
+	if $RayDown.is_colliding() and $RayDown2.is_colliding():
+		if $RayDown.get_collider().name == "novahurt" and $RayDown2.get_collider().name == "novahurt":
 			direction = "down"
 			return true
-	if $RayLeft.is_colliding():
-		if $RayLeft.get_collider().name == "novahurt":
+	if $RayLeft.is_colliding() and $RayLeft2.is_colliding():
+		if $RayLeft.get_collider().name == "novahurt" and $RayLeft2.get_collider().name == "novahurt":
 			direction = "left"
 			return true
-	if $RayRight.is_colliding():
-		if $RayRight.get_collider().name == "novahurt":
+	if $RayRight.is_colliding() and $RayRight2.is_colliding():
+		if $RayRight.get_collider().name == "novahurt" and $RayRight2.get_collider().name == "novahurt":
 			direction = "right"
 			return true
 	return false

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://detuobgx5vjbo"]
+
+[ext_resource type="Script" path="res://assets/entities/heresy/lava.gd" id="1_12ah8"]
+[ext_resource type="Texture2D" uid="uid://b43bt4508xfih" path="res://assets/entities/heresy/sprites/heresy_lava.png" id="2_uf7sk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kntfd"]
+size = Vector2(7, 10)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8txlk"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7dr6"]
+size = Vector2(0.1, 0.1)
+
+[node name="lava" type="CharacterBody2D"]
+collision_layer = 16
+script = ExtResource("1_12ah8")
+
+[node name="LavaCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kntfd")
+
+[node name="Lava" type="Sprite2D" parent="LavaCollision"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("2_uf7sk")
+
+[node name="lavahit" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 2
+
+[node name="LavaHit" type="CollisionShape2D" parent="lavahit"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kntfd")
+
+[node name="lavahit2" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="LavaHit2" type="CollisionShape2D" parent="lavahit2"]
+shape = SubResource("CircleShape2D_8txlk")
+
+[node name="roomdetector" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="RoomHit" type="CollisionShape2D" parent="roomdetector"]
+shape = SubResource("RectangleShape2D_r7dr6")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="lavahit" to="." method="_on_lavahit_area_entered"]
+[connection signal="area_entered" from="lavahit2" to="." method="_on_lavahit_2_area_entered"]
+[connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

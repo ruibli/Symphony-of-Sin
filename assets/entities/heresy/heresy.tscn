@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://cv831f1s73mov"]
+[gd_scene load_steps=34 format=3 uid="uid://cv831f1s73mov"]
 
 [ext_resource type="Script" path="res://assets/entities/heresy/heresy.gd" id="1_nynpn"]
+[ext_resource type="PackedScene" uid="uid://detuobgx5vjbo" path="res://assets/entities/heresy/lava.tscn" id="2_6i270"]
 [ext_resource type="Texture2D" uid="uid://crm53pyc25osd" path="res://assets/entities/heresy/sprites/heresy_move_down_0.png" id="2_6i873"]
 [ext_resource type="Texture2D" uid="uid://ck42g8tgraml6" path="res://assets/entities/heresy/sprites/heresy_attack_down_1.png" id="2_d86ip"]
 [ext_resource type="Texture2D" uid="uid://b5x6q8lje8ft6" path="res://assets/entities/heresy/sprites/heresy_attack_down_2.png" id="3_2oel3"]
@@ -232,6 +233,7 @@ collision_layer = 4
 collision_mask = 7
 motion_mode = 1
 script = ExtResource("1_nynpn")
+lava_scene = ExtResource("2_6i270")
 
 [node name="HeresyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_xx0fn")
@@ -264,38 +266,72 @@ path_desired_distance = 8.0
 target_desired_distance = 8.0
 path_max_distance = 64.0
 avoidance_enabled = true
+avoidance_layers = 0
 avoidance_mask = 3
 
 [node name="HitCooldown" type="Timer" parent="."]
 one_shot = true
 
 [node name="WeaponCooldown" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="WeaponPos" type="Marker2D" parent="."]
 
 [node name="RayUp" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(-3, 0)
 target_position = Vector2(0, -320)
-collision_mask = 32
+collision_mask = 33
+collide_with_areas = true
+
+[node name="RayUp2" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(3, 0)
+target_position = Vector2(0, -320)
+collision_mask = 33
 collide_with_areas = true
 
 [node name="RayDown" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(-3, 0)
 target_position = Vector2(0, 320)
-collision_mask = 32
+collision_mask = 33
+collide_with_areas = true
+
+[node name="RayDown2" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(3, 0)
+target_position = Vector2(0, 320)
+collision_mask = 33
 collide_with_areas = true
 
 [node name="RayLeft" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(0, -3)
 target_position = Vector2(-320, 0)
-collision_mask = 32
+collision_mask = 33
+collide_with_areas = true
+
+[node name="RayLeft2" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+target_position = Vector2(-320, 0)
+collision_mask = 33
 collide_with_areas = true
 
 [node name="RayRight" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(0, -3)
 target_position = Vector2(320, 0)
-collision_mask = 32
+collision_mask = 33
+collide_with_areas = true
+
+[node name="RayRight2" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+target_position = Vector2(320, 0)
+collision_mask = 33
 collide_with_areas = true
 
 [connection signal="area_entered" from="heresyhurt" to="." method="_on_heresyhurt_area_entered"]
