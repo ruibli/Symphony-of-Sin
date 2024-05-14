@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b43bt4508xfih"
-path="res://.godot/imported/heresy_projectile.png-68cfe3a31fb8f25a9354c2a7d67fc665.ctex"
+uid="uid://2e2hro31a5js"
+path="res://.godot/imported/heresy_pool.png-659394d864432549e6b5cda1db41760f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/heresy/sprites/heresy_projectile.png"
-dest_files=["res://.godot/imported/heresy_projectile.png-68cfe3a31fb8f25a9354c2a7d67fc665.ctex"]
+source_file="res://assets/entities/heresy/sprites/heresy_pool.png"
+dest_files=["res://.godot/imported/heresy_pool.png-659394d864432549e6b5cda1db41760f.ctex"]
 
 [params]
 

@@ -8,6 +8,7 @@ var cam = false
 @export var axe_scene : PackedScene
 @export var homer_scene : PackedScene
 @export var gauntlets_scene : PackedScene
+@export var molotov_scene : PackedScene
 
 var health = 100
 var health_max = 100
@@ -32,6 +33,7 @@ var can_spear = true
 var can_axe = true
 var can_homer = true
 var can_gauntlets = true
+var can_molotov = true
 
 func set_nova():
 	health = Glova.g_stats()[0]
@@ -57,6 +59,7 @@ func set_nova():
 	$AxeCooldown.wait_time = 2.0 / attack
 	$HomerCooldown.wait_time = 1.0 / attack
 	$GauntletsCooldown.wait_time = 1.0 / attack
+	$MolotovCooldown.wait_time = 1.0 / attack
 	
 func _process(_delta):
 	velocity = Vector2.ZERO
@@ -145,6 +148,12 @@ func _process(_delta):
 			Glova.g_cooldown($GauntletsCooldown.wait_time)
 			w = gauntlets_scene.instantiate()
 			weapon(false,0)
+		elif current == "molotov" and can_molotov:
+			can_molotov = false
+			$MolotovCooldown.start()
+			Glova.g_cooldown($MolotovCooldown.wait_time)
+			w = molotov_scene.instantiate()
+			weapon(true,0)
 		else:
 			if !lock:
 				type = "move"
@@ -227,3 +236,6 @@ func _on_homer_cooldown_timeout():
 
 func _on_gauntlets_cooldown_timeout():
 	can_gauntlets = true
+
+func _on_molotov_cooldown_timeout():
+	can_molotov = true

@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://2ip3bj5d6mje"]
+
+[ext_resource type="Script" path="res://assets/entities/nova/molotov.gd" id="1_ci6on"]
+[ext_resource type="Texture2D" uid="uid://ck4hbql4bfoip" path="res://assets/entities/nova/nova_molotov/molotov.png" id="2_60p0e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nsvj"]
+size = Vector2(4.5, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4d1us"]
+radius = 8.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yx2p"]
+size = Vector2(0.1, 0.1)
+
+[node name="molotov" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_ci6on")
+
+[node name="MolotovCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1nsvj")
+
+[node name="Molotov" type="Sprite2D" parent="MolotovCollision"]
+z_index = 1
+z_as_relative = false
+texture = ExtResource("2_60p0e")
+
+[node name="molotovhit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="molotovHit" type="CollisionShape2D" parent="molotovhit"]
+shape = SubResource("RectangleShape2D_1nsvj")
+
+[node name="molotovhit2" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="molotovhit2" type="CollisionShape2D" parent="molotovhit2"]
+shape = SubResource("CircleShape2D_4d1us")
+
+[node name="roomdetector" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="RoomHit" type="CollisionShape2D" parent="roomdetector"]
+shape = SubResource("RectangleShape2D_4yx2p")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-2, -4, 2, -4, 2, 4, -2, 4)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="area_entered" from="molotovhit" to="." method="_on_molotovhit_area_entered"]
+[connection signal="area_entered" from="molotovhit2" to="." method="_on_molotovhit_2_area_entered"]
+[connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

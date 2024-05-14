@@ -1,13 +1,13 @@
 extends CharacterBody2D
 
-@export var trident_scene : PackedScene
+@export var lava_scene : PackedScene
 
 # Enemy stats
 var mod = 1 + 0.1 * (Glova.g_mod())
 
-var speed = 50 * mod
+var speed = 65 * mod
 
-var health = 50 * mod
+var health = 65 * mod
 var damage = 10 * mod
 
 var active = false
@@ -21,20 +21,20 @@ var type = "move"
 var direction = "down"
 
 func sight():
-	if $RayUp.is_colliding():
-		if $RayUp.get_collider().name == "novahurt":
+	if $RayUp.is_colliding() and $RayUp2.is_colliding():
+		if $RayUp.get_collider().name == "novahurt" and $RayUp2.get_collider().name == "novahurt":
 			direction = "up"
 			return true
-	if $RayDown.is_colliding():
-		if $RayDown.get_collider().name == "novahurt":
+	if $RayDown.is_colliding() and $RayDown2.is_colliding():
+		if $RayDown.get_collider().name == "novahurt" and $RayDown2.get_collider().name == "novahurt":
 			direction = "down"
 			return true
-	if $RayLeft.is_colliding():
-		if $RayLeft.get_collider().name == "novahurt":
+	if $RayLeft.is_colliding() and $RayLeft2.is_colliding():
+		if $RayLeft.get_collider().name == "novahurt" and $RayLeft2.get_collider().name == "novahurt":
 			direction = "left"
 			return true
-	if $RayRight.is_colliding():
-		if $RayRight.get_collider().name == "novahurt":
+	if $RayRight.is_colliding() and $RayRight2.is_colliding():
+		if $RayRight.get_collider().name == "novahurt" and $RayRight2.get_collider().name == "novahurt":
 			direction = "right"
 			return true
 	return false
@@ -47,9 +47,9 @@ func _physics_process(_delta):
 		if !wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
-		elif distance <= 28 and see:
+		elif distance <= 72 and see:
 			weapon()
-		elif distance >= 20 or not see:
+		elif distance >= 64 or not see:
 			$NavigationAgent2D.set_target_position(Glova.g_pos())
 			var current_agent_position = global_position
 			var next_path_position = $NavigationAgent2D.get_next_path_position()
@@ -85,7 +85,7 @@ func _physics_process(_delta):
 				$WeaponPos.rotation_degrees = 270
 				$HeresyCollision/HeresyAnimation.play("attack_right")
 	
-		$WeaponCooldown.wait_time = 1 * 1.0 / mod
+		$WeaponCooldown.wait_time = 3 * 1.0 / mod
 
 func weapon():
 	if can_attack:
@@ -93,27 +93,36 @@ func weapon():
 		can_attack = false
 		type = "attack"
 		
-		var w = trident_scene.instantiate()
+		var w = lava_scene.instantiate()
 		w.damage = w.damage * mod
 		
 		if direction == "up":
 			$WeaponPos.position = Vector2(0,-10)
 			$WeaponPos.rotation_degrees = 180
 			$HeresyCollision/HeresyAnimation.play("attack_up")
+			w.velocity.y -= 1
+			w.rotation_degrees = 180
 		elif direction == "down":
 			$WeaponPos.position = Vector2(0,10)
 			$WeaponPos.rotation_degrees = 0
 			$HeresyCollision/HeresyAnimation.play("attack_down")
+			w.velocity.y += 1
+			w.rotation_degrees = 0
 		elif direction == "left":
 			$WeaponPos.position = Vector2(-10,0)
 			$WeaponPos.rotation_degrees = 90
 			$HeresyCollision/HeresyAnimation.play("attack_left")
+			w.velocity.x -= 1
+			w.rotation_degrees = 90
 		elif direction == "right":
 			$WeaponPos.position = Vector2(10,0)
 			$WeaponPos.rotation_degrees = 270
 			$HeresyCollision/HeresyAnimation.play("attack_right")
+			w.velocity.x += 1
+			w.rotation_degrees = 270
 		await get_tree().create_timer(0.25).timeout
-		$WeaponPos.add_child(w)
+		w.global_position = $WeaponPos.global_position
+		get_tree().root.add_child(w)
 		await get_tree().create_timer(0.75).timeout
 		type = "move"
 
@@ -147,7 +156,7 @@ func hit(ow):
 			$HeresyCollision/HeresyAnimation/AnimationPlayer.play("clear")
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
-	if active and (distance >= 20 or not see):
+	if active and (distance >= 64 or not see):
 		velocity = safe_velocity.normalized() * speed
 		move_and_slide()
 
