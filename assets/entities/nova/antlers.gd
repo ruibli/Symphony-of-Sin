@@ -1,19 +1,11 @@
 extends CharacterBody2D
 
-var speed = 150
+var speed = 1500
 var damage = 10
 var wait = false
-var rotat = 0
 
 func _ready():
 	$Timer.start()
-	$Timer2.start()
-	if velocity.x < 0:
-		rotat = 270
-	elif velocity.x > 0:
-		rotat = 90
-	elif velocity.y < 0:
-		rotat = 180
 
 func _process(_delta):
 	if not wait:
@@ -37,19 +29,14 @@ func _on_roomdetector_area_entered(area: Area2D) -> void:
 func _on_timer_timeout():
 	queue_free()
 
-func _on_lavahit_area_entered(area):
+func _on_antlershit_area_entered(area):
 	area.hit(damage)
 	change()
 
 func _on_timer_2_timeout():
-	change()
-
-func _on_lavahit_2_area_entered(area):
-	area.hit(damage)
+	queue_free()
 
 func change():
-	$LavaCollision/Lava.texture = load("res://assets/entities/heresy/sprites/heresy_pool.png")
-	$LavaCollision/Lava.rotation_degrees = rotat
+	$AntlersCollision/Antlers.texture = load("res://assets/entities/nova/nova_antlers/beam.png")
 	velocity = Vector2(0,0)
-	$lavahit.set_collision_mask_value(3,false)
-	$lavahit2.set_collision_mask_value(3,true)
+	$Timer2.start()

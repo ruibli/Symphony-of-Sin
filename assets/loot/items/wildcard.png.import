@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhobbkxdedivo"
-path="res://.godot/imported/wildcard.png-738371e0f27e4bd7a61cb7d31669ba4e.ctex"
+uid="uid://dssbc0k5ntp8i"
+path="res://.godot/imported/wildcard.png-403c03128e129a7a532abb283410fb0f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loot/items/wildcard.png"
-dest_files=["res://.godot/imported/wildcard.png-738371e0f27e4bd7a61cb7d31669ba4e.ctex"]
+source_file="res://assets/entities/nova/nova_molotov/wildcard.png"
+dest_files=["res://.godot/imported/wildcard.png-403c03128e129a7a532abb283410fb0f.ctex"]
 
 [params]
 

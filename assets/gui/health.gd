@@ -7,7 +7,7 @@ var save = 1
 func _process(_delta):
 	health = Glova.g_stats()[0]
 	health_max = Glova.g_stats()[1]
-	$health.value = health/health_max
+	$health.value = float(health)/health_max
 	$health/health_label.text = str(int(health)) + "/" +str(int(health_max))
 	
 	if health/health_max != save:

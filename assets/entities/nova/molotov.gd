@@ -3,10 +3,17 @@ extends CharacterBody2D
 var speed = 150
 var damage = 10
 var wait = false
+var rotat = 0
 
 func _ready():
 	$Timer.start()
 	$Timer2.start()
+	if velocity.x < 0:
+		rotat = 270
+	elif velocity.x > 0:
+		rotat = 90
+	elif velocity.y < 0:
+		rotat = 180
 
 func _process(_delta):
 	if not wait:
@@ -18,10 +25,7 @@ func _process(_delta):
 	move_and_slide()
 	
 	for index in get_slide_collision_count():
-		$MolotovCollision/Molotov.texture = load("res://assets/entities/heresy/sprites/heresy_pool.png")
-		velocity = Vector2(0,0)
-		$molotovhit.set_collision_mask_value(2,false)
-		$molotovhit2.set_collision_mask_value(2,true)
+		change()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
@@ -35,16 +39,17 @@ func _on_timer_timeout():
 
 func _on_molotovhit_area_entered(area):
 	area.hit(damage)
-	$MolotovCollision/Molotov.texture = load("res://assets/entities/heresy/sprites/heresy_pool.png")
-	velocity = Vector2(0,0)
-	$molotovhit.set_collision_mask_value(3,false)
-	$molotovhit2.set_collision_mask_value(3,true)
+	change()
 
 func _on_timer_2_timeout():
-	$MolotovCollision/Molotov.texture = load("res://assets/entities/heresy/sprites/heresy_pool.png")
-	velocity = Vector2(0,0)
-	$molotovhit.set_collision_mask_value(3,false)
-	$molotovhit2.set_collision_mask_value(3,true)
+	change()
 
 func _on_molotovhit_2_area_entered(area):
 	area.hit(damage)
+
+func change():
+	$MolotovCollision/Molotov.texture = load("res://assets/entities/nova/nova_molotov/molotov_pool.png")
+	$MolotovCollision/Molotov.rotation_degrees = rotat
+	velocity = Vector2(0,0)
+	$molotovhit.set_collision_mask_value(3,false)
+	$molotovhit2.set_collision_mask_value(3,true)
