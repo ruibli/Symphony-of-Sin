@@ -9,6 +9,7 @@ var cam = false
 @export var homer_scene : PackedScene
 @export var gauntlets_scene : PackedScene
 @export var molotov_scene : PackedScene
+@export var antlers_scene : PackedScene
 
 var health = 100
 var health_max = 100
@@ -34,6 +35,7 @@ var can_axe = true
 var can_homer = true
 var can_gauntlets = true
 var can_molotov = true
+var can_antlers = true
 
 func set_nova():
 	health = Glova.g_stats()[0]
@@ -49,6 +51,16 @@ func set_nova():
 	
 	if health > health_max:
 		Glova.g_stats([health_max-health, 0, 0, 0, 0, 0])
+	if 0 >= health_max:
+		Glova.g_stats([5, 5, 0, 0, 0, 0])
+	if 0 >= speed:
+		Glova.g_stats([0, 0, 0.05, 0, 0, 0])
+	if 0 >= power:
+		Glova.g_stats([0, 0, 0, 0.05, 0, 0])
+	if 0 >= attack:
+		Glova.g_stats([0, 0, 0, 0, 0.05, 0])
+	if 0 > gold:
+		Glova.g_stats([0, 0, 0, 0, 0, 0])
 	
 	Glova.g_pos(global_position)
 	$Camera2D.global_position = camera_pos
@@ -60,6 +72,7 @@ func set_nova():
 	$HomerCooldown.wait_time = 1.0 / attack
 	$GauntletsCooldown.wait_time = 1.0 / attack
 	$MolotovCooldown.wait_time = 1.0 / attack
+	$AntlersCooldown.wait_time = 6.0 / attack
 	
 func _process(_delta):
 	velocity = Vector2.ZERO
@@ -154,6 +167,12 @@ func _process(_delta):
 			Glova.g_cooldown($MolotovCooldown.wait_time)
 			w = molotov_scene.instantiate()
 			weapon(true,0)
+		elif current == "antlers" and can_antlers:
+			can_antlers = false
+			$AntlersCooldown.start()
+			Glova.g_cooldown($AntlersCooldown.wait_time)
+			w = antlers_scene.instantiate()
+			weapon(true,0.58)
 		else:
 			if !lock:
 				type = "move"
@@ -181,15 +200,15 @@ func weapon(projectile, delay): # attacking
 	w.damage = w.damage * attack
 	$NovaCollision/NovaAnimation.play(current+"_"+type+"_"+direction)
 	
+	lock = true
+	await get_tree().create_timer(delay+0.25).timeout
 	if !projectile:
-		lock = true
-		await get_tree().create_timer(delay+0.25).timeout
 		$WeaponPos.add_child(w)
-		await get_tree().create_timer(0.75).timeout
-		lock = false
 	else:
 		w.global_position = $WeaponPos.global_position
 		get_tree().root.add_child(w)
+	await get_tree().create_timer(0.75).timeout
+	lock = false
 
 func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 	if area.get_name() == 'CameraArea':
@@ -239,3 +258,6 @@ func _on_gauntlets_cooldown_timeout():
 
 func _on_molotov_cooldown_timeout():
 	can_molotov = true
+
+func _on_antlers_cooldown_timeout():
+	can_antlers = true

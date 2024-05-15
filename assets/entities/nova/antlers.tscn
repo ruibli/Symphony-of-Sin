@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://b5dbxefng7d7y"]
+
+[ext_resource type="Script" path="res://assets/entities/nova/antlers.gd" id="1_wns3m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8i0v"]
+size = Vector2(4.5, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sg63"]
+size = Vector2(0.1, 0.1)
+
+[node name="antlers" type="CharacterBody2D"]
+collision_layer = 8
+script = ExtResource("1_wns3m")
+
+[node name="AntlersCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a8i0v")
+
+[node name="Antlers" type="Sprite2D" parent="AntlersCollision"]
+z_index = 1
+z_as_relative = false
+
+[node name="antlershit" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+
+[node name="AntlersHit" type="CollisionShape2D" parent="antlershit"]
+shape = SubResource("RectangleShape2D_a8i0v")
+
+[node name="roomdetector" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="RoomHit" type="CollisionShape2D" parent="roomdetector"]
+shape = SubResource("RectangleShape2D_2sg63")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+vertices = PackedVector2Array(-2, -4, 2, -4, 2, 4, -2, 4)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.16
+one_shot = true
+
+[connection signal="area_entered" from="antlershit" to="." method="_on_antlershit_area_entered"]
+[connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
