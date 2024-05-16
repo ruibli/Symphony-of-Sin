@@ -25,12 +25,6 @@ var id = []
 var doors = []
 var lore
 
-func debug(d):
-	if d == "item":
-		return i_pool_full
-	elif d == "weapon":
-		return w_pool_full
-
 func reset():
 	level = 1
 	mod = 0
@@ -47,77 +41,3 @@ func reset():
 	
 	id = [-1]
 	doors = []
-
-func g_level(l: int = 0):
-	if l == 0:
-		return level
-	else:
-		level = l
-
-func g_mod(m: int = 0):
-	if m == 0:
-		return mod
-	else:
-		mod = m
-
-func g_pos(p: Vector2 = Vector2(9999, 9999)):
-	if p == Vector2(9999, 9999):
-		return pos
-	else:
-		pos = p
-
-func g_enemies(e: int = 0):
-	if enemies < 0:
-		enemies = 0
-	if e == 0:
-		return enemies
-	else:
-		enemies += e
-
-func g_inv(i: String = "0"):
-	if i == "0":
-		return inv
-	else:
-		inv.append(i)
-			
-func g_item_pool(i: String = "0"):
-	if i == "0":
-		return item_pool
-	else:
-		item_pool.remove_at(item_pool.find(i,0))
-
-func g_weapon_pool(w: String = "0"):
-	if w == "0":
-		return weapon_pool
-	else:
-		weapon_pool.remove_at(weapon_pool.find(w,0))
-
-func g_volume(v: float = -1):
-	if v == -1:
-		return volume
-	else:
-		volume = v
-
-func g_cooldown(c: float = -1):
-	if c == -1:
-		return cooldown
-	else:
-		cooldown = c
-
-func g_id(i: Array = [0]):
-	if i == [0]:
-		return id
-	else:
-		id = i
-
-func g_doors(d: Array = [0]):
-	if d == [0]:
-		return doors
-	else:
-		doors = d
-
-func g_lore(l: float = -1):
-	if l == -1:
-		return lore
-	else:
-		lore = l

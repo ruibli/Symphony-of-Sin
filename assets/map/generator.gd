@@ -28,7 +28,7 @@ func new_dungeon():
 	randomize()
 	dungeon = generate(randf_range(-1000, 1000))
 	load_map()
-	Glova.g_doors([boss_id,shop_id,lore_id])
+	Glova.doors = [boss_id,shop_id,lore_id].duplicate()
 	
 func load_map():
 	

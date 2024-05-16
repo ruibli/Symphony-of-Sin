@@ -1,22 +1,22 @@
 extends StaticBody2D
 
 var state = 1 # 1 = not on screen, 2 = on screen waiting for no enemies, 3 = ready to tp
-var level = Glova.g_level()
+var level = Glova.level
 var last = 1
 
 func _ready():
 	$exit.visible = false
 
 func _process(_delta):
-	if state == 2 and Glova.g_enemies() > 0:
+	if state == 2 and Glova.enemies > 0:
 		$Timer.start()
 	for _area in $ExitArea.get_overlapping_areas():
 		if state == 3:
 			if level == last:
-				Glova.g_level(-2)
+				Glova.level = -2
 			elif level < last:
-				Glova.g_level(level + 1)
-				Glova.g_mod(Glova.g_mod() + 1)
+				Glova.level = level + 1
+				Glova.mod = Glova.mod + 1
 
 func _on_timer_timeout():
 	$exit.visible = true

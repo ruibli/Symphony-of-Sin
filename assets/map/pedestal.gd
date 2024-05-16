@@ -72,14 +72,14 @@ func reward():
 			stats = [25, 0, 0, 0, 0, 0]
 	
 func random_item():
-	var item_pool = Glova.g_item_pool("0")
+	var item_pool = Glova.item_pool.duplicate()
 	if len(item_pool) == 0 or item_pool.is_empty():
 		breakfast()
 	else:
 		if type != "debug":
 			nam = randi_range(0, len(item_pool)-1) # get lengths
 			nam = item_pool[nam]
-			Glova.g_item_pool(nam)
+			Glova.item_pool.duplicate()
 		
 		$item.texture = load("res://assets/loot/items/"+nam+".png")
 		
