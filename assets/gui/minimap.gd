@@ -15,7 +15,7 @@ var x = -9
 var y = 9
 
 func _ready():
-	mod = Glova.g_mod(0)
+	mod = Glova.mod
 	hide()
 
 func _process(_delta):
@@ -34,10 +34,10 @@ func _process(_delta):
 			wait = true
 			show()
 	else:
-		id = Glova.g_id([0])
+		id = Glova.id
 		
-		if Glova.g_mod(0) != mod:
-			mod = Glova.g_mod(0)
+		if Glova.mod != mod:
+			mod = Glova.mod
 			spawn = false
 			save = []
 			x = -9
@@ -47,7 +47,7 @@ func _process(_delta):
 		if id == []:
 			pass
 		elif id[2] != "spawn" and !spawn:
-			Glova.g_id([])
+			Glova.id = []
 		else:
 			$mininova.position = Vector2(id[0],id[1]) * 16
 			if !save.has(id):
@@ -66,7 +66,7 @@ func _process(_delta):
 				if id[1] < y:
 					y = id[1]
 				
-				Glova.g_id([])
+				Glova.id = []
 				map_node.add_child(temp)
 				save.append(id)
 

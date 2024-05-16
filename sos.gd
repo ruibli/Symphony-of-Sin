@@ -27,9 +27,9 @@ func new_floor():
 	generator.new_dungeon()
 	nova.cam = false	
 	nova.position = generator.get_spawn()
-	Glova.g_enemies(-999)
-	Glova.g_id([])
-	Glova.g_doors([])
+	Glova.enemies = 0
+	Glova.id = []
+	Glova.doors = []
 	$fade/black/AnimationPlayer.play("clear")
 	active = true
 	await get_tree().create_timer(0.25).timeout
@@ -37,8 +37,8 @@ func new_floor():
 
 func _process(delta):
 	if active:
-		var level = Glova.g_level()
-		var mod = Glova.g_mod()
+		var level = Glova.level
+		var mod = Glova.mod
 	
 		if Input.is_action_pressed("reset"):
 			total += delta

@@ -14,8 +14,8 @@ func _ready():
 	hide()
 
 func _process(_delta):
-	item_pool = Glova.debug("item").duplicate()
-	weapon_pool = Glova.debug("weapon").duplicate()
+	item_pool = Glova.i_pool_full.duplicate()
+	weapon_pool = Glova.w_pool_full.duplicate()
 	weapon_pool.append("homer")
 	$HBoxContainer/itemcon/item.text = items[items_index]
 	
@@ -101,7 +101,7 @@ func _on_namdown_focus_exited():
 	$HBoxContainer/namcon/namdown.modulate = Color(1,1,1,1)
 
 func _on_spawn_pressed():
-	Glova.spawn([items[items_index], nam])
+	Glova.spawn_vars = [items[items_index], nam]
 	
 	get_tree().paused = false
 

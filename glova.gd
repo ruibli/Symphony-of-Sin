@@ -48,17 +48,6 @@ func reset():
 	id = [-1]
 	doors = []
 
-func g_stats(s: Array = [0]):
-	if s == [0]:
-		return stats
-	else:
-		stats[0] = stats[0] + s[0]
-		stats[1] = stats[1] + s[1]
-		stats[2] = stats[2] + s[2]
-		stats[3] = stats[3] + s[3]
-		stats[4] = stats[4] + s[4]
-		stats[5] = stats[5] + s[5]
-
 func g_level(l: int = 0):
 	if l == 0:
 		return level
@@ -90,33 +79,6 @@ func g_inv(i: String = "0"):
 		return inv
 	else:
 		inv.append(i)
-		
-func g_hotbar(h: String = "0"):
-	if h == "0":
-		return hotbar
-	else:
-		if hotbar[0] == "empty":
-			hotbar[0] = h
-		elif hotbar[1] == "empty":
-			hotbar[1] = h
-		elif hotbar[2] == "empty":
-			hotbar[2] = h
-		elif hotbar[3] == "empty":
-			hotbar[3] = h
-		elif hotbar[4] == "empty":
-			hotbar[4] = h
-		elif hotbar[5] == "empty":
-			hotbar[5] = h
-		elif hotbar[6] == "empty":
-			hotbar[6] = h
-		else:
-			hotbar[7] = h
-			
-func g_current(c: String = "0"):
-	if c == "0":
-		return current
-	else:
-		current = c
 			
 func g_item_pool(i: String = "0"):
 	if i == "0":
@@ -135,12 +97,6 @@ func g_volume(v: float = -1):
 		return volume
 	else:
 		volume = v
-
-func spawn(s: Array = [0]):
-	if s == [0]:
-		return spawn_vars
-	else:
-		spawn_vars = s
 
 func g_cooldown(c: float = -1):
 	if c == -1:

@@ -10,10 +10,10 @@ var gold = 0
 var gold_save = 0
 
 func _process(_delta):
-	speed = snapped(Glova.g_stats()[2], 0.01)
-	power = snapped(Glova.g_stats()[3], 0.01)
-	attack = snapped(Glova.g_stats()[4], 0.01)
-	gold = str(snapped(Glova.g_stats()[5], 0.01))
+	speed = snapped(Glova.stats[2], 0.01)
+	power = snapped(Glova.stats[3], 0.01)
+	attack = snapped(Glova.stats[4], 0.01)
+	gold = str(snapped(Glova.stats[5], 0.01))
 	
 	if speed - int(speed) == 0:
 		speed = str(speed) + ".00"
