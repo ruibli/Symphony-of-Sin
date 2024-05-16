@@ -1,16 +1,22 @@
-[gd_scene load_steps=27 format=3 uid="uid://00ouwkonx7v4"]
+[gd_scene load_steps=33 format=3 uid="uid://00ouwkonx7v4"]
 
 [ext_resource type="Texture2D" uid="uid://gjnxb7awfxnd" path="res://assets/entities/treason/sprites/treason_attack_down_1.png" id="1_2ds47"]
 [ext_resource type="Texture2D" uid="uid://dv35y7ncijx1j" path="res://assets/entities/treason/sprites/treason_attack_down_2.png" id="2_addp4"]
 [ext_resource type="Texture2D" uid="uid://bpll0ci3qydl4" path="res://assets/entities/treason/sprites/treason_attack_down_3.png" id="3_3a8py"]
 [ext_resource type="Texture2D" uid="uid://dexjbl80p086r" path="res://assets/entities/treason/sprites/treason_move_down_2.png" id="4_x566v"]
 [ext_resource type="Texture2D" uid="uid://mqmixq467yvk" path="res://assets/entities/treason/sprites/treason_attack_up_1.png" id="5_8kek7"]
+[ext_resource type="Texture2D" uid="uid://bptvgdc7p78k5" path="res://assets/entities/treason/sprites/treason_attack_left_1.png" id="5_jgg85"]
+[ext_resource type="Texture2D" uid="uid://5eiilavakl3b" path="res://assets/entities/treason/sprites/treason_attack_left_2.png" id="6_bitxf"]
 [ext_resource type="Texture2D" uid="uid://btmklkgabg5hv" path="res://assets/entities/treason/sprites/treason_attack_up_2.png" id="6_fb1ym"]
 [ext_resource type="Texture2D" uid="uid://pxgwdhdq1f6a" path="res://assets/entities/treason/sprites/treason_attack_up_3.png" id="7_bmmsy"]
+[ext_resource type="Texture2D" uid="uid://bvpm7jbkthrtd" path="res://assets/entities/treason/sprites/treason_attack_left_3.png" id="7_qon8a"]
 [ext_resource type="Texture2D" uid="uid://4iypbeskxef0" path="res://assets/entities/treason/sprites/treason_move_up_1.png" id="8_2keil"]
+[ext_resource type="Texture2D" uid="uid://djtdo4ynqvtia" path="res://assets/entities/treason/sprites/treason_attack_right_1.png" id="9_4fvd6"]
 [ext_resource type="Texture2D" uid="uid://b070b6nte4g3y" path="res://assets/entities/treason/sprites/treason_move_down_0.png" id="9_eto31"]
 [ext_resource type="Texture2D" uid="uid://dg0aklh7yt0h1" path="res://assets/entities/treason/sprites/treason_move_down_1.png" id="10_6ec8l"]
+[ext_resource type="Texture2D" uid="uid://c1myx37711uty" path="res://assets/entities/treason/sprites/treason_attack_right_2.png" id="10_yjjnn"]
 [ext_resource type="Texture2D" uid="uid://cx7wf87o68vu1" path="res://assets/entities/treason/sprites/treason_move_left_0.png" id="11_l6x06"]
+[ext_resource type="Texture2D" uid="uid://nkf1vftm0p6u" path="res://assets/entities/treason/sprites/treason_attack_right_3.png" id="11_p1b6m"]
 [ext_resource type="Texture2D" uid="uid://cxkhrcx8f0xcy" path="res://assets/entities/treason/sprites/treason_move_left_1.png" id="12_pqxom"]
 [ext_resource type="Texture2D" uid="uid://c7ekxp5iji0sn" path="res://assets/entities/treason/sprites/treason_move_left_2.png" id="13_f0yhm"]
 [ext_resource type="Texture2D" uid="uid://ckiuex7xh3gly" path="res://assets/entities/treason/sprites/treason_move_right_0.png" id="14_a2i4b"]
@@ -40,6 +46,40 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_jgg85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bitxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qon8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_f0yhm")
+}],
+"loop": true,
+"name": &"attack_left",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_4fvd6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_yjjnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_p1b6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_c3ufi")
+}],
+"loop": true,
+"name": &"attack_right",
 "speed": 4.0
 }, {
 "frames": [{
