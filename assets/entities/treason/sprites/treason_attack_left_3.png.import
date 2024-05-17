@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt8p7jel7xqxb"
-path="res://.godot/imported/gauntlets_attack_right_1.png-e9bee27d65205c6f2ba1caf006d03a95.ctex"
+uid="uid://ppp1p2tpkgnn"
+path="res://.godot/imported/treason_attack_left_3.png-e55645562ecfe721c937aa2c256c9900.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_1.png"
-dest_files=["res://.godot/imported/gauntlets_attack_right_1.png-e9bee27d65205c6f2ba1caf006d03a95.ctex"]
+source_file="res://assets/entities/treason/sprites/treason_attack_left_3.png"
+dest_files=["res://.godot/imported/treason_attack_left_3.png-e55645562ecfe721c937aa2c256c9900.ctex"]
 
 [params]
 

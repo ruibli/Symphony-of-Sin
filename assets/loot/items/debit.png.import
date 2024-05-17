@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ceu16mgswtfpk"
-path="res://.godot/imported/debit.png-b13ac549745123379bf9176d48a262f1.ctex"
+path="res://.godot/imported/debit.png-05b2b3af0fecb537531cec4bb95cd300.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/nova/nova_molotov/debit.png"
-dest_files=["res://.godot/imported/debit.png-b13ac549745123379bf9176d48a262f1.ctex"]
+source_file="res://assets/loot/items/debit.png"
+dest_files=["res://.godot/imported/debit.png-05b2b3af0fecb537531cec4bb95cd300.ctex"]
 
 [params]
 

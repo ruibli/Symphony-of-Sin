@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dssbc0k5ntp8i"
-path="res://.godot/imported/wildcard.png-738371e0f27e4bd7a61cb7d31669ba4e.ctex"
+uid="uid://big3nuj7ny1v0"
+path="res://.godot/imported/treason_attack_left_1.png-4a0a1bc09af06c3aa95f5270634975bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loot/items/wildcard.png"
-dest_files=["res://.godot/imported/wildcard.png-738371e0f27e4bd7a61cb7d31669ba4e.ctex"]
+source_file="res://assets/entities/treason/sprites/treason_attack_left_1.png"
+dest_files=["res://.godot/imported/treason_attack_left_1.png-4a0a1bc09af06c3aa95f5270634975bb.ctex"]
 
 [params]
 

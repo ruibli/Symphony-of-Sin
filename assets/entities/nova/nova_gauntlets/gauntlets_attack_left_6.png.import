@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dssbc0k5ntp8i"
-path="res://.godot/imported/wildcard.png-738371e0f27e4bd7a61cb7d31669ba4e.ctex"
+uid="uid://byrio58t0ehvo"
+path="res://.godot/imported/gauntlets_attack_left_6.png-bffd02d0339a296f82d1a51bac4adda2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loot/items/wildcard.png"
-dest_files=["res://.godot/imported/wildcard.png-738371e0f27e4bd7a61cb7d31669ba4e.ctex"]
+source_file="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_6.png"
+dest_files=["res://.godot/imported/gauntlets_attack_left_6.png-bffd02d0339a296f82d1a51bac4adda2.ctex"]
 
 [params]
 

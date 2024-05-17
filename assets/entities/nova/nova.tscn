@@ -1,4 +1,4 @@
-[gd_scene load_steps=179 format=3 uid="uid://cgh0hydeq3fxq"]
+[gd_scene load_steps=183 format=3 uid="uid://cgh0hydeq3fxq"]
 
 [ext_resource type="Script" path="res://assets/entities/nova/nova.gd" id="1_wapv4"]
 [ext_resource type="PackedScene" uid="uid://b85dgg62gt5fc" path="res://assets/entities/nova/crossbow.tscn" id="2_o8asn"]
@@ -117,20 +117,23 @@
 [ext_resource type="Texture2D" uid="uid://dnb0r40p8j03w" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_down_1.png" id="85_18vru"]
 [ext_resource type="Texture2D" uid="uid://b7ebcb2xdt85a" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_down_3.png" id="86_50unm"]
 [ext_resource type="Texture2D" uid="uid://dp12oo4x5vufs" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_down_4.png" id="87_agf33"]
-[ext_resource type="Texture2D" uid="uid://b2duuaivqx8g0" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_1.png" id="88_mbjcp"]
 [ext_resource type="Texture2D" uid="uid://clrnm5jjufjmh" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_2.png" id="89_iei17"]
 [ext_resource type="Texture2D" uid="uid://b0o46tkrw5l1t" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_3.png" id="90_24o2n"]
 [ext_resource type="Texture2D" uid="uid://cdntoore57s4e" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_4.png" id="91_v2n5g"]
-[ext_resource type="Texture2D" uid="uid://bt8p7jel7xqxb" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_1.png" id="92_7saq6"]
+[ext_resource type="Texture2D" uid="uid://b2fcytlpyji3d" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_down_5.png" id="92_8apij"]
 [ext_resource type="Texture2D" uid="uid://dhv0we6v1qljt" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_2.png" id="93_otnxu"]
 [ext_resource type="Texture2D" uid="uid://di4sosu4knkpw" path="res://assets/entities/nova/nova_spear/spear_attack_up_1.png" id="94_4fd34"]
 [ext_resource type="Texture2D" uid="uid://bso7a6ws3y3kk" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_3.png" id="94_yvs14"]
 [ext_resource type="Texture2D" uid="uid://c8353ljck5lcf" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_4.png" id="95_75csd"]
 [ext_resource type="Texture2D" uid="uid://ilpw4r7g0tyi" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_up_1.png" id="96_631bp"]
+[ext_resource type="Texture2D" uid="uid://dc4l4l7dx5f2y" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_5.png" id="96_fx40f"]
+[ext_resource type="Texture2D" uid="uid://byrio58t0ehvo" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_left_6.png" id="96_rke7p"]
 [ext_resource type="Texture2D" uid="uid://c5too1seytuse" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_up_1.png" id="97_hb8ou"]
 [ext_resource type="Texture2D" uid="uid://byi73cqkfot3g" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_up_3.png" id="98_chlau"]
 [ext_resource type="Texture2D" uid="uid://cosd1neunu2y8" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_up_4.png" id="99_mtthf"]
 [ext_resource type="Texture2D" uid="uid://c2ejuxnabryk5" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_down_0.png" id="100_l3khj"]
+[ext_resource type="Texture2D" uid="uid://d1ldfybqcp252" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_5.png" id="100_pgqrh"]
+[ext_resource type="Texture2D" uid="uid://dc3tk4dleuif4" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_right_7.png" id="101_ot7ib"]
 [ext_resource type="Texture2D" uid="uid://0bd6vhjukxew" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_down_2.png" id="101_yobpy"]
 [ext_resource type="Texture2D" uid="uid://c7r1a8w0dx1fb" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_left_0.png" id="102_a0i2o"]
 [ext_resource type="Texture2D" uid="uid://egm5o2m4rle8" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_left_1.png" id="103_meokb"]
@@ -138,6 +141,7 @@
 [ext_resource type="Texture2D" uid="uid://hqi48c1oqt2i" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_right_0.png" id="105_v6f0b"]
 [ext_resource type="Texture2D" uid="uid://hra6q1cnwk1i" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_right_1.png" id="106_8q0as"]
 [ext_resource type="Texture2D" uid="uid://cvb30j0l8ndih" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_right_2.png" id="107_b65gn"]
+[ext_resource type="Texture2D" uid="uid://cr318qiqlffiu" path="res://assets/entities/nova/nova_gauntlets/gauntlets_attack_up_5.png" id="107_cbkpl"]
 [ext_resource type="Texture2D" uid="uid://cu5nsiaawtufg" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_up_0.png" id="108_xerca"]
 [ext_resource type="Texture2D" uid="uid://dkusri17cnbs0" path="res://assets/entities/nova/nova_gauntlets/gauntlets_move_up_2.png" id="109_kyy1y"]
 [ext_resource type="Texture2D" uid="uid://77xw7pbdlnlv" path="res://assets/entities/nova/nova_homer/homer_move_down_0.png" id="110_fa3dp"]
@@ -766,8 +770,11 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("86_50unm")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": ExtResource("87_agf33")
+}, {
+"duration": 2.0,
+"texture": ExtResource("92_8apij")
 }, {
 "duration": 1.0,
 "texture": ExtResource("86_50unm")
@@ -780,29 +787,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"gauntlets_attack_down",
-"speed": 8.0
+"speed": 9.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("88_mbjcp")
-}, {
-"duration": 1.0,
 "texture": ExtResource("89_iei17")
 }, {
 "duration": 1.0,
 "texture": ExtResource("90_24o2n")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": ExtResource("91_v2n5g")
 }, {
+"duration": 2.0,
+"texture": ExtResource("96_fx40f")
+}, {
 "duration": 1.0,
 "texture": ExtResource("90_24o2n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("89_iei17")
+"texture": ExtResource("96_rke7p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("88_mbjcp")
+"texture": ExtResource("89_iei17")
 }],
 "loop": false,
 "name": &"gauntlets_attack_left",
@@ -810,29 +817,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("92_7saq6")
-}, {
-"duration": 1.0,
 "texture": ExtResource("93_otnxu")
 }, {
 "duration": 1.0,
 "texture": ExtResource("94_yvs14")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": ExtResource("95_75csd")
 }, {
+"duration": 2.0,
+"texture": ExtResource("100_pgqrh")
+}, {
 "duration": 1.0,
-"texture": ExtResource("94_yvs14")
+"texture": ExtResource("101_ot7ib")
 }, {
 "duration": 1.0,
 "texture": ExtResource("93_otnxu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("92_7saq6")
 }],
 "loop": false,
 "name": &"gauntlets_attack_right",
-"speed": 8.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -844,14 +848,14 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("98_chlau")
 }, {
-"duration": 2.0,
+"duration": 1.0,
 "texture": ExtResource("99_mtthf")
+}, {
+"duration": 2.0,
+"texture": ExtResource("107_cbkpl")
 }, {
 "duration": 1.0,
 "texture": ExtResource("98_chlau")
-}, {
-"duration": 1.0,
-"texture": ExtResource("97_hb8ou")
 }, {
 "duration": 1.0,
 "texture": ExtResource("96_631bp")
@@ -1446,7 +1450,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"antlers_attack_right"
+animation = &"gauntlets_attack_down"
 offset = Vector2(0, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NovaCollision/NovaAnimation"]
