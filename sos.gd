@@ -14,6 +14,7 @@ func _ready():
 	new_game()
 	
 func new_game():
+	$fade/black.modulate = Color(0, 0, 0, 1)
 	Glova.reset()
 	generator.new_dungeon()
 	nova.cam = false
@@ -24,6 +25,7 @@ func new_game():
 	nova.cam = true
 
 func new_floor():
+	$fade/black.modulate = Color(0, 0, 0, 1)
 	generator.new_dungeon()
 	nova.cam = false	
 	nova.position = generator.get_spawn()

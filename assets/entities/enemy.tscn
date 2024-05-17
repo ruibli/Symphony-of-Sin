@@ -1,6 +1,7 @@
-[gd_scene load_steps=36 format=3 uid="uid://doo7pq26uiny0"]
+[gd_scene load_steps=37 format=3 uid="uid://doo7pq26uiny0"]
 
 [ext_resource type="Script" path="res://assets/entities/enemy.gd" id="1_qcn2q"]
+[ext_resource type="PackedScene" uid="uid://idxn6lpg4526" path="res://assets/entities/limbo/trident.tscn" id="2_2lli8"]
 [ext_resource type="Texture2D" uid="uid://cmwtenhmj6rlg" path="res://assets/entities/limbo/sprites/limbo_down_attack1.png" id="2_s6fkt"]
 [ext_resource type="Texture2D" uid="uid://tl1tyamycg5h" path="res://assets/entities/limbo/sprites/limbo_down_attack2.png" id="3_1luir"]
 [ext_resource type="Texture2D" uid="uid://bgs3c55s2e211" path="res://assets/entities/limbo/sprites/limbo_down_attack3.png" id="4_byiyb"]
@@ -57,7 +58,7 @@ animations = [{
 "texture": ExtResource("2_s6fkt")
 }],
 "loop": true,
-"name": &"attack_down",
+"name": &"limbo_attack_down",
 "speed": 7.0
 }, {
 "frames": [{
@@ -80,7 +81,7 @@ animations = [{
 "texture": ExtResource("7_cdnqm")
 }],
 "loop": false,
-"name": &"attack_left",
+"name": &"limbo_attack_left",
 "speed": 7.0
 }, {
 "frames": [{
@@ -106,7 +107,7 @@ animations = [{
 "texture": ExtResource("10_pydc5")
 }],
 "loop": true,
-"name": &"attack_right",
+"name": &"limbo_attack_right",
 "speed": 7.0
 }, {
 "frames": [{
@@ -132,7 +133,7 @@ animations = [{
 "texture": ExtResource("14_mdh5a")
 }],
 "loop": true,
-"name": &"attack_up",
+"name": &"limbo_attack_up",
 "speed": 7.0
 }, {
 "frames": [{
@@ -149,7 +150,7 @@ animations = [{
 "texture": ExtResource("20_1b308")
 }],
 "loop": true,
-"name": &"move_down",
+"name": &"limbo_move_down",
 "speed": 4.0
 }, {
 "frames": [{
@@ -166,7 +167,7 @@ animations = [{
 "texture": ExtResource("22_aafyu")
 }],
 "loop": true,
-"name": &"move_left",
+"name": &"limbo_move_left",
 "speed": 4.0
 }, {
 "frames": [{
@@ -183,7 +184,7 @@ animations = [{
 "texture": ExtResource("24_gs0kb")
 }],
 "loop": true,
-"name": &"move_right",
+"name": &"limbo_move_right",
 "speed": 4.0
 }, {
 "frames": [{
@@ -200,7 +201,7 @@ animations = [{
 "texture": ExtResource("27_nn4xd")
 }],
 "loop": true,
-"name": &"move_up",
+"name": &"limbo_move_up",
 "speed": 4.0
 }]
 
@@ -263,7 +264,10 @@ radius = 6.0
 height = 15.0
 
 [node name="enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_qcn2q")
+trident_scene = ExtResource("2_2lli8")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_06s6x")
@@ -273,7 +277,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dvnd2")
-animation = &"move_up"
+animation = &"limbo_move_up"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCollision/EnemyAnimation"]
 libraries = {

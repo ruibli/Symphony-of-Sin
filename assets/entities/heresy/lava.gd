@@ -51,5 +51,5 @@ func change():
 	$LavaCollision/Lava.texture = load("res://assets/entities/heresy/sprites/heresy_pool.png")
 	$LavaCollision/Lava.rotation_degrees = rotat
 	velocity = Vector2(0,0)
-	$lavahit.set_collision_mask_value(3,false)
-	$lavahit2.set_collision_mask_value(3,true)
+	$lavahit.set_collision_mask_value(2,false)
+	$lavahit2.set_collision_mask_value(2,true)
