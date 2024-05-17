@@ -4,7 +4,7 @@ var save = []
 var inv = []
 
 func _process(_delta):
-	inv = Glova.g_inv()
+	inv = Glova.inv.duplicate()
 	
 	if save != inv:
 		var temp = TextureRect.new()

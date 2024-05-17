@@ -34,8 +34,8 @@ func _process(delta):
 		time += delta
 		hide()
 	
-	level = str(Glova.g_level(0))
-	mod = str(Glova.g_mod(0))
+	level = str(Glova.level)
+	mod = str(Glova.level)
 	hours = int(fmod(time, 216000)/3600)
 	minutes = int(fmod(time, 3600)/60)
 	seconds = int(fmod(time, 60))

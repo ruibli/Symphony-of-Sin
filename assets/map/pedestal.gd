@@ -72,14 +72,14 @@ func reward():
 			stats = [25, 0, 0, 0, 0, 0]
 	
 func random_item():
-	var item_pool = Glova.g_item_pool("0")
+	var item_pool = Glova.item_pool.duplicate()
 	if len(item_pool) == 0 or item_pool.is_empty():
 		breakfast()
 	else:
 		if type != "debug":
 			nam = randi_range(0, len(item_pool)-1) # get lengths
 			nam = item_pool[nam]
-			Glova.g_item_pool(nam)
+			Glova.item_pool.remove_at(Glova.item_pool.find(nam,0))
 		
 		$item.texture = load("res://assets/loot/items/"+nam+".png")
 		
@@ -94,8 +94,8 @@ func random_item():
 		elif nam == "vest":
 			stats = [50, 50, -0.5, 0, 0, 0]
 		elif nam == "scale":
-			var ave = (Glova.g_stats()[2] + Glova.g_stats()[3] + Glova.g_stats()[4])/3
-			stats = [0, 0, ave-Glova.g_stats()[2], ave-Glova.g_stats()[3], ave-Glova.g_stats()[4], 0]
+			var ave = (Glova.stats[2] + Glova.stats[3] + Glova.stats[4])/3
+			stats = [0, 0, ave-Glova.stats[2], ave-Glova.stats[3], ave-Glova.stats[4], 0]
 		elif nam == "colon":
 			stats = [25, 25, 0.25, 0.25, 0.25, 1]
 		elif nam == "boots":
@@ -135,7 +135,7 @@ func random_item():
 			elif rand == 11:
 				stats = [0, 0, 0, 0.5, -0.5, 0]
 		elif nam == "debit":
-			stats = [0, 0, 0, Glova.g_stats()[5]*0.05, 0, -Glova.g_stats()[5]]
+			stats = [0, 0, 0, Glova.stats[5]*0.05, 0, -Glova.stats[5]]
 		elif nam == "wildcard":
 			var rand = randi_range(0,3)
 			if rand == 0:
@@ -148,14 +148,14 @@ func random_item():
 				stats = [0, 0, 0, 0, 0.25, 0]
 
 func random_weapon():
-	var weapon_pool = Glova.g_weapon_pool("0")
+	var weapon_pool = Glova.weapon_pool.duplicate()
 	if len(weapon_pool) == 0 or weapon_pool.is_empty():
 		breakfast()
 	else:
 		if type != "debug":
 			nam = randi_range(0, len(weapon_pool)-1) # get lengths
 			nam = weapon_pool[nam]
-			Glova.g_weapon_pool(nam)
+			Glova.weapon_pool.remove_at(Glova.weapon_pool.find(nam,0))
 	
 		$item.texture = load("res://assets/loot/weapons/"+nam+".png")
 
@@ -170,20 +170,35 @@ func breakfast():
 		$cost.text = "5G"
 
 func _process(_delta):
-	if state == 2 and Glova.g_enemies() > 0 and type != "debug":
+	if state == 2 and Glova.enemies > 0 and type != "debug":
 		$Timer.start()
 	for _area in $PedestalArea.get_overlapping_areas():
 		if state == 3:
-			if type == "shop" and Glova.g_stats()[5] >= abs(cost[5]) or type != "shop":
-				if (item == "potion" and Glova.g_stats()[1] != Glova.g_stats()[0]) or item != "potion":
+			if type == "shop" and Glova.stats[5] >= abs(cost[5]) or type != "shop":
+				if (item == "potion" and Glova.stats[1] != Glova.stats[0]) or item != "potion":
 					if item == "coin" or item == "potion":
-						Glova.g_stats(stats)
+						Glova.change(stats)
 					elif item == "item":
-						Glova.g_inv(nam)
-						Glova.g_stats(stats)
+						Glova.inv.append(nam)
+						Glova.change(stats)
 					elif item == "weapon":
-						Glova.g_hotbar(nam)
-					Glova.g_stats(cost)
+						if Glova.hotbar[0] == "empty":
+							Glova.hotbar[0] = nam
+						elif Glova.hotbar[1] == "empty":
+							Glova.hotbar[1] = nam
+						elif Glova.hotbar[2] == "empty":
+							Glova.hotbar[2] = nam
+						elif Glova.hotbar[3] == "empty":
+							Glova.hotbar[3] = nam
+						elif Glova.hotbar[4] == "empty":
+							Glova.hotbar[4] = nam
+						elif Glova.hotbar[5] == "empty":
+							Glova.hotbar[5] = nam
+						elif Glova.hotbar[6] == "empty":
+							Glova.hotbar[6] = nam
+						else:
+							Glova.hotbar[7] = nam
+					Glova.change(cost)
 					queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_entered():

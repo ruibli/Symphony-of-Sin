@@ -1,4 +1,4 @@
 extends StaticBody2D
 
 func _process(_delta):
-	Glova.g_lore(global_position.distance_to(Glova.g_pos()))
+	Glova.lore = global_position.distance_to(Glova.pos)

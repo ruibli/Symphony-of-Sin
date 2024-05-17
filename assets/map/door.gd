@@ -7,12 +7,12 @@ var type = "enemy"
 var state = "open"
 
 func _ready():
-	if Glova.g_level() == 1: # level 1 manor assets
+	if Glova.level == 1: # level 1 manor assets
 		level = "manor"
 
 func _process(_delta):
-	if typeof(Glova.g_id([0])) == TYPE_ARRAY:
-		var ids = Glova.g_doors([0])
+	if typeof(Glova.id) == TYPE_ARRAY:
+		var ids = Glova.doors.duplicate()
 		for i in ids:
 			if id == i:
 				if i == ids[0]:
@@ -50,7 +50,7 @@ func _process(_delta):
 				if i == ids[2]:
 					type = "lore"
 	
-	if Glova.g_enemies() > 0:
+	if Glova.enemies > 0:
 		state = "closed"
 		set_collision_layer_value(1,true)
 		$DoorHit.set_collision_layer_value(1,false)
@@ -62,5 +62,5 @@ func _process(_delta):
 	$door.texture = load("res://assets/map/"+level+"/"+level+"_"+type+"_door_"+state+".png")
 	
 	for area in $DoorHit.get_overlapping_areas():
-		if Glova.g_enemies() == 0:
+		if Glova.enemies == 0:
 			area.boop(dir)

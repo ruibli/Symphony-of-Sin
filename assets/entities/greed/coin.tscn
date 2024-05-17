@@ -1,10 +1,10 @@
 [gd_scene load_steps=5 format=3 uid="uid://8hvro5jlo4j3"]
 
 [ext_resource type="Script" path="res://assets/entities/greed/coin.gd" id="1_kr43f"]
-[ext_resource type="Texture2D" uid="uid://brh1rnh077sdw" path="res://assets/loot/generic/coin.png" id="2_j67t1"]
+[ext_resource type="Texture2D" uid="uid://bo8bw28s8kofn" path="res://assets/entities/greed/sprites/greed_coin.png" id="2_nqv8h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tkp6o"]
-size = Vector2(8, 10)
+size = Vector2(5, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3hmtc"]
 size = Vector2(0.1, 0.1)
@@ -19,7 +19,7 @@ shape = SubResource("RectangleShape2D_tkp6o")
 [node name="Coin" type="Sprite2D" parent="CoinCollision"]
 z_index = 1
 z_as_relative = false
-texture = ExtResource("2_j67t1")
+texture = ExtResource("2_nqv8h")
 
 [node name="coinhit" type="Area2D" parent="."]
 collision_layer = 16

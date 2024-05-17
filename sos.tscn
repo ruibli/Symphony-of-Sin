@@ -69,7 +69,7 @@ nova_scene = ExtResource("1_mjwfh")
 layer = 2
 
 [node name="black" type="ColorRect" parent="fade"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(0, 0, 0, 1)
 top_level = true
 z_as_relative = false
 anchors_preset = 15

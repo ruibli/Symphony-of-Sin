@@ -4,12 +4,12 @@ var tween
 
 func _ready():
 	$volume_slider.grab_focus()
-	$volume_slider.value = Glova.g_volume(-1)
+	$volume_slider.value = Glova.volume
 	$fade/black/AnimationPlayer.play("clear")
 
 func _on_volume_slider_value_changed(value):
 	$budget.modulate = Color(1,1,1,1)
-	Glova.g_volume(value)
+	Glova.volume = value
 	if tween:
 		tween.stop()
 	tween = get_tree().create_tween()

@@ -24,7 +24,7 @@ extends StaticBody2D
 @export var lap_scene: PackedScene
 
 var type = "enemy"
-var level = Glova.g_level()
+var level = Glova.level
 var temp
 var room
 var on = false
@@ -166,18 +166,18 @@ func _ready():
 		add_child(temp)
 
 func _process(_delta):
-	if Glova.spawn([0]) != [0,0] and on:
+	if Glova.spawn_vars != [0,0] and on:
 		temp = pedestal_scene.instantiate()
 		temp.position = Vector2(0,32)
 		temp.type = "debug"
-		temp.item = Glova.spawn([0])[0]
-		temp.nam = Glova.spawn([0])[1]
-		Glova.spawn([0,0])
+		temp.item = Glova.spawn_vars[0]
+		temp.nam = Glova.spawn_vars[1]
+		Glova.spawn_vars = [0,0]
 		add_child(temp)
 
 func _on_visible_on_screen_notifier_2d_screen_entered():
 	on = true
-	Glova.g_id([id.x,id.y,type,right,left,down,up])
+	Glova.id = [id.x,id.y,type,right,left,down,up].duplicate()
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	on = false
