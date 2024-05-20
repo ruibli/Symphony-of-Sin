@@ -18,34 +18,35 @@ func _process(_delta):
 	$HBoxContainer/slot6.texture = load("res://assets/loot/weapons/"+hotbar[5]+".png")
 	$HBoxContainer/slot7.texture = load("res://assets/loot/weapons/"+hotbar[6]+".png")
 	
-	if Input.is_action_just_pressed("slot1"):
-		Glova.current = hotbar[0]
-		slot = 1
-		$current.position = $HBoxContainer/slot1.position + Vector2(4,4)
-	if Input.is_action_just_pressed("slot2"):
-		Glova.current = hotbar[1]
-		slot = 2
-		$current.position = $HBoxContainer/slot2.position  + Vector2(4,4)
-	if Input.is_action_just_pressed("slot3"):
-		Glova.current = hotbar[2]
-		slot = 3
-		$current.position = $HBoxContainer/slot3.position + Vector2(4,4)
-	if Input.is_action_just_pressed("slot4"):
-		Glova.current = hotbar[3]
-		slot = 4
-		$current.position = $HBoxContainer/slot4.position + Vector2(4,4)
-	if Input.is_action_just_pressed("slot5"):
-		Glova.current = hotbar[4]
-		slot = 5
-		$current.position = $HBoxContainer/slot5.position + Vector2(4,4)
-	if Input.is_action_just_pressed("slot6"):
-		Glova.current = hotbar[5]
-		slot = 6
-		$current.position = $HBoxContainer/slot6.position + Vector2(4,4)
-	if Input.is_action_just_pressed("slot7"):
-		Glova.current = hotbar[6]
-		slot = 7
-		$current.position = $HBoxContainer/slot7.position + Vector2(4,4)
+	if Glova.type == "move":
+		if Input.is_action_just_pressed("slot1"):
+			Glova.current = hotbar[0]
+			slot = 1
+			$current.position = $HBoxContainer/slot1.position + Vector2(4,4)
+		if Input.is_action_just_pressed("slot2"):
+			Glova.current = hotbar[1]
+			slot = 2
+			$current.position = $HBoxContainer/slot2.position  + Vector2(4,4)
+		if Input.is_action_just_pressed("slot3"):
+			Glova.current = hotbar[2]
+			slot = 3
+			$current.position = $HBoxContainer/slot3.position + Vector2(4,4)
+		if Input.is_action_just_pressed("slot4"):
+			Glova.current = hotbar[3]
+			slot = 4
+			$current.position = $HBoxContainer/slot4.position + Vector2(4,4)
+		if Input.is_action_just_pressed("slot5"):
+			Glova.current = hotbar[4]
+			slot = 5
+			$current.position = $HBoxContainer/slot5.position + Vector2(4,4)
+		if Input.is_action_just_pressed("slot6"):
+			Glova.current = hotbar[5]
+			slot = 6
+			$current.position = $HBoxContainer/slot6.position + Vector2(4,4)
+		if Input.is_action_just_pressed("slot7"):
+			Glova.current = hotbar[6]
+			slot = 7
+			$current.position = $HBoxContainer/slot7.position + Vector2(4,4)
 	
 	if get_tree().paused == false:
 		$swap.position = $HBoxContainer/slot1.position + Vector2(-24,4)

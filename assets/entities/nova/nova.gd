@@ -59,7 +59,8 @@ func set_nova():
 		Glova.stats[3] = 0.5
 	if attack < 0.5:
 		Glova.stats[4] = 0.5
-
+	
+	Glova.type = type
 	Glova.pos = global_position
 	$Camera2D.global_position = camera_pos
 	$Camera2D.position_smoothing_enabled = cam
@@ -134,7 +135,7 @@ func _process(_delta):
 			$CrossbowCooldown.start()
 			Glova.cooldown = $CrossbowCooldown.wait_time
 			w = crossbow_scene.instantiate()
-			weapon(true,0.25)
+			weapon(true,0.5)
 		elif current == "spear" and can_spear:
 			can_spear = false
 			$SpearCooldown.start()
@@ -152,7 +153,7 @@ func _process(_delta):
 			$HomerCooldown.start()
 			Glova.cooldown = $HomerCooldown.wait_time
 			w = homer_scene.instantiate()
-			weapon(true,0.25)
+			weapon(true,0.5)
 		elif current == "gauntlets" and can_gauntlets:
 			can_gauntlets = false
 			$GauntletsCooldown.start()
@@ -164,7 +165,7 @@ func _process(_delta):
 			$MolotovCooldown.start()
 			Glova.cooldown = $MolotovCooldown.wait_time
 			w = molotov_scene.instantiate()
-			weapon(true,0.25)
+			weapon(true,0.5)
 		elif current == "antlers" and can_antlers:
 			can_antlers = false
 			$AntlersCooldown.start()

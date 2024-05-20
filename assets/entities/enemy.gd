@@ -1,10 +1,15 @@
 extends CharacterBody2D
 
 @export var trident_scene : PackedScene
+@export var bite_scene : PackedScene
+@export var coin_scene : PackedScene
+@export var greataxe_scene : PackedScene
+@export var lava_scene : PackedScene
+@export var beam_scene : PackedScene
 
 var mod = 1 + 0.1 * (Glova.mod)
 var enemy = "limbo"
-# health, speed, attack, target
+
 var stats = []
 var health = 50 * mod
 var speed = 50 * mod
@@ -25,19 +30,22 @@ var type = "move"
 var direction = "down"
 
 func _ready():
-	var enemies = ["limbo"]
-	#var enemies = ["limbo","gluttony","greed","wrath","heresy"]
+	#var enemies = ["limbo"]
+	var enemies = ["limbo","greed","wrath","heresy"]
 	enemy = enemies[randi() % enemies.size()]
 	
+	# health, speed, attack, target
 	if enemy == "limbo":
 		stats = [50,50,1.5,20]
 	elif enemy == "gluttony":
-		pass
+		stats = [25,75,1,20]
 	elif enemy == "greed":
-		pass
+		stats = [50,50,1,128]
 	elif enemy == "wrath":
-		pass
+		stats = [100,30,2,20]
 	elif enemy == "heresy":
+		stats = [65,65,3,64]
+	elif enemy == "pride":
 		pass
 	
 	health = stats[0] * mod	
@@ -46,6 +54,7 @@ func _ready():
 	target = stats[3]
 	$WeaponCooldown.wait_time = attack
 	$EnemyCollision/EnemyAnimation.speed_scale = mod
+	$EnemyCollision/EnemyAnimation.play(enemy+"_"+type+"_"+direction)
 	
 func sight():
 	if $RayUp.is_colliding() and $RayUp2.is_colliding():
@@ -79,6 +88,18 @@ func _physics_process(_delta):
 				if enemy == "limbo":
 					w = trident_scene.instantiate()
 					weapon(false,0.25)
+				elif enemy == "gluttony":
+					w = bite_scene.instantiate()
+					weapon(false,0.25)
+				elif enemy == "greed":
+					w = coin_scene.instantiate()
+					weapon(true,0.5)
+				elif enemy == "wrath":
+					w = greataxe_scene.instantiate()
+					weapon(false,0.25)
+				elif enemy == "heresy":
+					w = lava_scene.instantiate()
+					weapon(true,0.5)
 		elif distance >= target or not see:
 			$NavigationAgent2D.set_target_position(Glova.pos)
 			var current_agent_position = global_position
