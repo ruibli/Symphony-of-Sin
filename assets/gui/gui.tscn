@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cp04shdgsunlt"]
 
-[ext_resource type="PackedScene" uid="uid://bnyohaj72ns83" path="res://assets/gui/health.tscn" id="1_eu024"]
+[ext_resource type="PackedScene" uid="uid://bnyohaj72ns83" path="res://assets/gui/healthsins.tscn" id="1_eu024"]
 [ext_resource type="PackedScene" uid="uid://cbjx02qmhx0a1" path="res://assets/gui/stats.tscn" id="2_nakab"]
 [ext_resource type="PackedScene" uid="uid://cmrqt2wx2d11s" path="res://assets/gui/inventory.tscn" id="3_qm3s2"]
 [ext_resource type="PackedScene" uid="uid://drlqqt2jf5cwt" path="res://assets/gui/pause.tscn" id="4_i06mm"]

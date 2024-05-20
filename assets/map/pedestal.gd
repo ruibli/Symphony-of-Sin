@@ -88,52 +88,52 @@ func random_item():
 		elif nam == "platinum":
 			stats = [0, 0, 0, 0, 0, 5]
 		elif nam == "glass":
-			stats = [-50, -50, 0, 0.5, 0, 0]
+			stats = [-50, -50, 0, 0.2, 0, 0]
 		elif nam == "feather":
-			stats = [-25, -25, 0.25, -0.25, 0.25, 0]
+			stats = [-25, -25, 0.1, -0.1, 0.1, 0]
 		elif nam == "vest":
-			stats = [50, 50, -0.5, 0, 0, 0]
+			stats = [50, 50, -0.2, 0, 0, 0]
 		elif nam == "scale":
 			var ave = (Glova.stats[2] + Glova.stats[3] + Glova.stats[4])/3
 			stats = [0, 0, ave-Glova.stats[2], ave-Glova.stats[3], ave-Glova.stats[4], 0]
 		elif nam == "colon":
-			stats = [25, 25, 0.25, 0.25, 0.25, 1]
+			stats = [25, 25, 0.1, 0.1, 0.1, 1]
 		elif nam == "boots":
-			stats = [0, 0, 0.25, 0, 0, 0]
+			stats = [0, 0, 0.1, 0, 0, 0]
 		elif nam == "syringe":
-			stats = [0, 0, 0, 0, 0.25, 0]
+			stats = [0, 0, 0, 0, 0.1, 0]
 		elif nam == "helmet":
-			stats = [50, 50, 0, 0, -0.5, 0]
+			stats = [50, 50, 0, 0, -0.2, 0]
 		elif nam == "dumbbell":
-			stats = [0, 0, 0, 0.25, 0, 0]
+			stats = [0, 0, 0, 0.1, 0, 0]
 		elif nam == "steak":
 			stats = [0, 25, 0, 0, 0, 0]
 		elif nam == "goldfish":
 			var rand = randi_range(0,11)
 			if rand == 0:
-				stats = [-50, -50, 0.50, 0, 0, 0]
+				stats = [-50, -50, 0.2, 0, 0, 0]
 			elif rand == 1:
-				stats = [-50, -50, 0, 0.50, 0, 0]
+				stats = [-50, -50, 0, 0.2, 0, 0]
 			elif rand == 2:
-				stats = [-50, -50, 0, 0, 0.50, 0]
+				stats = [-50, -50, 0, 0, 0.2, 0]
 			elif rand == 3:
-				stats = [50, 50, -0.50, 0, 0, 0]
+				stats = [50, 50, -0.2, 0, 0, 0]
 			elif rand == 4:
-				stats = [0, 0, -0.50, 0.5, 0, 0]
+				stats = [0, 0, -0.2, 0.2, 0, 0]
 			elif rand == 5:
-				stats = [0, 0, -0.50, 0, 0.5, 0]
+				stats = [0, 0, -0.2, 0, 0.2, 0]
 			elif rand == 6:
-				stats = [50, 50, 0, -0.5, 0, 0]
+				stats = [50, 50, 0, -0.2, 0, 0]
 			elif rand == 7:
-				stats = [0, 0, 0.5, -0.5, 0, 0]
+				stats = [0, 0, 0.2, -0.2, 0, 0]
 			elif rand == 8:
-				stats = [0, 0, 0, -0.5, 0.5, 0]
+				stats = [0, 0, 0, -0.2, 0.2, 0]
 			elif rand == 9:
-				stats = [50, 50, 0, 0, -0.5, 0]
+				stats = [50, 50, 0, 0, -0.2, 0]
 			elif rand == 10:
-				stats = [0, 0, 0.5, 0, -0.5, 0]
+				stats = [0, 0, 0.2, 0, -0.2, 0]
 			elif rand == 11:
-				stats = [0, 0, 0, 0.5, -0.5, 0]
+				stats = [0, 0, 0, 0.2, -0.2, 0]
 		elif nam == "debit":
 			stats = [0, 0, 0, Glova.stats[5]*0.05, 0, -Glova.stats[5]]
 		elif nam == "wildcard":
@@ -141,11 +141,11 @@ func random_item():
 			if rand == 0:
 				stats = [25, 25, 0, 0, 0, 0]
 			elif rand == 1:
-				stats = [0, 0, 0.25, 0, 0, 0]
+				stats = [0, 0, 0.1, 0, 0, 0]
 			elif rand == 2:
-				stats = [0, 0, 0, 0.25, 0, 0]
+				stats = [0, 0, 0, 0.1, 0, 0]
 			elif rand == 3:
-				stats = [0, 0, 0, 0, 0.25, 0]
+				stats = [0, 0, 0, 0, 0.1, 0]
 
 func random_weapon():
 	var weapon_pool = Glova.weapon_pool.duplicate()

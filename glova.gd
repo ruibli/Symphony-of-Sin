@@ -4,6 +4,7 @@ var pos = Vector2(0,0)
 var item = [0]
 var weapon = [1]
 
+var sins = float(0)
 var level = 1
 var mod = 0
 var enemies = 0
@@ -24,6 +25,7 @@ var volume = 100
 var id = []
 var doors = []
 var lore
+var type
 
 func reset():
 	level = 1

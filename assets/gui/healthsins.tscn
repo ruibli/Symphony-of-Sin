@@ -1,16 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://bnyohaj72ns83"]
+[gd_scene load_steps=11 format=3 uid="uid://bnyohaj72ns83"]
 
-[ext_resource type="Script" path="res://assets/gui/health.gd" id="1_62k26"]
-[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="2_8lbb8"]
-[ext_resource type="Texture2D" uid="uid://cgi11g1c5t3gf" path="res://assets/gui/borders/health_bar_border.png" id="3_i4efy"]
+[ext_resource type="Script" path="res://assets/gui/healthsins.gd" id="1_s8cmq"]
+[ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="2_m1kbn"]
+[ext_resource type="Texture2D" uid="uid://cgi11g1c5t3gf" path="res://assets/gui/borders/health_bar_border.png" id="3_4myii"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qqqi0"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr17a"]
-bg_color = Color(0.988235, 0.109804, 0.109804, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jcpaf"]
+bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="FontVariation" id="FontVariation_8i14s"]
-base_font = ExtResource("2_8lbb8")
+base_font = ExtResource("2_m1kbn")
 spacing_glyph = -2
 
 [sub_resource type="LabelSettings" id="LabelSettings_03wh0"]
@@ -28,9 +28,12 @@ bg_color = Color(0, 0, 0, 0.501961)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5io3f"]
 bg_color = Color(1, 1, 1, 1)
 
-[node name="health" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr17a"]
+bg_color = Color(0.517647, 0.145098, 0.576471, 1)
+
+[node name="healthsins" type="Node2D"]
 position = Vector2(1, 1)
-script = ExtResource("1_62k26")
+script = ExtResource("1_s8cmq")
 
 [node name="health" type="ProgressBar" parent="."]
 z_index = 1
@@ -38,7 +41,7 @@ z_as_relative = false
 offset_right = 64.0
 offset_bottom = 16.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_qqqi0")
-theme_override_styles/fill = SubResource("StyleBoxFlat_mr17a")
+theme_override_styles/fill = SubResource("StyleBoxFlat_jcpaf")
 max_value = 1.0
 value = 1.0
 allow_greater = true
@@ -67,12 +70,13 @@ text_overrun_behavior = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="health"]
+z_index = 1
 layout_mode = 0
 offset_left = -1.0
 offset_top = -1.0
-offset_right = 63.0
-offset_bottom = 15.0
-texture = ExtResource("3_i4efy")
+offset_right = 65.0
+offset_bottom = 17.0
+texture = ExtResource("3_4myii")
 
 [node name="iframes" type="ProgressBar" parent="."]
 offset_right = 64.0
@@ -81,4 +85,17 @@ theme_override_styles/background = SubResource("StyleBoxFlat_7a06d")
 theme_override_styles/fill = SubResource("StyleBoxFlat_5io3f")
 max_value = 1.0
 value = 1.0
+show_percentage = false
+
+[node name="sins" type="ProgressBar" parent="."]
+z_index = 1
+z_as_relative = false
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 20.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_qqqi0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mr17a")
+max_value = 1.0
+allow_greater = true
+allow_lesser = true
 show_percentage = false
