@@ -1,4 +1,4 @@
-[gd_scene load_steps=186 format=3 uid="uid://doo7pq26uiny0"]
+[gd_scene load_steps=192 format=3 uid="uid://doo7pq26uiny0"]
 
 [ext_resource type="Script" path="res://assets/entities/enemy.gd" id="1_qcn2q"]
 [ext_resource type="PackedScene" uid="uid://idxn6lpg4526" path="res://assets/entities/limbo/trident.tscn" id="2_2lli8"]
@@ -31,10 +31,13 @@
 [ext_resource type="Texture2D" uid="uid://b2meu1jcysph0" path="res://assets/entities/greed/sprites/greed_attack_right_2.png" id="10_0x3uf"]
 [ext_resource type="Texture2D" uid="uid://cp0plbh85ml8k" path="res://assets/entities/gluttony/sprites/gluttony_up_walk1.png" id="10_64cxf"]
 [ext_resource type="Texture2D" uid="uid://d4fq5l3e4tej8" path="res://assets/entities/limbo/sprites/limbo_right.png" id="10_pydc5"]
+[ext_resource type="Texture2D" uid="uid://cb24iyq6msp2x" path="res://assets/entities/gluttony/sprites/gluttony_attack_left_1.png" id="10_te02a"]
 [ext_resource type="Texture2D" uid="uid://b88m68enhr5i3" path="res://assets/entities/limbo/sprites/limbo_right_attack1.png" id="11_p6qop"]
 [ext_resource type="Texture2D" uid="uid://bwrhmvc7drnty" path="res://assets/entities/greed/sprites/greed_attack_right_4.png" id="11_uob75"]
+[ext_resource type="Texture2D" uid="uid://c1e1y6xxt2d8j" path="res://assets/entities/gluttony/sprites/gluttony_attack_left_2.png" id="11_w3gcx"]
 [ext_resource type="Texture2D" uid="uid://4cgb1exveiwc" path="res://assets/entities/gluttony/sprites/gluttony_up_walk2.png" id="11_yljbe"]
 [ext_resource type="Texture2D" uid="uid://dltqk87eu44yd" path="res://assets/entities/gluttony/sprites/gluttony_down.png" id="12_hbut6"]
+[ext_resource type="Texture2D" uid="uid://dcjt6w4u4tuxw" path="res://assets/entities/gluttony/sprites/gluttony_attack_left_3.png" id="12_jj3uw"]
 [ext_resource type="Texture2D" uid="uid://3rwlx4qoku1q" path="res://assets/entities/greed/sprites/greed_attack_up_1.png" id="12_sdj81"]
 [ext_resource type="Texture2D" uid="uid://omlocrq4e6hi" path="res://assets/entities/limbo/sprites/limbo_right_attack2_w1.png" id="12_w3irw"]
 [ext_resource type="Texture2D" uid="uid://bcvw83ctaf4d2" path="res://assets/entities/gluttony/sprites/gluttony_down_walk1.png" id="13_1kngl"]
@@ -61,9 +64,12 @@
 [ext_resource type="Texture2D" uid="uid://0nacxyv2xht2" path="res://assets/entities/limbo/sprites/limbo_left_walk1.png" id="21_f0aml"]
 [ext_resource type="Texture2D" uid="uid://ccjmh4c2tassk" path="res://assets/entities/greed/sprites/greed_move_right_1.png" id="21_lely6"]
 [ext_resource type="Texture2D" uid="uid://dbtr5jdfv1ja7" path="res://assets/entities/limbo/sprites/limbo_left_walk2.png" id="22_aafyu"]
+[ext_resource type="Texture2D" uid="uid://b3sdd0r6x7y7k" path="res://assets/entities/gluttony/sprites/gluttony_move_left_0.png" id="22_ssjnr"]
 [ext_resource type="Texture2D" uid="uid://cywfuefrnj506" path="res://assets/entities/greed/sprites/greed_move_right_2.png" id="22_vh2ik"]
 [ext_resource type="Texture2D" uid="uid://3xn6vlqtobod" path="res://assets/entities/limbo/sprites/limbo_right_walk1.png" id="23_mbj57"]
 [ext_resource type="Texture2D" uid="uid://deag66br3t27l" path="res://assets/entities/greed/sprites/greed_move_up_0.png" id="23_ocrb4"]
+[ext_resource type="Texture2D" uid="uid://cpw3aw6p25pni" path="res://assets/entities/gluttony/sprites/gluttony_move_left_1.png" id="23_uhhvo"]
+[ext_resource type="Texture2D" uid="uid://dxsxdo43kn1s1" path="res://assets/entities/gluttony/sprites/gluttony_move_left_2.png" id="24_felsq"]
 [ext_resource type="Texture2D" uid="uid://bkw2ndvocncai" path="res://assets/entities/greed/sprites/greed_move_up_1.png" id="24_gbevj"]
 [ext_resource type="Texture2D" uid="uid://c8ngwjuu1dekw" path="res://assets/entities/limbo/sprites/limbo_right_walk2.png" id="24_gs0kb"]
 [ext_resource type="Texture2D" uid="uid://ckjuldjctnu0q" path="res://assets/entities/limbo/sprites/limbo_up.png" id="25_3b2ca"]
@@ -206,6 +212,26 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("10_te02a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w3gcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jj3uw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w3gcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_te02a")
+}],
+"loop": true,
+"name": &"gluttony_attack_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_5mh84")
 }, {
 "duration": 1.0,
@@ -256,6 +282,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"gluttony_move_down",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_ssjnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_uhhvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_ssjnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_felsq")
+}],
+"loop": true,
+"name": &"gluttony_move_left",
 "speed": 4.0
 }, {
 "frames": [{
@@ -1254,7 +1297,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dvnd2")
-animation = &"gluttony_attack_right"
+animation = &"greed_attack_left"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCollision/EnemyAnimation"]
 libraries = {
