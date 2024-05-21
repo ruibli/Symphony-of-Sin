@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bnyohaj72ns83"]
+[gd_scene load_steps=12 format=3 uid="uid://bnyohaj72ns83"]
 
 [ext_resource type="Script" path="res://assets/gui/healthsins.gd" id="1_s8cmq"]
 [ext_resource type="FontFile" uid="uid://bspyg6cma6ji8" path="res://assets/gui/font.ttf" id="2_m1kbn"]
@@ -23,13 +23,16 @@ shadow_size = 0
 shadow_offset = Vector2(0, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7a06d"]
-bg_color = Color(0, 0, 0, 0.501961)
+bg_color = Color(0, 0, 0, 0.752941)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5io3f"]
 bg_color = Color(1, 1, 1, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aqst3"]
+bg_color = Color(0, 0, 0, 0.752941)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mr17a"]
-bg_color = Color(0.517647, 0.145098, 0.576471, 1)
+bg_color = Color(0.745098, 0.462745, 0.992157, 1)
 
 [node name="healthsins" type="Node2D"]
 position = Vector2(1, 1)
@@ -93,7 +96,7 @@ z_as_relative = false
 offset_top = 16.0
 offset_right = 64.0
 offset_bottom = 20.0
-theme_override_styles/background = SubResource("StyleBoxEmpty_qqqi0")
+theme_override_styles/background = SubResource("StyleBoxFlat_aqst3")
 theme_override_styles/fill = SubResource("StyleBoxFlat_mr17a")
 max_value = 1.0
 allow_greater = true

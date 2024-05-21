@@ -19,7 +19,11 @@ func _process(_delta):
 		Glova.sins = 0
 	if sins > 1:
 		Glova.sins = 1
-	
+		
+	if Input.is_action_pressed("attack_up") or Input.is_action_pressed("attack_down") or Input.is_action_pressed("attack_left") or Input.is_action_pressed("attack_right"):
+		if Glova.current in Glova.ranged and Glova.sins <= 0:
+			pass
+			
 	if health/health_max != save:
 		var tween = get_tree().create_tween()
 		tween.tween_property($iframes, "value", health/health_max, 1)

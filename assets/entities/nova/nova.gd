@@ -19,8 +19,8 @@ var attack = 1
 var gold = 0
 
 var inv = []
-var hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty"]
-var current = "crossbow"
+var hotbar = ["gauntlets", "crossbow", "empty", "empty", "empty", "empty", "empty"]
+var current = "gauntlets"
 
 var direction = "down"
 var type = "move"
@@ -130,12 +130,12 @@ func _process(_delta):
 			direction = "right"
 	
 	if type == "attack" and (Input.is_action_pressed("attack_up") or Input.is_action_pressed("attack_down") or Input.is_action_pressed("attack_left") or Input.is_action_pressed("attack_right")):
-		if current == "crossbow" and can_crossbow:
+		if current == "crossbow" and can_crossbow and Glova.sins > 0:
 			can_crossbow = false
 			$CrossbowCooldown.start()
 			Glova.cooldown = $CrossbowCooldown.wait_time
 			w = crossbow_scene.instantiate()
-			weapon(true,0.5)
+			weapon(true,0)
 		elif current == "spear" and can_spear:
 			can_spear = false
 			$SpearCooldown.start()
@@ -153,20 +153,20 @@ func _process(_delta):
 			$HomerCooldown.start()
 			Glova.cooldown = $HomerCooldown.wait_time
 			w = homer_scene.instantiate()
-			weapon(true,0.5)
+			weapon(true,0)
 		elif current == "gauntlets" and can_gauntlets:
 			can_gauntlets = false
 			$GauntletsCooldown.start()
 			Glova.cooldown = $GauntletsCooldown.wait_time
 			w = gauntlets_scene.instantiate()
 			weapon(false,0.25)
-		elif current == "molotov" and can_molotov:
+		elif current == "molotov" and can_molotov and Glova.sins > 0:
 			can_molotov = false
 			$MolotovCooldown.start()
 			Glova.cooldown = $MolotovCooldown.wait_time
 			w = molotov_scene.instantiate()
-			weapon(true,0.5)
-		elif current == "antlers" and can_antlers:
+			weapon(true,0)
+		elif current == "antlers" and can_antlers and Glova.sins > 0:
 			can_antlers = false
 			$AntlersCooldown.start()
 			Glova.cooldown = $AntlersCooldown.wait_time
@@ -217,11 +217,14 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 func _on_hit_cooldown_timeout():
 	can_hit = true
 
-func hit(ow):
+func hit(ow,_pos):
 	if can_hit:
 		can_hit = false
 		$HitCooldown.start()
 		Glova.change([-ow, 0, 0, 0, 0, 0])
+		
+		#ON HIT STUFF HERE
+		
 		$NovaCollision/NovaAnimation/AnimationPlayer.play("hurt")
 		if Glova.stats[0] <= 0:
 			await get_tree().create_timer(0.05).timeout

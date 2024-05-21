@@ -27,7 +27,7 @@ func _on_roomdetector_area_entered(area: Area2D) -> void:
 		queue_free()
 
 func _on_crossbowhit_area_entered(area):
-	area.hit(damage)
+	area.hit(damage,global_position)
 	queue_free()
 
 func _on_timer_timeout():

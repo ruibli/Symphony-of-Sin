@@ -33,7 +33,7 @@ func _on_roomdetector_area_entered(area: Area2D) -> void:
 		queue_free()
 
 func _on_homerhit_area_entered(area):
-	area.hit(damage)
+	area.hit(damage,global_position)
 	queue_free()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):

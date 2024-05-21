@@ -15,7 +15,7 @@ func _ready():
 	
 func new_game():
 	$fade/black.modulate = Color(0, 0, 0, 1)
-	Glova.reset()
+	Glova.new_game()
 	generator.new_dungeon()
 	nova.cam = false
 	nova.position = generator.get_spawn()
@@ -26,12 +26,10 @@ func new_game():
 
 func new_floor():
 	$fade/black.modulate = Color(0, 0, 0, 1)
+	Glova.new_floor()
 	generator.new_dungeon()
 	nova.cam = false	
 	nova.position = generator.get_spawn()
-	Glova.enemies = 0
-	Glova.id = []
-	Glova.doors = []
 	$fade/black/AnimationPlayer.play("clear")
 	active = true
 	await get_tree().create_timer(0.25).timeout

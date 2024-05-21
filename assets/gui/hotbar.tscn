@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://c5dh1yoyfrvr"]
+[gd_scene load_steps=10 format=3 uid="uid://c5dh1yoyfrvr"]
 
 [ext_resource type="Script" path="res://assets/gui/hotbar.gd" id="1_fvm14"]
+[ext_resource type="Texture2D" uid="uid://dow1hrqs2hltp" path="res://assets/loot/weapons/gauntlets.png" id="2_hywht"]
 [ext_resource type="Texture2D" uid="uid://dud0u50bllnay" path="res://assets/loot/weapons/crossbow.png" id="2_mkacq"]
 [ext_resource type="Texture2D" uid="uid://i7uce1oi7yf" path="res://assets/loot/weapons/empty.png" id="3_7gfiy"]
 [ext_resource type="Texture2D" uid="uid://ch53uonxhtli2" path="res://assets/gui/icons/current.png" id="4_8hc84"]
@@ -24,7 +25,7 @@ offset_bottom = 20.0
 
 [node name="slot1" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_mkacq")
+texture = ExtResource("2_hywht")
 stretch_mode = 2
 
 [node name="slot1_cd" type="ProgressBar" parent="HBoxContainer/slot1"]
@@ -38,7 +39,7 @@ show_percentage = false
 
 [node name="slot2" type="TextureRect" parent="HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("3_7gfiy")
+texture = ExtResource("2_mkacq")
 stretch_mode = 2
 
 [node name="slot2_cd" type="ProgressBar" parent="HBoxContainer/slot2"]
@@ -142,18 +143,10 @@ stretch_mode = 2
 [node name="remind" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 1.0
-offset_top = -10.0
-offset_right = 153.0
-offset_bottom = 13.0
-text = "Try equiping something..."
-label_settings = ExtResource("6_242an")
-
-[node name="controls" type="Label" parent="."]
-offset_left = 1.0
 offset_top = -20.0
 offset_right = 144.0
 offset_bottom = 3.0
-text = "Press Tab to swap while not on cooldown."
+text = "test"
 label_settings = ExtResource("6_242an")
 autowrap_mode = 1
 

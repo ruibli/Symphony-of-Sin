@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 1500
-var damage = 10
+var damage = 100
 var wait = false
 
 func _ready():
@@ -30,7 +30,7 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_antlershit_area_entered(area):
-	area.hit(damage)
+	area.hit(damage,global_position)
 	change()
 
 func _on_timer_2_timeout():
