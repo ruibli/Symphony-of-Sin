@@ -31,7 +31,7 @@ var direction = "down"
 
 func _ready():
 	#var enemies = ["limbo"]
-	var enemies = ["limbo","greed","wrath","heresy"]
+	var enemies = ["limbo","gluttony","greed","wrath","heresy"]
 	enemy = enemies[randi() % enemies.size()]
 	
 	# health, speed, attack, target
@@ -93,13 +93,13 @@ func _physics_process(_delta):
 					weapon(false,0.25)
 				elif enemy == "greed":
 					w = coin_scene.instantiate()
-					weapon(true,0.5)
+					weapon(true,0)
 				elif enemy == "wrath":
 					w = greataxe_scene.instantiate()
 					weapon(false,0.25)
 				elif enemy == "heresy":
 					w = lava_scene.instantiate()
-					weapon(true,0.5)
+					weapon(true,0)
 		elif distance >= target or not see:
 			$NavigationAgent2D.set_target_position(Glova.pos)
 			var current_agent_position = global_position
@@ -178,14 +178,17 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 
 func _on_hit_cooldown_timeout():
 	can_hit = true
-	$enemyhurt.set_collision_layer_value(3,true)
 
-func hit(ow):
+func hit(ow,pos):	
 	if can_hit:
 		can_hit = false
-		$enemyhurt.set_collision_layer_value(3,false)
 		$HitCooldown.start()
 		health -= ow
+		
+		if pos.distance_to(Glova.pos) < 64:
+			Glova.sins = Glova.sins + (64 - pos.distance_to(Glova.pos))/64 * ow * 0.02
+		
+		#ON HIT STUFF HERE
 		
 		$EnemyCollision/EnemyAnimation/AnimationPlayer.play("hurt")
 		if health <= 0:
@@ -194,9 +197,10 @@ func hit(ow):
 			queue_free()
 		else:
 			$EnemyCollision/EnemyAnimation/AnimationPlayer.play("clear")
+		
 
 func _on_enemyhurt_area_entered(area):
-		area.hit(damage)
+		area.hit(damage,global_position)
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	if active and (distance >= target or not see):

@@ -1,11 +1,12 @@
 extends Node2D
 
-var hotbar = ["crossbow", "empty", "empty", "empty", "empty", "empty", "empty"]
+var hotbar = ["gauntlets", "crossbow", "empty", "empty", "empty", "empty", "empty"]
 var slot = 1
 var remind_tween
 var cooldown_tween
 var swap = [0,0]
 var can_swap = true
+var paused = false
 
 func _process(_delta):
 	hotbar = Glova.hotbar.duplicate()
@@ -49,17 +50,18 @@ func _process(_delta):
 			$current.position = $HBoxContainer/slot7.position + Vector2(4,4)
 	
 	if get_tree().paused == false:
+		if paused == true:
+			paused = false
+			$remind.modulate = Color(0,0,0,0)
 		$swap.position = $HBoxContainer/slot1.position + Vector2(-24,4)
-		$controls.modulate = Color(0,0,0,0)
 		
-		if Input.is_action_pressed("attack_up") and Glova.current == "empty":
-			remind()
-		if Input.is_action_pressed("attack_down") and Glova.current == "empty":
-			remind()
-		if Input.is_action_pressed("attack_left") and Glova.current == "empty":
-			remind()
-		if Input.is_action_pressed("attack_right") and Glova.current == "empty":
-			remind()
+		if Input.is_action_pressed("attack_up") or Input.is_action_pressed("attack_down") or Input.is_action_pressed("attack_left") or Input.is_action_pressed("attack_right"):
+			if Glova.current == "empty":
+				$remind.text = "Try equipping something to attack with."
+				remind()
+			elif Glova.current in Glova.ranged and Glova.sins <= 0:
+				$remind.text = "This weapon needs sin, try being aggressive."
+				remind()
 			
 	if Glova.cooldown != 0:
 		if slot == 1:
@@ -99,8 +101,10 @@ func _process(_delta):
 			Glova.cooldown = 0
 			
 	if get_tree().paused == true:
-		$remind.modulate = Color(0,0,0,0)
-		$controls.modulate = Color(1,1,1,1)
+		if paused == false:
+			paused = true
+		$remind.modulate = Color(1,1,1,1)
+		$remind.text = "Press Tab to swap while not on cooldown."
 		
 		if Input.is_action_pressed("swap") and can_swap:
 			if slot == 1 and $HBoxContainer/slot1/slot1_cd.value == 0:
