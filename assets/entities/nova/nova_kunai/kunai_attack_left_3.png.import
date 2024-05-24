@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c32sg0qh1nov"
-path="res://.godot/imported/gem.png-58b1cd8b3d06f485a7cb467cba296775.ctex"
+uid="uid://cweq0fl34u6in"
+path="res://.godot/imported/kunai_attack_left_3.png-2cca9b91fb43421dc5b00e6a88f1b356.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/loot/items/gem.png"
-dest_files=["res://.godot/imported/gem.png-58b1cd8b3d06f485a7cb467cba296775.ctex"]
+source_file="res://assets/entities/nova/nova_kunai/kunai_attack_left_3.png"
+dest_files=["res://.godot/imported/kunai_attack_left_3.png-2cca9b91fb43421dc5b00e6a88f1b356.ctex"]
 
 [params]
 
