@@ -90,23 +90,15 @@ func _process(_delta):
 	if Input.is_action_pressed("attack_up"):
 		type = "attack"
 		direction = "up"
-		$WeaponPos.position = Vector2(0,-10)
-		$WeaponPos.rotation_degrees = 180
 	if Input.is_action_pressed("attack_down"):
 		type = "attack"
 		direction = "down"
-		$WeaponPos.position = Vector2(0,10)
-		$WeaponPos.rotation_degrees = 0
 	if Input.is_action_pressed("attack_left"):
 		type = "attack"
 		direction = "left"
-		$WeaponPos.position = Vector2(-10,0)
-		$WeaponPos.rotation_degrees = 90
 	if Input.is_action_pressed("attack_right"):
 		type = "attack"
 		direction = "right"
-		$WeaponPos.position = Vector2(10,0)
-		$WeaponPos.rotation_degrees = 270
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * 100 * speed
@@ -196,17 +188,33 @@ func weapon(projectile, fire): # attacking
 			w.velocity.x += 1
 			w.rotation_degrees = 270
 	
+	var save = current
 	w.damage = w.damage * power
 	$NovaCollision/NovaAnimation.play(current+"_"+type+"_"+direction)
 	
 	lock = true
 	await get_tree().create_timer(fire/attack).timeout
-	if !projectile:
-		$WeaponPos.add_child(w)
-	else:
-		w.global_position = $WeaponPos.global_position
-		get_tree().root.add_child(w)
-	await get_tree().create_timer((1-fire)/attack).timeout
+	
+	if direction == "up":
+		$WeaponPos.position = Vector2(0,-10)
+		$WeaponPos.rotation_degrees = 180
+	elif direction == "down":
+		$WeaponPos.position = Vector2(0,10)
+		$WeaponPos.rotation_degrees = 0
+	elif direction == "left":
+		$WeaponPos.position = Vector2(-10,0)
+		$WeaponPos.rotation_degrees = 90
+	elif direction == "right":
+		$WeaponPos.position = Vector2(10,0)
+		$WeaponPos.rotation_degrees = 270
+		
+	if save == current:
+		if !projectile:
+			$WeaponPos.add_child(w)
+		else:
+			w.global_position = $WeaponPos.global_position
+			get_tree().root.add_child(w)
+		await get_tree().create_timer((1-fire)/attack).timeout
 	lock = false
 
 func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
