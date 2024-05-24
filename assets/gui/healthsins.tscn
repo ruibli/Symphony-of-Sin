@@ -72,15 +72,6 @@ clip_text = true
 text_overrun_behavior = 3
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="health"]
-z_index = 1
-layout_mode = 0
-offset_left = -1.0
-offset_top = -1.0
-offset_right = 65.0
-offset_bottom = 17.0
-texture = ExtResource("3_4myii")
-
 [node name="iframes" type="ProgressBar" parent="."]
 offset_right = 64.0
 offset_bottom = 16.0
@@ -102,3 +93,12 @@ max_value = 1.0
 allow_greater = true
 allow_lesser = true
 show_percentage = false
+
+[node name="border" type="TextureRect" parent="."]
+z_index = 1
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 65.0
+offset_bottom = 39.0
+texture = ExtResource("3_4myii")
+stretch_mode = 2

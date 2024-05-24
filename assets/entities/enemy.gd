@@ -120,20 +120,12 @@ func _physics_process(_delta):
 				direction = "right"
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x):
-				$WeaponPos.position = Vector2(0,-10)
-				$WeaponPos.rotation_degrees = 180
 				direction = "up"
 			elif nova_dir.y > 0 and abs(nova_dir.y) > abs(nova_dir.x):
-				$WeaponPos.position = Vector2(0,10)
-				$WeaponPos.rotation_degrees = 0
 				direction = "down"
 			elif nova_dir.x < 0 and abs(nova_dir.x) > abs(nova_dir.y):
-				$WeaponPos.position = Vector2(-10,0)
-				$WeaponPos.rotation_degrees = 90
 				direction = "left"
 			elif nova_dir.x > 0 and abs(nova_dir.x) > abs(nova_dir.y):
-				$WeaponPos.position = Vector2(10,0)
-				$WeaponPos.rotation_degrees = 270
 				direction = "right"
 		$EnemyCollision/EnemyAnimation.play(enemy+"_"+type+"_"+direction)
 
@@ -158,6 +150,20 @@ func weapon(projectile, fire):
 	
 	w.damage = w.damage * mod
 	await get_tree().create_timer(fire/attack).timeout
+	
+	if direction == "up":
+		$WeaponPos.position = Vector2(0,-10)
+		$WeaponPos.rotation_degrees = 180
+	elif direction == "down":
+		$WeaponPos.position = Vector2(0,10)
+		$WeaponPos.rotation_degrees = 0
+	elif direction == "left":
+		$WeaponPos.position = Vector2(-10,0)
+		$WeaponPos.rotation_degrees = 90
+	elif direction == "right":
+		$WeaponPos.position = Vector2(10,0)
+		$WeaponPos.rotation_degrees = 270
+	
 	if !projectile:
 		$WeaponPos.add_child(w)
 	else:

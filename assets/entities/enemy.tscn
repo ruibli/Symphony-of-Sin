@@ -1324,6 +1324,7 @@ avoidance_layers = 4
 avoidance_mask = 7
 
 [node name="HitCooldown" type="Timer" parent="."]
+wait_time = 0.25
 one_shot = true
 
 [node name="WeaponCooldown" type="Timer" parent="."]
