@@ -15,6 +15,8 @@ func _process(_delta):
 	
 	if sins > 0:
 		Glova.sins = sins - 0.001
+		$sins/AnimationPlayer.speed_scale = 1 * sins
+		$sins/AnimationPlayer.play("pulse")
 	if sins < 0:
 		Glova.sins = 0
 	if sins > 1:
@@ -22,7 +24,7 @@ func _process(_delta):
 		
 	if Input.is_action_pressed("attack_up") or Input.is_action_pressed("attack_down") or Input.is_action_pressed("attack_left") or Input.is_action_pressed("attack_right"):
 		if Glova.current in Glova.ranged and Glova.sins <= 0:
-			pass
+			$sins/AnimationPlayer.play("flash")
 			
 	if health/health_max != save:
 		var tween = get_tree().create_tween()
