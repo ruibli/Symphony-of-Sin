@@ -1,42 +1,33 @@
-extends CharacterBody2D
+extends RayCast2D
 
-var speed = 1500
+var velocity = Vector2(0,0)
 var damage = 100
 var wait = false
 
 func _ready():
+	$Antlers.hide()
+	velocity = Vector2(0,0)	
 	$Timer.start()
+	$Timer2.start()
 
 func _process(_delta):
 	if not wait:
-			await get_tree().create_timer(0.05).timeout
-			wait = true
-	
-	if velocity.length() > 0:
-		velocity = velocity.normalized() * speed
-	move_and_slide()
-	
-	for index in get_slide_collision_count():
-		change()
-
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
-
-func _on_roomdetector_area_entered(area: Area2D) -> void:
-	if area.get_name() == 'CameraArea' and wait == true:
-		queue_free()
+		await get_tree().create_timer(0.05).timeout
+		wait = true
 
 func _on_timer_timeout():
 	queue_free()
 
-func _on_antlershit_area_entered(area):
+func _on_antletshit_area_entered(area):
 	area.hit(damage,global_position)
-	change()
 
 func _on_timer_2_timeout():
-	queue_free()
-
-func change():
-	$AntlersCollision/Antlers.texture = load("res://assets/entities/nova/nova_antlers/beam.png")
-	velocity = Vector2(0,0)
-	$Timer2.start()
+	if is_colliding:
+		var cast  = to_local(get_collision_point())
+		if rotation_degrees == 90 or rotation_degrees == 270:
+			$Antlers.points[1].x = cast.x
+		else:
+			$Antlers.points[1].y = cast.y
+		
+		$antlershit.set_collision_mask_value(3,true)
+		$Antlers.show()

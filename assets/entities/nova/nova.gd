@@ -76,7 +76,7 @@ func set_nova():
 	$AntlersCooldown.wait_time = 6.0 / attack
 	
 func _process(_delta):
-	velocity = Vector2.ZERO
+	velocity = Vector2(0,0)
 	if !lock:
 		type = "move"
 	
@@ -132,7 +132,7 @@ func _process(_delta):
 		elif current == "axe" and can_axe:
 			w = axe_scene.instantiate()
 			weapon(false,0.25)
-		elif current == "homer" and can_homer:
+		elif current == "homer" and can_homer and Glova.sins > 0:
 			w = homer_scene.instantiate()
 			weapon(true,0)
 		elif current == "gauntlets" and can_gauntlets:
