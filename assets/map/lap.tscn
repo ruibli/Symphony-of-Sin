@@ -1,10 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://da8es6cp1n5rk"]
+[gd_scene load_steps=7 format=3 uid="uid://da8es6cp1n5rk"]
 
 [ext_resource type="Script" path="res://assets/map/lap.gd" id="1_jwbcc"]
-[ext_resource type="Texture2D" uid="uid://cygvd0clkndsm" path="res://assets/map/generic/lap.png" id="2_wn8u8"]
+[ext_resource type="Texture2D" uid="uid://b5x7hpu0ht6yv" path="res://assets/map/generic/lap_1.png" id="2_wn8u8"]
+[ext_resource type="Texture2D" uid="uid://dhlu33a8glwoa" path="res://assets/map/generic/lap_2.png" id="3_l2hlf"]
+[ext_resource type="Texture2D" uid="uid://dlj5i2xu28r05" path="res://assets/map/generic/lap_3.png" id="4_epiwf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iydeq"]
 radius = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t877f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wn8u8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l2hlf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_epiwf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
 
 [node name="lap" type="StaticBody2D"]
 script = ExtResource("1_jwbcc")
@@ -23,6 +42,9 @@ wait_time = 0.25
 one_shot = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="LapAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_t877f")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
