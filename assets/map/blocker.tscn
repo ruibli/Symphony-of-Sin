@@ -1,10 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://7h4761rqy8px"]
+[gd_scene load_steps=6 format=3 uid="uid://7h4761rqy8px"]
 
 [ext_resource type="Texture2D" uid="uid://bmbqvi4dlaswi" path="res://assets/map/manor/manor_blocker.png" id="1_ccyjg"]
 [ext_resource type="Script" path="res://assets/map/blocker.gd" id="1_ge3wm"]
+[ext_resource type="Texture2D" uid="uid://fxjivvtn2cb8" path="res://assets/map/manor/manor_blocker_2.png" id="3_uy0a6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7701s"]
 size = Vector2(32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uryea"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ccyjg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uy0a6")
+}],
+"loop": true,
+"name": &"floor1",
+"speed": 2.0
+}]
 
 [node name="blocker" type="StaticBody2D"]
 z_as_relative = false
@@ -22,6 +37,11 @@ shape = SubResource("RectangleShape2D_7701s")
 vertices = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[node name="BlockerAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_uryea")
+animation = &"floor1"
+frame_progress = 0.398943
 
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
