@@ -146,6 +146,8 @@ func random_item():
 				stats = [0, 0, 0, 0.1, 0, 0]
 			elif rand == 3:
 				stats = [0, 0, 0, 0, 0.1, 0]
+		elif nam == "painting":
+			stats = [0, 0, 0, 0, 0, 0]
 
 func random_weapon():
 	var weapon_pool = Glova.weapon_pool.duplicate()

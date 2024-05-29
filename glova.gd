@@ -18,7 +18,7 @@ var current = "gauntlets"
 var cooldown = 0
 
 var i_pool_full = ["breakfast","platinum","glass","feather","vest","scale","colon","boots","syringe","helmet","steak","dumbbell","goldfish","debit","wildcard"]
-var w_pool_full = ["spear","axe","gauntlets","molotov","antlers"]
+var w_pool_full = ["spear","axe","molotov","antlers"]
 var item_pool
 var weapon_pool
 var spawn_vars = [0,0]

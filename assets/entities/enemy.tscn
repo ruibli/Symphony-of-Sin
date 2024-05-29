@@ -1278,9 +1278,9 @@ _data = {
 "hurt": SubResource("Animation_fagb7")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_laeqa"]
-radius = 6.0
-height = 15.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s5qhe"]
+radius = 7.0
+height = 16.0
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -1300,8 +1300,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dvnd2")
-animation = &"limbo_move_up"
-frame_progress = 0.625425
+animation = &"limbo_move_down"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCollision/EnemyAnimation"]
 libraries = {
@@ -1310,12 +1309,11 @@ libraries = {
 
 [node name="enemyhurt" type="Area2D" parent="."]
 position = Vector2(0, -3)
-collision_layer = 20
-collision_mask = 2
+collision_layer = 4
 script = ExtResource("28_8pfne")
 
 [node name="EnemyHurt" type="CollisionShape2D" parent="enemyhurt"]
-shape = SubResource("CapsuleShape2D_laeqa")
+shape = SubResource("CapsuleShape2D_s5qhe")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -1393,7 +1391,6 @@ target_position = Vector2(320, 0)
 collision_mask = 33
 collide_with_areas = true
 
-[connection signal="area_entered" from="enemyhurt" to="." method="_on_enemyhurt_area_entered"]
 [connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

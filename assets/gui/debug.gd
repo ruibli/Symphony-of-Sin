@@ -15,6 +15,7 @@ func _ready():
 
 func _process(_delta):
 	item_pool = Glova.i_pool_full.duplicate()
+	item_pool.append("painting")
 	weapon_pool = Glova.w_pool_full.duplicate()
 	weapon_pool.append("homer")
 	$HBoxContainer/itemcon/item.text = items[items_index]
