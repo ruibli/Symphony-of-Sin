@@ -9,4 +9,4 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_bitethit_area_entered(area):
-	area.hit(damage,global_position)
+	area.hit(damage,global_position,false)

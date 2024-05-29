@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed = 150
 var damage = 10
+var gain = false
 var wait = false
 
 func _ready():
@@ -27,7 +28,7 @@ func _on_roomdetector_area_entered(area: Area2D) -> void:
 		queue_free()
 
 func _on_crossbowhit_area_entered(area):
-	area.hit(damage,global_position)
+	area.hit(damage,global_position,gain)
 	queue_free()
 
 func _on_timer_timeout():

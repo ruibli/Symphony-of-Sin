@@ -13,8 +13,12 @@ func _process(_delta):
 	$health/health_label.text = str(int(health)) + "/" +str(int(health_max))
 	$sins.value = sins
 	
+	if "painting" in Glova.inv:
+		Glova.sins = 1
+		sins = 1
+	
 	if sins > 0:
-		Glova.sins = sins - 0.001
+		Glova.sins = sins - 0.002
 		$sins/AnimationPlayer.speed_scale = 1 * sins
 		$sins/AnimationPlayer.play("pulse")
 	if sins < 0:

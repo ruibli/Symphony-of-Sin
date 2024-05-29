@@ -67,13 +67,13 @@ func set_nova():
 	$Camera2D.position_smoothing_enabled = cam
 	
 	$NovaCollision/NovaAnimation.speed_scale = attack
-	$CrossbowCooldown.wait_time = 1.0 / attack
-	$SpearCooldown.wait_time = 1.5 / attack
-	$AxeCooldown.wait_time = 2.0 / attack
-	$HomerCooldown.wait_time = 1.0 / attack
-	$GauntletsCooldown.wait_time = 1.0 / attack
-	$MolotovCooldown.wait_time = 1.0 / attack
-	$AntlersCooldown.wait_time = 6.0 / attack
+	$CrossbowCooldown.wait_time = (1.0 - 0)/ attack
+	$SpearCooldown.wait_time = (1.5 - 0.25) / attack
+	$AxeCooldown.wait_time = (2.0- 0.25) / attack
+	$HomerCooldown.wait_time = (1.0 - 0) / attack
+	$GauntletsCooldown.wait_time = (1.0 - 0.25) / attack
+	$MolotovCooldown.wait_time = (1.0 - 0) / attack
+	$AntlersCooldown.wait_time = (6.0 - 0.83) / attack
 	
 func _process(_delta):
 	velocity = Vector2(0,0)
@@ -132,7 +132,7 @@ func _process(_delta):
 		elif current == "axe" and can_axe:
 			w = axe_scene.instantiate()
 			weapon(false,0.25)
-		elif current == "homer" and can_homer and Glova.sins > 0:
+		elif current == "homer" and can_homer:
 			w = homer_scene.instantiate()
 			weapon(true,0)
 		elif current == "gauntlets" and can_gauntlets:
@@ -143,7 +143,7 @@ func _process(_delta):
 			weapon(true,0)
 		elif current == "antlers" and can_antlers and Glova.sins > 0:
 			w = antlers_scene.instantiate()
-			weapon(true,0.83)
+			weapon(false,0.83)
 		elif !lock:
 			type = "move"
 	
@@ -225,7 +225,10 @@ func weapon(projectile, fire): # attacking
 			Glova.cooldown = $AntlersCooldown.wait_time
 		
 		lock2 = false
-		await get_tree().create_timer((1-fire)/attack).timeout
+		if current == "antlers":
+			await get_tree().create_timer(1+((1-fire)/attack)).timeout
+		else:
+			await get_tree().create_timer((1-fire)/attack).timeout
 		lock = false
 		
 	else:
@@ -240,8 +243,8 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 func _on_hit_cooldown_timeout():
 	can_hit = true
 
-func hit(ow,_pos):
-	if can_hit:
+func hit(ow,_pos,_gain):
+	if can_hit and !("painting" in inv):
 		can_hit = false
 		$HitCooldown.start()
 		Glova.change([-ow, 0, 0, 0, 0, 0])

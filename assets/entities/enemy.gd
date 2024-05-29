@@ -16,8 +16,6 @@ var speed = 50 * mod
 var attack = 1.5 / mod
 var target = 20
 
-var damage = 10 * mod
-
 var active = false
 var wait = false
 var distance = 0
@@ -40,7 +38,7 @@ func _ready():
 	elif enemy == "gluttony":
 		stats = [25,75,1,20]
 	elif enemy == "greed":
-		stats = [50,50,1,128]
+		stats = [35,50,1,128]
 	elif enemy == "wrath":
 		stats = [100,30,2,20]
 	elif enemy == "heresy":
@@ -185,13 +183,13 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 func _on_hit_cooldown_timeout():
 	can_hit = true
 
-func hit(ow,pos):	
-	if can_hit:
+func hit(ow,pos,gain):	
+	if can_hit and active:
 		can_hit = false
 		$HitCooldown.start()
 		health -= ow
 		
-		if pos.distance_to(Glova.pos) < 64:
+		if pos.distance_to(Glova.pos) < 64 and gain:
 			Glova.sins = Glova.sins + (64 - pos.distance_to(Glova.pos))/64 * ow * 0.02
 		
 		#ON HIT STUFF HERE
@@ -203,10 +201,6 @@ func hit(ow,pos):
 			queue_free()
 		else:
 			$EnemyCollision/EnemyAnimation/AnimationPlayer.play("clear")
-		
-
-func _on_enemyhurt_area_entered(area):
-		area.hit(damage,global_position)
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	if active and (distance >= target or not see):

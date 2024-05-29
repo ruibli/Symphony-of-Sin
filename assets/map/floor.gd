@@ -48,10 +48,11 @@ func _ready():
 			temp = enemy_scene.instantiate()
 			temp.position = room.get_node("Marker2D").position
 			add_child(temp)
-			
-		temp = exit_scene.instantiate()
-		temp.position = Vector2(128,-128)
-		add_child(temp)
+		
+		if false: #disable spawn exit till we get more levels
+			temp = exit_scene.instantiate()
+			temp.position = Vector2(128,-128)
+			add_child(temp)
 		
 		if level == lap_level:
 			temp = lap_scene.instantiate()
