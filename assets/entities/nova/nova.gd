@@ -11,17 +11,6 @@ var cam = false
 @export var molotov_scene : PackedScene
 @export var antlers_scene : PackedScene
 
-var health = 100
-var health_max = 100
-var speed = 1
-var power = 1
-var attack = 1
-var gold = 0
-
-var inv = []
-var hotbar = ["gauntlets", "crossbow", "empty", "empty", "empty", "empty", "empty"]
-var current = "gauntlets"
-
 var direction = "down"
 var type = "move"
 var foot = true
@@ -39,41 +28,31 @@ var can_molotov = true
 var can_antlers = true
 
 func set_nova():
-	health = Glova.stats[0]
-	health_max = Glova.stats[1]
-	speed = Glova.stats[2]
-	power = Glova.stats[3]
-	attack = Glova.stats[4]
-	gold = Glova.stats[5]
-	
-	inv = Glova.inv.duplicate()
-	hotbar = Glova.hotbar.duplicate()
-	current = Glova.current
-	
-	if health > health_max:
-		Glova.stats[0] = health_max
-	if health_max < 5:
+	if Glova.stats[0] > Glova.stats[1]:
+		Glova.stats[0] = Glova.stats[1]
+	if Glova.stats[1] < 5:
 		Glova.stats[1] = 5
-	if speed < 0.5:
+	if Glova.stats[2] < 0.5:
 		Glova.stats[2] = 0.5
-	if power < 0.5:
+	if Glova.stats[3] < 0.5:
 		Glova.stats[3] = 0.5
-	if attack < 0.5:
+	if Glova.stats[4] < 0.5:
 		Glova.stats[4] = 0.5
+	if Glova.stats[5] < 0:
+		Glova.stats[5] = 0
 	
-	Glova.type = type
 	Glova.pos = global_position
 	$Camera2D.global_position = camera_pos
 	$Camera2D.position_smoothing_enabled = cam
 	
-	$NovaCollision/NovaAnimation.speed_scale = attack
-	$CrossbowCooldown.wait_time = (1.0 - 0)/ attack
-	$SpearCooldown.wait_time = (1.5 - 0.25) / attack
-	$AxeCooldown.wait_time = (2.0- 0.25) / attack
-	$HomerCooldown.wait_time = (1.0 - 0) / attack
-	$GauntletsCooldown.wait_time = (1.0 - 0.25) / attack
-	$MolotovCooldown.wait_time = (1.0 - 0) / attack
-	$AntlersCooldown.wait_time = (6.0 - 0.83) / attack
+	$NovaCollision/NovaAnimation.speed_scale = Glova.stats[4]
+	$CrossbowCooldown.wait_time = (1.0 - 0)/ Glova.stats[4]
+	$SpearCooldown.wait_time = (1.5 - 0.25) / Glova.stats[4]
+	$AxeCooldown.wait_time = (2.0- 0.25) / Glova.stats[4]
+	$HomerCooldown.wait_time = (1.0 - 0) / Glova.stats[4]
+	$GauntletsCooldown.wait_time = (1.0 - 0.25) / Glova.stats[4]
+	$MolotovCooldown.wait_time = (1.0 - 0) / Glova.stats[4]
+	$AntlersCooldown.wait_time = (6.0 - 0.83) / Glova.stats[4]
 	
 func _process(_delta):
 	velocity = Vector2(0,0)
@@ -102,7 +81,7 @@ func _process(_delta):
 		direction = "right"
 	
 	if velocity.length() > 0:
-		velocity = velocity.normalized() * 100 * speed
+		velocity = velocity.normalized() * 100 * Glova.stats[2]
 		$NovaCollision/NovaAnimation.play()
 	elif type == "move":
 		$NovaCollision/NovaAnimation.frame = 0
@@ -123,31 +102,31 @@ func _process(_delta):
 			direction = "right"
 	
 	if !lock2 and type == "attack" and (Input.is_action_pressed("attack_up") or Input.is_action_pressed("attack_down") or Input.is_action_pressed("attack_left") or Input.is_action_pressed("attack_right")):
-		if current == "crossbow" and can_crossbow and Glova.sins > 0:
+		if Glova.current == "crossbow" and can_crossbow and Glova.sins > 0:
 			w = crossbow_scene.instantiate()
 			weapon(true,0)
-		elif current == "spear" and can_spear:
+		elif Glova.current == "spear" and can_spear:
 			w = spear_scene.instantiate()
 			weapon(false,0.25)
-		elif current == "axe" and can_axe:
+		elif Glova.current == "axe" and can_axe:
 			w = axe_scene.instantiate()
 			weapon(false,0.25)
-		elif current == "homer" and can_homer:
+		elif Glova.current == "homer" and can_homer:
 			w = homer_scene.instantiate()
 			weapon(true,0)
-		elif current == "gauntlets" and can_gauntlets:
+		elif Glova.current == "gauntlets" and can_gauntlets:
 			w = gauntlets_scene.instantiate()
 			weapon(false,0.25)
-		elif current == "molotov" and can_molotov and Glova.sins > 0:
+		elif Glova.current == "molotov" and can_molotov and Glova.sins > 0:
 			w = molotov_scene.instantiate()
 			weapon(true,0)
-		elif current == "antlers" and can_antlers and Glova.sins > 0:
+		elif Glova.current == "antlers" and can_antlers and Glova.sins > 0:
 			w = antlers_scene.instantiate()
 			weapon(false,0.83)
 		elif !lock:
 			type = "move"
 	
-	$NovaCollision/NovaAnimation.play(current+"_"+type+"_"+direction)
+	$NovaCollision/NovaAnimation.play(Glova.current+"_"+type+"_"+direction)
 	if velocity.length() > 0 and foot:
 		$NovaCollision/NovaAnimation.frame = 1
 		foot = false
@@ -167,68 +146,72 @@ func weapon(projectile, fire): # attacking
 			w.velocity.x += 1
 			w.rotation_degrees = 270
 	
-	var save = current
-	w.damage = w.damage * power
-	$NovaCollision/NovaAnimation.play(current+"_"+type+"_"+direction)
+	var save = Glova.current
+	w.damage = w.damage * Glova.stats[3]
+	$NovaCollision/NovaAnimation.play(Glova.current+"_"+type+"_"+direction)
 	
 	lock = true
 	lock2 = true
-	await get_tree().create_timer(fire/attack).timeout
+	await get_tree().create_timer(fire/Glova.stats[4]).timeout
 	
 	if direction == "up":
 		$WeaponPos.position = Vector2(0,-10)
 		$WeaponPos.rotation_degrees = 180
+		w.dir = "up"
 	elif direction == "down":
 		$WeaponPos.position = Vector2(0,10)
 		$WeaponPos.rotation_degrees = 0
+		w.dir = "down"
 	elif direction == "left":
 		$WeaponPos.position = Vector2(-10,0)
 		$WeaponPos.rotation_degrees = 90
+		w.dir = "left"
 	elif direction == "right":
 		$WeaponPos.position = Vector2(10,0)
 		$WeaponPos.rotation_degrees = 270
+		w.dir = "right"
 		
-	if save == current:
+	if save == Glova.current:
 		if !projectile:
 			$WeaponPos.add_child(w)
 		else:
 			w.global_position = $WeaponPos.global_position
 			get_tree().root.add_child(w)
 		
-		if current == "crossbow":
+		if Glova.current == "crossbow":
 			can_crossbow = false
 			$CrossbowCooldown.start()
 			Glova.cooldown = $CrossbowCooldown.wait_time
-		elif current == "spear":
+		elif Glova.current == "spear":
 			can_spear = false
 			$SpearCooldown.start()
 			Glova.cooldown = $SpearCooldown.wait_time
-		elif current == "axe":
+		elif Glova.current == "axe":
 			can_axe = false
 			$AxeCooldown.start()
 			Glova.cooldown = $AxeCooldown.wait_time
-		elif current == "homer":
+		elif Glova.current == "homer":
 			can_homer = false
 			$HomerCooldown.start()
 			Glova.cooldown = $HomerCooldown.wait_time
-		elif current == "gauntlets":
+		elif Glova.current == "gauntlets":
 			can_gauntlets = false
 			$GauntletsCooldown.start()
 			Glova.cooldown = $GauntletsCooldown.wait_time
-		elif current == "molotov":
+		elif Glova.current == "molotov":
 			can_molotov = false
 			$MolotovCooldown.start()
 			Glova.cooldown = $MolotovCooldown.wait_time
-		elif current == "antlers":
+		elif Glova.current == "antlers":
 			can_antlers = false
 			$AntlersCooldown.start()
 			Glova.cooldown = $AntlersCooldown.wait_time
 		
 		lock2 = false
-		if current == "antlers":
-			await get_tree().create_timer(1+((1-fire)/attack)).timeout
+		if Glova.current == "antlers":
+			await get_tree().create_timer((2-fire)/Glova.stats[4]).timeout
 		else:
-			await get_tree().create_timer((1-fire)/attack).timeout
+			await get_tree().create_timer((1-fire)/Glova.stats[4]).timeout
 		lock = false
 		
 	else:
@@ -243,8 +226,8 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 func _on_hit_cooldown_timeout():
 	can_hit = true
 
-func hit(ow,_pos,_gain):
-	if can_hit and !("painting" in inv):
+func hit(ow,_pos,nam,dir):
+	if can_hit and !("painting" in Glova.inv):
 		can_hit = false
 		$HitCooldown.start()
 		Glova.change([-ow, 0, 0, 0, 0, 0])

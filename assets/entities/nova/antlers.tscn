@@ -7,7 +7,7 @@
 size = Vector2(10, 326)
 
 [node name="antlers" type="RayCast2D"]
-position = Vector2(0, 6)
+position = Vector2(0, 12)
 target_position = Vector2(0, 320)
 collide_with_areas = true
 script = ExtResource("1_wns3m")

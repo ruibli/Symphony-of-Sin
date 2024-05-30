@@ -8,7 +8,6 @@ var can_swap = true
 var wait = false
 var spawn = false
 var save = []
-var id = []
 var mod
 
 var x = -9
@@ -34,8 +33,6 @@ func _process(_delta):
 			wait = true
 			show()
 	else:
-		id = Glova.id
-		
 		if Glova.mod != mod:
 			mod = Glova.mod
 			spawn = false
@@ -44,31 +41,31 @@ func _process(_delta):
 			y = 9
 			for i in range(0, map_node.get_child_count()):
 				map_node.get_child(i).queue_free()
-		if id == []:
+		if Glova.id == []:
 			pass
-		elif id[2] != "spawn" and !spawn:
+		elif Glova.id[2] != "spawn" and !spawn:
 			Glova.id = []
 		else:
-			$mininova.position = Vector2(id[0],id[1]) * 16
-			if !save.has(id):
+			$mininova.position = Vector2(Glova.id[0],Glova.id[1]) * 16
+			if !save.has(Glova.id):
 				spawn = true
 				
 				var temp = mini_floor.instantiate()
-				temp.type = id[2]
-				temp.right = id[3]
-				temp.left = id[4]
-				temp.down = id[5]
-				temp.up = id[6]
-				temp.position = Vector2(id[0],id[1]) * 16
+				temp.type = Glova.id[2]
+				temp.right = Glova.id[3]
+				temp.left = Glova.id[4]
+				temp.down = Glova.id[5]
+				temp.up = Glova.id[6]
+				temp.position = Vector2(Glova.id[0],Glova.id[1]) * 16
 				
-				if id[0] > x:
-					x = id[0]
-				if id[1] < y:
-					y = id[1]
+				if Glova.id[0] > x:
+					x = Glova.id[0]
+				if Glova.id[1] < y:
+					y = Glova.id[1]
 				
+				save.append(Glova.id)
 				Glova.id = []
 				map_node.add_child(temp)
-				save.append(id)
 
 func _on_swap_cd_timeout():
 	can_swap = true

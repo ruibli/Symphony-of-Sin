@@ -11,10 +11,6 @@ var mod = 1 + 0.1 * (Glova.mod)
 var enemy = "limbo"
 
 var stats = []
-var health = 50 * mod
-var speed = 50 * mod
-var attack = 1.5 / mod
-var target = 20
 
 var active = false
 var wait = false
@@ -46,11 +42,10 @@ func _ready():
 	elif enemy == "pride":
 		pass
 	
-	health = stats[0] * mod	
-	speed = stats[1] * mod
-	attack = stats[2] / mod
-	target = stats[3]
-	$WeaponCooldown.wait_time = attack
+	stats[0] = stats[0] * mod	
+	stats[1] = stats[1] * mod
+	stats[2] = stats[2] / mod
+	$WeaponCooldown.wait_time = stats[2]
 	$EnemyCollision/EnemyAnimation.speed_scale = mod
 	$EnemyCollision/EnemyAnimation.play(enemy+"_"+type+"_"+direction)
 	
@@ -81,7 +76,7 @@ func _physics_process(_delta):
 		if !wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
-		elif distance <= target + 8 and see:
+		elif distance <= stats[3] + 8 and see:
 			if can_weapon:
 				if enemy == "limbo":
 					w = trident_scene.instantiate()
@@ -98,11 +93,11 @@ func _physics_process(_delta):
 				elif enemy == "heresy":
 					w = lava_scene.instantiate()
 					weapon(true,0)
-		elif distance >= target or not see:
+		elif distance >= stats[3] or not see:
 			$NavigationAgent2D.set_target_position(Glova.pos)
 			var current_agent_position = global_position
 			var next_path_position = $NavigationAgent2D.get_next_path_position()
-			velocity = (next_path_position - current_agent_position).normalized() * speed
+			velocity = (next_path_position - current_agent_position).normalized() * stats[1]
 			$NavigationAgent2D.set_velocity(velocity)
 		
 		# Animation
@@ -147,27 +142,31 @@ func weapon(projectile, fire):
 			w.rotation_degrees = 270
 	
 	w.damage = w.damage * mod
-	await get_tree().create_timer(fire/attack).timeout
+	await get_tree().create_timer(fire/stats[2]).timeout
 	
 	if direction == "up":
 		$WeaponPos.position = Vector2(0,-10)
 		$WeaponPos.rotation_degrees = 180
+		w.dir = "up"
 	elif direction == "down":
 		$WeaponPos.position = Vector2(0,10)
 		$WeaponPos.rotation_degrees = 0
+		w.dir = "down"
 	elif direction == "left":
 		$WeaponPos.position = Vector2(-10,0)
 		$WeaponPos.rotation_degrees = 90
+		w.dir = "left"
 	elif direction == "right":
 		$WeaponPos.position = Vector2(10,0)
 		$WeaponPos.rotation_degrees = 270
+		w.dir = "right"
 	
 	if !projectile:
 		$WeaponPos.add_child(w)
 	else:
 		w.global_position = $WeaponPos.global_position
 		get_tree().root.add_child(w)
-	await get_tree().create_timer((1-fire)/attack).timeout
+	await get_tree().create_timer((1-fire)/stats[2]).timeout
 	type = "move"
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -183,19 +182,22 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 func _on_hit_cooldown_timeout():
 	can_hit = true
 
-func hit(ow,pos,gain):	
+func hit(ow,pos,nam,dir):	
 	if can_hit and active:
 		can_hit = false
 		$HitCooldown.start()
-		health -= ow
+		stats[0] -= ow
 		
-		if pos.distance_to(Glova.pos) < 64 and gain:
+		if pos.distance_to(Glova.pos) < 64 and !(nam in Glova.ranged):
 			Glova.sins = Glova.sins + (64 - pos.distance_to(Glova.pos))/64 * ow * 0.02
+		
+		if nam == "gauntlets":
+			pass
 		
 		#ON HIT STUFF HERE
 		
 		$EnemyCollision/EnemyAnimation/AnimationPlayer.play("hurt")
-		if health <= 0:
+		if stats[0] <= 0:
 			await get_tree().create_timer(0.05).timeout
 			Glova.enemies -= 1
 			queue_free()
@@ -203,8 +205,8 @@ func hit(ow,pos,gain):
 			$EnemyCollision/EnemyAnimation/AnimationPlayer.play("clear")
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
-	if active and (distance >= target or not see):
-		velocity = safe_velocity.normalized() * speed
+	if active and (distance >= stats[3] or not see):
+		velocity = safe_velocity.normalized() * stats[1]
 		move_and_slide()
 
 func _on_weapon_cooldown_timeout():

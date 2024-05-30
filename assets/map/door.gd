@@ -12,42 +12,41 @@ func _ready():
 
 func _process(_delta):
 	if typeof(Glova.id) == TYPE_ARRAY:
-		var ids = Glova.doors.duplicate()
-		for i in ids:
+		for i in Glova.doors:
 			if id == i:
-				if i == ids[0]:
+				if i == Glova.doors[0]:
 					type = "boss"
-				if i == ids[1]:
+				if i == Glova.doors[1]:
 					type = "shop"
-				if i == ids[2]:
+				if i == Glova.doors[2]:
 					type = "lore"
 			if dir == "up" and id.y == i.y + 1 and id.x == i.x:
-				if i == ids[0]:
+				if i == Glova.doors[0]:
 					type = "boss"
-				if i == ids[1]:
+				if i == Glova.doors[1]:
 					type = "shop"
-				if i == ids[2]:
+				if i == Glova.doors[2]:
 					type = "lore"
 			if dir == "down" and id.y == i.y - 1 and id.x == i.x:
-				if i == ids[0]:
+				if i == Glova.doors[0]:
 					type = "boss"
-				if i == ids[1]:
+				if i == Glova.doors[1]:
 					type = "shop"
-				if i == ids[2]:
+				if i == Glova.doors[2]:
 					type = "lore"
 			if dir == "left" and id.x == i.x + 1 and id.y == i.y:
-				if i == ids[0]:
+				if i == Glova.doors[0]:
 					type = "boss"
-				if i == ids[1]:
+				if i == Glova.doors[1]:
 					type = "shop"
-				if i == ids[2]:
+				if i == Glova.doors[2]:
 					type = "lore"
 			if dir == "right" and id.x == i.x - 1 and id.y == i.y:
-				if i == ids[0]:
+				if i == Glova.doors[0]:
 					type = "boss"
-				if i == ids[1]:
+				if i == Glova.doors[1]:
 					type = "shop"
-				if i == ids[2]:
+				if i == Glova.doors[2]:
 					type = "lore"
 	
 	if Glova.enemies > 0:
