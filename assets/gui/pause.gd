@@ -1,8 +1,6 @@
 extends Control
 
 var can_pause = true
-var level = 1
-var mod = 0
 
 var time =  0.0
 var hours = 0
@@ -34,8 +32,6 @@ func _process(delta):
 		time += delta
 		hide()
 	
-	level = str(Glova.level)
-	mod = str(Glova.mod)
 	hours = int(fmod(time, 216000)/3600)
 	minutes = int(fmod(time, 3600)/60)
 	seconds = int(fmod(time, 60))
@@ -55,8 +51,8 @@ func _process(delta):
 	else:
 		seconds = str(seconds)
 	
-	$VBoxContainer/level_con/level.text = level
-	$VBoxContainer/mod_con/mod.text = mod
+	$VBoxContainer/level_con/level.text = str(Glova.level)
+	$VBoxContainer/mod_con/mod.text = str(Glova.mod)
 	$VBoxContainer/time_con/HBoxContainer/hours.text = hours
 	$VBoxContainer/time_con/HBoxContainer/minutes.text = minutes
 	$VBoxContainer/time_con/HBoxContainer/seconds.text = seconds

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var speed = 150
 var damage = 10
-var gain = false
+var dir
 var wait = false
 var rotat = 0
 
@@ -39,14 +39,14 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_molotovhit_area_entered(area):
-	area.hit(damage,global_position,gain)
+	area.hit(damage,global_position,name,dir)
 	change()
 
 func _on_timer_2_timeout():
 	change()
 
 func _on_molotovhit_2_area_entered(area):
-	area.hit(damage,global_position,gain)
+	area.hit(damage,global_position,name,dir)
 
 func change():
 	$MolotovCollision/Molotov.texture = load("res://assets/entities/nova/nova_molotov/molotov_pool.png")

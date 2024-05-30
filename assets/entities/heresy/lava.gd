@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed = 150
 var damage = 10
+var dir
 var wait = false
 var rotat = 0
 
@@ -38,14 +39,14 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_lavahit_area_entered(area):
-	area.hit(damage,global_position,false)
+	area.hit(damage,global_position,name,dir)
 	change()
 
 func _on_timer_2_timeout():
 	change()
 
 func _on_lavahit_2_area_entered(area):
-	area.hit(damage,global_position,false)
+	area.hit(damage,global_position,name,dir)
 
 func change():
 	$LavaCollision/Lava.texture = load("res://assets/entities/heresy/sprites/heresy_pool.png")

@@ -1,6 +1,5 @@
 extends Node2D
 
-var hotbar = ["gauntlets", "crossbow", "empty", "empty", "empty", "empty", "empty"]
 var slot = 1
 var remind_tween
 var cooldown_tween
@@ -9,42 +8,34 @@ var can_swap = true
 var paused = false
 
 func _process(_delta):
-	hotbar = Glova.hotbar.duplicate()
-	Glova.current = hotbar[slot-1]
-	$HBoxContainer/slot1.texture = load("res://assets/loot/weapons/"+hotbar[0]+".png")
-	$HBoxContainer/slot2.texture = load("res://assets/loot/weapons/"+hotbar[1]+".png")
-	$HBoxContainer/slot3.texture = load("res://assets/loot/weapons/"+hotbar[2]+".png")
-	$HBoxContainer/slot4.texture = load("res://assets/loot/weapons/"+hotbar[3]+".png")
-	$HBoxContainer/slot5.texture = load("res://assets/loot/weapons/"+hotbar[4]+".png")
-	$HBoxContainer/slot6.texture = load("res://assets/loot/weapons/"+hotbar[5]+".png")
-	$HBoxContainer/slot7.texture = load("res://assets/loot/weapons/"+hotbar[6]+".png")
+	Glova.current = Glova.hotbar[slot-1]
+	$HBoxContainer/slot1.texture = load("res://assets/loot/weapons/"+Glova.hotbar[0]+".png")
+	$HBoxContainer/slot2.texture = load("res://assets/loot/weapons/"+Glova.hotbar[1]+".png")
+	$HBoxContainer/slot3.texture = load("res://assets/loot/weapons/"+Glova.hotbar[2]+".png")
+	$HBoxContainer/slot4.texture = load("res://assets/loot/weapons/"+Glova.hotbar[3]+".png")
+	$HBoxContainer/slot5.texture = load("res://assets/loot/weapons/"+Glova.hotbar[4]+".png")
+	$HBoxContainer/slot6.texture = load("res://assets/loot/weapons/"+Glova.hotbar[5]+".png")
+	$HBoxContainer/slot7.texture = load("res://assets/loot/weapons/"+Glova.hotbar[6]+".png")
 	
 	if Input.is_action_just_pressed("slot1"):
-		Glova.current = hotbar[0]
 		slot = 1
 		$current.position = $HBoxContainer/slot1.position + Vector2(4,4)
 	if Input.is_action_just_pressed("slot2"):
-		Glova.current = hotbar[1]
 		slot = 2
 		$current.position = $HBoxContainer/slot2.position  + Vector2(4,4)
 	if Input.is_action_just_pressed("slot3"):
-		Glova.current = hotbar[2]
 		slot = 3
 		$current.position = $HBoxContainer/slot3.position + Vector2(4,4)
 	if Input.is_action_just_pressed("slot4"):
-		Glova.current = hotbar[3]
 		slot = 4
 		$current.position = $HBoxContainer/slot4.position + Vector2(4,4)
 	if Input.is_action_just_pressed("slot5"):
-		Glova.current = hotbar[4]
 		slot = 5
 		$current.position = $HBoxContainer/slot5.position + Vector2(4,4)
 	if Input.is_action_just_pressed("slot6"):
-		Glova.current = hotbar[5]
 		slot = 6
 		$current.position = $HBoxContainer/slot6.position + Vector2(4,4)
 	if Input.is_action_just_pressed("slot7"):
-		Glova.current = hotbar[6]
 		slot = 7
 		$current.position = $HBoxContainer/slot7.position + Vector2(4,4)
 	
@@ -151,10 +142,10 @@ func _process(_delta):
 		
 		if swap[0] != 0:
 			if swap[1] != 0:
-				var save = hotbar[swap[1]-1]
+				var save = Glova.hotbar[swap[1]-1]
 				$swap.position = $HBoxContainer/slot1.position + Vector2(-24,4)
-				hotbar[swap[1]-1] = hotbar[swap[0]-1]
-				hotbar[swap[0]-1] = save
+				Glova.hotbar[swap[1]-1] = Glova.hotbar[swap[0]-1]
+				Glova.hotbar[swap[0]-1] = save
 				swap = [0,0]
 				can_swap = false
 				$swap_cd.start()

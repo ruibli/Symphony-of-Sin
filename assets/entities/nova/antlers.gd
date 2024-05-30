@@ -2,8 +2,7 @@ extends RayCast2D
 
 var velocity = Vector2(0,0)
 var damage = 100
-var gain = false
-var wait = false
+var dir
 
 func _ready():
 	$Antlers.hide()
@@ -11,14 +10,8 @@ func _ready():
 	$Timer.start()
 
 func _process(_delta):
-	if not wait:
-		await get_tree().create_timer(0.05).timeout
-		wait = true
-	
 	if is_colliding:
-		print(str(get_collider().name))
 		var cast = to_local(get_collision_point())
-		print(str(cast))
 		$Antlers.points[1] = Vector2(0,cast.y-6)
 	else:
 		$Antlers.points[1] = Vector2(0,320)
@@ -30,4 +23,4 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_antletshit_area_entered(area):
-	area.hit(damage,global_position,gain)
+	area.hit(damage,global_position,name,dir)

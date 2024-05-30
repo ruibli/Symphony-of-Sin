@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://assets/entities/nova/spear.gd" id="1_xf42a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d44h5"]
-size = Vector2(12, 32)
+size = Vector2(12, 38)
 
 [node name="spear" type="StaticBody2D"]
 script = ExtResource("1_xf42a")
