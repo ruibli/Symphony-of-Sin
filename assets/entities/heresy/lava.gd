@@ -39,14 +39,14 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_lavahit_area_entered(area):
-	area.hit(damage,global_position,name,dir)
+	area.hit(damage,name,dir)
 	change()
 
 func _on_timer_2_timeout():
 	change()
 
 func _on_lavahit_2_area_entered(area):
-	area.hit(damage,global_position,name,dir)
+	area.hit(damage,name,dir)
 
 func change():
 	$LavaCollision/Lava.texture = load("res://assets/entities/heresy/sprites/heresy_pool.png")

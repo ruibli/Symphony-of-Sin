@@ -25,7 +25,7 @@ func reward():
 			stats = [0, 0, 0, 0, 0, 1]
 		elif item == "potion":	
 			$item.texture = load("res://assets/loot/generic/potion.png")
-			stats = [25, 0, 0, 0, 0, 0]
+			stats = [20, 0, 0, 0, 0, 0]
 		elif item == "item":
 			random_item()
 		elif item == "weapon":	
@@ -39,7 +39,7 @@ func reward():
 		elif item <= 9:
 			item = "potion"
 			$item.texture = load("res://assets/loot/generic/potion.png")
-			stats = [25, 0, 0, 0, 0, 0]
+			stats = [20, 0, 0, 0, 0, 0]
 		elif item <= 10:
 			item = "item"
 			random_item()
@@ -69,67 +69,66 @@ func reward():
 			cost = [0, 0, 0, 0, 0, -2]
 			$cost.text = "2G"
 			$item.texture = load("res://assets/loot/generic/potion.png")
-			stats = [25, 0, 0, 0, 0, 0]
+			stats = [20, 0, 0, 0, 0, 0]
 	
 func random_item():
-	var item_pool = Glova.item_pool.duplicate()
-	if len(item_pool) == 0 or item_pool.is_empty():
+	if len(Glova.item_pool) == 0 or Glova.item_pool.is_empty():
 		breakfast()
 	else:
 		if type != "debug":
-			nam = randi_range(0, len(item_pool)-1) # get lengths
-			nam = item_pool[nam]
+			nam = randi_range(0, len(Glova.item_pool)-1) # get lengths
+			nam = Glova.item_pool[nam]
 			Glova.item_pool.remove_at(Glova.item_pool.find(nam,0))
 		
 		$item.texture = load("res://assets/loot/items/"+nam+".png")
 		
 		if nam == "breakfast":
-			stats = [25, 25, 0, 0, 0, 0]
+			stats = [10, 10, 0, 0, 0, 0]
 		elif nam == "platinum":
 			stats = [0, 0, 0, 0, 0, 5]
 		elif nam == "glass":
-			stats = [-50, -50, 0, 0.2, 0, 0]
+			stats = [-20, -20, 0, 0.2, 0, 0]
 		elif nam == "feather":
-			stats = [-25, -25, 0.1, -0.1, 0.1, 0]
+			stats = [-10, -10, 0.1, -0.1, 0.1, 0]
 		elif nam == "vest":
-			stats = [50, 50, -0.2, 0, 0, 0]
+			stats = [20, 20, -0.2, 0, 0, 0]
 		elif nam == "scale":
 			var ave = (Glova.stats[2] + Glova.stats[3] + Glova.stats[4])/3
 			stats = [0, 0, ave-Glova.stats[2], ave-Glova.stats[3], ave-Glova.stats[4], 0]
 		elif nam == "colon":
-			stats = [25, 25, 0.1, 0.1, 0.1, 1]
+			stats = [10, 10, 0.1, 0.1, 0.1, 1]
 		elif nam == "boots":
 			stats = [0, 0, 0.1, 0, 0, 0]
 		elif nam == "syringe":
 			stats = [0, 0, 0, 0, 0.1, 0]
 		elif nam == "helmet":
-			stats = [50, 50, 0, 0, -0.2, 0]
+			stats = [20, 20, 0, 0, -0.2, 0]
 		elif nam == "dumbbell":
 			stats = [0, 0, 0, 0.1, 0, 0]
 		elif nam == "steak":
-			stats = [0, 25, 0, 0, 0, 0]
+			stats = [0, 10, 0, 0, 0, 0]
 		elif nam == "goldfish":
 			var rand = randi_range(0,11)
 			if rand == 0:
-				stats = [-50, -50, 0.2, 0, 0, 0]
+				stats = [-20, -20, 0.2, 0, 0, 0]
 			elif rand == 1:
-				stats = [-50, -50, 0, 0.2, 0, 0]
+				stats = [-20, -20, 0, 0.2, 0, 0]
 			elif rand == 2:
-				stats = [-50, -50, 0, 0, 0.2, 0]
+				stats = [-20, -20, 0, 0, 0.2, 0]
 			elif rand == 3:
-				stats = [50, 50, -0.2, 0, 0, 0]
+				stats = [20, 20, -0.2, 0, 0, 0]
 			elif rand == 4:
 				stats = [0, 0, -0.2, 0.2, 0, 0]
 			elif rand == 5:
 				stats = [0, 0, -0.2, 0, 0.2, 0]
 			elif rand == 6:
-				stats = [50, 50, 0, -0.2, 0, 0]
+				stats = [20, 20, 0, -0.2, 0, 0]
 			elif rand == 7:
 				stats = [0, 0, 0.2, -0.2, 0, 0]
 			elif rand == 8:
 				stats = [0, 0, 0, -0.2, 0.2, 0]
 			elif rand == 9:
-				stats = [50, 50, 0, 0, -0.2, 0]
+				stats = [20, 20, 0, 0, -0.2, 0]
 			elif rand == 10:
 				stats = [0, 0, 0.2, 0, -0.2, 0]
 			elif rand == 11:
@@ -139,7 +138,7 @@ func random_item():
 		elif nam == "wildcard":
 			var rand = randi_range(0,3)
 			if rand == 0:
-				stats = [25, 25, 0, 0, 0, 0]
+				stats = [10, 10, 0, 0, 0, 0]
 			elif rand == 1:
 				stats = [0, 0, 0.1, 0, 0, 0]
 			elif rand == 2:
@@ -150,13 +149,12 @@ func random_item():
 			stats = [0, 0, 0, 0, 0, 0]
 
 func random_weapon():
-	var weapon_pool = Glova.weapon_pool.duplicate()
-	if len(weapon_pool) == 0 or weapon_pool.is_empty():
+	if len(Glova.weapon_pool) == 0 or Glova.weapon_pool.is_empty():
 		breakfast()
 	else:
 		if type != "debug":
-			nam = randi_range(0, len(weapon_pool)-1) # get lengths
-			nam = weapon_pool[nam]
+			nam = randi_range(0, len(Glova.weapon_pool)-1) # get lengths
+			nam = Glova.weapon_pool[nam]
 			Glova.weapon_pool.remove_at(Glova.weapon_pool.find(nam,0))
 	
 		$item.texture = load("res://assets/loot/weapons/"+nam+".png")
@@ -165,7 +163,7 @@ func breakfast():
 	item = "item"
 	nam = "breakfast"
 	$item.texture = load("res://assets/loot/items/breakfast.png")
-	stats = [25, 25, 0, 0, 0, 0]
+	stats = [10, 10, 0, 0, 0, 0]
 	
 	if type == "shop":
 		cost = [0, 0, 0, 0, 0, -5]
@@ -196,11 +194,10 @@ func _process(_delta):
 							Glova.hotbar[4] = nam
 						elif Glova.hotbar[5] == "empty":
 							Glova.hotbar[5] = nam
-						elif Glova.hotbar[6] == "empty":
-							Glova.hotbar[6] = nam
 						else:
-							Glova.hotbar[7] = nam
-					Glova.change(cost)
+							Glova.hotbar[6] = nam
+					if type == "shop":
+						Glova.change(cost)
 					queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_entered():

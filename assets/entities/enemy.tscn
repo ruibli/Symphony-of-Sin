@@ -1285,6 +1285,7 @@ height = 16.0
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 7
+motion_mode = 1
 script = ExtResource("1_qcn2q")
 trident_scene = ExtResource("2_2lli8")
 bite_scene = ExtResource("3_4aqhc")

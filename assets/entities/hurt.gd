@@ -1,7 +1,7 @@
 extends Area2D
 
-func hit(ow,pos,nam,dir):
-	owner.hit(ow,pos,nam,dir)
+func hit(ow,nam,dir):
+	owner.hit(ow,nam,dir)
 
 func boop(dir):
 	owner.boop(dir)

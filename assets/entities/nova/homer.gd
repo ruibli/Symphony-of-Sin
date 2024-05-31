@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 300
-var damage = 9999
+var damage = 0.1
 var dir
 var wait = false
 var enemies = []
@@ -34,7 +34,7 @@ func _on_roomdetector_area_entered(area: Area2D) -> void:
 		queue_free()
 
 func _on_homerhit_area_entered(area):
-	area.hit(damage,global_position,name,dir)
+	area.hit(damage,name,dir)
 	queue_free()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):

@@ -24,11 +24,9 @@ extends StaticBody2D
 @export var lap_scene: PackedScene
 
 var type = "enemy"
-var level = Glova.level
 var temp
 var room
 var on = false
-var lap_level = 1
 
 var id
 var right = true
@@ -37,14 +35,14 @@ var down = true
 var up = true
 
 func _ready():	
-	if level == 1: # level 1 manor assets
+	if Glova.level == 1: # level 1 manor assets
 		$floor.texture = load("res://assets/map/manor/manor_floor.png")
 	
 	if type == "boss":
 		room = boss_scene.instantiate()
 		add_child(room)
 		
-		if level == 1: # spawn boss here
+		if Glova.level == 1: # spawn boss here
 			temp = enemy_scene.instantiate()
 			temp.position = room.get_node("Marker2D").position
 			add_child(temp)
@@ -54,7 +52,7 @@ func _ready():
 			temp.position = Vector2(128,-128)
 			add_child(temp)
 		
-		if level == lap_level:
+		if Glova.level == Glova.last - 1:
 			temp = lap_scene.instantiate()
 			temp.position = Vector2(-128,-128)
 			add_child(temp)
@@ -136,7 +134,7 @@ func _ready():
 			room = enemy_0_scene.instantiate()
 		add_child(room)
 		
-		var count = randi_range(level,level+2)
+		var count = randi_range(Glova.level,Glova.level+2)
 		var locations = [0,1,2,3,4,5,6,7]
 		while count > 0: # enemy spawning
 			temp = enemy_scene.instantiate()

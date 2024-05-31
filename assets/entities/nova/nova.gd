@@ -30,16 +30,6 @@ var can_antlers = true
 func set_nova():
 	if Glova.stats[0] > Glova.stats[1]:
 		Glova.stats[0] = Glova.stats[1]
-	if Glova.stats[1] < 5:
-		Glova.stats[1] = 5
-	if Glova.stats[2] < 0.5:
-		Glova.stats[2] = 0.5
-	if Glova.stats[3] < 0.5:
-		Glova.stats[3] = 0.5
-	if Glova.stats[4] < 0.5:
-		Glova.stats[4] = 0.5
-	if Glova.stats[5] < 0:
-		Glova.stats[5] = 0
 	
 	Glova.pos = global_position
 	$Camera2D.global_position = camera_pos
@@ -226,21 +216,21 @@ func _on_room_detector_area_entered(area: Area2D) -> void: #camera stuff
 func _on_hit_cooldown_timeout():
 	can_hit = true
 
-func hit(ow,_pos,nam,dir):
+func hit(ow,nam,dir):
 	if can_hit and !("painting" in Glova.inv):
 		can_hit = false
 		$HitCooldown.start()
-		Glova.change([-ow, 0, 0, 0, 0, 0])
+		$NovaCollision/NovaAnimation/AnimationPlayer.play("hurt")
 		
 		#ON HIT STUFF HERE
 		
-		$NovaCollision/NovaAnimation/AnimationPlayer.play("hurt")
-		if Glova.stats[0] <= 0:
+		if Glova.stats[0] - ow < 1:
 			await get_tree().create_timer(0.05).timeout
 			Glova.level = -1
 		else:
+			Glova.change([-ow, 0, 0, 0, 0, 0])
 			$NovaCollision/NovaAnimation/AnimationPlayer.play("clear")
-
+			
 func boop(dir):
 	if dir == "up":
 		global_position = camera_pos + Vector2(0,-230)

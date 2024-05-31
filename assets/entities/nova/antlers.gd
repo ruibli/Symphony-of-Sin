@@ -23,4 +23,4 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_antletshit_area_entered(area):
-	area.hit(damage,global_position,name,dir)
+	area.hit(damage,name,dir)
