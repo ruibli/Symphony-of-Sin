@@ -160,30 +160,30 @@
 [ext_resource type="Texture2D" uid="uid://3i7vnrseqvoi" path="res://assets/entities/treason/sprites/treason_move_right_2.png" id="147_164yj"]
 [ext_resource type="Texture2D" uid="uid://cgqumyg3xypds" path="res://assets/entities/treason/sprites/treason_move_up_0.png" id="148_r6py4"]
 [ext_resource type="Texture2D" uid="uid://bf3p4dgar4tme" path="res://assets/entities/treason/sprites/treason_move_up_2.png" id="149_hgmex"]
-[ext_resource type="Texture2D" uid="uid://bmrxcm0mis8m5" path="res://assets/entities/wrath/sprites/wrath_down_attack1.png" id="150_heuxx"]
-[ext_resource type="Texture2D" uid="uid://dyb5lscamhuu6" path="res://assets/entities/wrath/sprites/wrath_down_attack2.png" id="151_i6ry0"]
-[ext_resource type="Texture2D" uid="uid://b1pacoal1fwwg" path="res://assets/entities/wrath/sprites/wrath_down_attack3.png" id="152_ve6x2"]
-[ext_resource type="Texture2D" uid="uid://dh2m23w45qj51" path="res://assets/entities/wrath/sprites/wrath_left_attack1.png" id="153_b8gyo"]
-[ext_resource type="Texture2D" uid="uid://duipcbcny1laq" path="res://assets/entities/wrath/sprites/wrath_down.png" id="153_n753k"]
-[ext_resource type="Texture2D" uid="uid://bddpldghok0vj" path="res://assets/entities/wrath/sprites/wrath_down_walk1.png" id="154_02bo6"]
-[ext_resource type="Texture2D" uid="uid://c2oqhjc8oek1x" path="res://assets/entities/wrath/sprites/wrath_left_attack2.png" id="154_tou04"]
-[ext_resource type="Texture2D" uid="uid://86j6brchd5jy" path="res://assets/entities/wrath/sprites/wrath_left_attack3.png" id="155_l0o3l"]
-[ext_resource type="Texture2D" uid="uid://ckmwp4niim25b" path="res://assets/entities/wrath/sprites/wrath_down_walk2.png" id="155_lajrj"]
-[ext_resource type="Texture2D" uid="uid://dkg5g2ntvlie3" path="res://assets/entities/wrath/sprites/wrath_left.png" id="156_knbbc"]
-[ext_resource type="Texture2D" uid="uid://cnh4tmsrr6bjq" path="res://assets/entities/wrath/sprites/wrath_right_attack1.png" id="156_vlp2x"]
-[ext_resource type="Texture2D" uid="uid://ddabri06ubxcy" path="res://assets/entities/wrath/sprites/wrath_right_attack2.png" id="157_obim0"]
-[ext_resource type="Texture2D" uid="uid://p4q27yolaus" path="res://assets/entities/wrath/sprites/wrath_left_walk1.png" id="157_ton7q"]
-[ext_resource type="Texture2D" uid="uid://b8vjcbhmo5doe" path="res://assets/entities/wrath/sprites/wrath_left_walk2.png" id="158_ad4ay"]
-[ext_resource type="Texture2D" uid="uid://bnh21ubm2grjh" path="res://assets/entities/wrath/sprites/wrath_right_attack3.png" id="158_ruq46"]
-[ext_resource type="Texture2D" uid="uid://bwii0qsjsiwh6" path="res://assets/entities/wrath/sprites/wrath_up_attack1.png" id="159_4mcql"]
-[ext_resource type="Texture2D" uid="uid://d1b0p5x742yn5" path="res://assets/entities/wrath/sprites/wrath_right.png" id="159_r0x73"]
-[ext_resource type="Texture2D" uid="uid://ci77j351qthog" path="res://assets/entities/wrath/sprites/wrath_up_attack2.png" id="160_c5wrl"]
-[ext_resource type="Texture2D" uid="uid://b4c06xmkd2hv" path="res://assets/entities/wrath/sprites/wrath_right_walk1.png" id="160_ebveo"]
-[ext_resource type="Texture2D" uid="uid://bveudutijlsn" path="res://assets/entities/wrath/sprites/wrath_right_walk2.png" id="161_h2ked"]
-[ext_resource type="Texture2D" uid="uid://dsnwys5oyn50p" path="res://assets/entities/wrath/sprites/wrath_up_attack3.png" id="161_ha6pk"]
-[ext_resource type="Texture2D" uid="uid://lwlt1jmwe8y2" path="res://assets/entities/wrath/sprites/wrath_up.png" id="162_mj6lg"]
-[ext_resource type="Texture2D" uid="uid://cpkeit5f7a6rf" path="res://assets/entities/wrath/sprites/wrath_up_walk1.png" id="163_180tq"]
-[ext_resource type="Texture2D" uid="uid://8n670k4ql5yf" path="res://assets/entities/wrath/sprites/wrath_up_walk2.png" id="164_paq6o"]
+[ext_resource type="Texture2D" uid="uid://bx5o1aicqefob" path="res://assets/entities/wrath/sprites/wrath_attack_down_1.png" id="150_heuxx"]
+[ext_resource type="Texture2D" uid="uid://b568ahewyj8bm" path="res://assets/entities/wrath/sprites/wrath_attack_down_2.png" id="151_i6ry0"]
+[ext_resource type="Texture2D" uid="uid://c0ajy44o0dxaf" path="res://assets/entities/wrath/sprites/wrath_attack_down_3.png" id="152_ve6x2"]
+[ext_resource type="Texture2D" uid="uid://dnq0mrwbka5ai" path="res://assets/entities/wrath/sprites/wrath_attack_left_1.png" id="153_b8gyo"]
+[ext_resource type="Texture2D" uid="uid://dy6wg5wogiyog" path="res://assets/entities/wrath/sprites/wrath_move_down_0.png" id="153_n753k"]
+[ext_resource type="Texture2D" uid="uid://1t7g5mcsnuy4" path="res://assets/entities/wrath/sprites/wrath_move_down_1.png" id="154_02bo6"]
+[ext_resource type="Texture2D" uid="uid://cccfxy84gi15c" path="res://assets/entities/wrath/sprites/wrath_attack_left_2.png" id="154_tou04"]
+[ext_resource type="Texture2D" uid="uid://cvs5trdn8tyg5" path="res://assets/entities/wrath/sprites/wrath_attack_left_3.png" id="155_l0o3l"]
+[ext_resource type="Texture2D" uid="uid://cyy0x4qnuqa5s" path="res://assets/entities/wrath/sprites/wrath_move_down_2.png" id="155_lajrj"]
+[ext_resource type="Texture2D" uid="uid://ip12i5eq172l" path="res://assets/entities/wrath/sprites/wrath_move_left_0.png" id="156_knbbc"]
+[ext_resource type="Texture2D" uid="uid://d2wfoe08bmb03" path="res://assets/entities/wrath/sprites/wrath_attack_right_1.png" id="156_vlp2x"]
+[ext_resource type="Texture2D" uid="uid://c7ofp46ckugfj" path="res://assets/entities/wrath/sprites/wrath_attack_right_2.png" id="157_obim0"]
+[ext_resource type="Texture2D" uid="uid://dk2nxvuhn8tkq" path="res://assets/entities/wrath/sprites/wrath_move_left_1.png" id="157_ton7q"]
+[ext_resource type="Texture2D" uid="uid://bcq0gy827k8vc" path="res://assets/entities/wrath/sprites/wrath_move_left_2.png" id="158_ad4ay"]
+[ext_resource type="Texture2D" uid="uid://dlkc5pd4yef3a" path="res://assets/entities/wrath/sprites/wrath_attack_right_3.png" id="158_ruq46"]
+[ext_resource type="Texture2D" uid="uid://chnvjjlxh8frm" path="res://assets/entities/wrath/sprites/wrath_attack_up_1.png" id="159_4mcql"]
+[ext_resource type="Texture2D" uid="uid://dpkubwa7i3s8p" path="res://assets/entities/wrath/sprites/wrath_move_right_0.png" id="159_r0x73"]
+[ext_resource type="Texture2D" uid="uid://bwqwr1rwxk0nn" path="res://assets/entities/wrath/sprites/wrath_attack_up_2.png" id="160_c5wrl"]
+[ext_resource type="Texture2D" uid="uid://dg4b3m70yw3ay" path="res://assets/entities/wrath/sprites/wrath_move_right_1.png" id="160_ebveo"]
+[ext_resource type="Texture2D" uid="uid://dfiq4ud4rxucc" path="res://assets/entities/wrath/sprites/wrath_move_right_2.png" id="161_h2ked"]
+[ext_resource type="Texture2D" uid="uid://cl7fyogk0ymlv" path="res://assets/entities/wrath/sprites/wrath_attack_up_3.png" id="161_ha6pk"]
+[ext_resource type="Texture2D" uid="uid://46fxpcbidp8h" path="res://assets/entities/wrath/sprites/wrath_move_up_0.png" id="162_mj6lg"]
+[ext_resource type="Texture2D" uid="uid://bd0hwl8np7vep" path="res://assets/entities/wrath/sprites/wrath_move_up_1.png" id="163_180tq"]
+[ext_resource type="Texture2D" uid="uid://c4eo0bxkevfdk" path="res://assets/entities/wrath/sprites/wrath_move_up_2.png" id="164_paq6o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06s6x"]
 size = Vector2(10, 12)
@@ -1300,8 +1300,8 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dvnd2")
-animation = &"gluttony_attack_down"
-frame_progress = 0.757377
+animation = &"wrath_move_up"
+frame_progress = 0.504234
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCollision/EnemyAnimation"]
 libraries = {

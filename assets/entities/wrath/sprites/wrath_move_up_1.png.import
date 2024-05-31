@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsnwys5oyn50p"
-path="res://.godot/imported/wrath_up_attack3.png-51a73fef5443d84af223c16d147a571c.ctex"
+uid="uid://bd0hwl8np7vep"
+path="res://.godot/imported/wrath_move_up_1.png-ae33a02688279e358e00231293a5ed8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/wrath/sprites/wrath_up_attack3.png"
-dest_files=["res://.godot/imported/wrath_up_attack3.png-51a73fef5443d84af223c16d147a571c.ctex"]
+source_file="res://assets/entities/wrath/sprites/wrath_move_up_1.png"
+dest_files=["res://.godot/imported/wrath_move_up_1.png-ae33a02688279e358e00231293a5ed8c.ctex"]
 
 [params]
 
