@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwocluw3gbw1w"
-path="res://.godot/imported/gluttony_right_attack3.png-1083d3debbc7e85a1d7a7299c101b5fd.ctex"
+uid="uid://c6si7d5nd6guu"
+path="res://.godot/imported/gluttony_move_down_1.png-03fb1dc8be8388af08275dc12a4f2a34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/gluttony/sprites/gluttony_right_attack3.png"
-dest_files=["res://.godot/imported/gluttony_right_attack3.png-1083d3debbc7e85a1d7a7299c101b5fd.ctex"]
+source_file="res://assets/entities/gluttony/sprites/gluttony_move_down_1.png"
+dest_files=["res://.godot/imported/gluttony_move_down_1.png-03fb1dc8be8388af08275dc12a4f2a34.ctex"]
 
 [params]
 
