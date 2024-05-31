@@ -15,6 +15,7 @@ script = ExtResource("1_wns3m")
 [node name="Antlers" type="Line2D" parent="."]
 points = PackedVector2Array(0, 0, 0, 320)
 closed = true
+width = 13.0
 texture = ExtResource("2_xpm3w")
 texture_mode = 1
 end_cap_mode = 2

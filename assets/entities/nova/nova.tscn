@@ -1614,7 +1614,7 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"antlers_move_down"
+animation = &"homer_attack_left"
 offset = Vector2(0, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NovaCollision/NovaAnimation"]

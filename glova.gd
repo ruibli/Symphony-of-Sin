@@ -4,6 +4,7 @@ var i_pool_full = ["breakfast","platinum","glass","feather","vest","scale","colo
 var w_pool_full = ["spear","gauntlets","molotov","antlers"]
 var ranged = ["crossbow","molotov","antlers"]
 var last = 2
+var	min = [1, 1, 0.5, 0.5, 0.5, 0]
 
 var pos = Vector2(0,0)
 var cooldown = 0
@@ -51,9 +52,8 @@ func new_floor():
 	Glova.doors = []
 
 func change(s):
-	stats[0] = stats[0] + s[0]
-	stats[1] = stats[1] + s[1]
-	stats[2] = stats[2] + s[2]
-	stats[3] = stats[3] + s[3]
-	stats[4] = stats[4] + s[4]
-	stats[5] = stats[5] + s[5]
+	for i in range(0,5):
+		if stats[i] + s[i] < min[i]:
+			Glova.stats[0] = min[i]
+		else:
+			stats[i] = stats[i] + s[i]

@@ -39,14 +39,14 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_molotovhit_area_entered(area):
-	area.hit(damage,global_position,name,dir)
+	area.hit(damage,name,dir)
 	change()
 
 func _on_timer_2_timeout():
 	change()
 
 func _on_molotovhit_2_area_entered(area):
-	area.hit(damage,global_position,name,dir)
+	area.hit(damage,name,dir)
 
 func change():
 	$MolotovCollision/Molotov.texture = load("res://assets/entities/nova/nova_molotov/molotov_pool.png")

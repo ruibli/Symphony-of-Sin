@@ -10,5 +10,4 @@ func _on_timer_timeout():
 	queue_free()
 
 func _on_spearhit_area_entered(area):
-	print(name)
-	area.hit(damage,global_position,name,dir)
+	area.hit(damage,name,dir)

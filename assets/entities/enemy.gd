@@ -182,19 +182,20 @@ func _on_visible_on_screen_notifier_2d_screen_entered():
 func _on_hit_cooldown_timeout():
 	can_hit = true
 
-func hit(ow,pos,nam,dir):	
+func hit(ow,nam,dir):	
 	if can_hit and active:
 		can_hit = false
 		$HitCooldown.start()
 		stats[0] -= ow
 		
-		if pos.distance_to(Glova.pos) < 64 and !(nam in Glova.ranged):
-			Glova.sins = Glova.sins + (64 - pos.distance_to(Glova.pos))/64 * ow * 0.02
+		if global_position.distance_to(Glova.pos) < 64 and !(nam in Glova.ranged):
+			Glova.sins = Glova.sins + (64 - global_position.distance_to(Glova.pos))/64 * ow * 0.02
+		
+		if nam == "homer":
+			stats[0] = 0
 		
 		if nam == "gauntlets":
 			pass
-		
-		#ON HIT STUFF HERE
 		
 		$EnemyCollision/EnemyAnimation/AnimationPlayer.play("hurt")
 		if stats[0] <= 0:
