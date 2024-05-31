@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm685eviwjvuy"
-path="res://.godot/imported/gluttony_move_left_1.png-50cd3797adb9ee38f20e94b3d3243f36.ctex"
+uid="uid://mx75h1o8sqt"
+path="res://.godot/imported/gluttony_move_right_2.png-c916d24767f6b9f2fa607a61b4d8d327.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/entities/gluttony/sprites/gluttony_move_left_1.png"
-dest_files=["res://.godot/imported/gluttony_move_left_1.png-50cd3797adb9ee38f20e94b3d3243f36.ctex"]
+source_file="res://assets/entities/gluttony/sprites/gluttony_move_right_2.png"
+dest_files=["res://.godot/imported/gluttony_move_right_2.png-c916d24767f6b9f2fa607a61b4d8d327.ctex"]
 
 [params]
 
