@@ -11,9 +11,5 @@ func _ready():
 func _on_timer_timeout():
 	queue_free()
 
-func _on_axehit_area_exited(area):
-	area.hit(damage,name,dir)
-
-
 func _on_axehit_area_entered(area):
-	pass # Replace with function body.
+	area.hit(damage,name,dir)

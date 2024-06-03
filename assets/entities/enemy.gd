@@ -26,21 +26,21 @@ var tween
 var knockback = Vector2(0,0)
 
 func _ready():
-	var enemies = ["gluttony"]
-	#var enemies = ["limbo","gluttony","greed","wrath","heresy"]
+	#var enemies = ["gluttony"]
+	var enemies = ["limbo","gluttony","greed","wrath","heresy"]
 	enemy = enemies[randi() % enemies.size()]
 	
 	# health, speed, attack, target
 	if enemy == "limbo":
-		stats = [75,50,1.5,20]
+		stats = [60,50,1.5,20]
 	elif enemy == "gluttony":
-		stats = [25,75,1,20]
+		stats = [30,75,1,20]
 	elif enemy == "greed":
 		stats = [50,50,2,128]
 	elif enemy == "wrath":
 		stats = [100,30,2,20]
 	elif enemy == "heresy":
-		stats = [50,65,3,64]
+		stats = [40,65,3,64]
 	elif enemy == "pride":
 		pass
 	
