@@ -114,12 +114,20 @@ func _physics_process(_delta):
 		elif type == "attack":
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x):
 				direction = "up"
+				$WeaponPos.position = Vector2(0,-10)
+				$WeaponPos.rotation_degrees = 180
 			elif nova_dir.y > 0 and abs(nova_dir.y) > abs(nova_dir.x):
 				direction = "down"
+				$WeaponPos.position = Vector2(0,10)
+				$WeaponPos.rotation_degrees = 0
 			elif nova_dir.x < 0 and abs(nova_dir.x) > abs(nova_dir.y):
 				direction = "left"
+				$WeaponPos.position = Vector2(-10,0)
+				$WeaponPos.rotation_degrees = 90
 			elif nova_dir.x > 0 and abs(nova_dir.x) > abs(nova_dir.y):
 				direction = "right"
+				$WeaponPos.position = Vector2(10,0)
+				$WeaponPos.rotation_degrees = 270
 		$EnemyCollision/EnemyAnimation.play(enemy+"_"+type+"_"+direction)
 
 func weapon(projectile, fire):

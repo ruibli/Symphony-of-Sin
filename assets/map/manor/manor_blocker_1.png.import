@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cygvd0clkndsm"
-path="res://.godot/imported/lap.png-6fc5d0d5ef29e0e122d8813b6f48beb6.ctex"
+uid="uid://b26udgv1kc54e"
+path="res://.godot/imported/manor_blocker_1.png-3c994abfa52278d7d881ce396fbd1f5b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/map/generic/lap.png"
-dest_files=["res://.godot/imported/lap.png-6fc5d0d5ef29e0e122d8813b6f48beb6.ctex"]
+source_file="res://assets/map/manor/manor_blocker_1.png"
+dest_files=["res://.godot/imported/manor_blocker_1.png-3c994abfa52278d7d881ce396fbd1f5b.ctex"]
 
 [params]
 

@@ -5,40 +5,40 @@
 [ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="3_4xyov"]
 [ext_resource type="Texture2D" uid="uid://df564q11ccfgi" path="res://assets/important/background.png" id="4_2y87g"]
 
-[sub_resource type="FontVariation" id="FontVariation_1g02v"]
-base_font = ExtResource("1_tvuwl")
-spacing_glyph = -2
-
-[sub_resource type="LabelSettings" id="LabelSettings_71qru"]
-font = SubResource("FontVariation_1g02v")
-font_size = 8
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
 [sub_resource type="FontVariation" id="FontVariation_32bqv"]
 base_font = ExtResource("1_tvuwl")
 spacing_glyph = -2
 
-[sub_resource type="FontVariation" id="FontVariation_ahqxx"]
+[sub_resource type="FontVariation" id="FontVariation_ldmw0"]
 base_font = SubResource("FontVariation_32bqv")
 
 [sub_resource type="LabelSettings" id="LabelSettings_7kps2"]
-font = SubResource("FontVariation_ahqxx")
+font = SubResource("FontVariation_ldmw0")
 font_size = 8
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="FontVariation" id="FontVariation_rr6ie"]
+[sub_resource type="FontVariation" id="FontVariation_fljsq"]
 base_font = ExtResource("1_tvuwl")
 spacing_glyph = -2
 
 [sub_resource type="LabelSettings" id="LabelSettings_xj7hw"]
-font = SubResource("FontVariation_rr6ie")
+font = SubResource("FontVariation_fljsq")
 font_size = 8
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4mpr1"]
+
+[sub_resource type="FontVariation" id="FontVariation_umyhj"]
+base_font = ExtResource("1_tvuwl")
+spacing_glyph = -2
+
+[sub_resource type="LabelSettings" id="LabelSettings_71qru"]
+font = SubResource("FontVariation_umyhj")
+font_size = 8
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_5afgr"]
 length = 0.001
@@ -94,30 +94,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f465f")
 
-[node name="controls" type="Label" parent="."]
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -75.0
-offset_top = 53.0
-offset_right = 75.0
-offset_bottom = 160.0
-grow_horizontal = 2
-text = "Game Controls:
-
-WASD: Move
-Arrows: Attack
-1-8: Select Weapon
-R (Hold): Reset
-ESC: Pause
-Tab: Minimap
-Tab (Paused): Swap Hotbar
-"
-label_settings = SubResource("LabelSettings_71qru")
-horizontal_alignment = 1
-
 [node name="volume" type="Label" parent="."]
 z_index = 1
 layout_mode = 1
@@ -127,9 +103,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -64.0
-offset_top = -15.0
+offset_top = -122.0
 offset_right = 64.0
-offset_bottom = 15.0
+offset_bottom = -92.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Volume Controls:
@@ -148,9 +124,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -50.0
-offset_top = 16.5
+offset_top = -87.5
 offset_right = 50.0
-offset_bottom = 32.5
+offset_bottom = -71.5
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbor_top = NodePath("../main")
@@ -166,9 +142,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -88.0
-offset_top = 29.5
+offset_top = -72.5
 offset_right = 88.0
-offset_bottom = 52.5
+offset_bottom = -49.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Sound wasn't in the budget."
@@ -185,9 +161,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -28.0
-offset_top = -109.0
+offset_top = -124.0
 offset_right = 28.0
-offset_bottom = -101.0
+offset_bottom = -116.0
 grow_horizontal = 2
 grow_vertical = 0
 focus_neighbor_bottom = NodePath("../volume_slider")
@@ -196,26 +172,28 @@ flat = true
 
 [node name="Label" type="Label" parent="main"]
 layout_mode = 0
-offset_top = -13.0
+offset_top = -26.0
 offset_right = 56.0
-offset_bottom = 10.0
+offset_bottom = -3.0
 focus_neighbor_bottom = NodePath("../../volume_slider")
 text = "Main Menu"
 label_settings = ExtResource("3_4xyov")
 horizontal_alignment = 1
 
-[node name="version" type="Label" parent="."]
+[node name="info" type="Label" parent="."]
 z_index = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -75.0
-offset_top = 245.0
-offset_right = 75.0
-offset_bottom = 258.0
+offset_left = -88.0
+offset_top = 221.0
+offset_right = 88.0
+offset_bottom = 259.0
 grow_horizontal = 2
-text = "Version 0.1"
+text = "Version 0.1
+Made by ruibli
+and GrassLawns"
 label_settings = SubResource("LabelSettings_71qru")
 horizontal_alignment = 1
 

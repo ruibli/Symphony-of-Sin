@@ -9,6 +9,11 @@ func _on_start_pressed():
 	await get_tree().create_timer(0.25).timeout
 	get_tree().change_scene_to_file("res://sos.tscn")
 
+func _on_controls_pressed():
+	$fade/black/AnimationPlayer.play("black")
+	await get_tree().create_timer(0.25).timeout
+	get_tree().change_scene_to_file("res://assets/gui/controls.tscn")
+
 func _on_options_pressed():
 	$fade/black/AnimationPlayer.play("black")
 	await get_tree().create_timer(0.25).timeout
@@ -24,7 +29,13 @@ func _on_start_focus_entered():
 
 func _on_start_focus_exited():
 	$VBoxContainer/start/start_label.modulate = Color(1,1,1,1)
-	
+
+func _on_controls_focus_entered():
+	$VBoxContainer/controls/controls_label.modulate = Color(190/255.0,118/255.0,253/255.0, 1)
+
+func _on_controls_focus_exited():
+	$VBoxContainer/controls/controls_label.modulate = Color(1,1,1,1)
+
 func _on_options_focus_entered():
 	$VBoxContainer/options/options_label.modulate = Color(190/255.0,118/255.0,253/255.0, 1)
 	
