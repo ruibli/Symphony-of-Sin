@@ -11,6 +11,7 @@ func _on_start_pressed():
 
 func _on_controls_pressed():
 	$fade/black/AnimationPlayer.play("black")
+	
 	await get_tree().create_timer(0.25).timeout
 	get_tree().change_scene_to_file("res://assets/gui/controls.tscn")
 

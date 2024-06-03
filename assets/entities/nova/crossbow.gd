@@ -1,12 +1,13 @@
 extends CharacterBody2D
-
+var wait = false
 var speed = 150
 var damage = 10
 var dir
-var wait = false
+
 
 func _ready():
 	$Timer.start()
+	
 
 func _process(_delta):
 	if not wait:

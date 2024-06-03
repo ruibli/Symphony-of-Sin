@@ -1,12 +1,14 @@
 extends RayCast2D
 
 var velocity = Vector2(0,0)
-var damage = 100
+var damage = 50
 var dir
+var attack = 1
 
 func _ready():
 	$Antlers.hide()
 	velocity = Vector2(0,0)	
+	$Timer.wait_time = $Timer.wait_time / attack
 	$Timer.start()
 
 func _process(_delta):

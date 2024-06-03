@@ -48,7 +48,7 @@ shape = SubResource("RectangleShape2D_r7dr6")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 one_shot = true
 
 [node name="Timer2" type="Timer" parent="."]

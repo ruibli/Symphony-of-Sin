@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 150
-var damage = 15
+var damage = 10
 var dir
 var wait = false
 
