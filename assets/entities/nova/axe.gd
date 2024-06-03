@@ -13,3 +13,7 @@ func _on_timer_timeout():
 
 func _on_axehit_area_exited(area):
 	area.hit(damage,name,dir)
+
+
+func _on_axehit_area_entered(area):
+	pass # Replace with function body.
