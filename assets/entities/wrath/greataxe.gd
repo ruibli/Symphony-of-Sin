@@ -1,9 +1,11 @@
 extends StaticBody2D
 
-var damage = 40
+var damage = 15
+var attack = 1
 var dir
 
 func _ready():
+	$Timer.wait_time = $Timer.wait_time / attack
 	$Timer.start()
 
 func _on_timer_timeout():

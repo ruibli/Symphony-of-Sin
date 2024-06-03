@@ -17,6 +17,8 @@ var foot = true
 var lock = false
 var lock2 = false
 var can_hit = true
+var knockback = Vector2(0,0)
+var tween
 
 var w
 var can_crossbow = true
@@ -38,7 +40,7 @@ func set_nova():
 	$NovaCollision/NovaAnimation.speed_scale = Glova.stats[4]
 	$CrossbowCooldown.wait_time = (1.0 - 0)/ Glova.stats[4]
 	$SpearCooldown.wait_time = (1.5 - 0.25) / Glova.stats[4]
-	$AxeCooldown.wait_time = (2.0- 0.25) / Glova.stats[4]
+	$AxeCooldown.wait_time = (2.0 - 0.25) / Glova.stats[4]
 	$HomerCooldown.wait_time = (1.0 - 0) / Glova.stats[4]
 	$GauntletsCooldown.wait_time = (1.0 - 0.25) / Glova.stats[4]
 	$MolotovCooldown.wait_time = (1.0 - 0) / Glova.stats[4]
@@ -49,6 +51,9 @@ func _process(_delta):
 	if !lock:
 		type = "move"
 	
+	if knockback != Vector2(0,0):
+		velocity = knockback * Glova.stats[2]
+			
 	if Input.is_action_pressed("move_up"):
 		velocity.y -= 1
 	if Input.is_action_pressed("move_down"):
@@ -100,29 +105,30 @@ func _process(_delta):
 			direction = "right"
 	
 	if !lock2 and type == "attack" and (Input.is_action_pressed("attack_up") or Input.is_action_pressed("attack_down") or Input.is_action_pressed("attack_left") or Input.is_action_pressed("attack_right")):
-		if Glova.current == "crossbow" and can_crossbow and Glova.sins > 0:
-			w = crossbow_scene.instantiate()
-			weapon(true,0)
-		elif Glova.current == "spear" and can_spear:
-			w = spear_scene.instantiate()
-			weapon(false,0.25)
-		elif Glova.current == "axe" and can_axe:
-			w = axe_scene.instantiate()
-			weapon(false,0.25)
-		elif Glova.current == "homer" and can_homer:
-			w = homer_scene.instantiate()
-			weapon(true,0)
-		elif Glova.current == "gauntlets" and can_gauntlets:
-			w = gauntlets_scene.instantiate()
-			weapon(false,0.25)
-		elif Glova.current == "molotov" and can_molotov and Glova.sins > 0:
-			w = molotov_scene.instantiate()
-			weapon(true,0)
-		elif Glova.current == "antlers" and can_antlers and Glova.sins > 0:
-			w = antlers_scene.instantiate()
-			weapon(false,0.83)
-		elif !lock:
-			type = "move"
+		if (Glova.current in Glova.ranged and Glova.sins > 0) or !(Glova.current in Glova.ranged):
+			if Glova.current == "crossbow" and can_crossbow:
+				w = crossbow_scene.instantiate()
+				weapon(true,0)
+			elif Glova.current == "spear" and can_spear:
+				w = spear_scene.instantiate()
+				weapon(false,0.22)
+			elif Glova.current == "axe" and can_axe:
+				w = axe_scene.instantiate()
+				weapon(false,0)
+			elif Glova.current == "homer" and can_homer:
+				w = homer_scene.instantiate()
+				weapon(true,0)
+			elif Glova.current == "gauntlets" and can_gauntlets:
+				w = gauntlets_scene.instantiate()
+				weapon(false,0.28)
+			elif Glova.current == "molotov" and can_molotov:
+				w = molotov_scene.instantiate()
+				weapon(true,0)
+			elif Glova.current == "antlers" and can_antlers:
+				w = antlers_scene.instantiate()
+				weapon(false,0.83)
+			elif !lock:
+				type = "move"
 	
 	$NovaCollision/NovaAnimation.play(Glova.current+"_"+type+"_"+direction)
 	if velocity.length() > 0 and foot:
@@ -146,6 +152,8 @@ func weapon(projectile, fire): # attacking
 	
 	var save = Glova.current
 	w.damage = w.damage * Glova.stats[3]
+	if !projectile:
+		w.attack = Glova.stats[4]
 	$NovaCollision/NovaAnimation.play(Glova.current+"_"+type+"_"+direction)
 	
 	lock = true
@@ -230,7 +238,19 @@ func hit(ow,nam,dir):
 		$HitCooldown.start()
 		$NovaCollision/NovaAnimation/AnimationPlayer.play("hurt")
 		
-		#ON HIT STUFF HERE
+		#ON DAMAGE STUFF HERE
+		
+		if nam == "bite":
+			tween = get_tree().create_tween()
+			if dir == "up":
+				knockback = Vector2(0,-25)
+			elif dir == "down":
+				knockback = Vector2(0,25)
+			elif dir == "left":
+				knockback = Vector2(-25,0)
+			elif dir == "right":
+				knockback = Vector2(25,0)
+			tween.tween_property(self, "knockback", Vector2(0,0), 0.5)
 		
 		if Glova.stats[0] - ow < 1:
 			await get_tree().create_timer(0.05).timeout

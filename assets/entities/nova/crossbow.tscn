@@ -38,7 +38,7 @@ shape = SubResource("RectangleShape2D_jjimp")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 4.0
 one_shot = true
 
 [connection signal="area_entered" from="crossbowhit" to="." method="_on_crossbowhit_area_entered"]

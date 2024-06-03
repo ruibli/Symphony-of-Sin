@@ -18,7 +18,7 @@ animations = [{
 "texture": ExtResource("4_lpgwp")
 }],
 "loop": true,
-"name": &"default",
+"name": &"anim",
 "speed": 3.0
 }]
 
@@ -28,8 +28,9 @@ radius = 16.0
 [node name="lap" type="StaticBody2D"]
 script = ExtResource("1_jwbcc")
 
-[node name="LapAnimation" type="AnimatedSprite2D" parent="."]
+[node name="lap" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q13xb")
+animation = &"anim"
 
 [node name="LapArea" type="Area2D" parent="."]
 collision_mask = 2

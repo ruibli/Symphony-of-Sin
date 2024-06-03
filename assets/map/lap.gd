@@ -6,6 +6,7 @@ func _ready():
 	$lap.visible = false
 
 func _process(_delta):
+	$lap.play("anim")
 	if state == 2 and Glova.enemies > 0:
 		$Timer.start()
 	for _area in $LapArea.get_overlapping_areas():

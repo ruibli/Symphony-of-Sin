@@ -16,7 +16,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_fh5ix")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.6
 one_shot = true
 
 [connection signal="area_entered" from="bitethit" to="." method="_on_bitethit_area_entered"]

@@ -16,7 +16,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_d44h5")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.66
 one_shot = true
 
 [connection signal="area_entered" from="spearhit" to="." method="_on_spearhit_area_entered"]
