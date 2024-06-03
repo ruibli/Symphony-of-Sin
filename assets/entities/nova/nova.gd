@@ -60,15 +60,23 @@ func _process(_delta):
 	if Input.is_action_pressed("attack_up"):
 		type = "attack"
 		direction = "up"
+		$WeaponPos.position = Vector2(0,-10)
+		$WeaponPos.rotation_degrees = 180
 	if Input.is_action_pressed("attack_down"):
 		type = "attack"
 		direction = "down"
+		$WeaponPos.position = Vector2(0,10)
+		$WeaponPos.rotation_degrees = 0
 	if Input.is_action_pressed("attack_left"):
 		type = "attack"
 		direction = "left"
+		$WeaponPos.position = Vector2(-10,0)
+		$WeaponPos.rotation_degrees = 90
 	if Input.is_action_pressed("attack_right"):
 		type = "attack"
 		direction = "right"
+		$WeaponPos.position = Vector2(10,0)
+		$WeaponPos.rotation_degrees = 270
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * 100 * Glova.stats[2]

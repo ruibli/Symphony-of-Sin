@@ -85,9 +85,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -16.0
-offset_top = 34.5
+offset_top = 21.5
 offset_right = 16.0
-offset_bottom = 66.5
+offset_bottom = 65.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -102,6 +102,19 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Start"
+label_settings = ExtResource("2_67h0h")
+horizontal_alignment = 1
+
+[node name="controls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_fohwf")
+flat = true
+
+[node name="controls_label" type="Label" parent="VBoxContainer/controls"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Controls"
 label_settings = ExtResource("2_67h0h")
 horizontal_alignment = 1
 
@@ -134,7 +147,7 @@ horizontal_alignment = 1
 
 [node name="logo" type="Sprite2D" parent="."]
 z_index = 1
-position = Vector2(0, 50)
+position = Vector2(0, 39)
 scale = Vector2(0.507246, 0.5)
 texture = ExtResource("1_ouiih")
 centered = false
@@ -170,6 +183,9 @@ centered = false
 [connection signal="focus_entered" from="VBoxContainer/start" to="." method="_on_start_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/start" to="." method="_on_start_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/start" to="." method="_on_start_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/controls" to="." method="_on_controls_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/controls" to="." method="_on_controls_focus_exited"]
+[connection signal="pressed" from="VBoxContainer/controls" to="." method="_on_controls_pressed"]
 [connection signal="focus_entered" from="VBoxContainer/options" to="." method="_on_options_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/options" to="." method="_on_options_focus_exited"]
 [connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
