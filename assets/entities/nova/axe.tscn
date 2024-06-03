@@ -16,7 +16,7 @@ collision_mask = 4
 shape = SubResource("RectangleShape2D_lpun0")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.6
 one_shot = true
 
 [connection signal="area_exited" from="axehit" to="." method="_on_axehit_area_exited"]

@@ -22,23 +22,25 @@ var can_weapon = true
 var w
 var type = "move"
 var direction = "down"
+var tween
+var knockback = Vector2(0,0)
 
 func _ready():
-	#var enemies = ["limbo"]
-	var enemies = ["limbo","gluttony","greed","wrath","heresy"]
+	var enemies = ["gluttony"]
+	#var enemies = ["limbo","gluttony","greed","wrath","heresy"]
 	enemy = enemies[randi() % enemies.size()]
 	
 	# health, speed, attack, target
 	if enemy == "limbo":
-		stats = [50,50,1.5,20]
+		stats = [75,50,1.5,20]
 	elif enemy == "gluttony":
 		stats = [25,75,1,20]
 	elif enemy == "greed":
-		stats = [35,50,1,128]
+		stats = [50,50,2,128]
 	elif enemy == "wrath":
 		stats = [100,30,2,20]
 	elif enemy == "heresy":
-		stats = [65,65,3,64]
+		stats = [50,65,3,64]
 	elif enemy == "pride":
 		pass
 	
@@ -76,29 +78,33 @@ func _physics_process(_delta):
 		if !wait:
 			await get_tree().create_timer(0.25).timeout
 			wait = true
-		elif distance <= stats[3] + 8 and see:
-			if can_weapon:
-				if enemy == "limbo":
-					w = trident_scene.instantiate()
-					weapon(false,0.25)
-				elif enemy == "gluttony":
-					w = bite_scene.instantiate()
-					weapon(false,0.25)
-				elif enemy == "greed":
-					w = coin_scene.instantiate()
-					weapon(true,0)
-				elif enemy == "wrath":
-					w = greataxe_scene.instantiate()
-					weapon(false,0.25)
-				elif enemy == "heresy":
-					w = lava_scene.instantiate()
-					weapon(true,0)
-		elif distance >= stats[3] or not see:
-			$NavigationAgent2D.set_target_position(Glova.pos)
-			var current_agent_position = global_position
-			var next_path_position = $NavigationAgent2D.get_next_path_position()
-			velocity = (next_path_position - current_agent_position).normalized() * stats[1]
-			$NavigationAgent2D.set_velocity(velocity)
+		else:
+			if knockback != Vector2(0,0):
+				velocity = knockback * stats[2]
+				move_and_slide()
+			if distance <= stats[3] + 8 and see:
+				if can_weapon:
+					if enemy == "limbo":
+						w = trident_scene.instantiate()
+						weapon(false,0.28)
+					elif enemy == "gluttony":
+						w = bite_scene.instantiate()
+						weapon(false,0.2)
+					elif enemy == "greed":
+						w = coin_scene.instantiate()
+						weapon(true,0)
+					elif enemy == "wrath":
+						w = greataxe_scene.instantiate()
+						weapon(false,0)
+					elif enemy == "heresy":
+						w = lava_scene.instantiate()
+						weapon(true,0)
+			elif distance >= stats[3] or not see:
+				$NavigationAgent2D.set_target_position(Glova.pos)
+				var current_agent_position = global_position
+				var next_path_position = $NavigationAgent2D.get_next_path_position()
+				velocity = (next_path_position - current_agent_position).normalized() * stats[1]
+				$NavigationAgent2D.set_velocity(velocity)
 		
 		# Animation
 		var nova_dir = Glova.pos - global_position
@@ -150,6 +156,8 @@ func weapon(projectile, fire):
 			w.rotation_degrees = 270
 	
 	w.damage = w.damage * mod
+	if !projectile:
+		w.attack = stats[2]
 	await get_tree().create_timer(fire/stats[2]).timeout
 	
 	if direction == "up":
@@ -196,6 +204,8 @@ func hit(ow,nam,dir):
 		$HitCooldown.start()
 		stats[0] -= ow
 		
+		# ON HIT HERE
+		
 		if global_position.distance_to(Glova.pos) < 64 and !(nam in Glova.ranged):
 			Glova.sins = Glova.sins + (64 - global_position.distance_to(Glova.pos))/64 * ow * 0.02
 		
@@ -203,8 +213,17 @@ func hit(ow,nam,dir):
 			stats[0] = 0
 		
 		if nam == "gauntlets":
-			pass
-		
+			tween = get_tree().create_tween()
+			if dir == "up":
+				knockback = Vector2(0,-100)
+			elif dir == "down":
+				knockback = Vector2(0,100)
+			elif dir == "left":
+				knockback = Vector2(-100,0)
+			elif dir == "right":
+				knockback = Vector2(100,0)
+			tween.tween_property(self, "knockback", Vector2(0,0), 0.5)
+
 		$EnemyCollision/EnemyAnimation/AnimationPlayer.play("hurt")
 		if stats[0] <= 0:
 			await get_tree().create_timer(0.05).timeout
@@ -215,7 +234,7 @@ func hit(ow,nam,dir):
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	if active and (distance >= stats[3] or not see):
-		velocity = safe_velocity.normalized() * stats[1]
+		velocity = (safe_velocity.normalized()) * stats[1]
 		move_and_slide()
 
 func _on_weapon_cooldown_timeout():
