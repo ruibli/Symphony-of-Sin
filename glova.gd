@@ -52,8 +52,8 @@ func new_floor():
 	Glova.doors = []
 
 func change(s):
-	for i in range(0,5):
+	for i in range(0,6):
 		if stats[i] + s[i] < mins[i]:
-			Glova.stats[0] = mins[i]
+			Glova.stats[i] = mins[i]
 		else:
 			stats[i] = stats[i] + s[i]
