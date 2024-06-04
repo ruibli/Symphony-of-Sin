@@ -8,6 +8,11 @@ var can_swap = true
 var paused = false
 
 func _process(_delta):
+	if Glova.remind == true:
+		$remind.show()
+	else:
+		$remind.hide()
+		
 	Glova.current = Glova.hotbar[slot-1]
 	$HBoxContainer/slot1.texture = load("res://assets/loot/weapons/"+Glova.hotbar[0]+".png")
 	$HBoxContainer/slot2.texture = load("res://assets/loot/weapons/"+Glova.hotbar[1]+".png")

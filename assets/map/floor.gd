@@ -49,12 +49,12 @@ func _ready():
 		
 		if false: #disable spawn exit till we get more levels
 			temp = exit_scene.instantiate()
-			temp.position = Vector2(128,-128)
+			temp.position = Vector2(128,128)
 			add_child(temp)
 		
 		if Glova.level == Glova.last - 1:
 			temp = lap_scene.instantiate()
-			temp.position = Vector2(-128,-128)
+			temp.position = Vector2(-128,128)
 			add_child(temp)
 		
 		temp = pedestal_scene.instantiate()

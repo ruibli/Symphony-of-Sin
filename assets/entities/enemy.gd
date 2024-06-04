@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var blast_scene : PackedScene
 
 var mod = 1 + 0.1 * (Glova.mod)
-var enemy = "limbo"
+var enemy = "enemy"
 
 var stats = []
 
@@ -27,22 +27,23 @@ var knockback = Vector2(0,0)
 
 func _ready():
 	#var enemies = ["gluttony"]
-	var enemies = ["limbo","gluttony","greed","wrath","heresy"]
-	enemy = enemies[randi() % enemies.size()]
+	var enemies = ["limbo","gluttony","greed","wrath","heresy","pride"]
+	if enemy == "enemy":
+		enemy = enemies[randi() % enemies.size()]
 	
 	# health, speed, cooldown, target
 	if enemy == "limbo":
 		stats = [60,50,1.5,20]
 	elif enemy == "gluttony":
-		stats = [30,75,1,20]
+		stats = [30,65,1,20]
 	elif enemy == "greed":
-		stats = [50,50,2,128]
+		stats = [50,50,3,128]
 	elif enemy == "wrath":
 		stats = [100,30,2,20]
 	elif enemy == "heresy":
-		stats = [40,65,3,64]
+		stats = [40,60,3,64]
 	elif enemy == "pride":
-		stats = [45,45,5,128]
+		stats = [45,45,7,128]
 	
 	stats[0] = stats[0] * mod	
 	stats[1] = stats[1] * mod
@@ -75,7 +76,7 @@ func _physics_process(_delta):
 		see = sight()
 		
 		if !wait:
-			await get_tree().create_timer(0.25).timeout
+			await get_tree().create_timer(0.5).timeout
 			wait = true
 		else:
 			if knockback != Vector2(0,0):
@@ -100,7 +101,7 @@ func _physics_process(_delta):
 						weapon(true,0)
 					elif enemy == "pride":
 						w = blast_scene.instantiate()
-						weapon(false,0.83)
+						weapon(false,0)
 			elif distance >= stats[3] or not see:
 				$NavigationAgent2D.set_target_position(Glova.pos)
 				var current_agent_position = global_position

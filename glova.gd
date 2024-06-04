@@ -10,6 +10,7 @@ var pos = Vector2(0,0)
 var cooldown = 0
 var spawn_vars = [0,0]
 var volume = 100
+var remind = true
 var lore
 
 var sins
