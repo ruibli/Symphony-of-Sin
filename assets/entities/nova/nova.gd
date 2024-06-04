@@ -126,7 +126,7 @@ func _process(_delta):
 				weapon(true,0)
 			elif Glova.current == "antlers" and can_antlers:
 				w = antlers_scene.instantiate()
-				weapon(false,0.83)
+				weapon(false,0)
 			elif !lock:
 				type = "move"
 	

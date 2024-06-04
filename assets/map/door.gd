@@ -5,6 +5,7 @@ var id
 var level
 var type = "enemy"
 var state = "open"
+var wait = true
 
 func _ready():
 	if Glova.level == 1: # level 1 manor assets
@@ -50,10 +51,14 @@ func _process(_delta):
 					type = "lore"
 	
 	if Glova.enemies > 0:
+		wait = false
 		state = "closed"
 		set_collision_layer_value(1,true)
 		$DoorHit.set_collision_layer_value(1,false)
 	else:
+		if !wait:
+			await get_tree().create_timer(0.5).timeout
+			wait = true
 		state = "open"
 		set_collision_layer_value(1,false)
 		$DoorHit.set_collision_layer_value(1,true)

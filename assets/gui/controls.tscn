@@ -86,8 +86,8 @@ WASD: Move
 Arrows: Attack
 1-7: Select Weapon
 R (Hold): Reset
-ESC: Pause
-Tab: Minimap
+Esc: Pause
+Tab: Toggle Minimap
 Tab (Paused): Swap Hotbar
 "
 label_settings = SubResource("LabelSettings_wa7tt")

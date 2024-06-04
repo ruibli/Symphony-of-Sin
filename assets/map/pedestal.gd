@@ -39,7 +39,7 @@ func reward():
 		elif item <= 9:
 			item = "potion"
 			$item.texture = load("res://assets/loot/generic/potion.png")
-			stats = [20, 0, 0, 0, 0, 0]
+			stats = [50, 0, 0, 0, 0, 0]
 		elif item <= 10:
 			item = "item"
 			random_item()
@@ -69,7 +69,7 @@ func reward():
 			cost = [0, 0, 0, 0, 0, -2]
 			$cost.text = "2G"
 			$item.texture = load("res://assets/loot/generic/potion.png")
-			stats = [20, 0, 0, 0, 0, 0]
+			stats = [50, 0, 0, 0, 0, 0]
 	
 func random_item():
 	if len(Glova.item_pool) == 0 or Glova.item_pool.is_empty():
@@ -87,11 +87,11 @@ func random_item():
 		elif nam == "platinum":
 			stats = [0, 0, 0, 0, 0, 5]
 		elif nam == "glass":
-			stats = [-20, -20, 0, 0.2, 0, 0]
+			stats = [-10, -10, 0, 0.2, 0, 0]
 		elif nam == "feather":
-			stats = [-10, -10, 0.1, -0.1, 0.1, 0]
+			stats = [-10, -10, 0.2, -0.1, 0.2, 0]
 		elif nam == "vest":
-			stats = [20, 20, -0.2, 0, 0, 0]
+			stats = [20, 20, -0.1, 0, 0, 0]
 		elif nam == "scale":
 			var ave = (Glova.stats[2] + Glova.stats[3] + Glova.stats[4])/3
 			stats = [0, 0, ave-Glova.stats[2], ave-Glova.stats[3], ave-Glova.stats[4], 0]
@@ -102,7 +102,7 @@ func random_item():
 		elif nam == "syringe":
 			stats = [0, 0, 0, 0, 0.1, 0]
 		elif nam == "helmet":
-			stats = [20, 20, 0, 0, -0.2, 0]
+			stats = [20, 20, 0, 0, -0.1, 0]
 		elif nam == "dumbbell":
 			stats = [0, 0, 0, 0.1, 0, 0]
 		elif nam == "steak":
@@ -110,31 +110,31 @@ func random_item():
 		elif nam == "goldfish":
 			var rand = randi_range(0,11)
 			if rand == 0:
-				stats = [-20, -20, 0.2, 0, 0, 0]
+				stats = [-10, -10, 0.2, 0, 0, 0]
 			elif rand == 1:
-				stats = [-20, -20, 0, 0.2, 0, 0]
+				stats = [-10, -10, 0, 0.2, 0, 0]
 			elif rand == 2:
-				stats = [-20, -20, 0, 0, 0.2, 0]
+				stats = [-10, -10, 0, 0, 0.2, 0]
 			elif rand == 3:
-				stats = [20, 20, -0.2, 0, 0, 0]
+				stats = [20, 20, -0.1, 0, 0, 0]
 			elif rand == 4:
-				stats = [0, 0, -0.2, 0.2, 0, 0]
+				stats = [0, 0, -0.1, 0.2, 0, 0]
 			elif rand == 5:
-				stats = [0, 0, -0.2, 0, 0.2, 0]
+				stats = [0, 0, -0.1, 0, 0.2, 0]
 			elif rand == 6:
-				stats = [20, 20, 0, -0.2, 0, 0]
+				stats = [20, 20, 0, -0.1, 0, 0]
 			elif rand == 7:
-				stats = [0, 0, 0.2, -0.2, 0, 0]
+				stats = [0, 0, 0.2, -0.1, 0, 0]
 			elif rand == 8:
-				stats = [0, 0, 0, -0.2, 0.2, 0]
+				stats = [0, 0, 0, -0.1, 0.2, 0]
 			elif rand == 9:
-				stats = [20, 20, 0, 0, -0.2, 0]
+				stats = [20, 20, 0, 0, -0.1, 0]
 			elif rand == 10:
-				stats = [0, 0, 0.2, 0, -0.2, 0]
+				stats = [0, 0, 0.2, 0, -0.1, 0]
 			elif rand == 11:
-				stats = [0, 0, 0, 0.2, -0.2, 0]
+				stats = [0, 0, 0, 0.2, -0.1, 0]
 		elif nam == "debit":
-			stats = [0, 0, 0, Glova.stats[5]*0.05, 0, -Glova.stats[5]]
+			stats = [0, 0, 0, Glova.stats[5]*0.1, 0, -Glova.stats[5]]
 		elif nam == "wildcard":
 			var rand = randi_range(0,3)
 			if rand == 0:
