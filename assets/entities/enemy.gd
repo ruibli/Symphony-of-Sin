@@ -5,10 +5,10 @@ extends CharacterBody2D
 @export var coin_scene : PackedScene
 @export var greataxe_scene : PackedScene
 @export var lava_scene : PackedScene
-@export var beam_scene : PackedScene
+@export var blast_scene : PackedScene
 
 var mod = 1 + 0.1 * (Glova.mod)
-var enemy = "limbo"
+var enemy = "enemy"
 
 var stats = []
 
@@ -26,27 +26,27 @@ var tween
 var knockback = Vector2(0,0)
 
 func _ready():
-	var enemies = ["gluttony"]
-	#var enemies = ["limbo","gluttony","greed","wrath","heresy"]
-	enemy = enemies[randi() % enemies.size()]
+	var enemies = ["pride"]
+	#var enemies = ["limbo","gluttony","greed","wrath","heresy","pride"]
+	if enemy == "enemy":
+		enemy = enemies[randi() % enemies.size()]
 	
-	# health, speed, attack, target
+	# health, speed, cooldown, target
 	if enemy == "limbo":
-		stats = [75,50,1.5,20]
+		stats = [60,50,1.5,20]
 	elif enemy == "gluttony":
-		stats = [25,75,1,20]
+		stats = [30,65,1,20]
 	elif enemy == "greed":
-		stats = [50,50,2,128]
+		stats = [50,50,3,128]
 	elif enemy == "wrath":
 		stats = [100,30,2,20]
 	elif enemy == "heresy":
-		stats = [50,65,3,64]
+		stats = [40,60,3,64]
 	elif enemy == "pride":
-		pass
+		stats = [45,45,7,128]
 	
 	stats[0] = stats[0] * mod	
 	stats[1] = stats[1] * mod
-	stats[2] = stats[2] / mod
 	$WeaponCooldown.wait_time = stats[2]
 	$EnemyCollision/EnemyAnimation.speed_scale = mod
 	$EnemyCollision/EnemyAnimation.play(enemy+"_"+type+"_"+direction)
@@ -76,11 +76,11 @@ func _physics_process(_delta):
 		see = sight()
 		
 		if !wait:
-			await get_tree().create_timer(0.25).timeout
+			await get_tree().create_timer(0.5).timeout
 			wait = true
 		else:
 			if knockback != Vector2(0,0):
-				velocity = knockback * stats[2]
+				velocity = knockback * stats[1]
 				move_and_slide()
 			if distance <= stats[3] + 8 and see:
 				if can_weapon:
@@ -99,6 +99,9 @@ func _physics_process(_delta):
 					elif enemy == "heresy":
 						w = lava_scene.instantiate()
 						weapon(true,0)
+					elif enemy == "pride":
+						w = blast_scene.instantiate()
+						weapon(false,0)
 			elif distance >= stats[3] or not see:
 				$NavigationAgent2D.set_target_position(Glova.pos)
 				var current_agent_position = global_position
@@ -157,8 +160,8 @@ func weapon(projectile, fire):
 	
 	w.damage = w.damage * mod
 	if !projectile:
-		w.attack = stats[2]
-	await get_tree().create_timer(fire/stats[2]).timeout
+		w.attack = mod
+	await get_tree().create_timer(fire/mod).timeout
 	
 	if direction == "up":
 		$WeaponPos.position = Vector2(0,-10)
@@ -182,7 +185,11 @@ func weapon(projectile, fire):
 	else:
 		w.global_position = $WeaponPos.global_position
 		get_tree().root.add_child(w)
-	await get_tree().create_timer((1-fire)/stats[2]).timeout
+		
+	if Glova.current == "antlers":
+		await get_tree().create_timer((2-fire)/mod).timeout
+	else:
+		await get_tree().create_timer((1-fire)/mod).timeout	
 	type = "move"
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
@@ -215,13 +222,13 @@ func hit(ow,nam,dir):
 		if nam == "gauntlets":
 			tween = get_tree().create_tween()
 			if dir == "up":
-				knockback = Vector2(0,-100)
+				knockback = Vector2(0,-5)
 			elif dir == "down":
-				knockback = Vector2(0,100)
+				knockback = Vector2(0,5)
 			elif dir == "left":
-				knockback = Vector2(-100,0)
+				knockback = Vector2(-5,0)
 			elif dir == "right":
-				knockback = Vector2(100,0)
+				knockback = Vector2(5,0)
 			tween.tween_property(self, "knockback", Vector2(0,0), 0.5)
 
 		$EnemyCollision/EnemyAnimation/AnimationPlayer.play("hurt")

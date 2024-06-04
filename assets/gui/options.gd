@@ -3,7 +3,8 @@ extends Control
 var tween
 
 func _ready():
-	$volume_slider.grab_focus()
+	$remind.grab_focus()
+	$remind.button_pressed = Glova.remind
 	$volume_slider.value = Glova.volume
 	$fade/black/AnimationPlayer.play("clear")
 
@@ -31,3 +32,13 @@ func _on_main_focus_entered():
 
 func _on_main_focus_exited():
 	$main.modulate = Color(1,1,1,1)
+
+
+func _on_remind_focus_entered():
+	$remind.modulate = Color(190/255.0,118/255.0,253/255.0, 1)
+
+func _on_remind_focus_exited():
+	$remind.modulate = Color(1,1,1,1)
+
+func _on_remind_toggled(toggled_on):
+	Glova.remind = toggled_on

@@ -12,7 +12,8 @@ target_position = Vector2(0, 320)
 collide_with_areas = true
 script = ExtResource("1_wns3m")
 
-[node name="Antlers" type="Line2D" parent="."]
+[node name="antlers" type="Line2D" parent="."]
+z_index = 1
 points = PackedVector2Array(0, 0, 0, 320)
 closed = true
 width = 13.0
@@ -22,8 +23,20 @@ joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
 
+[node name="antlers2" type="Line2D" parent="."]
+position = Vector2(0, -3.91718)
+scale = Vector2(1, 1.02761)
+points = PackedVector2Array(0, 0, 0, 320)
+closed = true
+width = 3.0
+texture = ExtResource("2_xpm3w")
+texture_mode = 1
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+
 [node name="antlershit" type="Area2D" parent="."]
-collision_layer = 16
+collision_layer = 8
 collision_mask = 0
 
 [node name="AntlersHit" type="CollisionShape2D" parent="antlershit"]
@@ -31,8 +44,13 @@ position = Vector2(0, 160)
 shape = SubResource("RectangleShape2D_licbr")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 1.17
+wait_time = 2.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.83
 one_shot = true
 
 [connection signal="area_entered" from="antlershit" to="." method="_on_antletshit_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

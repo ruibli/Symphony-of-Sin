@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://c0v6jnpsxwv0g" path="res://assets/map/generic/lectern.png" id="2_huys4"]
 
 [node name="lectern" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_yr2lp")
 
 [node name="lectern" type="Sprite2D" parent="."]

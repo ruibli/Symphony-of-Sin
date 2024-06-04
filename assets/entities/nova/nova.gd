@@ -126,7 +126,7 @@ func _process(_delta):
 				weapon(true,0)
 			elif Glova.current == "antlers" and can_antlers:
 				w = antlers_scene.instantiate()
-				weapon(false,0.83)
+				weapon(false,0)
 			elif !lock:
 				type = "move"
 	
@@ -243,13 +243,13 @@ func hit(ow,nam,dir):
 		if nam == "bite":
 			tween = get_tree().create_tween()
 			if dir == "up":
-				knockback = Vector2(0,-25)
+				knockback = Vector2(0,-10)
 			elif dir == "down":
-				knockback = Vector2(0,25)
+				knockback = Vector2(0,10)
 			elif dir == "left":
-				knockback = Vector2(-25,0)
+				knockback = Vector2(-10,0)
 			elif dir == "right":
-				knockback = Vector2(25,0)
+				knockback = Vector2(10,0)
 			tween.tween_property(self, "knockback", Vector2(0,0), 0.5)
 		
 		if Glova.stats[0] - ow < 1:

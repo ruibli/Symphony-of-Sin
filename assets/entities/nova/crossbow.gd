@@ -1,9 +1,8 @@
 extends CharacterBody2D
 var wait = false
 var speed = 150
-var damage = 10
+var damage = 20
 var dir
-
 
 func _ready():
 	$Timer.start()

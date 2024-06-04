@@ -10,6 +10,7 @@ var pos = Vector2(0,0)
 var cooldown = 0
 var spawn_vars = [0,0]
 var volume = 100
+var remind = true
 var lore
 
 var sins
@@ -52,8 +53,8 @@ func new_floor():
 	Glova.doors = []
 
 func change(s):
-	for i in range(0,5):
+	for i in range(0,6):
 		if stats[i] + s[i] < mins[i]:
-			Glova.stats[0] = mins[i]
+			Glova.stats[i] = mins[i]
 		else:
 			stats[i] = stats[i] + s[i]
