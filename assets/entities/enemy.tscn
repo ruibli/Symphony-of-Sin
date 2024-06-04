@@ -1,4 +1,4 @@
-[gd_scene load_steps=192 format=3 uid="uid://doo7pq26uiny0"]
+[gd_scene load_steps=193 format=3 uid="uid://doo7pq26uiny0"]
 
 [ext_resource type="Script" path="res://assets/entities/enemy.gd" id="1_qcn2q"]
 [ext_resource type="PackedScene" uid="uid://idxn6lpg4526" path="res://assets/entities/limbo/trident.tscn" id="2_2lli8"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://cp86tqqvehgb" path="res://assets/entities/gluttony/sprites/gluttony_attack_right_2.png" id="7_6pvlb"]
 [ext_resource type="Texture2D" uid="uid://cscg8cagtjuvh" path="res://assets/entities/greed/sprites/greed_attack_left_2.png" id="7_bg7uq"]
 [ext_resource type="Texture2D" uid="uid://bexf0010bt28y" path="res://assets/entities/limbo/sprites/limbo_attack_left_1.png" id="7_cdnqm"]
+[ext_resource type="PackedScene" uid="uid://dm2bvw5278y3k" path="res://assets/entities/pride/blast.tscn" id="7_i7om0"]
 [ext_resource type="Texture2D" uid="uid://dyb2ubpck2m7f" path="res://assets/entities/greed/sprites/greed_attack_left_4.png" id="8_6g0s7"]
 [ext_resource type="Texture2D" uid="uid://3qb8thg4hx8m" path="res://assets/entities/gluttony/sprites/gluttony_attack_right_3.png" id="8_cxp0d"]
 [ext_resource type="Texture2D" uid="uid://b34v0otb6yda3" path="res://assets/entities/limbo/sprites/limbo_attack_left_2.png" id="8_j0d6a"]
@@ -795,12 +796,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("94_331tg")
 }, {
-"duration": 2.0,
+"duration": 7.0,
 "texture": ExtResource("95_m7qjg")
 }],
 "loop": true,
 "name": &"pride_attack_down",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -818,12 +819,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("100_14d7s")
 }, {
-"duration": 2.0,
+"duration": 7.0,
 "texture": ExtResource("101_c0f2n")
 }],
 "loop": true,
 "name": &"pride_attack_left",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -841,12 +842,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("106_gxvkr")
 }, {
-"duration": 2.0,
+"duration": 7.0,
 "texture": ExtResource("107_odx47")
 }],
 "loop": true,
 "name": &"pride_attack_right",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -864,12 +865,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("112_xu12t")
 }, {
-"duration": 2.0,
+"duration": 7.0,
 "texture": ExtResource("113_1lrlg")
 }],
 "loop": true,
 "name": &"pride_attack_up",
-"speed": 7.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1292,6 +1293,7 @@ bite_scene = ExtResource("3_4aqhc")
 coin_scene = ExtResource("4_hp3rc")
 greataxe_scene = ExtResource("5_5knyt")
 lava_scene = ExtResource("6_8rb3a")
+blast_scene = ExtResource("7_i7om0")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_06s6x")
@@ -1301,7 +1303,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dvnd2")
-animation = &"treason_move_up"
+animation = &"pride_attack_down"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCollision/EnemyAnimation"]
 libraries = {
