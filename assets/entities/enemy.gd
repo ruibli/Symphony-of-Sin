@@ -26,8 +26,8 @@ var tween
 var knockback = Vector2(0,0)
 
 func _ready():
-	#var enemies = ["gluttony"]
-	var enemies = ["limbo","gluttony","greed","wrath","heresy","pride"]
+	var enemies = ["pride"]
+	#var enemies = ["limbo","gluttony","greed","wrath","heresy","pride"]
 	if enemy == "enemy":
 		enemy = enemies[randi() % enemies.size()]
 	
