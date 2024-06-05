@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var nam = "lava"
 var speed = 150
 var damage = 10
 var dir
@@ -25,6 +26,13 @@ func _process(_delta):
 		velocity = velocity.normalized() * speed
 	move_and_slide()
 	
+	for area in $lavahit.get_overlapping_areas():
+		area.hit(damage,nam,dir)
+		change()
+
+	for area in $lavahit2.get_overlapping_areas():
+		area.hit(damage,nam,dir)
+	
 	for index in get_slide_collision_count():
 		change()
 
@@ -38,15 +46,8 @@ func _on_roomdetector_area_entered(area: Area2D) -> void:
 func _on_timer_timeout():
 	queue_free()
 
-func _on_lavahit_area_entered(area):
-	area.hit(damage,name,dir)
-	change()
-
 func _on_timer_2_timeout():
 	change()
-
-func _on_lavahit_2_area_entered(area):
-	area.hit(damage,name,dir)
 
 func change():
 	$LavaCollision/Lava.texture = load("res://assets/entities/heresy/sprites/heresy_pool.png")

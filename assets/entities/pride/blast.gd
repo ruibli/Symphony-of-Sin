@@ -1,5 +1,6 @@
 extends RayCast2D
 
+var nam = "blast"
 var damage = 40
 var dir
 var attack = 1
@@ -19,12 +20,12 @@ func _process(_delta):
 	else:
 		$blast.points[1] = Vector2(0,320)
 		$blast2.points[1] = Vector2(0,320)
+	
+	for area in $blasthit.get_overlapping_areas():
+		area.hit(damage,nam,dir)
 
 func _on_timer_timeout():
 	queue_free()
-
-func _on_blasthit_area_entered(area):
-	area.hit(damage,name,dir)
 
 func _on_timer_2_timeout():
 	$blasthit.set_collision_mask_value(2,true)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cox1ggdcgxc1e"]
 
-[ext_resource type="Script" path="res://assets/entities/nova/gauntlets.gd" id="1_paf0q"]
+[ext_resource type="Script" path="res://assets/entities/nova/nova_gauntlets/gauntlets.gd" id="1_paf0q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghhoa"]
 size = Vector2(20, 16)
@@ -19,5 +19,4 @@ shape = SubResource("RectangleShape2D_ghhoa")
 wait_time = 0.57
 one_shot = true
 
-[connection signal="area_entered" from="gauntletshit" to="." method="_on_gauntletshit_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

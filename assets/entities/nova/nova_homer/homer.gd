@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var nam = "homer"
 var speed = 300
 var damage = 0.1
 var dir
@@ -14,6 +15,9 @@ func _process(_delta):
 		velocity = Vector2(0,0)
 		await get_tree().create_timer(0.15).timeout
 		wait = true
+	for area in $homereye.get_overlapping_areas():
+		if area.is_active() == true:
+			enemies.append(area.global_position)
 	if enemies.size() > 0:
 		$NavigationAgent2D.set_target_position(enemies[0])
 		var current_agent_position = global_position
@@ -22,6 +26,9 @@ func _process(_delta):
 		$NavigationAgent2D.set_velocity(velocity)
 	else:
 		queue_free()
+	
+	for area in $homerhit.get_overlapping_areas():
+		area.hit(damage,nam,dir)
 	
 	for index in get_slide_collision_count():
 		queue_free()
@@ -33,17 +40,9 @@ func _on_roomdetector_area_entered(area: Area2D) -> void:
 	if area.get_name() == 'CameraArea' and wait == true:
 		queue_free()
 
-func _on_homerhit_area_entered(area):
-	area.hit(damage,name,dir)
-	queue_free()
-
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity.normalized() * speed
 	move_and_slide()
-
-func _on_homereye_area_entered(area):
-	if area.is_active() == true:
-		enemies.append(area.global_position)
 
 func _on_timer_timeout():
 	queue_free()

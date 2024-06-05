@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b85dgg62gt5fc"]
 
-[ext_resource type="Script" path="res://assets/entities/nova/crossbow.gd" id="1_7expc"]
+[ext_resource type="Script" path="res://assets/entities/nova/nova_crossbow/crossbow.gd" id="1_7expc"]
 [ext_resource type="Texture2D" uid="uid://d03y6lxexnpnf" path="res://assets/entities/nova/nova_crossbow/crossbow.png" id="2_pbba3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b3llh"]
@@ -41,7 +41,6 @@ shape = SubResource("RectangleShape2D_jjimp")
 wait_time = 4.0
 one_shot = true
 
-[connection signal="area_entered" from="crossbowhit" to="." method="_on_crossbowhit_area_entered"]
 [connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

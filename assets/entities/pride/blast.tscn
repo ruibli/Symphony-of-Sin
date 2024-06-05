@@ -53,4 +53,3 @@ shape = SubResource("RectangleShape2D_m5h0f")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
-[connection signal="area_entered" from="blasthit" to="." method="_on_blasthit_area_entered"]

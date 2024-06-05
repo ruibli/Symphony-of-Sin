@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var nam = "coin"
 var speed = 150
 var damage = 10
 var dir
@@ -17,6 +18,10 @@ func _process(_delta):
 		velocity = velocity.normalized() * speed
 	move_and_slide()
 	
+	for area in $coinhit.get_overlapping_areas():
+		area.hit(damage,nam,dir)
+		queue_free()
+	
 	for index in get_slide_collision_count():
 		queue_free()
 
@@ -26,10 +31,6 @@ func _on_visible_on_screen_notifier_2d_screen_exited():
 func _on_roomdetector_area_entered(area: Area2D) -> void:
 	if area.get_name() == 'CameraArea' and wait == true:
 		queue_free()
-
-func _on_coinhit_area_entered(area):
-	area.hit(damage,name,dir)
-	queue_free()
 
 func _on_timer_timeout():
 	queue_free()
