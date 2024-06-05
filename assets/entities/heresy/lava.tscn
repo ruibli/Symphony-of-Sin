@@ -55,8 +55,6 @@ one_shot = true
 wait_time = 0.5
 one_shot = true
 
-[connection signal="area_entered" from="lavahit" to="." method="_on_lavahit_area_entered"]
-[connection signal="area_entered" from="lavahit2" to="." method="_on_lavahit_2_area_entered"]
 [connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

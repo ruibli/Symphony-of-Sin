@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bmvphmx1bj8td"]
 
-[ext_resource type="Script" path="res://assets/entities/nova/spear.gd" id="1_xf42a"]
+[ext_resource type="Script" path="res://assets/entities/nova/nova_spear/spear.gd" id="1_xf42a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d44h5"]
 size = Vector2(12, 38)
@@ -19,5 +19,4 @@ shape = SubResource("RectangleShape2D_d44h5")
 wait_time = 0.66
 one_shot = true
 
-[connection signal="area_entered" from="spearhit" to="." method="_on_spearhit_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

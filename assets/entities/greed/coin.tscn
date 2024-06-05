@@ -40,7 +40,6 @@ shape = SubResource("RectangleShape2D_3hmtc")
 wait_time = 4.0
 one_shot = true
 
-[connection signal="area_entered" from="coinhit" to="." method="_on_coinhit_area_entered"]
 [connection signal="area_entered" from="roomdetector" to="." method="_on_roomdetector_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

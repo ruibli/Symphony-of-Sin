@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b5dbxefng7d7y"]
 
-[ext_resource type="Script" path="res://assets/entities/nova/antlers.gd" id="1_wns3m"]
+[ext_resource type="Script" path="res://assets/entities/nova/nova_antlers/antlers.gd" id="1_wns3m"]
 [ext_resource type="Texture2D" uid="uid://lvp7tivm6xex" path="res://assets/entities/nova/nova_antlers/beam.png" id="2_xpm3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_licbr"]

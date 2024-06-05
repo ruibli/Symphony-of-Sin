@@ -1,5 +1,6 @@
 extends RayCast2D
 
+var nam = "antlers"
 var damage = 50
 var dir
 var attack = 1
@@ -19,12 +20,11 @@ func _process(_delta):
 	else:
 		$antlers.points[1] = Vector2(0,320)
 		$antlers2.points[1] = Vector2(0,320)
-		
+	for area in $antlershit.get_overlapping_areas():
+		area.hit(damage,nam,dir)
+	
 func _on_timer_timeout():
 	queue_free()
-
-func _on_antletshit_area_entered(area):
-	area.hit(damage,name,dir)
 
 func _on_timer_2_timeout():
 	$antlershit.set_collision_mask_value(3,true)

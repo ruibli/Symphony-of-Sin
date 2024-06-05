@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b8dfynw33f4dd"]
 
-[ext_resource type="Script" path="res://assets/entities/nova/axe.gd" id="1_4pydc"]
+[ext_resource type="Script" path="res://assets/entities/nova/nova_axe/axe.gd" id="1_4pydc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lpun0"]
 size = Vector2(25, 20)
@@ -19,5 +19,4 @@ shape = SubResource("RectangleShape2D_lpun0")
 wait_time = 0.6
 one_shot = true
 
-[connection signal="area_entered" from="axehit" to="." method="_on_axehit_area_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
