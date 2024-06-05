@@ -11,7 +11,7 @@ func _process(_delta):
 	if "painting" in Glova.inv:
 		Glova.sins = 1
 	if Glova.sins > 0:
-		Glova.sins = Glova.sins - 0.002
+		Glova.sins = Glova.sins - 0.0005
 		$sins/AnimationPlayer.speed_scale = 1 * Glova.sins
 		$sins/AnimationPlayer.play("pulse")
 	if Glova.sins < 0:
