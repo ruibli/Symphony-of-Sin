@@ -504,7 +504,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"heresy_attack_left",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -521,7 +521,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"heresy_attack_right",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -538,7 +538,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"heresy_attack_up",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1137,7 +1137,7 @@ animations = [{
 "speed": 4.5
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("159_4mcql")
 }, {
 "duration": 1.0,
@@ -1149,7 +1149,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("160_c5wrl")
 }, {
-"duration": 1.0,
+"duration": 0.75,
 "texture": ExtResource("159_4mcql")
 }],
 "loop": true,
@@ -1303,7 +1303,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dvnd2")
-animation = &"pride_attack_down"
+animation = &"heresy_attack_down"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCollision/EnemyAnimation"]
 libraries = {
