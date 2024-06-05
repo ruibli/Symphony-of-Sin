@@ -788,7 +788,7 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("84_ylifk")
 }, {
 "duration": 1.0,
@@ -809,12 +809,12 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("85_18vru")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": ExtResource("84_ylifk")
 }],
 "loop": false,
 "name": &"gauntlets_attack_down",
-"speed": 9.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -856,6 +856,9 @@ animations = [{
 "texture": ExtResource("100_pgqrh")
 }, {
 "duration": 1.0,
+"texture": ExtResource("94_yvs14")
+}, {
+"duration": 1.0,
 "texture": ExtResource("101_ot7ib")
 }, {
 "duration": 1.0,
@@ -863,7 +866,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"gauntlets_attack_right",
-"speed": 7.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1397,6 +1400,9 @@ animations = [{
 "speed": 5.5
 }, {
 "frames": [{
+"duration": 0.5,
+"texture": ExtResource("55_8eqsx")
+}, {
 "duration": 0.75,
 "texture": ExtResource("56_nkktj")
 }, {
@@ -1411,12 +1417,18 @@ animations = [{
 }, {
 "duration": 0.75,
 "texture": ExtResource("56_nkktj")
+}, {
+"duration": 0.5,
+"texture": ExtResource("55_8eqsx")
 }],
 "loop": true,
 "name": &"spear_attack_left",
-"speed": 4.5
+"speed": 5.5
 }, {
 "frames": [{
+"duration": 0.5,
+"texture": ExtResource("57_i7ou5")
+}, {
 "duration": 0.75,
 "texture": ExtResource("59_k2n27")
 }, {
@@ -1431,10 +1443,13 @@ animations = [{
 }, {
 "duration": 0.75,
 "texture": ExtResource("59_k2n27")
+}, {
+"duration": 0.5,
+"texture": ExtResource("57_i7ou5")
 }],
 "loop": true,
 "name": &"spear_attack_right",
-"speed": 4.5
+"speed": 5.5
 }, {
 "frames": [{
 "duration": 0.5,
@@ -1613,7 +1628,8 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"spear_attack_right"
+animation = &"spear_move_up"
+frame_progress = 0.279583
 offset = Vector2(0, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NovaCollision/NovaAnimation"]
