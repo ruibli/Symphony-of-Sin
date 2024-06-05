@@ -788,9 +788,6 @@ animations = [{
 "speed": 4.0
 }, {
 "frames": [{
-"duration": 0.5,
-"texture": ExtResource("84_ylifk")
-}, {
 "duration": 1.0,
 "texture": ExtResource("85_18vru")
 }, {
@@ -809,7 +806,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("85_18vru")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": ExtResource("84_ylifk")
 }],
 "loop": false,
@@ -870,9 +867,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("96_631bp")
-}, {
-"duration": 1.0,
 "texture": ExtResource("97_hb8ou")
 }, {
 "duration": 1.0,
@@ -883,6 +877,9 @@ animations = [{
 }, {
 "duration": 2.0,
 "texture": ExtResource("107_cbkpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_hb8ou")
 }, {
 "duration": 1.0,
 "texture": ExtResource("98_chlau")
@@ -1628,8 +1625,9 @@ z_index = 2
 z_as_relative = false
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_7wltb")
-animation = &"spear_move_up"
-frame_progress = 0.279583
+animation = &"gauntlets_attack_up"
+frame = 6
+frame_progress = 1.0
 offset = Vector2(0, -7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NovaCollision/NovaAnimation"]
