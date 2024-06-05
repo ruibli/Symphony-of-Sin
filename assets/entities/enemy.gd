@@ -19,6 +19,7 @@ var see = false
 
 var can_hit = true
 var can_weapon = true
+var can_rotate = true
 var w
 var type = "move"
 var direction = "down"
@@ -26,8 +27,8 @@ var tween
 var knockback = Vector2(0,0)
 
 func _ready():
-	#var enemies = ["pride"]
-	var enemies = ["limbo","gluttony","greed","wrath","heresy","pride"]
+	var enemies = ["pride"]
+	#var enemies = ["limbo","gluttony","greed","wrath","heresy","pride"]
 	if enemy == "enemy":
 		enemy = enemies[randi() % enemies.size()]
 	
@@ -54,19 +55,23 @@ func _ready():
 func sight():
 	if $RayUp.is_colliding() and $RayUp2.is_colliding():
 		if $RayUp.get_collider().name == "novahurt" and $RayUp2.get_collider().name == "novahurt":
-			direction = "up"
+			if can_rotate:
+				direction = "up"
 			return true
 	if $RayDown.is_colliding() and $RayDown2.is_colliding():
 		if $RayDown.get_collider().name == "novahurt" and $RayDown2.get_collider().name == "novahurt":
-			direction = "down"
+			if can_rotate:
+				direction = "down"
 			return true
 	if $RayLeft.is_colliding() and $RayLeft2.is_colliding():
 		if $RayLeft.get_collider().name == "novahurt" and $RayLeft2.get_collider().name == "novahurt":
-			direction = "left"
+			if can_rotate:
+				direction = "left"
 			return true
 	if $RayRight.is_colliding() and $RayRight2.is_colliding():
 		if $RayRight.get_collider().name == "novahurt" and $RayRight2.get_collider().name == "novahurt":
-			direction = "right"
+			if can_rotate:
+				direction = "right"
 			return true
 	return false
 
@@ -111,7 +116,7 @@ func _physics_process(_delta):
 		
 		# Animation
 		var nova_dir = Glova.pos - global_position
-		if type == "move":
+		if type == "move" and can_rotate:
 			if velocity.y < 0 and abs(velocity.y) > abs(velocity.x):
 				direction = "up"
 			elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x):
@@ -120,7 +125,7 @@ func _physics_process(_delta):
 				direction = "left"
 			elif velocity.x > 0 and abs(velocity.x) > abs(velocity.y):
 				direction = "right"
-		elif type == "attack":
+		elif type == "attack" and can_rotate:
 			if nova_dir.y < 0 and abs(nova_dir.y) > abs(nova_dir.x):
 				direction = "up"
 				$WeaponPos.position = Vector2(0,-10)
@@ -186,11 +191,13 @@ func weapon(projectile, fire):
 		w.global_position = $WeaponPos.global_position
 		get_tree().root.add_child(w)
 		
-	if Glova.current == "antlers":
+	if enemy == "pride":
+		can_rotate = false
 		await get_tree().create_timer((2-fire)/mod).timeout
 	else:
 		await get_tree().create_timer((1-fire)/mod).timeout	
 	type = "move"
+	can_rotate = true
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	active = false

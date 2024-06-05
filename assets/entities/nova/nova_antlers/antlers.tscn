@@ -6,10 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_licbr"]
 size = Vector2(13, 332)
 
-[node name="antlers" type="RayCast2D"]
+[node name="antlers" type="Node2D"]
 position = Vector2(0, 12)
-target_position = Vector2(0, 320)
-collide_with_areas = true
 script = ExtResource("1_wns3m")
 
 [node name="antlers" type="Line2D" parent="."]
@@ -51,6 +49,15 @@ one_shot = true
 wait_time = 0.83
 one_shot = true
 
-[connection signal="area_entered" from="antlershit" to="." method="_on_antletshit_area_entered"]
+[node name="RayDown" type="RayCast2D" parent="."]
+position = Vector2(-6, -6)
+target_position = Vector2(0, 320)
+collide_with_areas = true
+
+[node name="RayDown2" type="RayCast2D" parent="."]
+position = Vector2(6, -6)
+target_position = Vector2(0, 320)
+collide_with_areas = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

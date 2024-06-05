@@ -1,4 +1,4 @@
-extends RayCast2D
+extends Node2D
 
 var nam = "blast"
 var damage = 40
@@ -13,10 +13,15 @@ func _ready():
 	$Timer2.start()
 
 func _process(_delta):
-	if is_colliding:
-		var cast = to_local(get_collision_point())
-		$blast.points[1] = Vector2(0,cast.y-6)
-		$blast2.points[1] = Vector2(0,cast.y-6)
+	if $RayDown.is_colliding or $RayDown2.is_colliding:
+		var cast = to_local($RayDown.get_collision_point()).y-6
+		var cast2 = to_local($RayDown2.get_collision_point()).y-6
+		if cast <= cast2:
+			$blast.points[1] = Vector2(0,cast)
+			$blast2.points[1] = Vector2(0,cast)
+		else:
+			$blast.points[1] = Vector2(0,cast2)
+			$blast2.points[1] = Vector2(0,cast2)
 	else:
 		$blast.points[1] = Vector2(0,320)
 		$blast2.points[1] = Vector2(0,320)
