@@ -52,11 +52,13 @@ shape = SubResource("RectangleShape2D_m5h0f")
 [node name="RayDown" type="RayCast2D" parent="."]
 position = Vector2(-6, -6)
 target_position = Vector2(0, 320)
+hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayDown2" type="RayCast2D" parent="."]
 position = Vector2(6, -6)
 target_position = Vector2(0, 320)
+hit_from_inside = true
 collide_with_areas = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
