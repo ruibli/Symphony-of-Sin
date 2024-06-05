@@ -26,6 +26,7 @@
 size = Vector2(352, 352)
 
 [node name="floor" type="StaticBody2D"]
+collision_layer = 0
 collision_mask = 0
 script = ExtResource("1_wo4dn")
 boss_scene = ExtResource("2_gixse")
@@ -54,6 +55,8 @@ z_as_relative = false
 texture = ExtResource("4_1q312")
 
 [node name="CameraArea" type="Area2D" parent="floor"]
+collision_layer = 64
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor/CameraArea"]
 shape = SubResource("RectangleShape2D_7tmqa")

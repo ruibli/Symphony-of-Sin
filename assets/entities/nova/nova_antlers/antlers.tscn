@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://assets/entities/nova/nova_antlers/antlers.gd" id="1_wns3m"]
 [ext_resource type="Texture2D" uid="uid://lvp7tivm6xex" path="res://assets/entities/nova/nova_antlers/beam.png" id="2_xpm3w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_licbr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdh8c"]
 size = Vector2(13, 332)
 
 [node name="antlers" type="Node2D"]
@@ -39,7 +39,7 @@ collision_mask = 0
 
 [node name="AntlersHit" type="CollisionShape2D" parent="antlershit"]
 position = Vector2(0, 160)
-shape = SubResource("RectangleShape2D_licbr")
+shape = SubResource("RectangleShape2D_sdh8c")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -50,12 +50,14 @@ wait_time = 0.83
 one_shot = true
 
 [node name="RayDown" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-6, -6)
 target_position = Vector2(0, 320)
 hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayDown2" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(6, -6)
 target_position = Vector2(0, 320)
 hit_from_inside = true

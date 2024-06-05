@@ -1339,6 +1339,7 @@ one_shot = true
 [node name="WeaponPos" type="Marker2D" parent="."]
 
 [node name="RayUp" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-3, 0)
 target_position = Vector2(0, -320)
 collision_mask = 33
@@ -1346,6 +1347,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayUp2" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(3, 0)
 target_position = Vector2(0, -320)
 collision_mask = 33
@@ -1353,6 +1355,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayDown" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-3, 0)
 target_position = Vector2(0, 320)
 collision_mask = 33
@@ -1360,6 +1363,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayDown2" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(3, 0)
 target_position = Vector2(0, 320)
 collision_mask = 33
@@ -1367,6 +1371,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayLeft" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, -3)
 target_position = Vector2(-320, 0)
 collision_mask = 33
@@ -1374,6 +1379,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayLeft2" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, 3)
 target_position = Vector2(-320, 0)
 collision_mask = 33
@@ -1381,6 +1387,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayRight" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, -3)
 target_position = Vector2(320, 0)
 collision_mask = 33
@@ -1388,6 +1395,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="RayRight2" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, 3)
 target_position = Vector2(320, 0)
 collision_mask = 33
