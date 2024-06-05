@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://i7uce1oi7yf" path="res://assets/loot/weapons/empty.png" id="3_7gfiy"]
 [ext_resource type="Texture2D" uid="uid://ch53uonxhtli2" path="res://assets/gui/icons/current.png" id="4_8hc84"]
 [ext_resource type="Texture2D" uid="uid://breoqbtl1l50u" path="res://assets/gui/borders/hotbar_border.png" id="5_cqcl3"]
-[ext_resource type="Texture2D" uid="uid://ciu2dwiivot2q" path="res://assets/gui/icons/swap.png" id="5_duunr"]
+[ext_resource type="Texture2D" uid="uid://c8r6fudnwrnxe" path="res://assets/gui/icons/swap.png" id="5_duunr"]
 [ext_resource type="LabelSettings" uid="uid://1phn4kwkxmof" path="res://assets/gui/label_settings.tres" id="6_242an"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox30n"]

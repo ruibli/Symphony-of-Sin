@@ -17,6 +17,7 @@ var foot = true
 var lock = false
 var lock2 = false
 var can_hit = true
+var can_rotate = true
 var knockback = Vector2(0,0)
 var tween
 
@@ -64,24 +65,28 @@ func _process(_delta):
 		velocity.x += 1
 	if Input.is_action_pressed("attack_up"):
 		type = "attack"
-		direction = "up"
-		$WeaponPos.position = Vector2(0,-10)
-		$WeaponPos.rotation_degrees = 180
+		if can_rotate:
+			direction = "up"
+			$WeaponPos.position = Vector2(0,-10)
+			$WeaponPos.rotation_degrees = 180
 	if Input.is_action_pressed("attack_down"):
 		type = "attack"
-		direction = "down"
-		$WeaponPos.position = Vector2(0,10)
-		$WeaponPos.rotation_degrees = 0
+		if can_rotate:
+			direction = "down"
+			$WeaponPos.position = Vector2(0,10)
+			$WeaponPos.rotation_degrees = 0
 	if Input.is_action_pressed("attack_left"):
 		type = "attack"
-		direction = "left"
-		$WeaponPos.position = Vector2(-10,0)
-		$WeaponPos.rotation_degrees = 90
+		if can_rotate:
+			direction = "left"
+			$WeaponPos.position = Vector2(-10,0)
+			$WeaponPos.rotation_degrees = 90
 	if Input.is_action_pressed("attack_right"):
 		type = "attack"
-		direction = "right"
-		$WeaponPos.position = Vector2(10,0)
-		$WeaponPos.rotation_degrees = 270
+		if can_rotate:
+			direction = "right"
+			$WeaponPos.position = Vector2(10,0)
+			$WeaponPos.rotation_degrees = 270
 	
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * 100 * Glova.stats[2]
@@ -94,7 +99,7 @@ func _process(_delta):
 	move_and_slide()
 	set_nova()
 	
-	if type == "move":
+	if type == "move" and can_rotate:
 		if velocity.y < 0 and abs(velocity.y) > abs(velocity.x): #up
 			direction = "up"
 		elif velocity.y > 0 and abs(velocity.y) > abs(velocity.x): #down
@@ -120,7 +125,7 @@ func _process(_delta):
 				weapon(true,0)
 			elif Glova.current == "gauntlets" and can_gauntlets:
 				w = gauntlets_scene.instantiate()
-				weapon(false,0.28)
+				weapon(false,0.37)
 			elif Glova.current == "molotov" and can_molotov:
 				w = molotov_scene.instantiate()
 				weapon(true,0)
@@ -215,10 +220,12 @@ func weapon(projectile, fire): # attacking
 		
 		lock2 = false
 		if Glova.current == "antlers":
+			can_rotate = false
 			await get_tree().create_timer((2-fire)/Glova.stats[4]).timeout
 		else:
 			await get_tree().create_timer((1-fire)/Glova.stats[4]).timeout
 		lock = false
+		can_rotate = true
 		
 	else:
 		lock2 = false

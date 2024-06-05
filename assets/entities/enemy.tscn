@@ -1303,7 +1303,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dvnd2")
-animation = &"heresy_attack_down"
+animation = &"pride_move_down"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCollision/EnemyAnimation"]
 libraries = {
@@ -1329,7 +1329,7 @@ avoidance_layers = 4
 avoidance_mask = 7
 
 [node name="HitCooldown" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.75
 one_shot = true
 
 [node name="WeaponCooldown" type="Timer" parent="."]
@@ -1339,56 +1339,48 @@ one_shot = true
 [node name="WeaponPos" type="Marker2D" parent="."]
 
 [node name="RayUp" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(-3, 0)
 target_position = Vector2(0, -320)
 collision_mask = 33
 collide_with_areas = true
 
 [node name="RayUp2" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(3, 0)
 target_position = Vector2(0, -320)
 collision_mask = 33
 collide_with_areas = true
 
 [node name="RayDown" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(-3, 0)
 target_position = Vector2(0, 320)
 collision_mask = 33
 collide_with_areas = true
 
 [node name="RayDown2" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(3, 0)
 target_position = Vector2(0, 320)
 collision_mask = 33
 collide_with_areas = true
 
 [node name="RayLeft" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, -3)
 target_position = Vector2(-320, 0)
 collision_mask = 33
 collide_with_areas = true
 
 [node name="RayLeft2" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, 3)
 target_position = Vector2(-320, 0)
 collision_mask = 33
 collide_with_areas = true
 
 [node name="RayRight" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, -3)
 target_position = Vector2(320, 0)
 collision_mask = 33
 collide_with_areas = true
 
 [node name="RayRight2" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, 3)
 target_position = Vector2(320, 0)
 collision_mask = 33

@@ -29,6 +29,7 @@ func _process(_delta):
 	
 	for area in $homerhit.get_overlapping_areas():
 		area.hit(damage,nam,dir)
+		queue_free()
 	
 	for index in get_slide_collision_count():
 		queue_free()
