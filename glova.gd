@@ -35,7 +35,7 @@ func new_game():
 	mod = 0
 	enemies = 0
 	stats = [100, 100, 1, 1, 1, 0]
-	# health, health_max, speed, power, attack, gold
+	# health, max, speed, power, attack, gold
 	
 	inv = []
 	hotbar = ["axe", "crossbow", "empty", "empty", "empty", "empty", "empty"]
