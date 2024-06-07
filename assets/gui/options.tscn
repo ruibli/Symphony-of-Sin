@@ -231,7 +231,7 @@ offset_top = 221.0
 offset_right = 88.0
 offset_bottom = 259.0
 grow_horizontal = 2
-text = "Version 0.1
+text = "Version 1.0
 Made by ruibli
 and GrassLawns"
 label_settings = SubResource("LabelSettings_71qru")
