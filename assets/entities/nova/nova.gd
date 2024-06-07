@@ -193,7 +193,7 @@ func weapon(projectile, fire): # attacking
 			can_crossbow = false
 			$CrossbowCooldown.start()
 			Glova.cooldown = $CrossbowCooldown.wait_time
-			Glova.sins = Glova.sins - 0.2
+			Glova.sins = Glova.sins - 20
 		elif Glova.current == "spear":
 			can_spear = false
 			$SpearCooldown.start()
@@ -214,12 +214,12 @@ func weapon(projectile, fire): # attacking
 			can_molotov = false
 			$MolotovCooldown.start()
 			Glova.cooldown = $MolotovCooldown.wait_time
-			Glova.sins = Glova.sins - 0.25
+			Glova.sins = Glova.sins - 25
 		elif Glova.current == "antlers":
 			can_antlers = false
 			$AntlersCooldown.start()
 			Glova.cooldown = $AntlersCooldown.wait_time
-			Glova.sins = Glova.sins - 1
+			Glova.sins = Glova.sins - 100
 		
 		lock2 = false
 		if Glova.current == "antlers":
