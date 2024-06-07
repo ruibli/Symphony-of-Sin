@@ -221,7 +221,7 @@ func hit(ow,nam,dir):
 		# ON HIT HERE
 		
 		if global_position.distance_to(Glova.pos) < 64 and !(nam in Glova.ranged):
-			Glova.sins = Glova.sins + (64 - global_position.distance_to(Glova.pos))/64 * ow * 0.02
+			Glova.sins = Glova.sins + (64 - global_position.distance_to(Glova.pos))/64 * ow * 2
 		
 		if nam == "homer":
 			stats[0] = 0

@@ -30,7 +30,7 @@ z_as_relative = false
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.5
 one_shot = true
 
 [node name="PedestalArea" type="Area2D" parent="."]

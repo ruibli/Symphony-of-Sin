@@ -9,18 +9,19 @@ func _process(_delta):
 	$sins.value = Glova.sins
 	
 	if "painting" in Glova.inv:
-		Glova.sins = 1
+		Glova.sins = 100
 	if Glova.sins > 0:
-		Glova.sins = Glova.sins - 0.0005
-		$sins/AnimationPlayer.speed_scale = 1 * Glova.sins
+		Glova.sins = Glova.sins - 0.05
+		$sins/AnimationPlayer.speed_scale = Glova.sins / 100
 		$sins/AnimationPlayer.play("pulse")
 	if Glova.sins < 0:
 		Glova.sins = 0
-	if Glova.sins > 1:
-		Glova.sins = 1
+	if Glova.sins > 100:
+		Glova.sins = 100
 		
 	if Input.is_action_pressed("attack_up") or Input.is_action_pressed("attack_down") or Input.is_action_pressed("attack_left") or Input.is_action_pressed("attack_right"):
 		if Glova.current in Glova.ranged and Glova.sins <= 0:
+			$sins/AnimationPlayer.speed_scale = 1
 			$sins/AnimationPlayer.play("flash")
 			
 	if Glova.stats[0]/Glova.stats[1] != save:

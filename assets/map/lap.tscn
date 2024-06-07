@@ -42,7 +42,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_iydeq")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.5
 one_shot = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
