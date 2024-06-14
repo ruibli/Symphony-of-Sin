@@ -1,4 +1,4 @@
-[gd_scene load_steps=193 format=3 uid="uid://doo7pq26uiny0"]
+[gd_scene load_steps=202 format=3 uid="uid://doo7pq26uiny0"]
 
 [ext_resource type="Script" path="res://assets/entities/enemy.gd" id="1_qcn2q"]
 [ext_resource type="PackedScene" uid="uid://idxn6lpg4526" path="res://assets/entities/limbo/trident.tscn" id="2_2lli8"]
@@ -34,11 +34,13 @@
 [ext_resource type="Texture2D" uid="uid://bmomfp46hhru1" path="res://assets/entities/limbo/sprites/limbo_move_right_0.png" id="10_pydc5"]
 [ext_resource type="Texture2D" uid="uid://h75kxoxo6iq6" path="res://assets/entities/gluttony/sprites/gluttony_attack_left_1.png" id="10_te02a"]
 [ext_resource type="Texture2D" uid="uid://dy8sl1g36o4wv" path="res://assets/entities/limbo/sprites/limbo_attack_right_1.png" id="11_p6qop"]
+[ext_resource type="Texture2D" uid="uid://dvdl1lndrs78n" path="res://assets/entities/gluttony/sprites/gluttony_attack_down_4.png" id="11_tg828"]
 [ext_resource type="Texture2D" uid="uid://bwrhmvc7drnty" path="res://assets/entities/greed/sprites/greed_attack_right_4.png" id="11_uob75"]
 [ext_resource type="Texture2D" uid="uid://cluseh65fp2bt" path="res://assets/entities/gluttony/sprites/gluttony_attack_left_2.png" id="11_w3gcx"]
 [ext_resource type="Texture2D" uid="uid://wcy6qq27w4mi" path="res://assets/entities/gluttony/sprites/gluttony_move_up_2.png" id="11_yljbe"]
 [ext_resource type="Texture2D" uid="uid://15op8ntmqpsm" path="res://assets/entities/gluttony/sprites/gluttony_move_down_0.png" id="12_hbut6"]
 [ext_resource type="Texture2D" uid="uid://s3bo13dnqtkx" path="res://assets/entities/gluttony/sprites/gluttony_attack_left_3.png" id="12_jj3uw"]
+[ext_resource type="Texture2D" uid="uid://go0ns23lp2sq" path="res://assets/entities/gluttony/sprites/gluttony_attack_down_5.png" id="12_ki78u"]
 [ext_resource type="Texture2D" uid="uid://3rwlx4qoku1q" path="res://assets/entities/greed/sprites/greed_attack_up_1.png" id="12_sdj81"]
 [ext_resource type="Texture2D" uid="uid://ccxftwy4001c6" path="res://assets/entities/limbo/sprites/limbo_attack_right_2.png" id="12_w3irw"]
 [ext_resource type="Texture2D" uid="uid://c6si7d5nd6guu" path="res://assets/entities/gluttony/sprites/gluttony_move_down_1.png" id="13_1kngl"]
@@ -50,10 +52,12 @@
 [ext_resource type="Texture2D" uid="uid://bbq7cjwe561yy" path="res://assets/entities/gluttony/sprites/gluttony_move_right_0.png" id="15_14sxm"]
 [ext_resource type="Texture2D" uid="uid://ddel3keuyki7m" path="res://assets/entities/greed/sprites/greed_move_down_0.png" id="15_hh0yi"]
 [ext_resource type="Texture2D" uid="uid://h53gssh6decw" path="res://assets/entities/limbo/sprites/limbo_attack_up_2.png" id="15_ujkfp"]
+[ext_resource type="Texture2D" uid="uid://ddmoke56uhhew" path="res://assets/entities/gluttony/sprites/gluttony_attack_left_4.png" id="16_3lryf"]
 [ext_resource type="Texture2D" uid="uid://ct2uhgkx450ci" path="res://assets/entities/greed/sprites/greed_move_down_1.png" id="16_bqivk"]
 [ext_resource type="Texture2D" uid="uid://uyd7w2cs2rjc" path="res://assets/entities/limbo/sprites/limbo_attack_up_3.png" id="16_mqmku"]
 [ext_resource type="Texture2D" uid="uid://dhxikrvgtcjqg" path="res://assets/entities/gluttony/sprites/gluttony_move_right_1.png" id="16_wlnvw"]
 [ext_resource type="Texture2D" uid="uid://mx75h1o8sqt" path="res://assets/entities/gluttony/sprites/gluttony_move_right_2.png" id="17_2dhjw"]
+[ext_resource type="Texture2D" uid="uid://ddb3rndupvsp2" path="res://assets/entities/gluttony/sprites/gluttony_attack_left_5.png" id="17_7s8yn"]
 [ext_resource type="Texture2D" uid="uid://crtl38oi3dqge" path="res://assets/entities/greed/sprites/greed_move_down_2.png" id="17_a5n51"]
 [ext_resource type="Texture2D" uid="uid://jqkkuusxrj53" path="res://assets/entities/limbo/sprites/limbo_attack_up_4.png" id="17_kfo7k"]
 [ext_resource type="Texture2D" uid="uid://4kpvg3ejwdn" path="res://assets/entities/greed/sprites/greed_move_left_1.png" id="18_3exm0"]
@@ -62,9 +66,11 @@
 [ext_resource type="Texture2D" uid="uid://duy3p664d5wib" path="res://assets/entities/limbo/sprites/limbo_move_down_1.png" id="19_y0ns4"]
 [ext_resource type="Texture2D" uid="uid://c6srjmdtaedi1" path="res://assets/entities/limbo/sprites/limbo_move_down_2.png" id="20_1b308"]
 [ext_resource type="Texture2D" uid="uid://d10263aptu2ti" path="res://assets/entities/greed/sprites/greed_move_right_0.png" id="20_e1gtn"]
+[ext_resource type="Texture2D" uid="uid://dqrpb06h8yybv" path="res://assets/entities/gluttony/sprites/gluttony_attack_right_4.png" id="21_242d6"]
 [ext_resource type="Texture2D" uid="uid://doqa6kjfdepcl" path="res://assets/entities/limbo/sprites/limbo_move_left_1.png" id="21_f0aml"]
 [ext_resource type="Texture2D" uid="uid://ccjmh4c2tassk" path="res://assets/entities/greed/sprites/greed_move_right_1.png" id="21_lely6"]
 [ext_resource type="Texture2D" uid="uid://koex6hvfeamd" path="res://assets/entities/limbo/sprites/limbo_move_left_2.png" id="22_aafyu"]
+[ext_resource type="Texture2D" uid="uid://cok53mnbnn33o" path="res://assets/entities/gluttony/sprites/gluttony_attack_right_5.png" id="22_qlibv"]
 [ext_resource type="Texture2D" uid="uid://qa2rsgomcn0r" path="res://assets/entities/gluttony/sprites/gluttony_move_left_0.png" id="22_ssjnr"]
 [ext_resource type="Texture2D" uid="uid://cywfuefrnj506" path="res://assets/entities/greed/sprites/greed_move_right_2.png" id="22_vh2ik"]
 [ext_resource type="Texture2D" uid="uid://bk8k6f4dfjo8y" path="res://assets/entities/limbo/sprites/limbo_move_right_1.png" id="23_mbj57"]
@@ -75,7 +81,10 @@
 [ext_resource type="Texture2D" uid="uid://dp4wueev3u2fk" path="res://assets/entities/limbo/sprites/limbo_move_right_2.png" id="24_gs0kb"]
 [ext_resource type="Texture2D" uid="uid://dgoqfbbi3joso" path="res://assets/entities/limbo/sprites/limbo_move_up_0.png" id="25_3b2ca"]
 [ext_resource type="Texture2D" uid="uid://r2goec34errv" path="res://assets/entities/greed/sprites/greed_move_up_2.png" id="25_nv2pj"]
+[ext_resource type="Texture2D" uid="uid://cw1cdvlty53y4" path="res://assets/entities/gluttony/sprites/gluttony_attack_up_3.png" id="25_o25tq"]
 [ext_resource type="Texture2D" uid="uid://lojybeddbrag" path="res://assets/entities/limbo/sprites/limbo_move_up_1.png" id="26_iqngg"]
+[ext_resource type="Texture2D" uid="uid://cfrgsm612mec2" path="res://assets/entities/gluttony/sprites/gluttony_attack_up_4.png" id="26_noyu5"]
+[ext_resource type="Texture2D" uid="uid://tocwgo57vvyt" path="res://assets/entities/gluttony/sprites/gluttony_attack_up_5.png" id="27_4sw4k"]
 [ext_resource type="Texture2D" uid="uid://bcijihinucrw3" path="res://assets/entities/limbo/sprites/limbo_move_up_2.png" id="27_nn4xd"]
 [ext_resource type="Script" path="res://assets/entities/hurt.gd" id="28_8pfne"]
 [ext_resource type="Texture2D" uid="uid://ck42g8tgraml6" path="res://assets/entities/heresy/sprites/heresy_attack_down_1.png" id="41_k4u2m"]
@@ -202,10 +211,10 @@ animations = [{
 "texture": ExtResource("5_px7mt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_7thg1")
+"texture": ExtResource("11_tg828")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_6q40i")
+"texture": ExtResource("12_ki78u")
 }],
 "loop": true,
 "name": &"gluttony_attack_down",
@@ -222,10 +231,10 @@ animations = [{
 "texture": ExtResource("12_jj3uw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_w3gcx")
+"texture": ExtResource("16_3lryf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_te02a")
+"texture": ExtResource("17_7s8yn")
 }],
 "loop": true,
 "name": &"gluttony_attack_left",
@@ -242,10 +251,10 @@ animations = [{
 "texture": ExtResource("8_cxp0d")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_6pvlb")
+"texture": ExtResource("21_242d6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_5mh84")
+"texture": ExtResource("22_qlibv")
 }],
 "loop": true,
 "name": &"gluttony_attack_right",
@@ -259,10 +268,13 @@ animations = [{
 "texture": ExtResource("10_64cxf")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_ot3uk")
+"texture": ExtResource("25_o25tq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_yljbe")
+"texture": ExtResource("26_noyu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_4sw4k")
 }],
 "loop": true,
 "name": &"gluttony_attack_up",
@@ -1303,7 +1315,7 @@ z_index = 1
 z_as_relative = false
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_dvnd2")
-animation = &"pride_move_down"
+animation = &"gluttony_attack_up"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemyCollision/EnemyAnimation"]
 libraries = {
