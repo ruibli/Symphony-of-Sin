@@ -8,13 +8,12 @@ var can_swap = true
 var wait = false
 var spawn = false
 var save = []
-var mod
+var level = Glova.level
 
 var x = -9
 var y = 9
 
 func _ready():
-	mod = Glova.mod
 	hide()
 
 func _process(_delta):
@@ -33,8 +32,8 @@ func _process(_delta):
 			wait = true
 			show()
 	else:
-		if Glova.mod != mod:
-			mod = Glova.mod
+		if Glova.level != level:
+			level = Glova.level
 			spawn = false
 			save = []
 			x = -9

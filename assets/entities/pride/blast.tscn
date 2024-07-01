@@ -35,7 +35,7 @@ end_cap_mode = 2
 
 [node name="blasthit" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 0
+collision_mask = 2
 
 [node name="BlastHit" type="CollisionShape2D" parent="blasthit"]
 position = Vector2(0, 160)

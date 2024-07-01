@@ -4,6 +4,8 @@ var nam = "blast"
 var damage = 40
 var dir
 var attack = 1
+var state = 1
+var level = Glova.level
 
 func _ready():
 	$blast.hide()
@@ -14,9 +16,16 @@ func _ready():
 	$Timer2.start()
 
 func _process(_delta):
+	if level != Glova.level:
+		queue_free()
+	
 	if $RayDown.is_colliding or $RayDown2.is_colliding:
 		var cast = to_local($RayDown.get_collision_point()).y-6
 		var cast2 = to_local($RayDown2.get_collision_point()).y-6
+		if cast < 0:
+			cast = 0
+		if cast2 < 0:
+			cast2 = 0
 		if cast <= cast2:
 			$blast.points[1] = Vector2(0,cast)
 			$blast2.points[1] = Vector2(0,cast)
@@ -33,14 +42,14 @@ func _process(_delta):
 		$blasthit/BlastHit.shape.size.y = 332
 		$blasthit/BlastHit.position.y = 160
 	
-	for area in $blasthit.get_overlapping_areas():
-		area.hit(damage,nam,dir)
-	
+	if state == 2:
+		for area in $blasthit.get_overlapping_areas():
+			area.hit(damage,nam,dir)
 	$blast2.show()
 
 func _on_timer_timeout():
 	queue_free()
 
 func _on_timer_2_timeout():
-	$blasthit.set_collision_mask_value(2,true)
+	state = 2
 	$blast.show()

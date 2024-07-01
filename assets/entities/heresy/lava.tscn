@@ -20,7 +20,6 @@ script = ExtResource("1_12ah8")
 shape = SubResource("RectangleShape2D_kntfd")
 
 [node name="Lava" type="Sprite2D" parent="LavaCollision"]
-z_index = 1
 z_as_relative = false
 texture = ExtResource("2_uf7sk")
 
@@ -34,7 +33,7 @@ shape = SubResource("RectangleShape2D_kntfd")
 
 [node name="lavahit2" type="Area2D" parent="."]
 collision_layer = 16
-collision_mask = 0
+collision_mask = 2
 
 [node name="LavaHit2" type="CollisionShape2D" parent="lavahit2"]
 shape = SubResource("CircleShape2D_8txlk")
