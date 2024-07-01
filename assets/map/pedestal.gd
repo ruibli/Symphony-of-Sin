@@ -184,6 +184,7 @@ func _process(_delta):
 					elif item == "weapon":
 						if Glova.hotbar[0] == "empty":
 							Glova.hotbar[0] = nam
+							Glova
 						elif Glova.hotbar[1] == "empty":
 							Glova.hotbar[1] = nam
 						elif Glova.hotbar[2] == "empty":

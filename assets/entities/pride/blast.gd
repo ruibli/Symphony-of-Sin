@@ -1,7 +1,7 @@
 extends Node2D
 
 var nam = "blast"
-var damage = 40
+var damage = 20		
 var dir
 var attack = 1
 var state = 1
