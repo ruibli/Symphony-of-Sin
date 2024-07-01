@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var lava_scene : PackedScene
 @export var blast_scene : PackedScene
 
-var mod = 1 + 0.1 * (Glova.mod)
+var mod = 1 + 0.1 * Glova.mod
 var enemy = "enemy"
 
 var stats = []
@@ -27,8 +27,8 @@ var tween
 var knockback = Vector2(0,0)
 
 func _ready():
-	#vard enemies = ["pride"]
-	var enemies = ["limbo","gluttony","greed","wrath","heresy","pride"]
+	var enemies = ["gluttony"]
+	#var enemies = ["limbo","gluttony","greed","wrath","heresy","pride"]
 	if enemy == "enemy":
 		enemy = enemies[randi() % enemies.size()]
 	
@@ -51,6 +51,7 @@ func _ready():
 	$WeaponCooldown.wait_time = stats[2]
 	$EnemyCollision/EnemyAnimation.speed_scale = mod
 	$EnemyCollision/EnemyAnimation.play(enemy+"_"+type+"_"+direction)
+	$HitCooldown.wait_time = 0.5 / Glova.stats[4]
 	
 func sight():
 	if $RayUp.is_colliding() and $RayUp2.is_colliding():
@@ -94,7 +95,7 @@ func _physics_process(_delta):
 						weapon(false,0.28)
 					elif enemy == "gluttony":
 						w = bite_scene.instantiate()
-						weapon(false,0.2)
+						weapon(false,0.8)
 					elif enemy == "greed":
 						w = coin_scene.instantiate()
 						weapon(true,0)

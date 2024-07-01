@@ -5,11 +5,16 @@ var speed = 150
 var damage = 10
 var dir
 var wait = false
+var hits = []
+var level = Glova.level
 
 func _ready():
 	$Timer.start()
 
 func _process(_delta):
+	if level != Glova.level:
+		queue_free()
+	
 	if not wait:
 			await get_tree().create_timer(0.05).timeout
 			wait = true
@@ -19,8 +24,10 @@ func _process(_delta):
 	move_and_slide()
 	
 	for area in $coinhit.get_overlapping_areas():
-		area.hit(damage,nam,dir)
-		queue_free()
+		if area not in hits:
+			hits.append(area)
+			area.hit(damage,nam,dir)
+			queue_free()
 	
 	for index in get_slide_collision_count():
 		queue_free()

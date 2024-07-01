@@ -39,6 +39,8 @@ func set_nova():
 	$Camera2D.position_smoothing_enabled = cam
 	
 	$NovaCollision/NovaAnimation.speed_scale = Glova.stats[4]
+	$HitCooldown.wait_time = 0.5 / (1 + 0.1 * Glova.mod)
+	
 	$CrossbowCooldown.wait_time = (1.0 - 0)/ Glova.stats[4]
 	$SpearCooldown.wait_time = (1.5 - 0.25) / Glova.stats[4]
 	$AxeCooldown.wait_time = (2.0 - 0.25) / Glova.stats[4]

@@ -26,5 +26,5 @@ func _process(_delta):
 			
 	if Glova.stats[0]/Glova.stats[1] != save:
 		var tween = get_tree().create_tween()
-		tween.tween_property($iframes, "value", Glova.stats[0]/Glova.stats[1], 1)
+		tween.tween_property($iframes, "value", Glova.stats[0]/Glova.stats[1], 0.5 / (1 + 0.1 * Glova.mod))
 		save = Glova.stats[0]/Glova.stats[1]

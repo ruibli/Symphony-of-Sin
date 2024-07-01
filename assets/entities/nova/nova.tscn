@@ -1660,6 +1660,7 @@ rotation_smoothing_enabled = true
 rotation_smoothing_speed = 15.0
 
 [node name="HitCooldown" type="Timer" parent="."]
+wait_time = 0.5
 one_shot = true
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
@@ -1669,6 +1670,7 @@ vertices = PackedVector2Array(-5, -10, 5, -10, 5, 10, -5, 10)
 avoidance_layers = 2
 
 [node name="WeaponPos" type="Marker2D" parent="."]
+position = Vector2(0, 10)
 
 [node name="CrossbowCooldown" type="Timer" parent="."]
 one_shot = true

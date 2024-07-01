@@ -6,11 +6,16 @@ var damage = 0.1
 var dir
 var wait = false
 var enemies = []
+var hits = []
+var level = Glova.level
 
 func _ready():
 	$Timer.start()
 
 func _process(_delta):
+	if level != Glova.level:
+		queue_free()
+	
 	if not wait:
 		velocity = Vector2(0,0)
 		await get_tree().create_timer(0.15).timeout
@@ -28,8 +33,10 @@ func _process(_delta):
 		queue_free()
 	
 	for area in $homerhit.get_overlapping_areas():
-		area.hit(damage,nam,dir)
-		queue_free()
+		if area not in hits:
+			hits.append(area)
+			area.hit(damage,nam,dir)
+			queue_free()
 	
 	for index in get_slide_collision_count():
 		queue_free()

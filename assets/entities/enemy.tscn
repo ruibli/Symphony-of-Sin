@@ -1341,7 +1341,7 @@ avoidance_layers = 4
 avoidance_mask = 7
 
 [node name="HitCooldown" type="Timer" parent="."]
-wait_time = 0.75
+wait_time = 0.5
 one_shot = true
 
 [node name="WeaponCooldown" type="Timer" parent="."]
@@ -1349,6 +1349,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="WeaponPos" type="Marker2D" parent="."]
+position = Vector2(0, 10)
 
 [node name="RayUp" type="RayCast2D" parent="."]
 visible = false

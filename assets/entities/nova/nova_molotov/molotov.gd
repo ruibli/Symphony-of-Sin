@@ -6,6 +6,8 @@ var damage = 10
 var dir
 var wait = false
 var rotat = 0
+var state = 1
+var level = Glova.level
 
 func _ready():
 	$Timer.start()
@@ -18,6 +20,9 @@ func _ready():
 		rotat = 180
 
 func _process(_delta):
+	if level != Glova.level:
+		queue_free()
+	
 	if not wait:
 			await get_tree().create_timer(0.05).timeout
 			wait = true
@@ -26,12 +31,14 @@ func _process(_delta):
 		velocity = velocity.normalized() * speed
 	move_and_slide()
 	
-	for area in $molotovhit.get_overlapping_areas():
-		area.hit(damage,nam,dir)
-		change()
-	
-	for area in $molotovhit2.get_overlapping_areas():
-		area.hit(damage,nam,dir)
+	if state == 1:
+		for area in $molotovhit.get_overlapping_areas():
+			area.hit(damage,nam,dir)
+			change()
+
+	if state == 2:
+		for area in $molotovhit2.get_overlapping_areas():
+			area.hit(damage,nam,dir)
 	
 	for index in get_slide_collision_count():
 		change()
@@ -53,5 +60,4 @@ func change():
 	$MolotovCollision/Molotov.texture = load("res://assets/entities/nova/nova_molotov/molotov_pool.png")
 	$MolotovCollision/Molotov.rotation_degrees = rotat
 	velocity = Vector2(0,0)
-	$molotovhit.set_collision_mask_value(3,false)
-	$molotovhit2.set_collision_mask_value(3,true)
+	state = 2
